@@ -48,7 +48,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Login";
             this.Text = "Login";
-            this.Text = "nikos rock gets a deadlock";
+            this.Text = "adsthfashd8558";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
