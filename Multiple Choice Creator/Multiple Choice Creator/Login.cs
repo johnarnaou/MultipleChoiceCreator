@@ -22,5 +22,10 @@ namespace Multiple_Choice_Creator
             Welcome Form = new Welcome();
             Form.Show();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            label1.Text = "hello";
+        }
     }
 }
