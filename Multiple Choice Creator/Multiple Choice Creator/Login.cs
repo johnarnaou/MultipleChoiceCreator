@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,12 @@ namespace Multiple_Choice_Creator
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Welcome Form = new Welcome();
-            Form.Show();
+
         }
 
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
