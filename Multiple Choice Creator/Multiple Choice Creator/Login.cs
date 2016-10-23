@@ -23,9 +23,5 @@ namespace Multiple_Choice_Creator
             Form.Show();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-            label1.Text = "hello";
-        }
     }
 }
