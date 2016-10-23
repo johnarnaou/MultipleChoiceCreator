@@ -21,5 +21,10 @@ namespace Multiple_Choice_Creator
         {
             Application.Exit();
         }
+
+        private void createNewButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
