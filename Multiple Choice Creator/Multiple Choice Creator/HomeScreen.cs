@@ -24,7 +24,8 @@ namespace Multiple_Choice_Creator
 
         private void createNewButton_Click(object sender, EventArgs e)
         {
-
+            var QuestionForm = new InsertQuestion(); //emfanisi tis formas eisagwgis erwtisewn
+            QuestionForm.Show();
         }
 
         private void allTestsButton_Click(object sender, EventArgs e)
