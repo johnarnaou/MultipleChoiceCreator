@@ -17,20 +17,21 @@ namespace Multiple_Choice_Creator
             InitializeComponent();
         }
 
-        private void HomeScreen_Deactivate(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void createNewButton_Click(object sender, EventArgs e)
         {
-            var QuestionForm = new InsertQuestion(); //emfanisi tis formas eisagwgis erwtisewn
-            QuestionForm.Show();
+            var Form = new InsertQuestion();
+            this.Visible = false;
+            Form.Show();
         }
 
         private void allTestsButton_Click(object sender, EventArgs e)
         {
             //test commit
+        }
+
+        private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

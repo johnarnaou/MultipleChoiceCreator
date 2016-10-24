@@ -118,7 +118,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "HomeScreen";
             this.Text = "HomeScreen";
-            this.Deactivate += new System.EventHandler(this.HomeScreen_Deactivate);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomeScreen_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
