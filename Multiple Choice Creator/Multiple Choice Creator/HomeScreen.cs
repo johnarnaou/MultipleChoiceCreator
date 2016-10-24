@@ -26,5 +26,10 @@ namespace Multiple_Choice_Creator
         {
 
         }
+
+        private void allTestsButton_Click(object sender, EventArgs e)
+        {
+            //test commit
+        }
     }
 }

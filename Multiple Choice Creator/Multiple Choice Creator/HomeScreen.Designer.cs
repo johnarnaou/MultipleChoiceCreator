@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.createNewButton = new System.Windows.Forms.Button();
-            this.lessonsButton = new System.Windows.Forms.Button();
-            this.allTestsButton = new System.Windows.Forms.Button();
-            this.recentsListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.recentsListBox = new System.Windows.Forms.ListBox();
+            this.allTestsButton = new System.Windows.Forms.Button();
+            this.lessonsButton = new System.Windows.Forms.Button();
+            this.createNewButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,15 +63,33 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // createNewButton
+            // label2
             // 
-            this.createNewButton.Location = new System.Drawing.Point(7, 79);
-            this.createNewButton.Name = "createNewButton";
-            this.createNewButton.Size = new System.Drawing.Size(75, 23);
-            this.createNewButton.TabIndex = 1;
-            this.createNewButton.Text = "Create New";
-            this.createNewButton.UseVisualStyleBackColor = true;
-            this.createNewButton.Click += new System.EventHandler(this.createNewButton_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Recent Tests";
+            // 
+            // recentsListBox
+            // 
+            this.recentsListBox.FormattingEnabled = true;
+            this.recentsListBox.Location = new System.Drawing.Point(7, 138);
+            this.recentsListBox.Name = "recentsListBox";
+            this.recentsListBox.Size = new System.Drawing.Size(573, 147);
+            this.recentsListBox.TabIndex = 4;
+            // 
+            // allTestsButton
+            // 
+            this.allTestsButton.Location = new System.Drawing.Point(505, 79);
+            this.allTestsButton.Name = "allTestsButton";
+            this.allTestsButton.Size = new System.Drawing.Size(75, 23);
+            this.allTestsButton.TabIndex = 3;
+            this.allTestsButton.Text = "All Tests";
+            this.allTestsButton.UseVisualStyleBackColor = true;
+            this.allTestsButton.Click += new System.EventHandler(this.allTestsButton_Click);
             // 
             // lessonsButton
             // 
@@ -82,32 +100,15 @@
             this.lessonsButton.Text = "Lessons";
             this.lessonsButton.UseVisualStyleBackColor = true;
             // 
-            // allTestsButton
+            // createNewButton
             // 
-            this.allTestsButton.Location = new System.Drawing.Point(505, 79);
-            this.allTestsButton.Name = "allTestsButton";
-            this.allTestsButton.Size = new System.Drawing.Size(75, 23);
-            this.allTestsButton.TabIndex = 3;
-            this.allTestsButton.Text = "All Tests";
-            this.allTestsButton.UseVisualStyleBackColor = true;
-            // 
-            // recentsListBox
-            // 
-            this.recentsListBox.FormattingEnabled = true;
-            this.recentsListBox.Location = new System.Drawing.Point(7, 138);
-            this.recentsListBox.Name = "recentsListBox";
-            this.recentsListBox.Size = new System.Drawing.Size(573, 147);
-            this.recentsListBox.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 115);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Recent Tests";
+            this.createNewButton.Location = new System.Drawing.Point(7, 79);
+            this.createNewButton.Name = "createNewButton";
+            this.createNewButton.Size = new System.Drawing.Size(75, 23);
+            this.createNewButton.TabIndex = 1;
+            this.createNewButton.Text = "Create New";
+            this.createNewButton.UseVisualStyleBackColor = true;
+            this.createNewButton.Click += new System.EventHandler(this.createNewButton_Click);
             // 
             // HomeScreen
             // 
