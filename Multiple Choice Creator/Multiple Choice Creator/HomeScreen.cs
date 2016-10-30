@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
+using System;
 namespace Multiple_Choice_Creator
 {
     public partial class HomeScreen : Form
@@ -32,6 +33,16 @@ namespace Multiple_Choice_Creator
         private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        
+        private void lessonsButton_Click(object sender, EventArgs e)
+        {
+            
+            
+
+     
+
         }
     }
 }

@@ -99,6 +99,7 @@
             this.lessonsButton.TabIndex = 2;
             this.lessonsButton.Text = "Lessons";
             this.lessonsButton.UseVisualStyleBackColor = true;
+            this.lessonsButton.Click += new System.EventHandler(this.lessonsButton_Click);
             // 
             // createNewButton
             // 
