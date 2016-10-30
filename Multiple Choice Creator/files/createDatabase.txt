@@ -1,0 +1,44 @@
+create table Course
+(
+id INT NOT NULL AUTO_INCREMENT,
+name varchar(255),
+description varchar(255),
+userId int,
+PRIMARY KEY (Id),
+FOREIGN KEY (userId) REFERENCES User(Id)
+);
+
+create table Questions
+(
+Id INT NOT NULL AUTO_INCREMENT,
+question varchar(255),
+themeId int,
+userId int,
+courseId int,
+PRIMARY KEY (Id),
+FOREIGN KEY (themeId) REFERENCES Theme(Id),
+FOREIGN KEY (userId) REFERENCES User(Id),
+FOREIGN KEY (courseId) REFERENCES Course(Id)
+);
+
+
+
+create table Answers
+(
+Id INT NOT NULL AUTO_INCREMENT,
+ans1 varchar(255),
+ans2 varchar(255),
+ans3 varchar(255),
+ans4 varchar(255),
+ans5 varchar(255),
+ans6 varchar(255),
+ans7 varchar(255),
+ans8 varchar(255),
+correct VARCHAR(50),
+questionId int,
+PRIMARY KEY (Id),
+FOREIGN KEY (questionId) REFERENCES Questions(Id)
+);
+
+
+
