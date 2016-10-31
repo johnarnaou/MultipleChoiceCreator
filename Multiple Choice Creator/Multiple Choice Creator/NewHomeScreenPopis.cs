@@ -20,6 +20,7 @@ namespace Multiple_Choice_Creator
         int startWidthPanel2 = panel2.Width;
         private void button1_Click(object sender, EventArgs e)
         {
+            //test
             if (button1.Text == "<"){
                 panel2.Width = 0;
                 panel3.Width = 705;

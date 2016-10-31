@@ -27,6 +27,8 @@ namespace Multiple_Choice_Creator
         {
             var HSForm = new HomeScreen();
             HSForm.Show();
+            //var HSForm1 = new NewHomeScreen_Popis_();
+            //HSForm1.Show();
         }
 
         
