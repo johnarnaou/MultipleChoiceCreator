@@ -16,12 +16,13 @@ namespace Multiple_Choice_Creator
         {
             InitializeComponent();
         }
-        int startWidthPanel3 = panel3.Width;
-        int startWidthPanel2 = panel2.Width;
+       //int startWidthPanel3 = panel3.Width;
+        //int startWidthPanel2 = panel2.Width;
+        // ta panel einai to provlima, otan sou vgazei kokkino apo katw simainei oti kati den paei kala. checkare to error
         private void button1_Click(object sender, EventArgs e)
         {
             //test
-            if (button1.Text == "<"){
+           /* if (button1.Text == "<"){
                 panel2.Width = 0;
                 panel3.Width = 705;
                 button1.Text = ">";
@@ -31,7 +32,7 @@ namespace Multiple_Choice_Creator
                 panel2.Width = startWidthPanel2;
                 panel3.Width = startWidthPanel3;
                 button1.Text = "<";
-            }
+            }*/
         }
 
         private void NewHomeScreen_Popis__Load(object sender, EventArgs e)
