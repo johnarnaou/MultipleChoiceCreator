@@ -37,7 +37,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Location = new System.Drawing.Point(198, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(510, 390);
@@ -59,17 +60,16 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(201, 390);
+            this.panel2.Size = new System.Drawing.Size(192, 390);
             this.panel2.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(176, 0);
+            this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 19);
+            this.button1.Size = new System.Drawing.Size(21, 19);
             this.button1.TabIndex = 0;
             this.button1.Text = "<";
             this.button1.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@
             this.Text = "NewHomeScreen_Popis_";
             this.Load += new System.EventHandler(this.NewHomeScreen_Popis__Load);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

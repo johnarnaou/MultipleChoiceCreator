@@ -16,25 +16,31 @@ namespace Multiple_Choice_Creator
         {
             InitializeComponent();
         }
-       //int startWidthPanel3 = panel3.Width;
-       //int startWidthPanel2 = panel2.Width;
+        int startWidthPanel3;
+       int startWidthPanel2;
+        int start;
+        Point loc;
         // ta panel einai to provlima, otan sou vgazei kokkino apo katw simainei oti kati den paei kala. checkare to error
         private void button1_Click(object sender, EventArgs e)
         {
-            int startPosition = button1.Right;
+            
+            start = panel3.Left;
+            startWidthPanel3 = panel3.Width;
+            startWidthPanel2 = panel2.Width; //auta kathe fora pou patas to koumpi xalane, gia auto
             //test
             if (button1.Text == "<"){
-                panel2.Width = 400;
-                panel3.Width = 705;
+                loc = panel3.Location; //edw eprepe na mpei
+                panel2.Visible = false;
+                panel3.Left = 0;
                 button1.Text = ">";
-                button1.Left = 0;
+               // button1.Left = 0;
             }
             else
             {
-               // panel2.Width = startWidthPanel2;
-                //panel3.Width = startWidthPanel3;
+                panel2.Visible = true;
+                panel3.Location = loc;
                 button1.Text = "<";
-                button1.Left = startPosition;
+                
             }
         }
 
