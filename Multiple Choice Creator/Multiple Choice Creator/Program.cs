@@ -17,6 +17,7 @@ namespace Multiple_Choice_Creator
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new StartPageVdiamant());
+            
            
         }
     }

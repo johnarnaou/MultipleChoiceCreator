@@ -19,7 +19,17 @@ namespace Multiple_Choice_Creator
             //this.AutoSize = true;
             //this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.startingWithForm();
+            showLogin();
             this.Tag = "Main";
+
+        }
+        
+        private void showLogin()
+        {
+            Form loginForm = new Login();
+            loginForm.Tag = "hidden";
+            loginForm.Parent = null;
+            loginForm.ShowDialog();
 
         }
 
@@ -101,11 +111,9 @@ namespace Multiple_Choice_Creator
         
         private void closeAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StartPageVdiamant strPG = new StartPageVdiamant();
             foreach (Form frm in this.MdiChildren)
             {
-                //Console.WriteLine("Debug!! ", frm.Name);
-                if (frm.Tag.ToString() == "Main")
+                if (frm.Tag.ToString() == "Main" || frm.Tag.ToString()== "hidden")
                 {
                     continue;
                 }
@@ -139,6 +147,19 @@ namespace Multiple_Choice_Creator
             DialogResult dr = MessageBox.Show("Are you sure that you want to close the window?","Close",MessageBoxButtons.YesNo);
             if (dr == DialogResult.No)
                 e.Cancel=true;
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showLogin();
+        }
+        Register signUp;
+        private void registerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (signUp==null) {
+                signUp = new Register();
+            }
+            signUp.Show();
         }
     }
 }
