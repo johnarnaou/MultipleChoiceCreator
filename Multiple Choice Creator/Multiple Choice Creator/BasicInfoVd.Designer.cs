@@ -95,6 +95,7 @@
             this.Controls.Add(this.label1);
             this.Name = "BasicInfoVd";
             this.Text = "BasicInfoVd";
+            this.Load += new System.EventHandler(this.BasicInfoVd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

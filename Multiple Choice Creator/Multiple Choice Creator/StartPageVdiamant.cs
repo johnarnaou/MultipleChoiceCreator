@@ -29,6 +29,7 @@ namespace Multiple_Choice_Creator
             Form loginForm = new Login();
             loginForm.Tag = "hidden";
             loginForm.Parent = null;
+            loginForm.StartPosition = FormStartPosition.CenterScreen;
             loginForm.ShowDialog();
 
         }
@@ -43,6 +44,7 @@ namespace Multiple_Choice_Creator
                 bskInfoForm.Tag = "mdi_child";
                 bskInfoForm.FormClosed += new FormClosedEventHandler(BasicInfoVD_FormClosed);
                 bskInfoForm.Location = new Point(0, 0);
+                bskInfoForm.Size = new Size(300,Screen.GetBounds(new Point(0, 0)).Height);
                 bskInfoForm.Show();
             }
             else
@@ -159,6 +161,7 @@ namespace Multiple_Choice_Creator
             if (signUp==null) {
                 signUp = new Register();
             }
+            signUp.StartPosition = FormStartPosition.CenterScreen;
             signUp.Show();
         }
     }

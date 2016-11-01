@@ -95,6 +95,7 @@ namespace Multiple_Choice_Creator
             {
                 signUp = new Register();
             }
+            signUp.StartPosition = FormStartPosition.CenterScreen;
             signUp.Show();
             //this.Close();
         }

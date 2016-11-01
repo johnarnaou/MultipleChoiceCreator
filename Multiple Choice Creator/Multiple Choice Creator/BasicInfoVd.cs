@@ -15,6 +15,7 @@ namespace Multiple_Choice_Creator
         public BasicInfoVd()
         {
             InitializeComponent();
+
         }
         //sto open elegxw an einai anoixth h main form (poy panda tha einai) kai an nai anoigw th public methodo pou anoigei thn create Project
         private void button1_Click(object sender, EventArgs e)
@@ -23,6 +24,11 @@ namespace Multiple_Choice_Creator
             {
                 (System.Windows.Forms.Application.OpenForms["StartPageVdiamant"] as StartPageVdiamant).CreateFromEverywhere();
             }
+        }
+
+        private void BasicInfoVd_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
