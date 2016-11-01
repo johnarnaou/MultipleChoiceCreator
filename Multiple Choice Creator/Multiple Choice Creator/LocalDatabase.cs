@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Multiple_Choice_Creator
 {
@@ -20,14 +21,16 @@ namespace Multiple_Choice_Creator
         //connection to local server
         private void connect()
         {
-            string path = @"C:\Users\Lucifer\Source\Repos\MultipleChoiceCreator\Multiple Choice Creator\Multiple Choice Creator\Database.mdf";
+            string pathj = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            pathj = pathj.Remove(pathj.Length - 9) + "Database.mdf"; //talimpania
+            //string path = @"C:\Users\Lucifer\Source\Repos\MultipleChoiceCreator\Multiple Choice Creator\Multiple Choice Creator\Database.mdf";
             string dataSource = @"(LocalDB)\MSSQLLocalDB";
-            conn = new SqlConnection("Data Source=" + dataSource +";AttachDbFilename=" + path +";Integrated Security=True");
+            conn = new SqlConnection("Data Source=" + dataSource +";AttachDbFilename=" + pathj +";Integrated Security=True");
 
             try
             {
                 conn.Open();
-                Debug.WriteLine("Open Connection");
+                Debug.WriteLine("Open Connection " + pathj);
             } catch ( Exception e)
             {
                 Debug.WriteLine(e.ToString());
