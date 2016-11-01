@@ -29,7 +29,12 @@ namespace Multiple_Choice_Creator
 
         private void InsertQuestion_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+        }
+
+        private void InsertQuestion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

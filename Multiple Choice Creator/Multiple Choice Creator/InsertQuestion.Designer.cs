@@ -245,6 +245,7 @@
             this.Name = "InsertQuestion";
             this.Text = "InsertQuestion";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InsertQuestion_FormClosed);
+            this.Load += new System.EventHandler(this.InsertQuestion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

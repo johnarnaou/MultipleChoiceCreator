@@ -16,7 +16,7 @@ namespace Multiple_Choice_Creator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NewHomeScreen_Popis_());
+            Application.Run(new StartPageVdiamant());
            
         }
     }
