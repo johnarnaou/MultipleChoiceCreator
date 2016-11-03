@@ -40,5 +40,46 @@ PRIMARY KEY (Id),
 FOREIGN KEY (questionId) REFERENCES Questions(Id)
 );
 
+create table Theme
+(
+Id INT NOT NULL AUTO_INCREMENT,
+name varchar(50),
+Description varchar(255),
+courseId int,
+userId int,
+Primary key(Id),
+FOREIGN KEY (courseId) REFERENCES Course(id),
+FOREIGN KEY (userId) REFERENCES User(id)
+);
+
+create table User
+(
+id INT NOT NULL AUTO_INCREMENT,
+Email varchar(100),
+Password varchar(100),
+Fname varchar(50),
+Lname varchar(50),
+uId int,
+Primary key(Id),
+FOREIGN KEY (uId) REFERENCES University(Id)
+);
+
+create table University1
+(
+Id INT NOT NULL AUTO_INCREMENT,
+name varchar(50),
+Primary key(Id)
+);
+
+create table Files
+(
+id INT NOT NULL AUTO_INCREMENT,
+name varchar(30),
+userId int,
+size int,
+content mediumblob,
+Primary key(Id),
+FOREIGN KEY (userId) REFERENCES User(Id)
+);
 
 
