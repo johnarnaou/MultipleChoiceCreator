@@ -8,22 +8,24 @@ PRIMARY KEY (Id),
 FOREIGN KEY (userId) REFERENCES User(Id)
 );
 
-create table Questions
+create table Question
 (
 Id INT NOT NULL AUTO_INCREMENT,
 question varchar(255),
 themeId int,
 userId int,
 courseId int,
+answId int,
 PRIMARY KEY (Id),
 FOREIGN KEY (themeId) REFERENCES Theme(Id),
 FOREIGN KEY (userId) REFERENCES User(Id),
-FOREIGN KEY (courseId) REFERENCES Course(Id)
+FOREIGN KEY (courseId) REFERENCES Course(Id),
+FOREIGN KEY (answId) REFERENCES Answer(Id)
 );
 
 
 
-create table Answers
+create table Answer
 (
 Id INT NOT NULL AUTO_INCREMENT,
 ans1 varchar(255),
@@ -35,9 +37,7 @@ ans6 varchar(255),
 ans7 varchar(255),
 ans8 varchar(255),
 correct VARCHAR(50),
-questionId int,
-PRIMARY KEY (Id),
-FOREIGN KEY (questionId) REFERENCES Questions(Id)
+PRIMARY KEY (Id)
 );
 
 create table Theme
