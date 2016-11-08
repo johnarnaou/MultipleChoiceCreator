@@ -8,22 +8,24 @@ PRIMARY KEY (Id),
 FOREIGN KEY (userId) REFERENCES User(Id)
 );
 
-create table Questions
+create table Question
 (
 Id INT NOT NULL AUTO_INCREMENT,
 question varchar(255),
 themeId int,
 userId int,
 courseId int,
+answId int,
 PRIMARY KEY (Id),
 FOREIGN KEY (themeId) REFERENCES Theme(Id),
 FOREIGN KEY (userId) REFERENCES User(Id),
-FOREIGN KEY (courseId) REFERENCES Course(Id)
+FOREIGN KEY (courseId) REFERENCES Course(Id),
+FOREIGN KEY (answId) REFERENCES Answer(Id)
 );
 
 
 
-create table Answers
+create table Answer
 (
 Id INT NOT NULL AUTO_INCREMENT,
 ans1 varchar(255),
@@ -35,10 +37,49 @@ ans6 varchar(255),
 ans7 varchar(255),
 ans8 varchar(255),
 correct VARCHAR(50),
-questionId int,
-PRIMARY KEY (Id),
-FOREIGN KEY (questionId) REFERENCES Questions(Id)
+PRIMARY KEY (Id)
 );
 
+create table Theme
+(
+Id INT NOT NULL AUTO_INCREMENT,
+name varchar(50),
+Description varchar(255),
+courseId int,
+userId int,
+Primary key(Id),
+FOREIGN KEY (courseId) REFERENCES Course(id),
+FOREIGN KEY (userId) REFERENCES User(id)
+);
+
+create table User
+(
+id INT NOT NULL AUTO_INCREMENT,
+Email varchar(100),
+Password varchar(100),
+Fname varchar(50),
+Lname varchar(50),
+uId int,
+Primary key(Id),
+FOREIGN KEY (uId) REFERENCES University(Id)
+);
+
+create table University1
+(
+Id INT NOT NULL AUTO_INCREMENT,
+name varchar(50),
+Primary key(Id)
+);
+
+create table Files
+(
+id INT NOT NULL AUTO_INCREMENT,
+name varchar(30),
+userId int,
+size int,
+content mediumblob,
+Primary key(Id),
+FOREIGN KEY (userId) REFERENCES User(Id)
+);
 
 
