@@ -47,6 +47,7 @@ name varchar(50),
 Description varchar(255),
 courseId int,
 userId int,
+Parent varchar(255),
 Primary key(Id),
 FOREIGN KEY (courseId) REFERENCES Course(id),
 FOREIGN KEY (userId) REFERENCES User(id)
@@ -64,7 +65,7 @@ Primary key(Id),
 FOREIGN KEY (uId) REFERENCES University(Id)
 );
 
-create table University1
+create table University
 (
 Id INT NOT NULL AUTO_INCREMENT,
 name varchar(50),
@@ -82,4 +83,20 @@ Primary key(Id),
 FOREIGN KEY (userId) REFERENCES User(Id)
 );
 
-
+Create table Tag
+(
+Id INT NOT NULL AUTO_INCREMENT,
+nameTag1 varchar(255),
+nameTag2 varchar(255),
+nameTag3 varchar(255),
+nameTag4 varchar(255),
+nameTag5 varchar(255),
+nameTag6 varchar(255),
+nameTag7 varchar(255),
+nameTag8 varchar(255),
+nameTag9 varchar(255),
+nameTag10 varchar(255),
+questionId int,
+PRIMARY KEY(Id),
+FOREIGN KEY (questionId ) REFERENCES Question(Id)
+)
