@@ -83,7 +83,6 @@ namespace Multiple_Choice_Creator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LocalDatabase kets = new LocalDatabase();
             this.Close();
             
 
