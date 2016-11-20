@@ -19,7 +19,7 @@ namespace Multiple_Choice_Creator
             //this.AutoSize = true;
             //this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.startingWithForm();
-            showLogin();
+            //showLogin();
             this.Tag = "Main";
 
         }
@@ -163,6 +163,13 @@ namespace Multiple_Choice_Creator
             }
             signUp.StartPosition = FormStartPosition.CenterScreen;
             signUp.Show();
+        }
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DaoMysql tempbob = new DaoMysql();
+            List <Theme> myList= tempbob.returnThemeTree();
+            themeTree myListThemeTree = new themeTree(myList); 
+            myListThemeTree.printKids(0);
         }
     }
 }

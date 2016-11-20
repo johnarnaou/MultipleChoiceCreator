@@ -128,6 +128,8 @@
     <Compile Include="StartPageVdiamant.Designer.cs">
       <DependentUpon>StartPageVdiamant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Theme.cs" />
+    <Compile Include="themeTree.cs" />
     <EmbeddedResource Include="BasicInfoVd.resx">
       <DependentUpon>BasicInfoVd.cs</DependentUpon>
     </EmbeddedResource>
