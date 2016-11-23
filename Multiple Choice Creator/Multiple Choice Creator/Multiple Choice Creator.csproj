@@ -96,6 +96,18 @@
     <Compile Include="HomeScreen.Designer.cs">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomeScreenP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeScreenP.Designer.cs">
+      <DependentUpon>HomeScreenP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Insert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Insert.Designer.cs">
+      <DependentUpon>Insert.cs</DependentUpon>
+    </Compile>
     <Compile Include="InsertQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +134,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowQuestions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShowQuestions.Designer.cs">
+      <DependentUpon>ShowQuestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartPageVdiamant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +156,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeScreenP.resx">
+      <DependentUpon>HomeScreenP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insert.resx">
+      <DependentUpon>Insert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InsertQuestion.resx">
       <DependentUpon>InsertQuestion.cs</DependentUpon>
@@ -159,6 +183,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowQuestions.resx">
+      <DependentUpon>ShowQuestions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartPageVdiamant.resx">
       <DependentUpon>StartPageVdiamant.cs</DependentUpon>
