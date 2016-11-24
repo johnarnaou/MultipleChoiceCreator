@@ -1,102 +1,71 @@
-create table Course
+create table Quest
 (
-id INT NOT NULL AUTO_INCREMENT,
+Id int not null auto_increment,
+question varchar(255),
+primary key(Id)
+)
+
+create table Answ
+(
+Id int not null auto_increment,
+answer varchar(255),
+primary key(Id)
+)
+
+create table QuestAnsw
+(
+Id int not null auto_increment,
+questId int,
+answId int,
+primary key(Id),
+foreign key (questId) references Quest(Id),
+foreign key (answId) references Answ(Id)
+)
+
+create table Topic
+(
+Id int not null auto_increment,
 name varchar(255),
 description varchar(255),
-userId int,
-PRIMARY KEY (Id),
-FOREIGN KEY (userId) REFERENCES User(Id)
-);
+parent int,
+primary key(Id)
+)
 
-create table Question
+create table TopicQuest
 (
-Id INT NOT NULL AUTO_INCREMENT,
-question varchar(255),
-themeId int,
-userId int,
-courseId int,
-answId int,
-PRIMARY KEY (Id),
-FOREIGN KEY (themeId) REFERENCES Theme(Id),
-FOREIGN KEY (userId) REFERENCES User(Id),
-FOREIGN KEY (courseId) REFERENCES Course(Id),
-FOREIGN KEY (answId) REFERENCES Answer(Id)
-);
+Id int not null auto_increment,
+questId int,
+topicId int,
+primary key(Id),
+foreign key (questId) references Quest(Id),
+foreign key (topicId) references Topic(Id)
+)
 
-
-
-create table Answer
+create table Tag
 (
-Id INT NOT NULL AUTO_INCREMENT,
-ans1 varchar(255),
-ans2 varchar(255),
-ans3 varchar(255),
-ans4 varchar(255),
-ans5 varchar(255),
-ans6 varchar(255),
-ans7 varchar(255),
-ans8 varchar(255),
-correct VARCHAR(50),
-PRIMARY KEY (Id)
-);
-
-create table Theme
-(
-Id INT NOT NULL AUTO_INCREMENT,
-name varchar(50),
-Description varchar(255),
-courseId int,
+Id int not null auto_increment,
+tagname varchar(255),
 userId int,
-Parent varchar(255),
-Primary key(Id),
-FOREIGN KEY (courseId) REFERENCES Course(id),
-FOREIGN KEY (userId) REFERENCES User(id)
-);
+primary key(Id),
+foreign key (userId) references Users(Id)
+)
 
-create table User
+create table TagQuest
+(
+Id int not null auto_increment,
+tagId int,
+questId int,
+primary key(Id),
+foreign key (tagId) references Tag(Id),
+foreign key (questId) references Quest(Id)
+)
+
+create table Users
 (
 id INT NOT NULL AUTO_INCREMENT,
 Email varchar(100),
 Password varchar(100),
 Fname varchar(50),
 Lname varchar(50),
-uId int,
-Primary key(Id),
-FOREIGN KEY (uId) REFERENCES University(Id)
-);
-
-create table University
-(
-Id INT NOT NULL AUTO_INCREMENT,
-name varchar(50),
 Primary key(Id)
 );
-
-create table Files
-(
-id INT NOT NULL AUTO_INCREMENT,
-name varchar(30),
-userId int,
-size int,
-content mediumblob,
-Primary key(Id),
-FOREIGN KEY (userId) REFERENCES User(Id)
-);
-
-Create table Tag
-(
-Id INT NOT NULL AUTO_INCREMENT,
-nameTag1 varchar(255),
-nameTag2 varchar(255),
-nameTag3 varchar(255),
-nameTag4 varchar(255),
-nameTag5 varchar(255),
-nameTag6 varchar(255),
-nameTag7 varchar(255),
-nameTag8 varchar(255),
-nameTag9 varchar(255),
-nameTag10 varchar(255),
-questionId int,
-PRIMARY KEY(Id),
-FOREIGN KEY (questionId ) REFERENCES Question(Id)
-)
