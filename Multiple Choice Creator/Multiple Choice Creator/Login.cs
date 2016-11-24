@@ -42,7 +42,7 @@ namespace Multiple_Choice_Creator
             {
                 if (mainForm == null)
                 {
-                    mainForm = new StartPageVdiamant();
+                    mainForm = new HomeScreenP();
                     mainForm.StartPosition = FormStartPosition.CenterScreen;
                     mainForm.Show();
                     //na aferw to log in kai register apo to menu toy xrhsth??
