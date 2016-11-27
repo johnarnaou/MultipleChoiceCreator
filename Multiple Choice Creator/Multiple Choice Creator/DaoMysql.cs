@@ -127,7 +127,7 @@ namespace Multiple_Choice_Creator
         public List<Theme> returnThemeTree()
         {
             List<Theme> myList = new List<Theme>();
-            string query = "SELECT * FROM Theme";
+            string query = "SELECT * FROM Theme order by name asc";
             try
             {
                 conn = new MySql.Data.MySqlClient.MySqlConnection();

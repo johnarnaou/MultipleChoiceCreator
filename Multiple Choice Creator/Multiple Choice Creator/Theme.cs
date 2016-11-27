@@ -24,6 +24,10 @@ namespace Multiple_Choice_Creator
         {
             return this.id;
         }
+        public String getName()
+        {
+            return this.name;
+        }
 
         public int getFatherD()
         {

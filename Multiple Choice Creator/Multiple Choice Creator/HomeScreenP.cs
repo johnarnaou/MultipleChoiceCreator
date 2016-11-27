@@ -15,6 +15,13 @@ namespace Multiple_Choice_Creator
         public HomeScreenP()
         {
             InitializeComponent();
+            fillTreeView();
+        }
+        private void fillTreeView() {
+            DaoMysql tempbob = new DaoMysql();
+            List<Theme> myList = tempbob.returnThemeTree();
+            themeTree myListThemeTree = new themeTree(myList);
+            myListThemeTree.printKids(0, treeView1);
         }
     }
 }
