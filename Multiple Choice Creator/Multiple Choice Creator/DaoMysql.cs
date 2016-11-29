@@ -78,7 +78,7 @@ namespace Multiple_Choice_Creator
                 // query using dataadapter into our database
                 //string query = "SELECT * FROM User";
 
-                string query = "SELECT * FROM User WHERE Email='" + mail + "' AND Password='" + pass + "'";
+                string query = "SELECT * FROM User WHERE Email='" + mail + "' AND Password=md5('" + pass + "')";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader mdr = cmd.ExecuteReader();
                 // we will using datatable to bing data into datagridview
@@ -106,10 +106,8 @@ namespace Multiple_Choice_Creator
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
                 conn.ConnectionString = myConnectionString;
                 conn.Open();
-                //To ar tha alaksei apo vash kai tha ginetai autoassign
-                int ar = 06;
                 //Tha xrhsimopoihsoume md5 kruptografish kai apokruptografish
-                string query = "INSERT INTO User (Id,Email,Password,Fname,Lname) VALUES ("+ar+",'"+mail+"','"+password+"','"+ name + "','" + last +"')";
+                string query = "INSERT INTO User (Email,Password,Fname,Lname) VALUES ('"+mail+"',md5('"+password+"'),'"+ name + "','" + last +"')";
                 string queryCheck = "Select Email from User";
                 MySqlCommand cmd2 = new MySqlCommand(queryCheck, conn);
                 MySqlCommand cmd = new MySqlCommand(query, conn);

@@ -20,7 +20,7 @@ namespace Multiple_Choice_Creator
 
 
         
-
+        //This method is to create the first nodes of the treeView
         public void printKids(int fatherID, TreeView treeView1)
         {
             for(int i = 0; i < myList.Count; i++)
@@ -40,7 +40,8 @@ namespace Multiple_Choice_Creator
             treeView1.ExpandAll();
             
         }
-
+        //This method is to create everey node for every other node that is not a start node and it calls itself to 
+        //add the children of the nodes that are created.
         public void printKids(int fatherID, TreeNode tnode)
         {
             for (int i = 0; i < myList.Count; i++)

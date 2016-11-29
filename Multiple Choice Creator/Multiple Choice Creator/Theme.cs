@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//This class is to have as an object the themes so that after we can use functions to create the treeview and other features
 namespace Multiple_Choice_Creator
 {
     class Theme

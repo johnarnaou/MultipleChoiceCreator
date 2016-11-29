@@ -43,13 +43,16 @@ namespace Multiple_Choice_Creator
                 if (mainForm == null)
                 {
                     mainForm = new HomeScreenP();
-                    mainForm.StartPosition = FormStartPosition.CenterScreen;
+                    mainForm.StartPosition = FormStartPosition.CenterScreen;//isws na mhn xreiazetai
                     mainForm.Show();
                     //na aferw to log in kai register apo to menu toy xrhsth??
 
                 }
                 else
+                {
                     mainForm.Focus();
+                }
+                this.Hide();
 
 
             }

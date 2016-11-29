@@ -15,7 +15,9 @@ namespace Multiple_Choice_Creator
         public HomeScreenP()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
             fillTreeView();
+
         }
         private void fillTreeView() {
             DaoMysql tempbob = new DaoMysql();

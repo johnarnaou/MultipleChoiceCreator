@@ -13,6 +13,7 @@ namespace Multiple_Choice_Creator
     public partial class Register : Form
     {
         Form loginForm = new Login();
+        Form mainForm;
         public Register()
         {
             InitializeComponent();
@@ -51,6 +52,9 @@ namespace Multiple_Choice_Creator
                 if (dbOb.register(firstName, lastName, email, password))
                 {
                     //tha grapsoume kai ton kwdika pou tha ton exei hdh kanei log in sto programma kai tha emfanizontai kapou ta stoixeia toy
+                    mainForm = new HomeScreenP();
+                    mainForm.StartPosition = FormStartPosition.CenterScreen;
+                    mainForm.Show();
                     this.Close();
                 }
                 else {
