@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedPanel));
             this.QuestionLabel = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.SaveToolStrip = new System.Windows.Forms.ToolStripButton();
+            this.EditToolStrip = new System.Windows.Forms.ToolStripButton();
             this.addCheckBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,31 +60,31 @@
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.SaveToolStrip,
+            this.EditToolStrip});
             this.toolStrip1.Location = new System.Drawing.Point(0, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(24, 158);
+            this.toolStrip1.Size = new System.Drawing.Size(32, 158);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // SaveToolStrip
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(21, 20);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.SaveToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolStrip.Image")));
+            this.SaveToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveToolStrip.Name = "SaveToolStrip";
+            this.SaveToolStrip.Size = new System.Drawing.Size(29, 20);
+            this.SaveToolStrip.Text = "Save";
             // 
-            // toolStripButton2
+            // EditToolStrip
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(21, 20);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.EditToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.EditToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("EditToolStrip.Image")));
+            this.EditToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EditToolStrip.Name = "EditToolStrip";
+            this.EditToolStrip.Size = new System.Drawing.Size(29, 20);
+            this.EditToolStrip.Text = "Edit";
             // 
             // addCheckBox
             // 
@@ -217,8 +217,8 @@
 
         private System.Windows.Forms.Label QuestionLabel;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton SaveToolStrip;
+        private System.Windows.Forms.ToolStripButton EditToolStrip;
         private System.Windows.Forms.CheckBox addCheckBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
