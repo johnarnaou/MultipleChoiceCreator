@@ -17,7 +17,6 @@ namespace Multiple_Choice_Creator
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             fillTreeView();
-
         }
         private void fillTreeView() {
             DaoMysql tempbob = new DaoMysql();

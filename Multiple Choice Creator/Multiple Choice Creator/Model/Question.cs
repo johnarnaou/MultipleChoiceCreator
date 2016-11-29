@@ -11,9 +11,14 @@ namespace Multiple_Choice_Creator.Model
         private int id, themeID, userID, courseID, answID;
         private string question;
 
-        public Question()
+        public Question(int id)
         {
 
+        }
+
+        public string getQuestion()
+        {
+            return question;
         }
     }
 }

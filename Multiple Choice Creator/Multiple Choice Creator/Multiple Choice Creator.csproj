@@ -66,6 +66,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,11 +91,23 @@
       <DependentUpon>CreateProjectVD.cs</DependentUpon>
     </Compile>
     <Compile Include="DaoMysql.cs" />
+    <Compile Include="FeedPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FeedPanel.Designer.cs">
+      <DependentUpon>FeedPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HomeScreen.Designer.cs">
       <DependentUpon>HomeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeScreenJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeScreenJ.Designer.cs">
+      <DependentUpon>HomeScreenJ.cs</DependentUpon>
     </Compile>
     <Compile Include="HomeScreenP.cs">
       <SubType>Form</SubType>
@@ -123,7 +136,6 @@
     <Compile Include="Model\Answers.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\Question.cs" />
-    <Compile Include="Model\Theme.cs" />
     <Compile Include="Model\University.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="NewHomeScreenPopis.cs">
@@ -160,8 +172,14 @@
     <EmbeddedResource Include="CreateProjectVD.resx">
       <DependentUpon>CreateProjectVD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FeedPanel.resx">
+      <DependentUpon>FeedPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeScreenJ.resx">
+      <DependentUpon>HomeScreenJ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeScreenP.resx">
       <DependentUpon>HomeScreenP.cs</DependentUpon>
