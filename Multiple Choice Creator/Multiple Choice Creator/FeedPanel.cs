@@ -18,5 +18,10 @@ namespace Multiple_Choice_Creator
             this.BackColor = c;
             this.Dock = DockStyle.Top;
         }
+
+        private void addCheckBox_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.Show("Add to test", this);
+        }
     }
 }
