@@ -19,7 +19,7 @@ namespace Multiple_Choice_Creator
             //this.AutoSize = true;
             //this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.startingWithForm();
-            showLogin();
+            //showLogin();
             this.Tag = "Main";
 
         }

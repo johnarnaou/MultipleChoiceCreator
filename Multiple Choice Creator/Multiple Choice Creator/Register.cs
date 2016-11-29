@@ -12,6 +12,8 @@ namespace Multiple_Choice_Creator
 {
     public partial class Register : Form
     {
+        Form loginForm = new Login();
+        Form mainForm;
         public Register()
         {
             InitializeComponent();
@@ -29,7 +31,11 @@ namespace Multiple_Choice_Creator
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
+            this.Hide();
+            loginForm.StartPosition = FormStartPosition.CenterScreen;
+            loginForm.Show();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,9 +48,19 @@ namespace Multiple_Choice_Creator
             markUnWritten(firstName,lastName,email,password);
             if (firstName != "" && lastName != "" && email != "" && password != "")
             {
-                /*
-                    Edw tha graftei o kwdikaw poy tha kanei kataxwrish sth vash
-                 */
+                DaoMysql dbOb=new DaoMysql();
+                if (dbOb.register(firstName, lastName, email, password))
+                {
+                    //tha grapsoume kai ton kwdika pou tha ton exei hdh kanei log in sto programma kai tha emfanizontai kapou ta stoixeia toy
+                    mainForm = new HomeScreenP();
+                    mainForm.StartPosition = FormStartPosition.CenterScreen;
+                    mainForm.Show();
+                    this.Close();
+                }
+                else {
+                    //Se periptwsh pou gia opoiodhpote logo den mporesei na kanei register
+                    DialogResult dr = MessageBox.Show("Error on Registration", "Close");
+                }
             }
         }
 

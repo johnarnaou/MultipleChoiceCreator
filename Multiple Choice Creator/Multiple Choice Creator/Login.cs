@@ -13,7 +13,7 @@ namespace Multiple_Choice_Creator
 {
     public partial class Login : Form
     {
-        Form signUp;
+        Form signUp, mainForm;
         public Login()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace Multiple_Choice_Creator
         {
             //Application.Form.ShowDialog(new StartPageVdiamant());
         }
-        String username;
+        String mail;
         String password;
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -34,9 +34,32 @@ namespace Multiple_Choice_Creator
             //HSForm.Show();
             //var HSForm1 = new NewHomeScreen_Popis_();
             //HSForm1.Show();
-            username = textBox1.Text;
+            mail = textBox1.Text;
             password = textBox2.Text;
-            checkeUP(username,password);
+            //checkeUP(mail, password);
+            DaoMysql dbOb = new DaoMysql();
+            if (dbOb.Login(mail, password))
+            {
+                if (mainForm == null)
+                {
+                    mainForm = new HomeScreenP();
+                    mainForm.StartPosition = FormStartPosition.CenterScreen;//isws na mhn xreiazetai
+                    mainForm.Show();
+                    //na aferw to log in kai register apo to menu toy xrhsth??
+
+                }
+                else
+                {
+                    mainForm.Focus();
+                }
+                this.Hide();
+
+
+            }
+            else {
+                //edw mporoyme na tsekaroyme kai an uparxei to username kai an uparxei na to kratame alliws na ta svhnoyme ola ta periexomena apo ta textbox.
+                DialogResult dr = MessageBox.Show("Error, Please Try Again", "Close");
+            }
 
 
 
@@ -45,7 +68,7 @@ namespace Multiple_Choice_Creator
             setaroume ta user attributes.*/
 
             /*An einai ok tsekaroyme ta checkbox gia to an tha apothikeusoyme se arxeio ta username kai password toy xrhsth gia na ta exei sto mellon*/
-            
+
         }
 
 
@@ -57,7 +80,7 @@ namespace Multiple_Choice_Creator
                 label4.Text = "please enter username!";
                 label5.Text = "*";
             }
-            else if(username != "")
+            else if (username != "")
             {
                 label4.Text = "";
                 label5.Text = "";
@@ -70,11 +93,12 @@ namespace Multiple_Choice_Creator
             else
             {
                 label6.Text = "";
-                if(username != "")
+                if (username != "")
                     label4.Text = "";
             }
 
-            if (username == "" && password=="") {
+            if (username == "" && password == "")
+            {
                 label4.Text = "please enter username and passworld!";
             }
 
@@ -84,10 +108,10 @@ namespace Multiple_Choice_Creator
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+
 
         }
-        
+
         private void button3_Click(object sender, EventArgs e)
         {
             if (signUp == null)
@@ -96,12 +120,8 @@ namespace Multiple_Choice_Creator
             }
             signUp.StartPosition = FormStartPosition.CenterScreen;
             signUp.Show();
-            //this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            this.Hide();
         }
     }
+    
 }
