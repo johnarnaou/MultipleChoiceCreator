@@ -6,51 +6,56 @@ using System.Threading.Tasks;
 
 namespace Multiple_Choice_Creator.Model
 {
-    class User
+    public class User
     {
-        private string email, password, Fname, Lname;
-        private int id, uId;
-        private University university;
+        private string email, password, fName, lName;
 
-        public User(int ID, string EMAIL, string PASSWORD, string FNAME, string LNAME, int UID)
+        public User(string email,string password,string fName,string lName)
         {
-            id = ID;
-            email = EMAIL;
-            password = PASSWORD;
-            Fname = FNAME;
-            Lname = LNAME;
-            uId = UID;
-            university = new University(UID);
+            this.email = email;
+            this.password = password;
+            this.fName = fName;
+            this.lName = lName;
         }
 
+        public void setEmail(string email)
+        {
+            this.email = email;
+        }
+
+        public void setPassword(string password)
+        {
+            this.password = password;
+        }
+
+        public void setFname(string fName)
+        {
+            this.fName = fName;
+        }
+
+        public void setLname(string lName)
+        {
+            this.lName = lName;
+        }
         public string getFname()
         {
-            return Fname;
+            return this.fName;
         }
 
         public string getLname()
         {
-            return Lname;
+            return this.lName;
         }
 
         public string getEmail()
         {
-            return email;
+            return this.email;
         }
 
-        public int getID()
+        public string getPassword()
         {
-            return id;
+            return this.password;
         }
-
-        public int getUID()
-        {
-            return uId;
-        }
-
-        public string getUniversityName()
-        {
-            return university.getName();
-        }
+        
     }
 }
