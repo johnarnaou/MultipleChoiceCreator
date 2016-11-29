@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using System;
+
 namespace Multiple_Choice_Creator
 {
     public partial class HomeScreen : Form
@@ -18,30 +17,8 @@ namespace Multiple_Choice_Creator
             InitializeComponent();
         }
 
-        private void createNewButton_Click(object sender, EventArgs e)
+        private void HomeScreen_Load(object sender, EventArgs e)
         {
-            var Form = new InsertQuestion();
-            this.Visible = false;
-            Form.Show();
-        }
-
-        private void allTestsButton_Click(object sender, EventArgs e)
-        {
-            //test commit
-        }
-
-        private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        
-        private void lessonsButton_Click(object sender, EventArgs e)
-        {
-            
-            
-
-     
 
         }
     }

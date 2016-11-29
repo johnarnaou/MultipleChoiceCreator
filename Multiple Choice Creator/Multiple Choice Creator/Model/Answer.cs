@@ -1,23 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace Multiple_Choice_Creator
+namespace Multiple_Choice_Creator.Model
 {
-    class Theme
+    public class Answer
     {
-        private int id, courseID, userID;
-        private string name, description, parent;
-
-        public Theme()
+        
+        private string text;
+        public Answer(int id,string text)
         {
-             
+            this.text = text;
+        }
+
+        public void setText(string text)
+        {
+            this.text = text;
+        }
+
+        public string getText()
+        {
+            return this.text;
         }
     }
 }

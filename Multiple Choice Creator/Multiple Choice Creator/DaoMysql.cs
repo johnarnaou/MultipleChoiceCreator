@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Multiple_Choice_Creator.Model;
 namespace Multiple_Choice_Creator
 {
     class DaoMysql
@@ -54,7 +54,7 @@ namespace Multiple_Choice_Creator
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Prepare();
                 cmd.Parameters.AddWithValue("@am", am);
-                int r=cmd.ExecuteNonQuery(); 
+                int r = cmd.ExecuteNonQuery();
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -102,18 +102,20 @@ namespace Multiple_Choice_Creator
 
         public Boolean register(String name, String last, String mail, String password)
         {
-            try {
+            try
+            {
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
                 conn.ConnectionString = myConnectionString;
                 conn.Open();
                 //Tha xrhsimopoihsoume md5 kruptografish kai apokruptografish
-                string query = "INSERT INTO User (Email,Password,Fname,Lname) VALUES ('"+mail+"',md5('"+password+"'),'"+ name + "','" + last +"')";
+                string query = "INSERT INTO User (Email,Password,Fname,Lname) VALUES ('" + mail + "',md5('" + password + "'),'" + name + "','" + last + "')";
                 string queryCheck = "Select Email from User";
                 MySqlCommand cmd2 = new MySqlCommand(queryCheck, conn);
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader mdr = cmd.ExecuteReader();
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex) {
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
                 ex.ToString();
                 return false;
             }
@@ -122,9 +124,9 @@ namespace Multiple_Choice_Creator
 
 
 
-        public List<Theme> returnThemeTree()
+        public List<Topic> returnThemeTree()
         {
-            List<Theme> myList = new List<Theme>();
+            List<Topic> myList = new List<Topic>();
             string query = "SELECT * FROM Theme order by name asc";
             try
             {
@@ -135,11 +137,8 @@ namespace Multiple_Choice_Creator
                 MySqlDataReader mdr = cmd.ExecuteReader();
                 while (mdr.Read())
                 {
-                    string Id = mdr["Id"].ToString();
-                    Theme tempTheme = new Theme(Int32.Parse(mdr["Id"].ToString()), mdr["name"].ToString(), mdr["Description"].ToString(), Int32.Parse(mdr["userId"].ToString()), Int32.Parse(mdr["courseId"].ToString()), Int32.Parse(mdr["Parent"].ToString()));
+                    Topic tempTheme = new Topic(mdr["name"].ToString(), mdr["Description"].ToString(), Int32.Parse(mdr["Parent"].ToString()));
                     myList.Add(tempTheme);
-                    Console.WriteLine(tempTheme.toString());
-                    Console.WriteLine("To id einai: "+Id);
                 }
                 return myList;
             }
@@ -153,7 +152,7 @@ namespace Multiple_Choice_Creator
 
     }
 
-    
-    
+
+
 
 }//telos namespace Multiple_Choice_Creator
