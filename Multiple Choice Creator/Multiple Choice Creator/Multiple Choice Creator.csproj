@@ -78,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DaoMysql.cs" />
+    <Compile Include="FeedPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FeedPanel.Designer.cs">
+      <DependentUpon>FeedPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,12 +95,6 @@
     </Compile>
     <Compile Include="Insert.Designer.cs">
       <DependentUpon>Insert.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InsertQuestion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InsertQuestion.Designer.cs">
-      <DependentUpon>InsertQuestion.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -125,14 +125,14 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\TopicTree.cs" />
+    <EmbeddedResource Include="FeedPanel.resx">
+      <DependentUpon>FeedPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Insert.resx">
       <DependentUpon>Insert.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InsertQuestion.resx">
-      <DependentUpon>InsertQuestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

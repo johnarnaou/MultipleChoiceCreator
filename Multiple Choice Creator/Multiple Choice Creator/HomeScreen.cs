@@ -15,11 +15,23 @@ namespace Multiple_Choice_Creator
         public HomeScreen()
         {
             InitializeComponent();
+            splitContainer2.Panel2.AutoScroll = true;
+            fill();
         }
 
-        private void HomeScreen_Load(object sender, EventArgs e)
+        //testing
+        private void fill()
         {
-
+            Color c;
+            for (var i=0; i<4; i++)
+            {
+                if (i % 2 == 0)
+                    c = Color.LightBlue;
+                else
+                    c = Color.LightGray;
+                this.splitContainer2.Panel2.Controls.Add(new FeedPanel(c));
+            }
         }
+
     }
 }
