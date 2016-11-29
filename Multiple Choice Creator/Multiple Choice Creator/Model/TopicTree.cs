@@ -4,22 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Multiple_Choice_Creator.Model;
 namespace Multiple_Choice_Creator
 {
-    class themeTree
+    public class themeTree
     {
 
-        List<Theme> myList;
-        public themeTree(List<Theme> mytmpList) {
+        List<Topic> myList;
+        public themeTree(List<Topic> mytmpList) {
             myList = mytmpList;
             
 
         }
-
-
-
-        
         //This method is to create the first nodes of the treeView
         public void printKids(int fatherID, TreeView treeView1)
         {
@@ -27,14 +23,11 @@ namespace Multiple_Choice_Creator
             {
                 Console.Write("Father: " + fatherID);
 
-                if (myList[i].getFatherD() == fatherID)
+                if (myList[i].getParent() == fatherID)
                 {
 
                     TreeNode tnode = new TreeNode(myList[i].getName());
                     treeView1.Nodes.Add(tnode);
-                    Console.WriteLine(" Kid: "+myList[i].getID());
-                    printKids(myList[i].getID(), tnode);
-
                 }
             }
             treeView1.ExpandAll();
@@ -46,14 +39,13 @@ namespace Multiple_Choice_Creator
         {
             for (int i = 0; i < myList.Count; i++)
             {
-                if (myList[i].getFatherD() == fatherID)
+                if (myList[i].getParent() == fatherID)
                 {
                     TreeNode cnode = new TreeNode(myList[i].getName());
                     tnode.Nodes.Add(cnode);
-                    printKids(myList[i].getID(), cnode);
+                    printKids(myList[i].getParent(), cnode);
                 }
             }
-
         }
        // public List<themeTree> createThemeTree() {
        //List < themeTree > myList = new List<themeTree>;

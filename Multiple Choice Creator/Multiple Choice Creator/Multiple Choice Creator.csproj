@@ -120,11 +120,13 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Answers.cs" />
-    <Compile Include="Model\Course.cs" />
+    <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\Question.cs" />
-    <Compile Include="Model\Theme.cs" />
-    <Compile Include="Model\University.cs" />
+    <Compile Include="Model\QuestionAnswer.cs" />
+    <Compile Include="Model\Tag.cs" />
+    <Compile Include="Model\TagQuest.cs" />
+    <Compile Include="Model\Topic.cs" />
+    <Compile Include="Model\TopicQuest.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="NewHomeScreenPopis.cs">
       <SubType>Form</SubType>
@@ -132,6 +134,12 @@
     <Compile Include="NewHomeScreenPopis.Designer.cs">
       <DependentUpon>NewHomeScreenPopis.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\DaoAnswer.cs" />
+    <Compile Include="Persistence\DaoQuestion.cs" />
+    <Compile Include="Persistence\DaoQuestionAnswer.cs" />
+    <Compile Include="Persistence\DaoTag.cs" />
+    <Compile Include="Persistence\DaoTagQuest.cs" />
+    <Compile Include="Persistence\DaoUsers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.cs">
@@ -152,8 +160,7 @@
     <Compile Include="StartPageVdiamant.Designer.cs">
       <DependentUpon>StartPageVdiamant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Theme.cs" />
-    <Compile Include="themeTree.cs" />
+    <Compile Include="Model\TopicTree.cs" />
     <EmbeddedResource Include="BasicInfoVd.resx">
       <DependentUpon>BasicInfoVd.cs</DependentUpon>
     </EmbeddedResource>
