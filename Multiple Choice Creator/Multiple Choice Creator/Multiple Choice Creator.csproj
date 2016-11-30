@@ -84,6 +84,12 @@
     <Compile Include="FeedPanel.Designer.cs">
       <DependentUpon>FeedPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FeedToolBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FeedToolBar.Designer.cs">
+      <DependentUpon>FeedToolBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <Compile Include="Model\TopicTree.cs" />
     <EmbeddedResource Include="FeedPanel.resx">
       <DependentUpon>FeedPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedToolBar.resx">
+      <DependentUpon>FeedToolBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>

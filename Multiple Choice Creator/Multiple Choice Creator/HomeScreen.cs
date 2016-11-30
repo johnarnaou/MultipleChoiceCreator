@@ -12,11 +12,13 @@ namespace Multiple_Choice_Creator
 {
     public partial class HomeScreen : Form
     {
+        FeedToolBar toolbar;
         public HomeScreen()
         {
             InitializeComponent();
             splitContainer2.Panel2.AutoScroll = true;
             fill();
+            toolbarload();
         }
 
         //testing
@@ -31,6 +33,12 @@ namespace Multiple_Choice_Creator
                     c = Color.LightGray;
                 this.splitContainer2.Panel2.Controls.Add(new FeedPanel(c));
             }
+        }
+
+        private void toolbarload()
+        {
+            toolbar = new FeedToolBar();
+            this.splitContainer2.Panel2.Controls.Add(toolbar);
         }
 
     }
