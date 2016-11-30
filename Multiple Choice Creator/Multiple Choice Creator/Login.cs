@@ -112,6 +112,11 @@ namespace Multiple_Choice_Creator
 
         }
 
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             if (signUp == null)
