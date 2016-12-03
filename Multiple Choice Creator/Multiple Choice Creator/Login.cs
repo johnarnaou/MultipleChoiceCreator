@@ -40,8 +40,8 @@ namespace Multiple_Choice_Creator
             //checkeUP(mail, password);
             DaoMysql dbOb = new DaoMysql();
             User user = new User(mail, password);
-            //DaoUsers dUser=DaoUsers.getInstance();
-            if (DaoUsers.getInstance().login(user))
+            DaoUsers dUser=DaoUsers.getInstance();
+            if (dUser.login(user))
             {
                 if (mainForm == null)
                 {

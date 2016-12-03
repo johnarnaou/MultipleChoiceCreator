@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Multiple_Choice_Creator.Persistence;
+using Multiple_Choice_Creator.Model;
 
 namespace Multiple_Choice_Creator
 {
@@ -45,9 +47,10 @@ namespace Multiple_Choice_Creator
             String lastName = textBox2.Text;
             String email = textBox3.Text;
             String password = textBox4.Text;
-            markUnWritten(firstName,lastName,email,password);
             if (firstName != "" && lastName != "" && email != "" && password != "")
             {
+                User user = new User(email, password, firstName, lastName);
+                markUnWritten(firstName, lastName, email, password);
                 DaoMysql dbOb=new DaoMysql();
                 if (dbOb.register(firstName, lastName, email, password))
                 {

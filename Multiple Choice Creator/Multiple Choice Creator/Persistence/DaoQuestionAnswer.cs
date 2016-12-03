@@ -13,7 +13,7 @@ namespace Multiple_Choice_Creator.Persistence
         {
             if (instance == null)
             {
-                instance = new DaoAnswer();
+                instance = new DaoQuestionAnswer();
             }
             return instance;
         }
