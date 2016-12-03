@@ -178,16 +178,6 @@
     <None Include="kantonioDataSet1.xss">
       <DependentUpon>kantonioDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="multipleChoiceDataSet.xsc">
-      <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="multipleChoiceDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="multipleChoiceDataSet.xss">
-      <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
