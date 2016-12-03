@@ -7,17 +7,17 @@ using Multiple_Choice_Creator.Model;
 using MySql.Data.MySqlClient;
 namespace Multiple_Choice_Creator.Persistence
 {
-    class DaoUsers
+    public class DaoUsers
     {
         private static MySql.Data.MySqlClient.MySqlConnection conn;
         private static string myConnectionString = "server=192.168.6.177;uid=kantonio;"
             + "pwd=123456;database=kantonio;";
-        private static DaoAnswer instance;
-        public static DaoAnswer getInstance()
+        private static DaoUsers instance;
+        public static DaoUsers getInstance()
         {
             if (instance == null)
             {
-                instance = new DaoAnswer();
+                instance = new DaoUsers();
             }
             return instance;
         }
@@ -62,7 +62,29 @@ namespace Multiple_Choice_Creator.Persistence
             }
             return false;
         }
-      
+
+        public Boolean register(String name, String last, String mail, String password)
+        {
+            try
+            {
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+                //Tha xrhsimopoihsoume md5 kruptografish kai apokruptografish
+                string query = "INSERT INTO User (Email,Password,Fname,Lname) VALUES ('" + mail + "',md5('" + password + "'),'" + name + "','" + last + "')";
+                string queryCheck = "Select Email from User";
+                MySqlCommand cmd2 = new MySqlCommand(queryCheck, conn);
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader mdr = cmd.ExecuteReader();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                ex.ToString();
+                return false;
+            }
+            return true;
+        }
+
     }//end of class DaoUsers
 
     }//end of added namespace

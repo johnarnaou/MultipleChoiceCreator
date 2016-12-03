@@ -8,12 +8,12 @@ namespace Multiple_Choice_Creator.Persistence
 {
     class DaoTagQuest
     {
-        private static DaoAnswer instance;
-        public static DaoAnswer getInstance()
+        private static DaoTagQuest instance;
+        public static DaoTagQuest getInstance()
         {
             if (instance == null)
             {
-                instance = new DaoAnswer();
+                instance = new DaoTagQuest();
             }
             return instance;
         }

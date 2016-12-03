@@ -17,6 +17,11 @@ namespace Multiple_Choice_Creator.Model
             this.fName = fName;
             this.lName = lName;
         }
+        public User(string email, string password)
+        {
+            this.email = email;
+            this.password = password;
+        }
 
         public void setEmail(string email)
         {
@@ -56,6 +61,9 @@ namespace Multiple_Choice_Creator.Model
         {
             return this.password;
         }
+
+
         
+
     }
 }
