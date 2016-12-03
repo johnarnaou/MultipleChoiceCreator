@@ -48,10 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.Entity.EF5, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.Entity.EF5.dll</HintPath>
@@ -65,7 +65,11 @@
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Fabric.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -102,6 +106,11 @@
     <Compile Include="Insert.Designer.cs">
       <DependentUpon>Insert.cs</DependentUpon>
     </Compile>
+    <Compile Include="kantonioDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kantonioDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,11 +125,6 @@
     <Compile Include="Model\Topic.cs" />
     <Compile Include="Model\TopicQuest.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="multipleChoiceDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Persistence\DaoAnswer.cs" />
     <Compile Include="Persistence\DaoQuestion.cs" />
     <Compile Include="Persistence\DaoQuestionAnswer.cs" />
@@ -163,12 +167,22 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="kantonioDataSet1.xsc">
+      <DependentUpon>kantonioDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="kantonioDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>kantonioDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="kantonioDataSet1.xss">
+      <DependentUpon>kantonioDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="multipleChoiceDataSet.xsc">
       <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
     </None>
     <None Include="multipleChoiceDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>multipleChoiceDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="multipleChoiceDataSet.xss">

@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="kantonioDataSet" targetNamespace="http://tempuri.org/kantonioDataSet.xsd" xmlns:mstns="http://tempuri.org/kantonioDataSet.xsd" xmlns="http://tempuri.org/kantonioDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="kantonioConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="kantonioConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Multiple_Choice_Creator.Properties.Settings.GlobalReference.Default.kantonioConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AnswTableAdapter" GeneratorDataComponentClassName="AnswTableAdapter" Name="Answ" UserDataComponentName="AnswTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="kantonioConnectionString (Settings)" DbObjectName="kantonio.Answ" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Id`, `answer` FROM `Answ`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PersonsTableAdapter" GeneratorDataComponentClassName="PersonsTableAdapter" Name="Persons" UserDataComponentName="PersonsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="kantonioConnectionString (Settings)" DbObjectName="kantonio.Persons" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `ID`, `LastName`, `FirstName`, `Address`, `City` FROM `Persons`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QuestTableAdapter" GeneratorDataComponentClassName="QuestTableAdapter" Name="Quest" UserDataComponentName="QuestTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="kantonioConnectionString (Settings)" DbObjectName="kantonio.Quest" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Id`, `question`, `difficulty`, `userid`, `timeCre`, `timeLatMod` FROM `Quest`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QuestAnswTableAdapter" GeneratorDataComponentClassName="QuestAnswTableAdapter" Name="QuestAnsw" UserDataComponentName="QuestAnswTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="kantonioConnectionString (Settings)" DbObjectName="kantonio.QuestAnsw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Id`, `questId`, `answId`, `correct` FROM `QuestAnsw`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TagTableAdapter" GeneratorDataComponentClassName="TagTableAdapter" Name="Tag" UserDataComponentName="TagTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="kantonioConnectionString (Settings)" DbObjectName="kantonio.Tag" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Id`, `tagname`, `userId` FROM `Tag`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TagQuestTableAdapter" GeneratorDataComponentClassName="TagQuestTableAdapter" Name="TagQuest" UserDataComponentName="TagQuestTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="kantonioConnectionString (Settings)" DbObjectName="kantonio.TagQuest" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Id`, `tagId`, `questId` FROM `TagQuest`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TopicTableAdapter" GeneratorDataComponentClassName="TopicTableAdapter" Name="Topic" UserDataComponentName="TopicTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="kantonioConnectionString (Settings)" DbObjectName="kantonio.Topic" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Id`, `name`, `description`, `parent` FROM `Topic`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TopicQuestTableAdapter" GeneratorDataComponentClassName="TopicQuestTableAdapter" Name="TopicQuest" UserDataComponentName="TopicQuestTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="kantonioConnectionString (Settings)" DbObjectName="kantonio.TopicQuest" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Id`, `questId`, `topicId` FROM `TopicQuest`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsersTableAdapter" GeneratorDataComponentClassName="UsersTableAdapter" Name="Users" UserDataComponentName="UsersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="kantonioConnectionString (Settings)" DbObjectName="kantonio.Users" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `id`, `Email`, `Password`, `Fname`, `Lname` FROM `Users`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="kantonioDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="kantonioDataSet" msprop:Generator_UserDSName="kantonioDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Answ" msprop:Generator_TableClassName="AnswDataTable" msprop:Generator_TableVarName="tableAnsw" msprop:Generator_TablePropName="Answ" msprop:Generator_RowDeletingName="AnswRowDeleting" msprop:Generator_RowChangingName="AnswRowChanging" msprop:Generator_RowEvHandlerName="AnswRowChangeEventHandler" msprop:Generator_RowDeletedName="AnswRowDeleted" msprop:Generator_UserTableName="Answ" msprop:Generator_RowChangedName="AnswRowChanged" msprop:Generator_RowEvArgName="AnswRowChangeEvent" msprop:Generator_RowClassName="AnswRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Persons" msprop:Generator_TableClassName="PersonsDataTable" msprop:Generator_TableVarName="tablePersons" msprop:Generator_TablePropName="Persons" msprop:Generator_RowDeletingName="PersonsRowDeleting" msprop:Generator_RowChangingName="PersonsRowChanging" msprop:Generator_RowEvHandlerName="PersonsRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonsRowDeleted" msprop:Generator_UserTableName="Persons" msprop:Generator_RowChangedName="PersonsRowChanged" msprop:Generator_RowEvArgName="PersonsRowChangeEvent" msprop:Generator_RowClassName="PersonsRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Quest" msprop:Generator_TableClassName="QuestDataTable" msprop:Generator_TableVarName="tableQuest" msprop:Generator_TablePropName="Quest" msprop:Generator_RowDeletingName="QuestRowDeleting" msprop:Generator_RowChangingName="QuestRowChanging" msprop:Generator_RowEvHandlerName="QuestRowChangeEventHandler" msprop:Generator_RowDeletedName="QuestRowDeleted" msprop:Generator_UserTableName="Quest" msprop:Generator_RowChangedName="QuestRowChanged" msprop:Generator_RowEvArgName="QuestRowChangeEvent" msprop:Generator_RowClassName="QuestRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QuestAnsw" msprop:Generator_TableClassName="QuestAnswDataTable" msprop:Generator_TableVarName="tableQuestAnsw" msprop:Generator_TablePropName="QuestAnsw" msprop:Generator_RowDeletingName="QuestAnswRowDeleting" msprop:Generator_RowChangingName="QuestAnswRowChanging" msprop:Generator_RowEvHandlerName="QuestAnswRowChangeEventHandler" msprop:Generator_RowDeletedName="QuestAnswRowDeleted" msprop:Generator_UserTableName="QuestAnsw" msprop:Generator_RowChangedName="QuestAnswRowChanged" msprop:Generator_RowEvArgName="QuestAnswRowChangeEvent" msprop:Generator_RowClassName="QuestAnswRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tag" msprop:Generator_TableClassName="TagDataTable" msprop:Generator_TableVarName="tableTag" msprop:Generator_TablePropName="Tag" msprop:Generator_RowDeletingName="TagRowDeleting" msprop:Generator_RowChangingName="TagRowChanging" msprop:Generator_RowEvHandlerName="TagRowChangeEventHandler" msprop:Generator_RowDeletedName="TagRowDeleted" msprop:Generator_UserTableName="Tag" msprop:Generator_RowChangedName="TagRowChanged" msprop:Generator_RowEvArgName="TagRowChangeEvent" msprop:Generator_RowClassName="TagRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TagQuest" msprop:Generator_TableClassName="TagQuestDataTable" msprop:Generator_TableVarName="tableTagQuest" msprop:Generator_TablePropName="TagQuest" msprop:Generator_RowDeletingName="TagQuestRowDeleting" msprop:Generator_RowChangingName="TagQuestRowChanging" msprop:Generator_RowEvHandlerName="TagQuestRowChangeEventHandler" msprop:Generator_RowDeletedName="TagQuestRowDeleted" msprop:Generator_UserTableName="TagQuest" msprop:Generator_RowChangedName="TagQuestRowChanged" msprop:Generator_RowEvArgName="TagQuestRowChangeEvent" msprop:Generator_RowClassName="TagQuestRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Topic" msprop:Generator_TableClassName="TopicDataTable" msprop:Generator_TableVarName="tableTopic" msprop:Generator_TablePropName="Topic" msprop:Generator_RowDeletingName="TopicRowDeleting" msprop:Generator_RowChangingName="TopicRowChanging" msprop:Generator_RowEvHandlerName="TopicRowChangeEventHandler" msprop:Generator_RowDeletedName="TopicRowDeleted" msprop:Generator_UserTableName="Topic" msprop:Generator_RowChangedName="TopicRowChanged" msprop:Generator_RowEvArgName="TopicRowChangeEvent" msprop:Generator_RowClassName="TopicRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TopicQuest" msprop:Generator_TableClassName="TopicQuestDataTable" msprop:Generator_TableVarName="tableTopicQuest" msprop:Generator_TablePropName="TopicQuest" msprop:Generator_RowDeletingName="TopicQuestRowDeleting" msprop:Generator_RowChangingName="TopicQuestRowChanging" msprop:Generator_RowEvHandlerName="TopicQuestRowChangeEventHandler" msprop:Generator_RowDeletedName="TopicQuestRowDeleted" msprop:Generator_UserTableName="TopicQuest" msprop:Generator_RowChangedName="TopicQuestRowChanged" msprop:Generator_RowEvArgName="TopicQuestRowChangeEvent" msprop:Generator_RowClassName="TopicQuestRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_UserTableName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_RowClassName="UsersRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
