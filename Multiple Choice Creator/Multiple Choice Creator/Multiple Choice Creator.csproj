@@ -116,6 +116,11 @@
     <Compile Include="Model\Topic.cs" />
     <Compile Include="Model\TopicQuest.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="multipleChoiceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\DaoAnswer.cs" />
     <Compile Include="Persistence\DaoQuestion.cs" />
     <Compile Include="Persistence\DaoQuestionAnswer.cs" />
@@ -158,6 +163,17 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="multipleChoiceDataSet.xsc">
+      <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="multipleChoiceDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>multipleChoiceDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="multipleChoiceDataSet.xss">
+      <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
