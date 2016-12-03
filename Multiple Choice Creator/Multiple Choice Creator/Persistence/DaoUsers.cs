@@ -7,13 +7,13 @@ using Multiple_Choice_Creator.Model;
 using MySql.Data.MySqlClient;
 namespace Multiple_Choice_Creator.Persistence
 {
-    class DaoUsers
+    public class DaoUsers
     {
         private static MySql.Data.MySqlClient.MySqlConnection conn;
         private static string myConnectionString = "server=192.168.6.177;uid=kantonio;"
             + "pwd=123456;database=kantonio;";
-        private static DaoAnswer instance;
-        public static DaoAnswer getInstance()
+        private static DaoUsers instance;
+        public static DaoUsers getInstance()
         {
             if (instance == null)
             {

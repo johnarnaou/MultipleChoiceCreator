@@ -8,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Multiple_Choice_Creator.Persistence;
+using Multiple_Choice_Creator.Model;
 namespace Multiple_Choice_Creator
 {
     public partial class Login : Form
@@ -38,7 +39,9 @@ namespace Multiple_Choice_Creator
             password = textBox2.Text;
             //checkeUP(mail, password);
             DaoMysql dbOb = new DaoMysql();
-            if (dbOb.Login(mail, password))
+            User user = new User(mail, password);
+            //DaoUsers dUser=DaoUsers.getInstance();
+            if (DaoUsers.getInstance().login(user))
             {
                 if (mainForm == null)
                 {

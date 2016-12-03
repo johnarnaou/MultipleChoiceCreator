@@ -8,8 +8,8 @@ namespace Multiple_Choice_Creator.Persistence
 {
     class DaoQuestionAnswer
     {
-        private static DaoAnswer instance;
-        public static DaoAnswer getInstance()
+        private static DaoQuestionAnswer instance;
+        public static DaoQuestionAnswer getInstance()
         {
             if (instance == null)
             {
