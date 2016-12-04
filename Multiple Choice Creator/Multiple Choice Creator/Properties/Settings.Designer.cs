@@ -33,5 +33,15 @@ namespace Multiple_Choice_Creator.Properties {
                 return ((string)(this["kantonioConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.6.177;user id=kantonio;database=kantonio;password=123456")]
+        public string mltChoiceConnString {
+            get {
+                return ((string)(this["mltChoiceConnString"]));
+            }
+        }
     }
 }
