@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.Persistence;
 using Multiple_Choice_Creator.Model;
+using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 
 namespace Multiple_Choice_Creator
 {
@@ -55,7 +56,9 @@ namespace Multiple_Choice_Creator
                 if (dbOb.register(firstName, lastName, email, password))
                 {
                     //tha grapsoume kai ton kwdika pou tha ton exei hdh kanei log in sto programma kai tha emfanizontai kapou ta stoixeia toy
-                    mainForm = new HomeScreen();
+                    UsersTableAdapter uTableAdapter = new UsersTableAdapter();
+                    user.setUserID((int)uTableAdapter.getUserID(user.getEmail()));
+                    mainForm = new HomeScreen(user);
                     mainForm.StartPosition = FormStartPosition.CenterScreen;
                     mainForm.Show();
                     this.Close();
@@ -100,6 +103,13 @@ namespace Multiple_Choice_Creator
                 label9.Text = "";
             }
             Refresh();
+        }
+
+        private void Register_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login form = new Login();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
         }
     }
 }

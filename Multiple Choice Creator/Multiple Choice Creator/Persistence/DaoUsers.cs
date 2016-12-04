@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Multiple_Choice_Creator.Model;
 using MySql.Data.MySqlClient;
+using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
+
 namespace Multiple_Choice_Creator.Persistence
 {
     public class DaoUsers
@@ -58,6 +60,8 @@ namespace Multiple_Choice_Creator.Persistence
             }
             if (logged == 1)
             {
+                UsersTableAdapter uTableAdapter = new UsersTableAdapter();
+                user.setUserID((int)uTableAdapter.getUserID(user.getEmail()));
                 return true;
             }
             return false;

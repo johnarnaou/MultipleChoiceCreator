@@ -16,15 +16,17 @@ namespace Multiple_Choice_Creator
         FeedToolBar toolbar;
         Panel panel;
         QuestTableAdapter qTableAdapter = new QuestTableAdapter();
-        public LoadFeed(Panel p)
+        User user;
+        public LoadFeed(Panel p, User user)
         {
+            this.user = user;
             panel = p;
             load();
         }
         public void load()
         {
-            int k = (int)qTableAdapter.getSize();
-            if (0 == 0)
+            int k = (int)qTableAdapter.getSize(user.getUserID());
+            if (k == 0)
             {
                 Label message = new Label();
                 NoFeed control = new NoFeed();
@@ -44,7 +46,7 @@ namespace Multiple_Choice_Creator
         {
             Color c;
             Question q;
-            DataTable data = qTableAdapter.GetData();
+            DataTable data = qTableAdapter.getUserQuestions(user.getUserID());
             for (var i = 0; i < size; i++)
             {
                 if (i % 2 == 0)
