@@ -32,7 +32,7 @@ namespace Multiple_Choice_Creator
             Answer[] list = answers.getAnswArList();
             for(int i=0; i<answers.getIndex(); i++)
             {
-                ans.Text = list[i].getText();  
+                this.label1.Text = list[i].getText();
             }
         }
         private void setQuestion(string question)

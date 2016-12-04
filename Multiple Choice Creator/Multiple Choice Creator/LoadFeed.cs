@@ -3,6 +3,7 @@ using Multiple_Choice_Creator.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,7 @@ namespace Multiple_Choice_Creator
                 {
                     answers = aTableAdapter.getDataByID((int)answersID.Rows[j][0]);
                     a = new Answer((int)answers.Rows[j][0],(string)answers.Rows[j][1]);
+                    Debug.WriteLine((string)answers.Rows[j][1] + "\n");
                     qa.addAnswArList(a);
                 }
                 panel.Controls.Add(new FeedPanel(c,qa));
