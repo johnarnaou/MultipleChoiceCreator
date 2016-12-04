@@ -4996,11 +4996,11 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        Id, question, difficulty, userid, timeCre, timeLatMod\r\nFROM        " +
-                "    Quest\r\nWHERE        (userid = @Param1)";
+            this._commandCollection[1].CommandText = "SELECT `Id`, `question`, `difficulty`, `userid`, `timeCre`, `timeLatMod` FROM `Qu" +
+                "est` WHERE userid = @Param";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@userId";
+            param.ParameterName = "@Param";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -5019,7 +5019,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT COUNT(*) FROM Quest WHERE userid = @Param";
+            this._commandCollection[3].CommandText = "SELECT COUNT(question) FROM Quest WHERE userid = @Param";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Param";
@@ -5057,30 +5057,11 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int fillByUserQuestions(mltChoiceDataSet.QuestDataTable dataTable, global::System.Nullable<int> userId) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((userId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual mltChoiceDataSet.QuestDataTable getUserQuestions(global::System.Nullable<int> userId) {
+        public virtual mltChoiceDataSet.QuestDataTable GetDataByUserID(global::System.Nullable<int> Param) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((userId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId.Value));
+            if ((Param.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;

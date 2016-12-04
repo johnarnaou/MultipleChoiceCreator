@@ -15,6 +15,7 @@ namespace Multiple_Choice_Creator.Model
         private DateTime creationTime;
         private DateTime LastModifTime;
         private QuestTableAdapter adapter = new QuestTableAdapter();
+        private QuestionAnswer qa;
 
         public Question(string text,char difficulty,int userId)
         {
@@ -26,7 +27,6 @@ namespace Multiple_Choice_Creator.Model
 
         public Question(int id)
         {
-
             setText(adapter.getQuestionWithId(id));
         }
 

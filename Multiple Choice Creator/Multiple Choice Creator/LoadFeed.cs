@@ -25,7 +25,8 @@ namespace Multiple_Choice_Creator
         }
         public void load()
         {
-            int k = (int)qTableAdapter.getSize(user.getUserID());
+            Object a = qTableAdapter.getSize(user.getUserID());
+            int k = Convert.ToInt32(a);
             if (k == 0)
             {
                 Label message = new Label();
@@ -46,14 +47,14 @@ namespace Multiple_Choice_Creator
         {
             Color c;
             Question q;
-            DataTable data = qTableAdapter.getUserQuestions(user.getUserID());
+            DataTable data = qTableAdapter.GetDataByUserID(user.getUserID());
             for (var i = 0; i < size; i++)
             {
                 if (i % 2 == 0)
                     c = Color.LightBlue;
                 else
                     c = Color.LightGray;
-                q = new Question((int)data.Rows[0][i]);
+                q = new Question((int)data.Rows[i][0]);
                 panel.Controls.Add(new FeedPanel(c,q));
             }
             toolbarload();

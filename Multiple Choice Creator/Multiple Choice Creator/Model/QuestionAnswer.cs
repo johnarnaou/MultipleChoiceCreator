@@ -24,6 +24,11 @@ namespace Multiple_Choice_Creator.Model
             this.quest = quest;
         }
 
+        private void fillAnswers(Question q)
+        {
+            
+        }
+
         public void addAnswArList(Answer answ)
         {
             this.answArList.Add(answ);
