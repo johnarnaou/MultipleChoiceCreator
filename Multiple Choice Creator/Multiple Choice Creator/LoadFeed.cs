@@ -24,13 +24,12 @@ namespace Multiple_Choice_Creator
         public void load()
         {
             int k = (int)qTableAdapter.getSize();
-            if (k == 0)
+            if (0 == 0)
             {
                 Label message = new Label();
-                message.Text = "No Questions Available";
-                message.Dock = DockStyle.Top;
-                panel.BackColor = Color.Red;
-                panel.Controls.Add(message);
+                NoFeed control = new NoFeed();
+                control.Dock = DockStyle.Top;
+                panel.Controls.Add(control);
             }
             else if(k<50)
             {

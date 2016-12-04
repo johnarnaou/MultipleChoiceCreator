@@ -126,6 +126,12 @@
     <Compile Include="Model\Topic.cs" />
     <Compile Include="Model\TopicQuest.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="NoFeed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NoFeed.Designer.cs">
+      <DependentUpon>NoFeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\DaoAnswer.cs" />
     <Compile Include="Persistence\DaoQuestion.cs" />
     <Compile Include="Persistence\DaoQuestionAnswer.cs" />
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoFeed.resx">
+      <DependentUpon>NoFeed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
