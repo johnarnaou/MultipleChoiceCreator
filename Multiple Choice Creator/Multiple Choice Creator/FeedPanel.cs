@@ -8,20 +8,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.Model;
+using System.Collections;
 
 namespace Multiple_Choice_Creator
 {
     public partial class FeedPanel : UserControl
     {
         private bool clicked = true;
-        public FeedPanel(Color c, Question q)
+        private Question q;
+        private Label ans;
+        public FeedPanel(Color c, QuestionAnswer qa)
         {
             InitializeComponent();
             this.BackColor = c;
             this.Dock = DockStyle.Top;
+            q = qa.getQuestion();
             setQuestion(q.getText());
+
         }
 
+        private void fillAnswers(QuestionAnswer answers)
+        {
+            Answer[] list = answers.getAnswArList();
+            for(int i=0; i<answers.getIndex(); i++)
+            {
+                ans.Text = list[i].getText();  
+            }
+        }
         private void setQuestion(string question)
         {
             this.QuestionLabel.Text = question;

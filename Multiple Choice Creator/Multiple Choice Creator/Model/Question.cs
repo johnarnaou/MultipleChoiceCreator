@@ -59,5 +59,15 @@ namespace Multiple_Choice_Creator.Model
         {
             return this.creationTime;
         }
+
+        public void setUserID(int id)
+        {
+            this.userId = id;
+        }
+
+        public int getQuestionID()
+        {
+            return this.userId;
+        }
     }
 }

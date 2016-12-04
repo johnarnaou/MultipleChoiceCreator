@@ -11,12 +11,14 @@ namespace Multiple_Choice_Creator.Model
     {
         
         private Question quest;
-        private ArrayList answArList;
+        private Answer[] answArList;
+        private int index;
 
         public QuestionAnswer(Question quest)
         {
             this.quest = quest;
-            answArList = new ArrayList();
+            index = 0;
+            answArList = new Answer[8];
         }
 
         private void setQuestion(Question quest)
@@ -31,15 +33,22 @@ namespace Multiple_Choice_Creator.Model
 
         public void addAnswArList(Answer answ)
         {
-            this.answArList.Add(answ);
+            if(index < 8)
+                this.answArList[index] = answ;
+            else
+                //error
+            index++;
         }
-
-        private Question getQuestion()
+        public int getIndex()
+        {
+            return index;
+        }
+        public Question getQuestion()
         {
             return this.quest;
         }
 
-        public ArrayList getAnswArList()
+        public Answer[] getAnswArList()
         {
             return this.answArList;
         }

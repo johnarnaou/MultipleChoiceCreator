@@ -16,6 +16,8 @@ namespace Multiple_Choice_Creator
         FeedToolBar toolbar;
         Panel panel;
         QuestTableAdapter qTableAdapter = new QuestTableAdapter();
+        QuestAnswTableAdapter qaTableAdapter = new QuestAnswTableAdapter();
+        AnswTableAdapter aTableAdapter = new AnswTableAdapter();
         User user;
         public LoadFeed(Panel p, User user)
         {
@@ -48,6 +50,10 @@ namespace Multiple_Choice_Creator
             Color c;
             Question q;
             DataTable data = qTableAdapter.GetDataByUserID(user.getUserID());
+            DataTable answersID;
+            DataTable answers;
+            Answer a;
+            QuestionAnswer qa;
             for (var i = 0; i < size; i++)
             {
                 if (i % 2 == 0)
@@ -55,7 +61,17 @@ namespace Multiple_Choice_Creator
                 else
                     c = Color.LightGray;
                 q = new Question((int)data.Rows[i][0]);
-                panel.Controls.Add(new FeedPanel(c,q));
+                q.setUserID(user.getUserID());
+                qa = new QuestionAnswer(q);
+                answersID = qaTableAdapter.getAnswersID(q.getQuestionID());
+                int num = (int)qaTableAdapter.getNumberOfAnswers(q.getQuestionID());
+                for(var j=0; j<num; j++)
+                {
+                    answers = aTableAdapter.getDataByID((int)answersID.Rows[j][0]);
+                    a = new Answer((int)answers.Rows[j][0],(string)answers.Rows[j][1]);
+                    qa.addAnswArList(a);
+                }
+                panel.Controls.Add(new FeedPanel(c,qa));
             }
             toolbarload();
         }
