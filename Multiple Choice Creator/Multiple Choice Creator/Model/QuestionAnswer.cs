@@ -24,7 +24,7 @@ namespace Multiple_Choice_Creator.Model
             this.quest = quest;
         }
 
-        private void addAnswArList(Answer answ)
+        public void addAnswArList(Answer answ)
         {
             this.answArList.Add(answ);
         }
@@ -34,7 +34,7 @@ namespace Multiple_Choice_Creator.Model
             return this.quest;
         }
 
-        private ArrayList getAnswArList()
+        public ArrayList getAnswArList()
         {
             return this.answArList;
         }
