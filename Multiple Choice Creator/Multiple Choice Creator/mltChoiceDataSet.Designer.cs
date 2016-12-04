@@ -40,8 +40,6 @@ namespace Multiple_Choice_Creator {
         
         private UsersDataTable tableUsers;
         
-        private global::System.Data.DataRelation relationQuest_ibfk_1;
-        
         private global::System.Data.DataRelation relationQuestAnsw_ibfk_1;
         
         private global::System.Data.DataRelation relationQuestAnsw_ibfk_2;
@@ -55,6 +53,8 @@ namespace Multiple_Choice_Creator {
         private global::System.Data.DataRelation relationTopicQuest_ibfk_1;
         
         private global::System.Data.DataRelation relationTopicQuest_ibfk_2;
+        
+        private global::System.Data.DataRelation relationQuest_ibfk_1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -378,7 +378,6 @@ namespace Multiple_Choice_Creator {
                     this.tableUsers.InitVars();
                 }
             }
-            this.relationQuest_ibfk_1 = this.Relations["Quest_ibfk_1"];
             this.relationQuestAnsw_ibfk_1 = this.Relations["QuestAnsw_ibfk_1"];
             this.relationQuestAnsw_ibfk_2 = this.Relations["QuestAnsw_ibfk_2"];
             this.relationTag_ibfk_1 = this.Relations["Tag_ibfk_1"];
@@ -386,6 +385,7 @@ namespace Multiple_Choice_Creator {
             this.relationTagQuest_ibfk_2 = this.Relations["TagQuest_ibfk_2"];
             this.relationTopicQuest_ibfk_1 = this.Relations["TopicQuest_ibfk_1"];
             this.relationTopicQuest_ibfk_2 = this.Relations["TopicQuest_ibfk_2"];
+            this.relationQuest_ibfk_1 = this.Relations["Quest_ibfk_1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -412,10 +412,6 @@ namespace Multiple_Choice_Creator {
             base.Tables.Add(this.tableTopicQuest);
             this.tableUsers = new UsersDataTable();
             base.Tables.Add(this.tableUsers);
-            this.relationQuest_ibfk_1 = new global::System.Data.DataRelation("Quest_ibfk_1", new global::System.Data.DataColumn[] {
-                        this.tableUsers.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableQuest.useridColumn}, false);
-            this.Relations.Add(this.relationQuest_ibfk_1);
             this.relationQuestAnsw_ibfk_1 = new global::System.Data.DataRelation("QuestAnsw_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tableQuest.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableQuestAnsw.questIdColumn}, false);
@@ -444,6 +440,10 @@ namespace Multiple_Choice_Creator {
                         this.tableTopic.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableTopicQuest.topicIdColumn}, false);
             this.Relations.Add(this.relationTopicQuest_ibfk_2);
+            this.relationQuest_ibfk_1 = new global::System.Data.DataRelation("Quest_ibfk_1", new global::System.Data.DataColumn[] {
+                        this.tableUsers.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableQuest.useridColumn}, false);
+            this.Relations.Add(this.relationQuest_ibfk_1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3950,23 +3950,23 @@ namespace Multiple_Choice_Creator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public QuestRow[] GetQuestRows() {
-                if ((this.Table.ChildRelations["Quest_ibfk_1"] == null)) {
-                    return new QuestRow[0];
-                }
-                else {
-                    return ((QuestRow[])(base.GetChildRows(this.Table.ChildRelations["Quest_ibfk_1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TagRow[] GetTagRows() {
                 if ((this.Table.ChildRelations["Tag_ibfk_1"] == null)) {
                     return new TagRow[0];
                 }
                 else {
                     return ((TagRow[])(base.GetChildRows(this.Table.ChildRelations["Tag_ibfk_1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public QuestRow[] GetQuestRows() {
+                if ((this.Table.ChildRelations["Quest_ibfk_1"] == null)) {
+                    return new QuestRow[0];
+                }
+                else {
+                    return ((QuestRow[])(base.GetChildRows(this.Table.ChildRelations["Quest_ibfk_1"])));
                 }
             }
         }
@@ -5014,15 +5014,22 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Id`, `question`, `difficulty`, `userid`, `timeCre`, `timeLatMod` FROM `Qu" +
-                "est`";
+            this._commandCollection[0].CommandText = "SELECT        Id, question, difficulty, userid, timeCre, timeLatMod\r\nFROM        " +
+                "    Quest\r\nWHERE        (userid = @userId)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@userId";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "userid";
+            this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT `Id`, `question`, `difficulty`, `userid`, `timeCre`, `timeLatMod` FROM `Qu" +
-                "est` WHERE userid = @Param";
+            this._commandCollection[1].CommandText = "SELECT Id, difficulty, question, timeCre, timeLatMod, userid FROM Quest WHERE (us" +
+                "erid = @Param)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Param";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -5057,8 +5064,14 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(mltChoiceDataSet.QuestDataTable dataTable) {
+        public virtual int fillQuestionsUser(mltChoiceDataSet.QuestDataTable dataTable, global::System.Nullable<int> userId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((userId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -5070,8 +5083,14 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual mltChoiceDataSet.QuestDataTable GetData() {
+        public virtual mltChoiceDataSet.QuestDataTable getQuestionsUser(global::System.Nullable<int> userId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((userId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             mltChoiceDataSet.QuestDataTable dataTable = new mltChoiceDataSet.QuestDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5665,7 +5684,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        QA.Id, QA.questId, QA.answId, QA.correct\r\nFROM            QuestAnsw" +
                 " QA INNER JOIN\r\n                         Answ A ON A.Id = QA.answId\r\nWHERE      " +
-                "  (QA.questId = @Param1)";
+                "  (QA.questId = @questId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@questId";
@@ -7201,7 +7220,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        T.Id, T.name, T.description, T.parent\r\nFROM            Topic T INNE" +
                 "R JOIN\r\n                         TopicQuest TQ ON T.Id = TQ.Id\r\nWHERE        (TQ" +
-                ".questId = @Param1)";
+                ".questId = @questId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@questId";

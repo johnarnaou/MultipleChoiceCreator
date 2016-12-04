@@ -74,6 +74,8 @@ namespace Multiple_Choice_Creator
                     qa.addAnswArList(a);
                 }
                 panel.Controls.Add(new FeedPanel(c,qa));
+                QuestAnswTableAdapter g = new QuestAnswTableAdapter();
+                DataTable d = g.getUserAnswers(3);
             }
             toolbarload();
         }
