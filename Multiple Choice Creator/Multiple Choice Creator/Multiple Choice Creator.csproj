@@ -111,6 +111,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>kantonioDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LoadFeed.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

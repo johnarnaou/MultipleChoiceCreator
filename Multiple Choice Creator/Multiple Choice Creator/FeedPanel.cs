@@ -7,17 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Multiple_Choice_Creator.Model;
 
 namespace Multiple_Choice_Creator
 {
     public partial class FeedPanel : UserControl
     {
-        bool clicked = true;
-        public FeedPanel(Color c)
+        private bool clicked = true;
+        public FeedPanel(Color c, Question q)
         {
             InitializeComponent();
             this.BackColor = c;
             this.Dock = DockStyle.Top;
+            setQuestion(q.getText());
+        }
+
+        private void setQuestion(string question)
+        {
+            this.QuestionLabel.Text = question;
         }
 
         private void addCheckBox_MouseEnter(object sender, EventArgs e)

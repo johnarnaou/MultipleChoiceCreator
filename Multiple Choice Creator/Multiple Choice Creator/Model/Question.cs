@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Multiple_Choice_Creator.kantonioDataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace Multiple_Choice_Creator.Model
         private int userId;
         private DateTime creationTime;
         private DateTime LastModifTime;
+        private QuestTableAdapter adapter = new QuestTableAdapter();
 
         public Question(string text,char difficulty,int userId)
         {
@@ -20,6 +22,12 @@ namespace Multiple_Choice_Creator.Model
             this.difficulty = difficulty;
             this.userId = userId;
             creationTime = DateTime.Now;
+        }
+
+        public Question(int id)
+        {
+
+            setText(adapter.GetQuestionWithId(id));
         }
 
         private void setText(string text)
@@ -37,7 +45,7 @@ namespace Multiple_Choice_Creator.Model
             this.LastModifTime = LastModifTime;
         }
 
-        private string getText()
+        public string getText()
         {
             return this.text;
         }
