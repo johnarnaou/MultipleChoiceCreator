@@ -1,4 +1,4 @@
-﻿using Multiple_Choice_Creator.multipleDataSetTableAdapters;
+﻿using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.Linq;

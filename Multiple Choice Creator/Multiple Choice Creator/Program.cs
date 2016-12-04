@@ -16,7 +16,7 @@ namespace Multiple_Choice_Creator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            HomeScreen form = new HomeScreen();
+            Login form = new Login();
             form.StartPosition = FormStartPosition.CenterScreen;
             Application.Run(form);
             
