@@ -1,4 +1,4 @@
-﻿using Multiple_Choice_Creator.kantonioDataSetTableAdapters;
+﻿using Multiple_Choice_Creator.multipleDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace Multiple_Choice_Creator.Model
         public Question(int id)
         {
 
-            setText(adapter.GetQuestionWithId(id));
+            setText(adapter.getQuestionWithId(id));
         }
 
         private void setText(string text)

@@ -106,11 +106,6 @@
     <Compile Include="Insert.Designer.cs">
       <DependentUpon>Insert.cs</DependentUpon>
     </Compile>
-    <Compile Include="kantonioDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>kantonioDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="LoadFeed.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -126,6 +121,11 @@
     <Compile Include="Model\Topic.cs" />
     <Compile Include="Model\TopicQuest.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="multipleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>multipleDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\DaoAnswer.cs" />
     <Compile Include="Persistence\DaoQuestion.cs" />
     <Compile Include="Persistence\DaoQuestionAnswer.cs" />
@@ -168,16 +168,16 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="kantonioDataSet1.xsc">
-      <DependentUpon>kantonioDataSet1.xsd</DependentUpon>
+    <None Include="multipleDataSet.xsc">
+      <DependentUpon>multipleDataSet.xsd</DependentUpon>
     </None>
-    <None Include="kantonioDataSet1.xsd">
+    <None Include="multipleDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>kantonioDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>multipleDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="kantonioDataSet1.xss">
-      <DependentUpon>kantonioDataSet1.xsd</DependentUpon>
+    <None Include="multipleDataSet.xss">
+      <DependentUpon>multipleDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

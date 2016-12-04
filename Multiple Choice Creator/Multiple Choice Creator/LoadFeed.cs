@@ -1,12 +1,14 @@
-﻿using Multiple_Choice_Creator.kantonioDataSetTableAdapters;
+﻿using Multiple_Choice_Creator.multipleDataSetTableAdapters;
 using Multiple_Choice_Creator.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Multiple_Choice_Creator.multipleDataSetTableAdapters;
 
 namespace Multiple_Choice_Creator
 {
@@ -14,7 +16,7 @@ namespace Multiple_Choice_Creator
     {
         FeedToolBar toolbar;
         Panel panel;
-        QuestTableAdapter tableAdapter = new QuestTableAdapter();
+        QuestTableAdapter qTableAdapter = new QuestTableAdapter();
         public LoadFeed(Panel p)
         {
             panel = p;
@@ -22,7 +24,7 @@ namespace Multiple_Choice_Creator
         }
         public void load()
         {
-            int k = (int)tableAdapter.getSize();
+            int k = (int)qTableAdapter.getSize();
             if (k == 0)
             {
                 Label message = new Label();
@@ -43,13 +45,16 @@ namespace Multiple_Choice_Creator
         private void fill(int size)
         {
             Color c;
-            Question q = new Question(2);
-            for (var i = 0; i < size; i++)
+            Question q;
+            DataTable id = qTableAdapter.GetData();
+         
+            for (var i = 0; i < id.Rows.Count; i++)
             {
                 if (i % 2 == 0)
                     c = Color.LightBlue;
                 else
                     c = Color.LightGray;
+                q = new Question((int)id.Rows[0][i]);
                 panel.Controls.Add(new FeedPanel(c,q));
             }
             toolbarload();
