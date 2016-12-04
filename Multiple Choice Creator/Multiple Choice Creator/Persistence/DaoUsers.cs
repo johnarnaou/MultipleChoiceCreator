@@ -44,7 +44,7 @@ namespace Multiple_Choice_Creator.Persistence
             open();//open a new connection
             int logged=0;
             try {
-                string query = "select count(*) from customer where Email=@email and Password=md5(@passwd)";
+                string query = "select count(*) from Users where Email=@email and Password=md5(@passwd)";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
                 cmd.Parameters.AddWithValue("@email", user.getEmail());//opou sunantame @email bazoume to email tou user pou paei na kanei login
