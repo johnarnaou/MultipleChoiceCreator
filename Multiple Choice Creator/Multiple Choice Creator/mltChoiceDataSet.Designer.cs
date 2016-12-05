@@ -56,8 +56,6 @@ namespace Multiple_Choice_Creator
 
         private global::System.Data.DataRelation relationTopicQuest_ibfk_2;
 
-        private global::System.Data.DataRelation relationQuest_ibfk_1;
-
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -457,7 +455,6 @@ namespace Multiple_Choice_Creator
             this.relationTagQuest_ibfk_2 = this.Relations["TagQuest_ibfk_2"];
             this.relationTopicQuest_ibfk_1 = this.Relations["TopicQuest_ibfk_1"];
             this.relationTopicQuest_ibfk_2 = this.Relations["TopicQuest_ibfk_2"];
-            this.relationQuest_ibfk_1 = this.Relations["Quest_ibfk_1"];
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -513,10 +510,6 @@ namespace Multiple_Choice_Creator
                         this.tableTopic.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableTopicQuest.topicIdColumn}, false);
             this.Relations.Add(this.relationTopicQuest_ibfk_2);
-            this.relationQuest_ibfk_1 = new global::System.Data.DataRelation("Quest_ibfk_1", new global::System.Data.DataColumn[] {
-                        this.tableUsers.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableQuest.useridColumn}, false);
-            this.Relations.Add(this.relationQuest_ibfk_1);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -996,16 +989,6 @@ namespace Multiple_Choice_Creator
 
             private global::System.Data.DataColumn columnId;
 
-            private global::System.Data.DataColumn columnquestion;
-
-            private global::System.Data.DataColumn columndifficulty;
-
-            private global::System.Data.DataColumn columnuserid;
-
-            private global::System.Data.DataColumn columntimeCre;
-
-            private global::System.Data.DataColumn columntimeLatMod;
-
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public QuestDataTable()
@@ -1057,56 +1040,6 @@ namespace Multiple_Choice_Creator
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn questionColumn
-            {
-                get
-                {
-                    return this.columnquestion;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn difficultyColumn
-            {
-                get
-                {
-                    return this.columndifficulty;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn useridColumn
-            {
-                get
-                {
-                    return this.columnuserid;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn timeCreColumn
-            {
-                get
-                {
-                    return this.columntimeCre;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn timeLatModColumn
-            {
-                get
-                {
-                    return this.columntimeLatMod;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count
             {
@@ -1147,20 +1080,11 @@ namespace Multiple_Choice_Creator
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public QuestRow AddQuestRow(string question, string difficulty, UsersRow parentUsersRowByQuest_ibfk_1, System.DateTime timeCre, System.DateTime timeLatMod)
+            public QuestRow AddQuestRow()
             {
                 QuestRow rowQuestRow = ((QuestRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        question,
-                        difficulty,
-                        null,
-                        timeCre,
-                        timeLatMod};
-                if ((parentUsersRowByQuest_ibfk_1 != null))
-                {
-                    columnValuesArray[3] = parentUsersRowByQuest_ibfk_1[0];
-                }
+                        null};
                 rowQuestRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowQuestRow);
                 return rowQuestRow;
@@ -1195,11 +1119,6 @@ namespace Multiple_Choice_Creator
             internal void InitVars()
             {
                 this.columnId = base.Columns["Id"];
-                this.columnquestion = base.Columns["question"];
-                this.columndifficulty = base.Columns["difficulty"];
-                this.columnuserid = base.Columns["userid"];
-                this.columntimeCre = base.Columns["timeCre"];
-                this.columntimeLatMod = base.Columns["timeLatMod"];
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1208,16 +1127,6 @@ namespace Multiple_Choice_Creator
             {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnquestion = new global::System.Data.DataColumn("question", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnquestion);
-                this.columndifficulty = new global::System.Data.DataColumn("difficulty", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndifficulty);
-                this.columnuserid = new global::System.Data.DataColumn("userid", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnuserid);
-                this.columntimeCre = new global::System.Data.DataColumn("timeCre", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntimeCre);
-                this.columntimeLatMod = new global::System.Data.DataColumn("timeLatMod", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntimeLatMod);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -1225,10 +1134,6 @@ namespace Multiple_Choice_Creator
                 this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
-                this.columnquestion.MaxLength = 255;
-                this.columndifficulty.MaxLength = 1;
-                this.columntimeCre.AllowDBNull = false;
-                this.columntimeLatMod.AllowDBNull = false;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3598,153 +3503,6 @@ namespace Multiple_Choice_Creator
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string question
-            {
-                get
-                {
-                    try
-                    {
-                        return ((string)(this[this.tableQuest.questionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e)
-                    {
-                        throw new global::System.Data.StrongTypingException("The value for column \'question\' in table \'Quest\' is DBNull.", e);
-                    }
-                }
-                set
-                {
-                    this[this.tableQuest.questionColumn] = value;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string difficulty
-            {
-                get
-                {
-                    try
-                    {
-                        return ((string)(this[this.tableQuest.difficultyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e)
-                    {
-                        throw new global::System.Data.StrongTypingException("The value for column \'difficulty\' in table \'Quest\' is DBNull.", e);
-                    }
-                }
-                set
-                {
-                    this[this.tableQuest.difficultyColumn] = value;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int userid
-            {
-                get
-                {
-                    try
-                    {
-                        return ((int)(this[this.tableQuest.useridColumn]));
-                    }
-                    catch (global::System.InvalidCastException e)
-                    {
-                        throw new global::System.Data.StrongTypingException("The value for column \'userid\' in table \'Quest\' is DBNull.", e);
-                    }
-                }
-                set
-                {
-                    this[this.tableQuest.useridColumn] = value;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime timeCre
-            {
-                get
-                {
-                    return ((global::System.DateTime)(this[this.tableQuest.timeCreColumn]));
-                }
-                set
-                {
-                    this[this.tableQuest.timeCreColumn] = value;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime timeLatMod
-            {
-                get
-                {
-                    return ((global::System.DateTime)(this[this.tableQuest.timeLatModColumn]));
-                }
-                set
-                {
-                    this[this.tableQuest.timeLatModColumn] = value;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRow UsersRow
-            {
-                get
-                {
-                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["Quest_ibfk_1"])));
-                }
-                set
-                {
-                    this.SetParentRow(value, this.Table.ParentRelations["Quest_ibfk_1"]);
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsquestionNull()
-            {
-                return this.IsNull(this.tableQuest.questionColumn);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetquestionNull()
-            {
-                this[this.tableQuest.questionColumn] = global::System.Convert.DBNull;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsdifficultyNull()
-            {
-                return this.IsNull(this.tableQuest.difficultyColumn);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetdifficultyNull()
-            {
-                this[this.tableQuest.difficultyColumn] = global::System.Convert.DBNull;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsuseridNull()
-            {
-                return this.IsNull(this.tableQuest.useridColumn);
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetuseridNull()
-            {
-                this[this.tableQuest.useridColumn] = global::System.Convert.DBNull;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public QuestAnswRow[] GetQuestAnswRows()
             {
                 if ((this.Table.ChildRelations["QuestAnsw_ibfk_1"] == null))
@@ -4668,20 +4426,6 @@ namespace Multiple_Choice_Creator
                 else
                 {
                     return ((TagRow[])(base.GetChildRows(this.Table.ChildRelations["Tag_ibfk_1"])));
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public QuestRow[] GetQuestRows()
-            {
-                if ((this.Table.ChildRelations["Quest_ibfk_1"] == null))
-                {
-                    return new QuestRow[0];
-                }
-                else
-                {
-                    return ((QuestRow[])(base.GetChildRows(this.Table.ChildRelations["Quest_ibfk_1"])));
                 }
             }
         }
@@ -5645,15 +5389,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Quest";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("question", "question");
-            tableMapping.ColumnMappings.Add("difficulty", "difficulty");
-            tableMapping.ColumnMappings.Add("userid", "userid");
-            tableMapping.ColumnMappings.Add("timeCre", "timeCre");
-            tableMapping.ColumnMappings.Add("timeLatMod", "timeLatMod");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Quest` WHERE ((`Id` = @p1) AND ((@p2 = 1 AND `question` IS NULL) OR (`question` = @p3)) AND ((@p4 = 1 AND `difficulty` IS NULL) OR (`difficulty` = @p5)) AND ((@p6 = 1 AND `userid` IS NULL) OR (`userid` = @p7)) AND (`timeCre` = @p8) AND (`timeLatMod` = @p9))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Quest` WHERE ((`Id` = @p1))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -5663,225 +5402,16 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             param.SourceColumn = "Id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "question";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "question";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p4";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "difficulty";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p5";
-            param.DbType = global::System.Data.DbType.StringFixedLength;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
-            param.IsNullable = true;
-            param.SourceColumn = "difficulty";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p6";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "userid";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "userid";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
-            param.IsNullable = true;
-            param.SourceColumn = "timeCre";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
-            param.IsNullable = true;
-            param.SourceColumn = "timeLatMod";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Quest` (`question`, `difficulty`, `userid`, `timeCre`, `timeLatMod`)" +
-                " VALUES (@p1, @p2, @p3, @p4, @p5)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "question";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.StringFixedLength;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
-            param.IsNullable = true;
-            param.SourceColumn = "difficulty";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "userid";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p4";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
-            param.IsNullable = true;
-            param.SourceColumn = "timeCre";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p5";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
-            param.IsNullable = true;
-            param.SourceColumn = "timeLatMod";
-            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Quest` SET `question` = @p1, `difficulty` = @p2, `userid` = @p3, `timeCre` = @p4, `timeLatMod` = @p5 WHERE ((`Id` = @p6) AND ((@p7 = 1 AND `question` IS NULL) OR (`question` = @p8)) AND ((@p9 = 1 AND `difficulty` IS NULL) OR (`difficulty` = @p10)) AND ((@p11 = 1 AND `userid` IS NULL) OR (`userid` = @p12)) AND (`timeCre` = @p13) AND (`timeLatMod` = @p14))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `Quest` WHERE ((`Id` = @p1))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "question";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.StringFixedLength;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
-            param.IsNullable = true;
-            param.SourceColumn = "difficulty";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "userid";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p4";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
-            param.IsNullable = true;
-            param.SourceColumn = "timeCre";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p5";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
-            param.IsNullable = true;
-            param.SourceColumn = "timeLatMod";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p6";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "question";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "question";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "difficulty";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
-            param.DbType = global::System.Data.DbType.StringFixedLength;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
-            param.IsNullable = true;
-            param.SourceColumn = "difficulty";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p11";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "userid";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p12";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "userid";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
-            param.IsNullable = true;
-            param.SourceColumn = "timeCre";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
-            param.IsNullable = true;
-            param.SourceColumn = "timeLatMod";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -5901,20 +5431,20 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Id, question, difficulty, userid, timeCre, timeLatMod\r\nFROM        " +
-                "    Quest\r\nWHERE        (userid = @userId)";
+            this._commandCollection[0].CommandText = "SELECT        Id\r\nFROM            Quest\r\nWHERE        (question LIKE @paramquest)" +
+                "";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@userId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.ParameterName = "@paramquest";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
             param.IsNullable = true;
-            param.SourceColumn = "userid";
+            param.SourceColumn = "question";
             this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Id, difficulty, question, timeCre, timeLatMod, userid FROM Quest WHERE (us" +
-                "erid = @Param)";
+            this._commandCollection[1].CommandText = "SELECT Id FROM Quest WHERE (userid = @Param)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Param";
@@ -5951,16 +5481,16 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int fillQuestionsUser(mltChoiceDataSet.QuestDataTable dataTable, global::System.Nullable<int> userId)
+        public virtual int fillsearchQuestionByID(mltChoiceDataSet.QuestDataTable dataTable, string paramquest)
         {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((userId.HasValue == true))
+            if ((paramquest == null))
             {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId.Value));
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else
             {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(paramquest));
             }
             if ((this.ClearBeforeFill == true))
             {
@@ -5974,16 +5504,16 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual mltChoiceDataSet.QuestDataTable getQuestionsUser(global::System.Nullable<int> userId)
+        public virtual mltChoiceDataSet.QuestDataTable getsearchQuestionByID(string paramquest)
         {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((userId.HasValue == true))
+            if ((paramquest == null))
             {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId.Value));
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else
             {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(paramquest));
             }
             mltChoiceDataSet.QuestDataTable dataTable = new mltChoiceDataSet.QuestDataTable();
             this.Adapter.Fill(dataTable);
@@ -6047,41 +5577,9 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1, string p3, string p5, global::System.Nullable<int> p7, System.DateTime p8, System.DateTime p9)
+        public virtual int Delete(int p1)
         {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
-            if ((p3 == null))
-            {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(p3));
-            }
-            if ((p5 == null))
-            {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(p5));
-            }
-            if ((p7.HasValue == true))
-            {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(p7.Value));
-            }
-            else
-            {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(p8));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(p9));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open)
                         != global::System.Data.ConnectionState.Open))
@@ -6105,120 +5603,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, global::System.Nullable<int> p3, System.DateTime p4, System.DateTime p5)
-        {
-            if ((p1 == null))
-            {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
-            }
-            if ((p2 == null))
-            {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
-            }
-            if ((p3.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(p3.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(p4));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(p5));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open)
-                        != global::System.Data.ConnectionState.Open))
-            {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try
-            {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally
-            {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
-                {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, global::System.Nullable<int> p3, System.DateTime p4, System.DateTime p5, int p6, string p8, string p10, global::System.Nullable<int> p12, System.DateTime p13, System.DateTime p14)
+        public virtual int Update(int p1)
         {
-            if ((p1 == null))
-            {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
-            }
-            if ((p2 == null))
-            {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
-            }
-            if ((p3.HasValue == true))
-            {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3.Value));
-            }
-            else
-            {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(p4));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(p5));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6));
-            if ((p8 == null))
-            {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(p8));
-            }
-            if ((p10 == null))
-            {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
-            }
-            if ((p12.HasValue == true))
-            {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(p12.Value));
-            }
-            else
-            {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(p13));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(p14));
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open)
                         != global::System.Data.ConnectionState.Open))
@@ -8435,9 +7823,9 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        T.Id, T.name, T.description, T.parent\r\nFROM            Topic T INNE" +
-                "R JOIN\r\n                         TopicQuest TQ ON T.Id = TQ.Id\r\nWHERE        (TQ" +
-                ".questId = @questId)";
+            this._commandCollection[1].CommandText = "SELECT        T.Id, T.name, T.description\r\nFROM            Topic T INNER JOIN\r\n  " +
+                "                       TopicQuest TQ ON T.Id = TQ.Id\r\nWHERE        (TQ.questId =" +
+                " @questId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@questId";

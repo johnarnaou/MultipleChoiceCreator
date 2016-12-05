@@ -50,10 +50,8 @@ namespace Multiple_Choice_Creator
         private void fill(int size)
         {
             Color c;
-            Question q;
-            DataTable data = qTableAdapter.GetDataByUserID(user.getUserID()), dataToAppend;
-            AnswDataTable answers;
-            QuestionAnswer qa;
+            DataTable data = qTableAdapter.GetDataByUserID(user.getUserID());
+
             for (var i = 0; i < size; i++)
             {
                 if (i % 2 == 0)
@@ -61,19 +59,7 @@ namespace Multiple_Choice_Creator
                 else
                     c = Color.LightGray;
 
-                q = new Question((int)data.Rows[i][0]);
-                q.setUserID(user.getUserID());
-
-                qa = new QuestionAnswer(q);
-
-                answers = new AnswDataTable();
-
-                aTableAdapter.FillAnswersByQuestionID(answers, q.getQuestionID());
-                
-                qa.setAnswersDataTable(answers);
-
-                panel.Controls.Add(new FeedPanel(c,qa));
-
+                display((int)data.Rows[i][0],c);
             }
 
             toolbarload();
@@ -83,6 +69,25 @@ namespace Multiple_Choice_Creator
         {
             toolbar = new FeedToolBar();
             panel.Controls.Add(toolbar);
+        }
+
+        private void display(int id, Color c)
+        {
+            Question q = new Question(id);
+            AnswDataTable answers;
+            QuestionAnswer qa;
+
+            q.setUserID(user.getUserID());
+
+            qa = new QuestionAnswer(q);
+
+            answers = new AnswDataTable();
+
+            aTableAdapter.FillAnswersByQuestionID(answers, q.getQuestionID());
+
+            qa.setAnswersDataTable(answers);
+
+            panel.Controls.Add(new FeedPanel(c, qa));
         }
     }
 }

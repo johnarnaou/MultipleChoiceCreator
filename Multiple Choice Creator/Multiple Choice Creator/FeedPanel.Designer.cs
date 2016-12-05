@@ -30,29 +30,56 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedPanel));
-            this.seeMoreLabel = new System.Windows.Forms.LinkLabel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.addCheckBox = new System.Windows.Forms.CheckBox();
-            this.QuestionLabel = new System.Windows.Forms.Label();
-            this.SaveToolStrip = new System.Windows.Forms.ToolStripButton();
-            this.EditToolStrip = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.EditToolStrip = new System.Windows.Forms.ToolStripButton();
+            this.SaveToolStrip = new System.Windows.Forms.ToolStripButton();
+            this.QuestionLabel = new System.Windows.Forms.Label();
+            this.addCheckBox = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.seeMoreLabel = new System.Windows.Forms.LinkLabel();
             this.answersDataGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // seeMoreLabel
+            // toolStrip1
             // 
-            this.seeMoreLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.seeMoreLabel.AutoSize = true;
-            this.seeMoreLabel.Location = new System.Drawing.Point(534, 168);
-            this.seeMoreLabel.Name = "seeMoreLabel";
-            this.seeMoreLabel.Size = new System.Drawing.Size(76, 13);
-            this.seeMoreLabel.TabIndex = 11;
-            this.seeMoreLabel.TabStop = true;
-            this.seeMoreLabel.Text = "Show answers";
-            this.seeMoreLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.seeMoreLabel_LinkClicked);
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveToolStrip,
+            this.EditToolStrip});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(24, 191);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // EditToolStrip
+            // 
+            this.EditToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.EditToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("EditToolStrip.Image")));
+            this.EditToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EditToolStrip.Name = "EditToolStrip";
+            this.EditToolStrip.Size = new System.Drawing.Size(29, 20);
+            this.EditToolStrip.Text = "Edit";
+            // 
+            // SaveToolStrip
+            // 
+            this.SaveToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolStrip.Image")));
+            this.SaveToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveToolStrip.Name = "SaveToolStrip";
+            this.SaveToolStrip.Size = new System.Drawing.Size(21, 20);
+            this.SaveToolStrip.Text = "Save";
+            // 
+            // QuestionLabel
+            // 
+            this.QuestionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QuestionLabel.Location = new System.Drawing.Point(27, 11);
+            this.QuestionLabel.Name = "QuestionLabel";
+            this.QuestionLabel.Size = new System.Drawing.Size(100, 23);
+            this.QuestionLabel.TabIndex = 0;
+            this.QuestionLabel.Text = "Question:";
             // 
             // addCheckBox
             // 
@@ -65,44 +92,17 @@
             this.addCheckBox.UseVisualStyleBackColor = true;
             this.addCheckBox.MouseEnter += new System.EventHandler(this.addCheckBox_MouseEnter);
             // 
-            // QuestionLabel
+            // seeMoreLabel
             // 
-            this.QuestionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QuestionLabel.Location = new System.Drawing.Point(27, 11);
-            this.QuestionLabel.Name = "QuestionLabel";
-            this.QuestionLabel.Size = new System.Drawing.Size(100, 23);
-            this.QuestionLabel.TabIndex = 0;
-            this.QuestionLabel.Text = "Question:";
-            // 
-            // SaveToolStrip
-            // 
-            this.SaveToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolStrip.Image")));
-            this.SaveToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveToolStrip.Name = "SaveToolStrip";
-            this.SaveToolStrip.Size = new System.Drawing.Size(21, 20);
-            this.SaveToolStrip.Text = "Save";
-            // 
-            // EditToolStrip
-            // 
-            this.EditToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.EditToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("EditToolStrip.Image")));
-            this.EditToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.EditToolStrip.Name = "EditToolStrip";
-            this.EditToolStrip.Size = new System.Drawing.Size(21, 20);
-            this.EditToolStrip.Text = "Edit";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SaveToolStrip,
-            this.EditToolStrip});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 3);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(24, 188);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.seeMoreLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.seeMoreLabel.AutoSize = true;
+            this.seeMoreLabel.Location = new System.Drawing.Point(534, 168);
+            this.seeMoreLabel.Name = "seeMoreLabel";
+            this.seeMoreLabel.Size = new System.Drawing.Size(76, 13);
+            this.seeMoreLabel.TabIndex = 11;
+            this.seeMoreLabel.TabStop = true;
+            this.seeMoreLabel.Text = "Show answers";
+            this.seeMoreLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.seeMoreLabel_LinkClicked);
             // 
             // answersDataGridView
             // 
@@ -117,6 +117,7 @@
             this.answersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.answersDataGridView.Location = new System.Drawing.Point(27, 38);
             this.answersDataGridView.Name = "answersDataGridView";
+            this.answersDataGridView.ReadOnly = true;
             this.answersDataGridView.Size = new System.Drawing.Size(579, 120);
             this.answersDataGridView.TabIndex = 12;
             this.answersDataGridView.Visible = false;
@@ -126,6 +127,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.answersDataGridView);
             this.Controls.Add(this.seeMoreLabel);
             this.Controls.Add(this.addCheckBox);
@@ -134,7 +136,7 @@
             this.Name = "FeedPanel";
             this.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Size = new System.Drawing.Size(613, 191);
+            this.Size = new System.Drawing.Size(616, 194);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).EndInit();
@@ -145,13 +147,13 @@
 
         #endregion
 
-        private System.Windows.Forms.LinkLabel seeMoreLabel;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.CheckBox addCheckBox;
-        private System.Windows.Forms.Label QuestionLabel;
+        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton SaveToolStrip;
         private System.Windows.Forms.ToolStripButton EditToolStrip;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.Label QuestionLabel;
+        private System.Windows.Forms.CheckBox addCheckBox;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.LinkLabel seeMoreLabel;
         private System.Windows.Forms.DataGridView answersDataGridView;
     }
 }

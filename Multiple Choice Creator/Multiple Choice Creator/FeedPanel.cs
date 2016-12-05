@@ -60,7 +60,7 @@ namespace Multiple_Choice_Creator
             else
             {
                 this.answersDataGridView.Visible = false;
-
+                
                 clicked = true;
                 this.seeMoreLabel.Text = "Show answers";
             }
