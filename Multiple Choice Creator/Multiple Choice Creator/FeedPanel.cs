@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.Model;
 using System.Collections;
+using static Multiple_Choice_Creator.mltChoiceDataSet;
 
 namespace Multiple_Choice_Creator
 {
@@ -16,6 +17,7 @@ namespace Multiple_Choice_Creator
     {
         private bool clicked = true;
         private Question q;
+        private AnswDataTable answers;
         public FeedPanel(Color c, QuestionAnswer qa)
         {
             InitializeComponent();
@@ -28,9 +30,13 @@ namespace Multiple_Choice_Creator
 
         private void fillAnswers(QuestionAnswer answers)
         {
-            this.answersDataGridView.DataSource = answers.getAnswersDataTable();
-           
-            
+            this.answers = answers.getAnswersDataTable();
+            this.answers.Constraints.Clear();
+            this.answers.Columns.Remove("Id");
+            this.answers.Columns.Remove("questId");
+            this.answers.Columns.Remove("answId");
+            this.answers.Columns.Remove("Id1");
+            this.answersDataGridView.DataSource = this.answers;
         }
         private void setQuestion(string question)
         {

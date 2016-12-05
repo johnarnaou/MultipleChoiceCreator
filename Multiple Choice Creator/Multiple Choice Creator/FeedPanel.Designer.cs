@@ -106,9 +106,14 @@
             // 
             // answersDataGridView
             // 
+            this.answersDataGridView.AllowUserToAddRows = false;
+            this.answersDataGridView.AllowUserToDeleteRows = false;
+            this.answersDataGridView.AllowUserToResizeColumns = false;
+            this.answersDataGridView.AllowUserToResizeRows = false;
             this.answersDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.answersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.answersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.answersDataGridView.Location = new System.Drawing.Point(27, 38);
             this.answersDataGridView.Name = "answersDataGridView";
