@@ -13,7 +13,7 @@ namespace Multiple_Choice_Creator.Model
     {
         
         private Question quest;
-        private QuestAnswDataTable answers;
+        private AnswDataTable answers;
 
         public QuestionAnswer(Question quest)
         {
@@ -31,7 +31,7 @@ namespace Multiple_Choice_Creator.Model
             
         }
 
-        public void setAnswersDataTable(QuestAnswDataTable answers)
+        public void setAnswersDataTable(AnswDataTable answers)
         {
             this.answers = answers;
         }
@@ -41,7 +41,7 @@ namespace Multiple_Choice_Creator.Model
             return this.quest;
         }
 
-        public QuestAnswDataTable getAnswersDataTable()
+        public AnswDataTable getAnswersDataTable()
         {
             return this.answers;
         }

@@ -52,7 +52,7 @@ namespace Multiple_Choice_Creator
             Color c;
             Question q;
             DataTable data = qTableAdapter.GetDataByUserID(user.getUserID()), dataToAppend;
-            QuestAnswDataTable answers;
+            AnswDataTable answers;
             QuestionAnswer qa;
            
             
@@ -68,11 +68,10 @@ namespace Multiple_Choice_Creator
 
                 qa = new QuestionAnswer(q);
 
-                answers = new QuestAnswDataTable();
+                answers = new AnswDataTable();
 
+                aTableAdapter.FillAnswersByQuestionID(answers, q.getQuestionID());
                 
-                dataToAppend = new DataTable();
-                dataToAppend.Columns.Add(answers.);
                 qa.setAnswersDataTable(answers);
 
                 panel.Controls.Add(new FeedPanel(c,qa));
