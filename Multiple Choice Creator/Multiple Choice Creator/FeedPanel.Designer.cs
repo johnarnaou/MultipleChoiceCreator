@@ -38,10 +38,8 @@
             this.EditToolStrip = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.answersDataGridView = new System.Windows.Forms.DataGridView();
-            this.answersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.answersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // seeMoreLabel
@@ -111,9 +109,7 @@
             this.answersDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.answersDataGridView.AutoGenerateColumns = false;
             this.answersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.answersDataGridView.DataSource = this.answersBindingSource;
             this.answersDataGridView.Location = new System.Drawing.Point(27, 38);
             this.answersDataGridView.Name = "answersDataGridView";
             this.answersDataGridView.Size = new System.Drawing.Size(579, 120);
@@ -137,7 +133,6 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.answersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +148,5 @@
         private System.Windows.Forms.ToolStripButton EditToolStrip;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.DataGridView answersDataGridView;
-        private System.Windows.Forms.BindingSource answersBindingSource;
     }
 }

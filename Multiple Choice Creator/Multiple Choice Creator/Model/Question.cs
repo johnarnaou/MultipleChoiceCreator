@@ -11,7 +11,7 @@ namespace Multiple_Choice_Creator.Model
     {
         private string text;
         private char difficulty;
-        private int userId;
+        private int userId,id;
         private DateTime creationTime;
         private DateTime LastModifTime;
         private QuestTableAdapter adapter = new QuestTableAdapter();
@@ -27,6 +27,7 @@ namespace Multiple_Choice_Creator.Model
 
         public Question(int id)
         {
+            this.id = id;
             setText(adapter.getQuestionWithId(id));
         }
 
@@ -65,9 +66,14 @@ namespace Multiple_Choice_Creator.Model
             this.userId = id;
         }
 
-        public int getQuestionID()
+        public int getUserID()
         {
             return this.userId;
+        }
+
+        public int getQuestionID()
+        {
+            return this.id;
         }
     }
 }

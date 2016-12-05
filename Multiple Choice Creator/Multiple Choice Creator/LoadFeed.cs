@@ -52,8 +52,9 @@ namespace Multiple_Choice_Creator
             Color c;
             Question q;
             DataTable data = qTableAdapter.GetDataByUserID(user.getUserID());
-            QuestAnswDataTable answers = new QuestAnswDataTable();
+            QuestAnswDataTable answers;
             QuestionAnswer qa;
+            
             for (var i = 0; i < size; i++)
             {
                 if (i % 2 == 0)
@@ -62,10 +63,13 @@ namespace Multiple_Choice_Creator
                     c = Color.LightGray;
 
                 q = new Question((int)data.Rows[i][0]);
-
                 q.setUserID(user.getUserID());
 
                 qa = new QuestionAnswer(q);
+
+                Debug.WriteLine("TO ID EINAI: " + q.getQuestionID());
+
+                answers = new QuestAnswDataTable();
 
                 qaTableAdapter.fillByUserAnswers(answers, q.getQuestionID());
                 qa.setAnswersDataTable(answers);
@@ -73,6 +77,7 @@ namespace Multiple_Choice_Creator
                 panel.Controls.Add(new FeedPanel(c,qa));
 
             }
+
             toolbarload();
         }
 
