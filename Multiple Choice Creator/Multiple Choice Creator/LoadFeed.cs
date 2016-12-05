@@ -24,6 +24,8 @@ namespace Multiple_Choice_Creator
         User user;
         List<FeedPanel> myLayoutControls = new List<FeedPanel>();
         NoFeed noFeedControl;
+        Color c;
+
         int index = 0;
         public LoadFeed(Panel p, User user)
         {
@@ -68,7 +70,7 @@ namespace Multiple_Choice_Creator
             toolbarload();
         }
 
-        private void toolbarload()
+        public void toolbarload()
         {
             panel.Controls.Add(toolbar);
         }
@@ -96,6 +98,21 @@ namespace Multiple_Choice_Creator
             index++;
         }
 
+        public void fillSearch(DataTable data, int num)
+        {
+            controlsDispose();
+            for (int i = 0; i < num; i++)
+            {
+                if (i % 2 == 0)
+                    c = Color.LightBlue;
+                else
+                    c = Color.LightGray;
+
+                Debug.WriteLine("ADDED");
+                displaySearch((int)data.Rows[i][0], c);
+            }
+            toolbarload();
+        }
         private void displaySearch(int id, Color c)
         {
             Question q = new Question(id);
@@ -115,6 +132,7 @@ namespace Multiple_Choice_Creator
             panel.Controls.Add(myLayoutControls[index]);
 
             index++;
+
         }
 
         
@@ -130,12 +148,6 @@ namespace Multiple_Choice_Creator
         public void NoFeedControlDispose()
         {
             noFeedControl.Dispose();
-        }
-        public void search(int id, Color c)
-        {
-            controlsDispose();
-            displaySearch(id, c);
-            toolbarload();
         }
 
         public void controlsDispose()

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using Multiple_Choice_Creator.Model;
+using System.Diagnostics;
 
 namespace Multiple_Choice_Creator
 {
@@ -39,8 +40,6 @@ namespace Multiple_Choice_Creator
             QuestTableAdapter myAdapter = new QuestTableAdapter();
             DataTable data = myAdapter.getsearchQuestionByID("%" + keyword + "%");
 
-            Color c =  new Color();
-
             int num = (int)myAdapter.getNumberOfSearchResults("%" + keyword + "%");
 
             if (num == 0)
@@ -51,14 +50,7 @@ namespace Multiple_Choice_Creator
             else
             {
                 found = true;
-                for (int i = 0; i < num; i++)
-                {
-                    if (i % 2 == 0)
-                        c = Color.LightBlue;
-                    else
-                        c = Color.LightGray;
-                    feed.search((int)data.Rows[i][0], c);
-                }
+                feed.fillSearch(data, num);
             }
         }
 
