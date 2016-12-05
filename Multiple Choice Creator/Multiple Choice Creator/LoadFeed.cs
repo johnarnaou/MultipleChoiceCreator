@@ -25,18 +25,15 @@ namespace Multiple_Choice_Creator
         {
             this.user = user;
             panel = p;
-            load();
         }
+
         public void load()
         {
             Object a = qTableAdapter.getSize(user.getUserID());
             int k = Convert.ToInt32(a);
             if (k == 0)
             {
-                Label message = new Label();
-                NoFeed control = new NoFeed();
-                control.Dock = DockStyle.Top;
-                panel.Controls.Add(control);
+                NoFeed("No Questions...");
             }
             else if(k<50)
             {
@@ -59,7 +56,7 @@ namespace Multiple_Choice_Creator
                 else
                     c = Color.LightGray;
 
-                display((int)data.Rows[i][0],c);
+                displayUser((int)data.Rows[i][0],c);
             }
 
             toolbarload();
@@ -67,11 +64,11 @@ namespace Multiple_Choice_Creator
 
         private void toolbarload()
         {
-            toolbar = new FeedToolBar();
+            toolbar = new FeedToolBar(panel, user);
             panel.Controls.Add(toolbar);
         }
 
-        private void display(int id, Color c)
+        private void displayUser(int id, Color c)
         {
             Question q = new Question(id);
             AnswDataTable answers;
@@ -88,6 +85,39 @@ namespace Multiple_Choice_Creator
             qa.setAnswersDataTable(answers);
 
             panel.Controls.Add(new FeedPanel(c, qa));
+        }
+
+        private void displaySearch(int id, Color c)
+        {
+            Question q = new Question(id);
+            AnswDataTable answers;
+            QuestionAnswer qa;
+
+            qa = new QuestionAnswer(q);
+
+            answers = new AnswDataTable();
+
+            aTableAdapter.FillAnswersByQuestionID(answers, q.getQuestionID());
+
+            qa.setAnswersDataTable(answers);
+
+            panel.Controls.Add(new FeedPanel(c, qa));
+        }
+
+        
+        public void NoFeed(string text)
+        {
+            panel.Controls.Clear();
+            NoFeed control = new NoFeed(text);
+            control.Dock = DockStyle.Top;
+            panel.Controls.Add(control);
+            toolbarload();
+        }
+        public void search(int id, Color c)
+        {
+            panel.Controls.Clear();
+            displaySearch(id, c);
+            toolbarload();
         }
     }
 }

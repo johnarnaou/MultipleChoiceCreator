@@ -12,9 +12,10 @@ namespace Multiple_Choice_Creator
 {
     public partial class NoFeed : UserControl
     {
-        public NoFeed()
+        public NoFeed(string text)
         {
             InitializeComponent();
+            label1.Text = text;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Multiple_Choice_Creator
             InitializeComponent();
             splitContainer2.Panel2.AutoScroll = true;
             feed = new LoadFeed(splitContainer2.Panel2, user);
+            feed.load();
         }
 
         private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)

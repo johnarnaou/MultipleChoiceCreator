@@ -7,16 +7,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
+using Multiple_Choice_Creator.Model;
 
 namespace Multiple_Choice_Creator
 {
     public partial class FeedToolBar : UserControl
     {
-        public FeedToolBar()
+        LoadFeed feed;
+        Panel panel;
+        public FeedToolBar(Panel p, User user)
         {
             InitializeComponent();
             this.BringToFront();
             this.Dock = DockStyle.Top;
+            panel = p;
+            feed = new LoadFeed(panel, user);
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            HomeButton.Visible = true;
+
+            string keyword = searchTextBox.Text;
+            QuestTableAdapter myAdapter = new QuestTableAdapter();
+            DataTable data = myAdapter.getsearchQuestionByID("%" + keyword + "%");
+
+            Color c =  new Color();
+
+            int num = (int)myAdapter.getNumberOfSearchResults("%" + keyword + "%");
+
+            if (num == 0)
+            {
+                feed.NoFeed("Question not found using keyword: " + keyword);
+            }
+            else
+            {
+                for (int i = 0; i < num; i++)
+                {
+                    if (i % 2 == 0)
+                        c = Color.LightBlue;
+                    else
+                        c = Color.LightGray;
+                    feed.search((int)data.Rows[0][i], c);
+                }
+            }
+        }
+
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            panel.Controls.Clear();
+            feed.load();
+        }
+
+        private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                searchButton_Click(sender, e);
+
         }
     }
 }
