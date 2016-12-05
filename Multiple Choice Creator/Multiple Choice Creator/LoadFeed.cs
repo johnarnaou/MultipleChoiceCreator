@@ -54,8 +54,6 @@ namespace Multiple_Choice_Creator
             DataTable data = qTableAdapter.GetDataByUserID(user.getUserID()), dataToAppend;
             AnswDataTable answers;
             QuestionAnswer qa;
-           
-            
             for (var i = 0; i < size; i++)
             {
                 if (i % 2 == 0)
