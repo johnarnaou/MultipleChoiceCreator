@@ -1,6 +1,7 @@
 ﻿using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using Multiple_Choice_Creator.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -21,10 +22,15 @@ namespace Multiple_Choice_Creator
         QuestAnswTableAdapter qaTableAdapter = new QuestAnswTableAdapter();
         AnswTableAdapter aTableAdapter = new AnswTableAdapter();
         User user;
+        List<FeedPanel> myLayoutControls = new List<FeedPanel>();
+        NoFeed noFeedControl;
+        int index = 0;
         public LoadFeed(Panel p, User user)
         {
             this.user = user;
             panel = p;
+            toolbar = new FeedToolBar(panel, user);
+            toolbar.setFeed(this);
         }
 
         public void load()
@@ -64,7 +70,6 @@ namespace Multiple_Choice_Creator
 
         private void toolbarload()
         {
-            toolbar = new FeedToolBar(panel, user);
             panel.Controls.Add(toolbar);
         }
 
@@ -84,7 +89,11 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            panel.Controls.Add(new FeedPanel(c, qa));
+            myLayoutControls.Add(new FeedPanel(c, qa));
+
+            panel.Controls.Add(myLayoutControls[index]);
+
+            index++;
         }
 
         private void displaySearch(int id, Color c)
@@ -101,23 +110,43 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            panel.Controls.Add(new FeedPanel(c, qa));
+            myLayoutControls.Add(new FeedPanel(c, qa));
+            
+            panel.Controls.Add(myLayoutControls[index]);
+
+            index++;
         }
 
         
         public void NoFeed(string text)
         {
-            panel.Controls.Clear();
-            NoFeed control = new NoFeed(text);
-            control.Dock = DockStyle.Top;
-            panel.Controls.Add(control);
+            controlsDispose();
+            noFeedControl = new NoFeed(text);
+            noFeedControl.Dock = DockStyle.Top;
+            panel.Controls.Add(noFeedControl);
             toolbarload();
+        }
+
+        public void NoFeedControlDispose()
+        {
+            noFeedControl.Dispose();
         }
         public void search(int id, Color c)
         {
-            panel.Controls.Clear();
+            controlsDispose();
             displaySearch(id, c);
             toolbarload();
         }
+
+        public void controlsDispose()
+        {
+            for(int i=0; i<index; i++)
+            {
+                myLayoutControls[i].remove();
+            }
+            index = 0;
+            myLayoutControls = new List<FeedPanel>();
+        }
+
     }
 }

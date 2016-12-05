@@ -65,5 +65,10 @@ namespace Multiple_Choice_Creator
                 this.seeMoreLabel.Text = "Show answers";
             }
         }
+
+        public void remove()
+        {
+            this.Parent.Controls.Remove(this);
+        }
     }
 }
