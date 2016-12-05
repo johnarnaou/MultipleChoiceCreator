@@ -51,9 +51,10 @@ namespace Multiple_Choice_Creator
         {
             Color c;
             Question q;
-            DataTable data = qTableAdapter.GetDataByUserID(user.getUserID());
+            DataTable data = qTableAdapter.GetDataByUserID(user.getUserID()), dataToAppend;
             QuestAnswDataTable answers;
             QuestionAnswer qa;
+           
             
             for (var i = 0; i < size; i++)
             {
@@ -67,11 +68,11 @@ namespace Multiple_Choice_Creator
 
                 qa = new QuestionAnswer(q);
 
-                Debug.WriteLine("TO ID EINAI: " + q.getQuestionID());
-
                 answers = new QuestAnswDataTable();
 
-                qaTableAdapter.fillByUserAnswers(answers, q.getQuestionID());
+                
+                dataToAppend = new DataTable();
+                dataToAppend.Columns.Add(answers.);
                 qa.setAnswersDataTable(answers);
 
                 panel.Controls.Add(new FeedPanel(c,qa));

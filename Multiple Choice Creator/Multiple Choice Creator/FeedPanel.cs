@@ -24,12 +24,13 @@ namespace Multiple_Choice_Creator
             q = qa.getQuestion();
             setQuestion(q.getText());
             fillAnswers(qa);
-
         }
 
         private void fillAnswers(QuestionAnswer answers)
         {
             this.answersDataGridView.DataSource = answers.getAnswersDataTable();
+           
+            
         }
         private void setQuestion(string question)
         {
