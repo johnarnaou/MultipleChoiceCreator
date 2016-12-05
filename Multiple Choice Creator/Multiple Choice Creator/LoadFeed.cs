@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Multiple_Choice_Creator.mltChoiceDataSet;
 
 namespace Multiple_Choice_Creator
 {
@@ -66,13 +67,9 @@ namespace Multiple_Choice_Creator
                 qa = new QuestionAnswer(q);
                 answersID = qaTableAdapter.getAnswersID(q.getQuestionID());
                 int num = (int)qaTableAdapter.getNumberOfAnswers(q.getQuestionID());
-                for(var j=0; j<num; j++)
-                {
-                    answers = aTableAdapter.getDataByID((int)answersID.Rows[j][0]);
-                    a = new Answer((int)answers.Rows[j][0],(string)answers.Rows[j][1]);
-                    Debug.WriteLine((string)answers.Rows[j][1] + "\n");
-                    qa.addAnswArList(a);
-                }
+                QuestAnswDataTable k = new QuestAnswDataTable();
+                qaTableAdapter.fillByUserAnswers(k, q.getQuestionID());
+                qa.setAnswersDataTable(answers);
                 panel.Controls.Add(new FeedPanel(c,qa));
                 QuestAnswTableAdapter g = new QuestAnswTableAdapter();
                 DataTable d = g.getUserAnswers(3);

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Data;
+using static Multiple_Choice_Creator.mltChoiceDataSet;
 
 namespace Multiple_Choice_Creator.Model
 {
@@ -11,14 +13,12 @@ namespace Multiple_Choice_Creator.Model
     {
         
         private Question quest;
-        private Answer[] answArList;
-        private int index;
+        private QuestAnswDataTable answers;
 
         public QuestionAnswer(Question quest)
         {
             this.quest = quest;
-            index = 0;
-            answArList = new Answer[8];
+            
         }
 
         private void setQuestion(Question quest)
@@ -31,26 +31,19 @@ namespace Multiple_Choice_Creator.Model
             
         }
 
-        public void addAnswArList(Answer answ)
+        public void setAnswersDataTable(QuestAnswDataTable answers)
         {
-            if(index < 8)
-                this.answArList[index] = answ;
-            else
-                //error
-            index++;
+            this.answers = answers;
         }
-        public int getIndex()
-        {
-            return index;
-        }
+      
         public Question getQuestion()
         {
             return this.quest;
         }
 
-        public Answer[] getAnswArList()
+        public QuestAnswDataTable getAnswersDataTable()
         {
-            return this.answArList;
+            return this.answers;
         }
 
       

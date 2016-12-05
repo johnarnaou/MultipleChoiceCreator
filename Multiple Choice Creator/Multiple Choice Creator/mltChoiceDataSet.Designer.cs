@@ -4507,7 +4507,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual mltChoiceDataSet.AnswDataTable getDataByID(int Param) {
+        public virtual mltChoiceDataSet.AnswDataTable getAnswersByID(int Param) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param));
             mltChoiceDataSet.AnswDataTable dataTable = new mltChoiceDataSet.AnswDataTable();
@@ -5682,9 +5682,9 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        QA.Id, QA.questId, QA.answId, QA.correct\r\nFROM            QuestAnsw" +
-                " QA INNER JOIN\r\n                         Answ A ON A.Id = QA.answId\r\nWHERE      " +
-                "  (QA.questId = @questId)";
+            this._commandCollection[1].CommandText = "SELECT        QA.Id, QA.questId, QA.answId, QA.correct, A.answer\r\nFROM           " +
+                " QuestAnsw QA INNER JOIN\r\n                         Answ A ON A.Id = QA.answId\r\nW" +
+                "HERE        (QA.questId = @questId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@questId";

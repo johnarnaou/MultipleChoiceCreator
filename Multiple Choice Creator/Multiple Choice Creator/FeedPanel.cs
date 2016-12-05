@@ -16,7 +16,6 @@ namespace Multiple_Choice_Creator
     {
         private bool clicked = true;
         private Question q;
-        private Label ans;
         public FeedPanel(Color c, QuestionAnswer qa)
         {
             InitializeComponent();
@@ -24,16 +23,13 @@ namespace Multiple_Choice_Creator
             this.Dock = DockStyle.Top;
             q = qa.getQuestion();
             setQuestion(q.getText());
+            fillAnswers(qa);
 
         }
 
         private void fillAnswers(QuestionAnswer answers)
         {
-            Answer[] list = answers.getAnswArList();
-            for(int i=0; i<answers.getIndex(); i++)
-            {
-                this.label1.Text = list[i].getText();
-            }
+            this.answersDataGridView.DataSource = answers.getAnswersDataTable();
         }
         private void setQuestion(string question)
         {
@@ -49,28 +45,14 @@ namespace Multiple_Choice_Creator
         { 
             if (clicked)
             {
-                this.label1.Visible = true;
-                this.label2.Visible = true;
-                this.label3.Visible = true;
-                this.label4.Visible = true;
-                this.label5.Visible = true;
-                this.label6.Visible = true;
-                this.label7.Visible = true;
-                this.label8.Visible = true;
+                this.answersDataGridView.Visible = true;
 
                 clicked = false;
                 this.seeMoreLabel.Text = "Hide answers";
             }
             else
             {
-                this.label1.Visible = false;
-                this.label2.Visible = false;
-                this.label3.Visible = false;
-                this.label4.Visible = false;
-                this.label5.Visible = false;
-                this.label6.Visible = false;
-                this.label7.Visible = false;
-                this.label8.Visible = false;
+                this.answersDataGridView.Visible = false;
 
                 clicked = true;
                 this.seeMoreLabel.Text = "Show answers";

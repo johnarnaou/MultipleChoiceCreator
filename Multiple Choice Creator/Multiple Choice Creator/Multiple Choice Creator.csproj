@@ -118,6 +118,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>mltChoiceDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="mltChoiceDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mltChoiceDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\QuestionAnswer.cs" />
@@ -182,8 +187,8 @@
     </None>
     <None Include="mltChoiceDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>mltChoiceDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>mltChoiceDataSet1.Designer.cs</LastGenOutput>
     </None>
     <None Include="mltChoiceDataSet.xss">
       <DependentUpon>mltChoiceDataSet.xsd</DependentUpon>
