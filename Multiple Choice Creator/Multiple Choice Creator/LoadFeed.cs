@@ -53,7 +53,7 @@ namespace Multiple_Choice_Creator
             Question q;
             DataTable data = qTableAdapter.GetDataByUserID(user.getUserID());
             DataTable answersID;
-            DataTable answers;
+            QuestAnswDataTable answers = new QuestAnswDataTable();
             Answer a;
             QuestionAnswer qa;
             for (var i = 0; i < size; i++)
@@ -67,8 +67,7 @@ namespace Multiple_Choice_Creator
                 qa = new QuestionAnswer(q);
                 answersID = qaTableAdapter.getAnswersID(q.getQuestionID());
                 int num = (int)qaTableAdapter.getNumberOfAnswers(q.getQuestionID());
-                QuestAnswDataTable k = new QuestAnswDataTable();
-                qaTableAdapter.fillByUserAnswers(k, q.getQuestionID());
+                qaTableAdapter.fillByUserAnswers(answers, q.getQuestionID());
                 qa.setAnswersDataTable(answers);
                 panel.Controls.Add(new FeedPanel(c,qa));
                 QuestAnswTableAdapter g = new QuestAnswTableAdapter();
