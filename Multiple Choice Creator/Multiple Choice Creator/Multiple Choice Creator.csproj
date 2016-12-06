@@ -48,10 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.Entity.EF5, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.Entity.EF5.dll</HintPath>
@@ -65,7 +65,11 @@
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Fabric.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -102,11 +106,17 @@
     <Compile Include="Insert.Designer.cs">
       <DependentUpon>Insert.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadFeed.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mltChoiceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mltChoiceDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\Question.cs" />
@@ -116,10 +126,11 @@
     <Compile Include="Model\Topic.cs" />
     <Compile Include="Model\TopicQuest.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="multipleChoiceDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
+    <Compile Include="NoFeed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NoFeed.Designer.cs">
+      <DependentUpon>NoFeed.cs</DependentUpon>
     </Compile>
     <Compile Include="Persistence\DaoAnswer.cs" />
     <Compile Include="Persistence\DaoQuestion.cs" />
@@ -151,6 +162,9 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NoFeed.resx">
+      <DependentUpon>NoFeed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -163,16 +177,16 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="multipleChoiceDataSet.xsc">
-      <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
+    <None Include="mltChoiceDataSet.xsc">
+      <DependentUpon>mltChoiceDataSet.xsd</DependentUpon>
     </None>
-    <None Include="multipleChoiceDataSet.xsd">
+    <None Include="mltChoiceDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>multipleChoiceDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>mltChoiceDataSet1.Designer.cs</LastGenOutput>
     </None>
-    <None Include="multipleChoiceDataSet.xss">
-      <DependentUpon>multipleChoiceDataSet.xsd</DependentUpon>
+    <None Include="mltChoiceDataSet.xss">
+      <DependentUpon>mltChoiceDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -9,7 +9,7 @@ namespace Multiple_Choice_Creator.Model
     public class User
     {
         private string email, password, fName, lName;
-
+        private int id;
         public User(string email,string password,string fName,string lName)
         {
             this.email = email;
@@ -62,8 +62,15 @@ namespace Multiple_Choice_Creator.Model
             return this.password;
         }
 
+        public void setUserID(int id)
+        {
+            this.id = id;
+        }
 
-        
+        public int getUserID()
+        {
+            return this.id;
+        }
 
     }
 }

@@ -7,17 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Multiple_Choice_Creator.Model;
+using System.Collections;
+using static Multiple_Choice_Creator.mltChoiceDataSet;
 
 namespace Multiple_Choice_Creator
 {
     public partial class FeedPanel : UserControl
     {
-        bool clicked = true;
-        public FeedPanel(Color c)
+        private bool clicked = true;
+        private Question q;
+        private AnswDataTable answers;
+        public FeedPanel(Color c, QuestionAnswer qa)
         {
             InitializeComponent();
             this.BackColor = c;
             this.Dock = DockStyle.Top;
+            q = qa.getQuestion();
+            setQuestion(q.getText());
+            fillAnswers(qa);
+        }
+
+        private void fillAnswers(QuestionAnswer answers)
+        {
+            this.answers = answers.getAnswersDataTable();
+            this.answers.Constraints.Clear();
+            this.answers.Columns.Remove("Id");
+            this.answers.Columns.Remove("questId");
+            this.answers.Columns.Remove("answId");
+            this.answers.Columns.Remove("Id1");
+            this.answersDataGridView.DataSource = this.answers;
+        }
+        private void setQuestion(string question)
+        {
+            this.QuestionLabel.Text = question;
         }
 
         private void addCheckBox_MouseEnter(object sender, EventArgs e)
@@ -29,32 +52,23 @@ namespace Multiple_Choice_Creator
         { 
             if (clicked)
             {
-                this.label1.Visible = true;
-                this.label2.Visible = true;
-                this.label3.Visible = true;
-                this.label4.Visible = true;
-                this.label5.Visible = true;
-                this.label6.Visible = true;
-                this.label7.Visible = true;
-                this.label8.Visible = true;
+                this.answersDataGridView.Visible = true;
 
                 clicked = false;
                 this.seeMoreLabel.Text = "Hide answers";
             }
             else
             {
-                this.label1.Visible = false;
-                this.label2.Visible = false;
-                this.label3.Visible = false;
-                this.label4.Visible = false;
-                this.label5.Visible = false;
-                this.label6.Visible = false;
-                this.label7.Visible = false;
-                this.label8.Visible = false;
-
+                this.answersDataGridView.Visible = false;
+                
                 clicked = true;
                 this.seeMoreLabel.Text = "Show answers";
             }
+        }
+
+        public void remove()
+        {
+            this.Parent.Controls.Remove(this);
         }
     }
 }

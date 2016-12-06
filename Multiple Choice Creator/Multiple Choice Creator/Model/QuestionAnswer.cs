@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Data;
+using static Multiple_Choice_Creator.mltChoiceDataSet;
 
 namespace Multiple_Choice_Creator.Model
 {
@@ -11,12 +13,12 @@ namespace Multiple_Choice_Creator.Model
     {
         
         private Question quest;
-        private ArrayList answArList;
+        private AnswDataTable answers;
 
         public QuestionAnswer(Question quest)
         {
             this.quest = quest;
-            answArList = new ArrayList();
+            
         }
 
         private void setQuestion(Question quest)
@@ -24,19 +26,24 @@ namespace Multiple_Choice_Creator.Model
             this.quest = quest;
         }
 
-        private void addAnswArList(Answer answ)
+        private void fillAnswers(Question q)
         {
-            this.answArList.Add(answ);
+            
         }
 
-        private Question getQuestion()
+        public void setAnswersDataTable(AnswDataTable answers)
+        {
+            this.answers = answers;
+        }
+      
+        public Question getQuestion()
         {
             return this.quest;
         }
 
-        private ArrayList getAnswArList()
+        public AnswDataTable getAnswersDataTable()
         {
-            return this.answArList;
+            return this.answers;
         }
 
       

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Multiple_Choice_Creator.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,34 +13,18 @@ namespace Multiple_Choice_Creator
 {
     public partial class HomeScreen : Form
     {
-        FeedToolBar toolbar;
-        public HomeScreen()
+        LoadFeed feed;
+        public HomeScreen(User user)
         {
             InitializeComponent();
             splitContainer2.Panel2.AutoScroll = true;
-            fill();
-            toolbarload();
+            feed = new LoadFeed(splitContainer2.Panel2, user);
+            feed.load();
         }
 
-        //testing
-        private void fill()
+        private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Color c;
-            for (var i=0; i<5; i++)
-            {
-                if (i % 2 == 0)
-                    c = Color.LightBlue;
-                else
-                    c = Color.LightGray;
-                this.splitContainer2.Panel2.Controls.Add(new FeedPanel(c));
-            }
+            Application.Exit();
         }
-
-        private void toolbarload()
-        {
-            toolbar = new FeedToolBar();
-            this.splitContainer2.Panel2.Controls.Add(toolbar);
-        }
-
     }
 }

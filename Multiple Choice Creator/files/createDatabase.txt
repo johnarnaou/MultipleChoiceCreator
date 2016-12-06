@@ -3,14 +3,14 @@ create table Quest
 Id int not null auto_increment,
 question varchar(255),
 primary key(Id)
-)
+);
 
 create table Answ
 (
 Id int not null auto_increment,
 answer varchar(255),
 primary key(Id)
-)
+);
 
 create table QuestAnsw
 (
@@ -20,7 +20,7 @@ answId int,
 primary key(Id),
 foreign key (questId) references Quest(Id),
 foreign key (answId) references Answ(Id)
-)
+);
 
 create table Topic
 (
@@ -29,7 +29,7 @@ name varchar(255),
 description varchar(255),
 parent int,
 primary key(Id)
-)
+);
 
 create table TopicQuest
 (
@@ -39,7 +39,7 @@ topicId int,
 primary key(Id),
 foreign key (questId) references Quest(Id),
 foreign key (topicId) references Topic(Id)
-)
+);
 
 create table Tag
 (
@@ -48,7 +48,7 @@ tagname varchar(255),
 userId int,
 primary key(Id),
 foreign key (userId) references Users(Id)
-)
+);
 
 create table TagQuest
 (
@@ -58,7 +58,7 @@ questId int,
 primary key(Id),
 foreign key (tagId) references Tag(Id),
 foreign key (questId) references Quest(Id)
-)
+);
 
 create table Users
 (

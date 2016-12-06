@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.CreateNewTestLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -42,7 +43,6 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.CreateNewTestLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,6 +78,18 @@
             this.splitContainer1.Size = new System.Drawing.Size(1082, 626);
             this.splitContainer1.SplitterDistance = 231;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // CreateNewTestLabel
+            // 
+            this.CreateNewTestLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CreateNewTestLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.CreateNewTestLabel.Location = new System.Drawing.Point(59, 12);
+            this.CreateNewTestLabel.Name = "CreateNewTestLabel";
+            this.CreateNewTestLabel.Size = new System.Drawing.Size(100, 23);
+            this.CreateNewTestLabel.TabIndex = 6;
+            this.CreateNewTestLabel.Text = "Create New Test";
+            this.CreateNewTestLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -215,18 +227,6 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // CreateNewTestLabel
-            // 
-            this.CreateNewTestLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CreateNewTestLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.CreateNewTestLabel.Location = new System.Drawing.Point(59, 12);
-            this.CreateNewTestLabel.Name = "CreateNewTestLabel";
-            this.CreateNewTestLabel.Size = new System.Drawing.Size(100, 23);
-            this.CreateNewTestLabel.TabIndex = 6;
-            this.CreateNewTestLabel.Text = "Create New Test";
-            this.CreateNewTestLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +236,7 @@
             this.Name = "HomeScreen";
             this.Text = "HomeScreen";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomeScreen_FormClosed);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

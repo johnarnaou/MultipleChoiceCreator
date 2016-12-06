@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,11 @@ namespace Multiple_Choice_Creator.Model
     {
         private string text;
         private char difficulty;
-        private int userId;
+        private int userId,id;
         private DateTime creationTime;
         private DateTime LastModifTime;
+        private QuestTableAdapter adapter = new QuestTableAdapter();
+        private QuestionAnswer qa;
 
         public Question(string text,char difficulty,int userId)
         {
@@ -20,6 +23,12 @@ namespace Multiple_Choice_Creator.Model
             this.difficulty = difficulty;
             this.userId = userId;
             creationTime = DateTime.Now;
+        }
+
+        public Question(int id)
+        {
+            this.id = id;
+            setText(adapter.getQuestionWithId(id));
         }
 
         private void setText(string text)
@@ -37,7 +46,7 @@ namespace Multiple_Choice_Creator.Model
             this.LastModifTime = LastModifTime;
         }
 
-        private string getText()
+        public string getText()
         {
             return this.text;
         }
@@ -50,6 +59,21 @@ namespace Multiple_Choice_Creator.Model
         private DateTime getCreationTime()
         {
             return this.creationTime;
+        }
+
+        public void setUserID(int id)
+        {
+            this.userId = id;
+        }
+
+        public int getUserID()
+        {
+            return this.userId;
+        }
+
+        public int getQuestionID()
+        {
+            return this.id;
         }
     }
 }
