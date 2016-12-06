@@ -7872,24 +7872,11 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection()
         {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `Id`, `name`, `description`, `parent` FROM `Topic`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        T.Id, T.name, T.description\r\nFROM            Topic T INNER JOIN\r\n  " +
-                "                       TopicQuest TQ ON T.Id = TQ.Id\r\nWHERE        (TQ.questId =" +
-                " @questId)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@questId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "questId";
-            this._commandCollection[1].Parameters.Add(param);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7914,49 +7901,6 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         public virtual mltChoiceDataSet.TopicDataTable GetData()
         {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            mltChoiceDataSet.TopicDataTable dataTable = new mltChoiceDataSet.TopicDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int fillByQuestionTopics(mltChoiceDataSet.TopicDataTable dataTable, global::System.Nullable<int> questId)
-        {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((questId.HasValue == true))
-            {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(questId.Value));
-            }
-            else
-            {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true))
-            {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual mltChoiceDataSet.TopicDataTable getQuestionTopics(global::System.Nullable<int> questId)
-        {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((questId.HasValue == true))
-            {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(questId.Value));
-            }
-            else
-            {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
             mltChoiceDataSet.TopicDataTable dataTable = new mltChoiceDataSet.TopicDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8479,11 +8423,36 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection()
         {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `Id`, `questId`, `topicId` FROM `TopicQuest`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        COUNT(topicId) AS Expr1\r\nFROM            TopicQuest TQ\r\nWHERE      " +
+                "  (questId = @paramquestId)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@paramquestId";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "questId";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        t.name, t.description, t.parent\r\nFROM            TopicQuest tq INNE" +
+                "R JOIN\r\n                         Topic t ON t.Id = tq.topicId\r\nWHERE        (tq." +
+                "questId = @paramquestid)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@paramquestid";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "questId";
+            this._commandCollection[2].Parameters.Add(param);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8508,6 +8477,92 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         public virtual mltChoiceDataSet.TopicQuestDataTable GetData()
         {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            mltChoiceDataSet.TopicQuestDataTable dataTable = new mltChoiceDataSet.TopicQuestDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int fillByCountTopicsQ(mltChoiceDataSet.TopicQuestDataTable dataTable, global::System.Nullable<int> paramquestId)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((paramquestId.HasValue == true))
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(paramquestId.Value));
+            }
+            else
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true))
+            {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual mltChoiceDataSet.TopicQuestDataTable getCountTopicsQ(global::System.Nullable<int> paramquestId)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((paramquestId.HasValue == true))
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(paramquestId.Value));
+            }
+            else
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            mltChoiceDataSet.TopicQuestDataTable dataTable = new mltChoiceDataSet.TopicQuestDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int fillByTopicsQ(mltChoiceDataSet.TopicQuestDataTable dataTable, global::System.Nullable<int> paramquestid)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((paramquestid.HasValue == true))
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(paramquestid.Value));
+            }
+            else
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true))
+            {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual mltChoiceDataSet.TopicQuestDataTable getTopicsQ(global::System.Nullable<int> paramquestid)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((paramquestid.HasValue == true))
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(paramquestid.Value));
+            }
+            else
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             mltChoiceDataSet.TopicQuestDataTable dataTable = new mltChoiceDataSet.TopicQuestDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
