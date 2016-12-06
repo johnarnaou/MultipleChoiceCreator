@@ -17,7 +17,7 @@ namespace Multiple_Choice_Creator
     {
         LoadFeed feed;
         Panel panel;
-        bool found;
+        bool found, noFeedWasLoaded;
         public FeedToolBar(Panel p, User user)
         {
             InitializeComponent();
@@ -34,6 +34,11 @@ namespace Multiple_Choice_Creator
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            if (noFeedWasLoaded)
+            {
+                feed.NoFeedControlDispose();
+                noFeedWasLoaded = false;
+            }
             HomeButton.Visible = true;
 
             string keyword = searchTextBox.Text;
@@ -56,9 +61,9 @@ namespace Multiple_Choice_Creator
 
         }
 
-        public void setFound(bool found)
+        public void setNoFeedWasLoaded(bool noFeedWasLoaded)
         {
-            this.found = found;
+            this.noFeedWasLoaded = noFeedWasLoaded;
         }
         private void HomeButton_Click(object sender, EventArgs e)
         {

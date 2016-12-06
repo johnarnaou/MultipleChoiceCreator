@@ -42,6 +42,8 @@ namespace Multiple_Choice_Creator
             if (k == 0)
             {
                 NoFeed("No Questions...");
+                toolbar.setNoFeedWasLoaded(true);
+                toolbar.Enabled = false;
             }
             else if(k<50)
             {
@@ -56,7 +58,7 @@ namespace Multiple_Choice_Creator
         {
             Color c;
             DataTable data = qTableAdapter.GetDataByUserID(user.getUserID());
-
+            toolbar.Enabled = true;
             for (var i = 0; i < size; i++)
             {
                 if (i % 2 == 0)
