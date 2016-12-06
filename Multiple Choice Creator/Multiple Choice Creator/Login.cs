@@ -41,21 +41,28 @@ namespace Multiple_Choice_Creator
             DaoMysql dbOb = new DaoMysql();
             User user = new User(mail, password);
             DaoUsers dUser=DaoUsers.getInstance();
+            DaoMysql dmsql=new DaoMysql();
             if (dUser.login(user))
             {
-                if (mainForm == null)
+                if (dmsql.isVerified())
                 {
-                    mainForm = new HomeScreen();
-                    mainForm.StartPosition = FormStartPosition.CenterScreen;//isws na mhn xreiazetai
-                    mainForm.Show();
-                    //na aferw to log in kai register apo to menu toy xrhsth??
+                    if (mainForm == null)
+                    {
+                        mainForm = new HomeScreen();
+                        mainForm.StartPosition = FormStartPosition.CenterScreen;//isws na mhn xreiazetai
+                        mainForm.Show();
+                        //na aferw to log in kai register apo to menu toy xrhsth??
 
-                }
-                else
+                    }
+                    else
+                    {
+                        mainForm.Focus();
+                    }
+                    this.Hide();
+                }else
                 {
-                    mainForm.Focus();
+                    //show verify form
                 }
-                this.Hide();
 
 
             }
