@@ -57,7 +57,7 @@ namespace Multiple_Choice_Creator
                     if (dmsql.register(firstName, lastName, email, password))
                     {
                         //tha grapsoume kai ton kwdika pou tha ton exei hdh kanei log in sto programma kai tha emfanizontai kapou ta stoixeia toy
-                        mainForm = new HomeScreen();
+                        mainForm = new HomeScreen(user);
                         mainForm.StartPosition = FormStartPosition.CenterScreen;
                         mainForm.Show();
                         this.Close();
