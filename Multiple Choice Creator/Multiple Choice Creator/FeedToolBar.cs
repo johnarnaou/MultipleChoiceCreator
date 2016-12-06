@@ -34,9 +34,6 @@ namespace Multiple_Choice_Creator
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if (!found)
-                feed.NoFeedControlDispose();
-
             HomeButton.Visible = true;
 
             string keyword = searchTextBox.Text;

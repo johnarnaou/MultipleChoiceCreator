@@ -42,7 +42,6 @@ namespace Multiple_Choice_Creator
             if (k == 0)
             {
                 NoFeed("No Questions...");
-                toolbar.setFound(false);
             }
             else if(k<50)
             {
