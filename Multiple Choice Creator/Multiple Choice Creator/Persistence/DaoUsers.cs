@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Multiple_Choice_Creator.Model;
 using MySql.Data.MySqlClient;
-using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
+using System.Net.Mail;
+using System.Net;
 
 namespace Multiple_Choice_Creator.Persistence
 {
@@ -42,10 +43,11 @@ namespace Multiple_Choice_Creator.Persistence
         {//an den dumbei kanena exception tote elegxoume an mas epestrepse count=1 to query mas
          //praktika elegxoume an yparxei enas user me email=user.getEmail() kai password=user.getPassword()
          //an uparxei tote to query mas tha mas epistrepsei 1 
-
+            sendMail(user);
             open();//open a new connection
             int logged=0;
             try {
+                
                 string query = "select count(*) from Users where Email=@email and Password=md5(@passwd)";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
@@ -53,6 +55,7 @@ namespace Multiple_Choice_Creator.Persistence
                 cmd.Parameters.AddWithValue("@passwd", user.getPassword());
                 Object count = cmd.ExecuteScalar();
                 logged = Convert.ToInt32(count);
+                Console.WriteLine("logged= "+logged);
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -60,14 +63,12 @@ namespace Multiple_Choice_Creator.Persistence
             }
             if (logged == 1)
             {
-                UsersTableAdapter uTableAdapter = new UsersTableAdapter();
-                user.setUserID((int)uTableAdapter.getUserID(user.getEmail()));
                 return true;
             }
             return false;
         }
 
-        public Boolean register(String name, String last, String mail, String password)
+        public Boolean register(User user)
         {
             try
             {
@@ -75,8 +76,8 @@ namespace Multiple_Choice_Creator.Persistence
                 conn.ConnectionString = myConnectionString;
                 conn.Open();
                 //Tha xrhsimopoihsoume md5 kruptografish kai apokruptografish
-                string query = "INSERT INTO User (Email,Password,Fname,Lname) VALUES ('" + mail + "',md5('" + password + "'),'" + name + "','" + last + "')";
-                string queryCheck = "Select Email from User";
+                string query = "INSERT INTO Users (Email,Password,Fname,Lname) VALUES ('" + user.getEmail()+ "',md5('" + user.getPassword() + "'),'" + user.getFname() + "','" + user.getLname() + "')";
+                string queryCheck = "Select Email from Users";
                 MySqlCommand cmd2 = new MySqlCommand(queryCheck, conn);
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader mdr = cmd.ExecuteReader();
@@ -89,7 +90,53 @@ namespace Multiple_Choice_Creator.Persistence
             return true;
         }
 
+
+        //This method is to create a 8 digit random text for the mail verification
+        private static Random random = new Random();
+        public static string RandomString()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            return new string(Enumerable.Repeat(chars, 8)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        //This method is to send mail to the user for the mail verification
+        public string sendMail(User user)
+        {
+            MailMessage msg = new MailMessage();
+
+            msg.From = new MailAddress("multiplechoiceteamteithe@gmail.com");
+            msg.To.Add(user.getEmail());
+            msg.Subject = "Multiple Choise Team Mail Verification" + DateTime.Now.ToString();
+            string text = RandomString();
+            msg.Body = "Welcome "+user.getFname()+" +Verification Code: '" + text + "'";
+            SmtpClient client = new SmtpClient();
+            client.UseDefaultCredentials = true;
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("multiplechoiceteamteithe@gmail.com", "123456789Multiple");
+            client.Timeout = 20000;
+            try
+            {
+                client.Send(msg);
+                //Uplode to the table for the verification codes the data
+                //tha prepei na exei perastei to user kai to munima na einai kati se fash Welcome user.getName() bla bla 
+                return "Mail has been successfully sent!";
+            }
+            catch (Exception ex)
+            {
+                return "Fail Has error" + ex.Message;
+            }
+            finally
+            {
+                msg.Dispose();
+            }
+        }
+
     }//end of class DaoUsers
 
-    }//end of added namespace
+}//end of added namespace
 

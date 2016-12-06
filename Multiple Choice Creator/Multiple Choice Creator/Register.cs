@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.Persistence;
 using Multiple_Choice_Creator.Model;
-using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 
 namespace Multiple_Choice_Creator
 {
@@ -50,23 +49,40 @@ namespace Multiple_Choice_Creator
             String password = textBox4.Text;
             if (firstName != "" && lastName != "" && email != "" && password != "")
             {
-                User user = new User(email, password, firstName, lastName);
-                markUnWritten(firstName, lastName, email, password);
-                DaoMysql dbOb=new DaoMysql();
-                if (dbOb.register(firstName, lastName, email, password))
+                if (IsValidEmail(email)) { 
+                    User user = new User(email, password, firstName, lastName);
+                    markUnWritten(firstName, lastName, email, password);
+                    DaoUsers dUser = DaoUsers.getInstance();
+                    DaoMysql dmsql = new DaoMysql();
+                    if (dmsql.register(firstName, lastName, email, password))
+                    {
+                        //tha grapsoume kai ton kwdika pou tha ton exei hdh kanei log in sto programma kai tha emfanizontai kapou ta stoixeia toy
+                        mainForm = new HomeScreen(user);
+                        mainForm.StartPosition = FormStartPosition.CenterScreen;
+                        mainForm.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        //Se periptwsh pou gia opoiodhpote logo den mporesei na kanei register
+                        DialogResult dr = MessageBox.Show("Error on Registration", "Close");
+                    }
+                }else
                 {
-                    //tha grapsoume kai ton kwdika pou tha ton exei hdh kanei log in sto programma kai tha emfanizontai kapou ta stoixeia toy
-                    UsersTableAdapter uTableAdapter = new UsersTableAdapter();
-                    user.setUserID((int)uTableAdapter.getUserID(user.getEmail()));
-                    mainForm = new HomeScreen(user);
-                    mainForm.StartPosition = FormStartPosition.CenterScreen;
-                    mainForm.Show();
-                    this.Close();
+                    DialogResult dr = MessageBox.Show("Mail Not Valid!", "Close");
                 }
-                else {
-                    //Se periptwsh pou gia opoiodhpote logo den mporesei na kanei register
-                    DialogResult dr = MessageBox.Show("Error on Registration", "Close");
-                }
+            }
+        }
+        bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
             }
         }
 
@@ -103,13 +119,6 @@ namespace Multiple_Choice_Creator
                 label9.Text = "";
             }
             Refresh();
-        }
-
-        private void Register_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Login form = new Login();
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.Show();
         }
     }
 }

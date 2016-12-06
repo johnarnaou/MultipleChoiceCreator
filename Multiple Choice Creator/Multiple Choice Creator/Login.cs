@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.Persistence;
 using Multiple_Choice_Creator.Model;
+using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
+
 namespace Multiple_Choice_Creator
 {
     public partial class Login : Form
@@ -41,6 +43,8 @@ namespace Multiple_Choice_Creator
             DaoMysql dbOb = new DaoMysql();
             User user = new User(mail, password);
             DaoUsers dUser=DaoUsers.getInstance();
+            UsersTableAdapter uAdapter = new UsersTableAdapter();
+            user.setUserID((int)uAdapter.getUserID(mail));
             if (dUser.login(user))
             {
                 if (mainForm == null)
