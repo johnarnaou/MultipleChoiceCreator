@@ -69,3 +69,13 @@ Fname varchar(50),
 Lname varchar(50),
 Primary key(Id)
 );
+
+create table ACK
+(
+Id int not null auto_increment,
+ackNum int,
+userId int,
+status boolean,
+primary key (Id),
+foreign key (userId) references Users(Id)
+);
