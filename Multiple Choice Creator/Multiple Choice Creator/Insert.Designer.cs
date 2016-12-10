@@ -38,6 +38,7 @@
             this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CorrectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.diffLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -48,7 +49,11 @@
             this.trackBar1.Location = new System.Drawing.Point(349, 229);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(237, 45);
+            this.trackBar1.SmallChange = 5;
             this.trackBar1.TabIndex = 11;
+            this.trackBar1.TickFrequency = 5;
+            this.trackBar1.Value = 1;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // groupBox1
             // 
@@ -132,10 +137,20 @@
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "Write a question";
             // 
+            // diffLabel
+            // 
+            this.diffLabel.AutoSize = true;
+            this.diffLabel.Location = new System.Drawing.Point(451, 261);
+            this.diffLabel.Name = "diffLabel";
+            this.diffLabel.Size = new System.Drawing.Size(30, 13);
+            this.diffLabel.TabIndex = 12;
+            this.diffLabel.Text = "Easy";
+            // 
             // Insert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.diffLabel);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -165,5 +180,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CorrectCheck;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label diffLabel;
     }
 }
