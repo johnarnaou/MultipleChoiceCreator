@@ -13,7 +13,8 @@ namespace Multiple_Choice_Creator
         Panel panel;
         User user;
         Insert management;
-        public Manage(User user, Panel panel) {
+        public Manage(User user, Panel panel)
+        {
             this.user = user;
             this.management = new Insert(user);
             this.panel = panel;
