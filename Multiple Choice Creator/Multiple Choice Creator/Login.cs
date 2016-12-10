@@ -20,11 +20,24 @@ namespace Multiple_Choice_Creator
         public Login()
         {
             InitializeComponent();
-
+            setUserDataToForm();
             /*Edw tha elegxoume an o xrhsths exei stored username h password etsi wste na ta exoyme san text sth forma an exei*/
             //signUp = new Login();
         }
-
+        //this method is to load to the login forom the data if the user has saved his preferences for username or password
+        private void setUserDataToForm()
+        {
+            if (Properties.Settings.Default.userName != null)
+            {
+                textBox1.Text = (string)Properties.Settings.Default.userName;
+                checkBox1.Checked=true;
+            }
+            if (Properties.Settings.Default.passUser != null)
+            {
+                textBox2.Text = (string)Properties.Settings.Default.passUser;
+                checkBox2.Checked = true;
+            }
+        }
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Application.Form.ShowDialog(new StartPageVdiamant());
@@ -59,6 +72,7 @@ namespace Multiple_Choice_Creator
                 {
                     mainForm.Focus();
                 }
+                setDefaultsUnamePworld();
                 this.Hide();
 
 
@@ -78,6 +92,21 @@ namespace Multiple_Choice_Creator
 
         }
 
+        //this method is to save tho the properties settings the username and the password if the user checked the boxs
+        private void setDefaultsUnamePworld()
+        {
+            if (checkBox1.Checked)
+            {
+                Properties.Settings.Default.userName = textBox1.Text;
+            }
+            if (checkBox2.Checked)
+            {
+                Properties.Settings.Default.passUser = textBox2.Text;
+            }
+
+            Properties.Settings.Default.Save();
+
+        }
 
         //kakh methodos thelei douleia
         private void checkeUP(string username, string password)
