@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Multiple_Choice_Creator.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace Multiple_Choice_Creator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Login form = new Login();
+            User temp = new User("johnarnaou@gmail.com", "123");
+            temp.setUserID(5);
+            HomeScreen form = new HomeScreen(temp);
             form.StartPosition = FormStartPosition.CenterScreen;
             Application.Run(form);
             
