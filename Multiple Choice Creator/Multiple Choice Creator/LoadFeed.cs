@@ -193,6 +193,8 @@ namespace Multiple_Choice_Creator
 
             panel.Controls.Add(myLayoutControls[index]);
 
+            toolbar.Dock = DockStyle.Top;
+
             index++;
         }
 
