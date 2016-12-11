@@ -104,21 +104,9 @@ namespace Multiple_Choice_Creator.Persistence
         public string sendMail(User user)
         {
             MailMessage msg = new MailMessage();
-
-            msg.From = new MailAddress("multiplechoiceteamteithe@gmail.com");
-            msg.To.Add(user.getEmail());
-            msg.Subject = "Multiple Choise Team Mail Verification" + DateTime.Now.ToString();
-            string text = RandomString();
-            msg.Body = "Welcome "+user.getFname()+" +Verification Code: '" + text + "'";
+            msg=addMailParameters(msg,user);
             SmtpClient client = new SmtpClient();
-            client.UseDefaultCredentials = true;
-            client.Host = "smtp.gmail.com";
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("multiplechoiceteamteithe@gmail.com", "123456789Multiple");
-            client.Timeout = 20000;
+            client = addClientParameters(client);
             try
             {
                 client.Send(msg);
@@ -135,6 +123,58 @@ namespace Multiple_Choice_Creator.Persistence
                 msg.Dispose();
             }
         }
+
+        //this method is to add parameters to the mail 
+        private MailMessage addMailParameters(MailMessage msg, User user)
+        {
+            msg.From = new MailAddress("multiplechoiceteamteithe@gmail.com");
+            msg.To.Add(user.getEmail());
+            msg.Subject = "Multiple Choise Team Mail Verification" + DateTime.Now.ToString();
+            string verificationCode = RandomString();
+            msg.Body = "Welcome " + user.getFname() + " Verification Code: '" + verificationCode + "'";
+            //Edw tha kaleite h methodos gia na ginete to insert toy id tou xrhsth kai to verification code sto ACK
+            return msg;
+        }
+        
+        //this method is to add parameters to the Client of the mail
+        private SmtpClient addClientParameters(SmtpClient client)
+        {
+            client.UseDefaultCredentials = true;
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("multiplechoiceteamteithe@gmail.com", "123456789Multiple");
+            client.Timeout = 20000;
+            return client;
+
+        }
+
+        //This method is to check on login if the user has verified his mail
+        public bool checkIfVerified(User user)
+        {
+            
+                open();//open a new connection
+                bool result = false;
+                try
+                {
+
+                    string query = "";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
+                    //cmd.Parameters.AddWithValue("@email", user.getEmail());//opou sunantame @email bazoume to email tou user pou paei na kanei login
+                    result = (bool)cmd.ExecuteScalar();
+                    Console.WriteLine("Result= " + result);
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            return result;
+        }
+
+        
 
     }//end of class DaoUsers
 
