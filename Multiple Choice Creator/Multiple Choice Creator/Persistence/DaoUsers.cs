@@ -163,7 +163,7 @@ namespace Multiple_Choice_Creator.Persistence
                     string query = "";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
-                    //cmd.Parameters.AddWithValue("@email", user.getEmail());//opou sunantame @email bazoume to email tou user pou paei na kanei login
+                   
                     result = (bool)cmd.ExecuteScalar();
                     Console.WriteLine("Result= " + result);
                 }
@@ -174,6 +174,24 @@ namespace Multiple_Choice_Creator.Persistence
             return result;
         }
 
+        public void insertVerificationCode(string userID,string verificationCode)
+        {
+            open();//open a new connection
+            try
+            {
+
+                string query = "";//To query gia to insert sto ACK
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
+                              
+                cmd.ExecuteScalar();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
         
 
     }//end of class DaoUsers
