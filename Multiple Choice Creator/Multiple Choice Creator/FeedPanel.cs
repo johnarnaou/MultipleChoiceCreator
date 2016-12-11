@@ -17,14 +17,17 @@ namespace Multiple_Choice_Creator
     {
         private Question q;
         private AnswDataTable answers;
-        public FeedPanel(Color c, QuestionAnswer qa)
+        private bool shrinkMode;
+        public FeedPanel(Color c, QuestionAnswer qa, bool shrinkMode)
         {
             InitializeComponent();
+            this.shrinkMode = shrinkMode;
             this.BackColor = c;
             this.Dock = DockStyle.Top;
             q = qa.getQuestion();
             setQuestion(q.getText());
             fillAnswers(qa);
+           
         }
 
         private void fillAnswers(QuestionAnswer answers)
@@ -36,6 +39,11 @@ namespace Multiple_Choice_Creator
             this.answers.Columns.Remove("answId");
             this.answers.Columns.Remove("Id1");
             this.answersDataGridView.DataSource = this.answers;
+            if (shrinkMode)
+            {
+                answersDataGridView.Visible = false;
+                this.Height = toolStrip1.Height;
+            }
         }
         private void setQuestion(string question)
         {

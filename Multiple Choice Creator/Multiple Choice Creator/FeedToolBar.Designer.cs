@@ -34,6 +34,8 @@
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.searchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.HomeButton = new System.Windows.Forms.ToolStripButton();
+            this.ShrinkButton = new System.Windows.Forms.ToolStripButton();
+            this.ExpandButton = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +55,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.searchButton,
             this.searchTextBox,
-            this.HomeButton});
+            this.HomeButton,
+            this.ShrinkButton,
+            this.ExpandButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(398, 25);
@@ -89,6 +93,27 @@
             this.HomeButton.Text = "Home";
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
+            // ShrinkButton
+            // 
+            this.ShrinkButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ShrinkButton.Image = ((System.Drawing.Image)(resources.GetObject("ShrinkButton.Image")));
+            this.ShrinkButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ShrinkButton.Name = "ShrinkButton";
+            this.ShrinkButton.Size = new System.Drawing.Size(23, 22);
+            this.ShrinkButton.Text = "Shrink";
+            this.ShrinkButton.Click += new System.EventHandler(this.ShrinkButton_Click);
+            // 
+            // ExpandButton
+            // 
+            this.ExpandButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ExpandButton.Image = ((System.Drawing.Image)(resources.GetObject("ExpandButton.Image")));
+            this.ExpandButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ExpandButton.Name = "ExpandButton";
+            this.ExpandButton.Size = new System.Drawing.Size(23, 22);
+            this.ExpandButton.Text = "Expand";
+            this.ExpandButton.Visible = false;
+            this.ExpandButton.Click += new System.EventHandler(this.ExpandButton_Click);
+            // 
             // FeedToolBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,5 +137,7 @@
         private System.Windows.Forms.ToolStripButton searchButton;
         private System.Windows.Forms.ToolStripTextBox searchTextBox;
         private System.Windows.Forms.ToolStripButton HomeButton;
+        private System.Windows.Forms.ToolStripButton ShrinkButton;
+        private System.Windows.Forms.ToolStripButton ExpandButton;
     }
 }

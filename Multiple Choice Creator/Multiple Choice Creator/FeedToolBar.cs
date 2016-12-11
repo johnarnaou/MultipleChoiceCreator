@@ -17,7 +17,7 @@ namespace Multiple_Choice_Creator
     {
         LoadFeed feed;
         Panel panel;
-        bool found, noFeedWasLoaded;
+        bool found, noFeedWasLoaded, shrinkMode = false;
         public FeedToolBar(Panel p, User user)
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace Multiple_Choice_Creator
                 noFeedWasLoaded = false;
             }
             HomeButton.Visible = true;
-
+            ShrinkButton.Visible = false;
             string keyword = searchTextBox.Text;
             QuestTableAdapter myAdapter = new QuestTableAdapter();
             DataTable data = myAdapter.getsearchQuestionByID("%" + keyword + "%");
@@ -51,6 +51,7 @@ namespace Multiple_Choice_Creator
             {
                 feed.NoFeed("Question not found using keyword: " + keyword);
                 found = false;
+                ShrinkButton.Visible = false;
             }
             else
             {
@@ -73,7 +74,33 @@ namespace Multiple_Choice_Creator
                 feed.NoFeedControlDispose();
             feed.load();
             HomeButton.Visible = false;
+            ShrinkButton.Visible = true;
             this.searchTextBox.Text = "";
+        }
+
+        private void ExpandButton_Click(object sender, EventArgs e)
+        {
+            ShrinkButton_Click(sender, e);
+        }
+
+        private void ShrinkButton_Click(object sender, EventArgs e)
+        {
+            if (shrinkMode)
+            {
+                shrinkMode = false;
+                ShrinkButton.Visible = true;
+                ExpandButton.Visible = false;
+            }
+            else
+            {
+                shrinkMode = true;
+                ExpandButton.Visible = true;
+                ShrinkButton.Visible = false;
+            }
+
+            feed.setShrinkMode(shrinkMode);
+            feed.controlsDispose();
+            feed.load();
         }
 
         private void searchTextBox_KeyDown(object sender, KeyEventArgs e)

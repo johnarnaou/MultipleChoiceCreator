@@ -32,14 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedPanel));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.answersDataGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.SaveToolStrip = new System.Windows.Forms.ToolStripButton();
             this.EditToolStrip = new System.Windows.Forms.ToolStripButton();
             this.QuestionLabel = new System.Windows.Forms.ToolStripLabel();
-            this.answersDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -47,12 +47,23 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.answersDataGridView);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(530, 185);
             this.panel1.TabIndex = 13;
+            // 
+            // answersDataGridView
+            // 
+            this.answersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.answersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.answersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.answersDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.answersDataGridView.Name = "answersDataGridView";
+            this.answersDataGridView.Size = new System.Drawing.Size(530, 160);
+            this.answersDataGridView.TabIndex = 14;
             // 
             // toolStrip1
             // 
@@ -92,21 +103,12 @@
             this.QuestionLabel.Size = new System.Drawing.Size(58, 22);
             this.QuestionLabel.Text = "Question:";
             // 
-            // answersDataGridView
-            // 
-            this.answersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.answersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.answersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.answersDataGridView.Location = new System.Drawing.Point(0, 25);
-            this.answersDataGridView.Name = "answersDataGridView";
-            this.answersDataGridView.Size = new System.Drawing.Size(530, 160);
-            this.answersDataGridView.TabIndex = 14;
-            // 
             // FeedPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.panel1);
             this.Name = "FeedPanel";
             this.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
@@ -114,9 +116,9 @@
             this.Size = new System.Drawing.Size(533, 188);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

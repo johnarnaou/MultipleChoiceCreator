@@ -25,6 +25,7 @@ namespace Multiple_Choice_Creator
         List<FeedPanel> myLayoutControls = new List<FeedPanel>();
         NoFeed noFeedControl;
         Color c;
+        bool shrinkMode = false;
 
         int index = 0;
         public LoadFeed(Panel p, User user)
@@ -94,11 +95,17 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(c, qa));
+            myLayoutControls.Add(new FeedPanel(c, qa, shrinkMode));
 
             panel.Controls.Add(myLayoutControls[index]);
 
             index++;
+        }
+
+        public void setShrinkMode(bool shrinkMode)
+        {
+            this.shrinkMode = shrinkMode;
+             
         }
 
         public void fillSearch(DataTable data, int num)
@@ -130,7 +137,7 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(c, qa));
+            myLayoutControls.Add(new FeedPanel(c, qa, shrinkMode));
             
             panel.Controls.Add(myLayoutControls[index]);
 
