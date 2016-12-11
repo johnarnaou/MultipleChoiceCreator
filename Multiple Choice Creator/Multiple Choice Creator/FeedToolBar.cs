@@ -73,13 +73,13 @@ namespace Multiple_Choice_Creator
                 feed.NoFeedControlDispose();
             feed.load();
             HomeButton.Visible = false;
+            this.searchTextBox.Text = "";
         }
 
         private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 searchButton_Click(sender, e);
-
         }
     }
 }

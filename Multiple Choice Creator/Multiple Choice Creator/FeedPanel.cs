@@ -15,7 +15,6 @@ namespace Multiple_Choice_Creator
 {
     public partial class FeedPanel : UserControl
     {
-        private bool clicked = true;
         private Question q;
         private AnswDataTable answers;
         public FeedPanel(Color c, QuestionAnswer qa)
@@ -48,27 +47,10 @@ namespace Multiple_Choice_Creator
             toolTip1.Show("Add to test", this);
         }
 
-        private void seeMoreLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        { 
-            if (clicked)
-            {
-                this.answersDataGridView.Visible = true;
-
-                clicked = false;
-                this.seeMoreLabel.Text = "Hide answers";
-            }
-            else
-            {
-                this.answersDataGridView.Visible = false;
-                
-                clicked = true;
-                this.seeMoreLabel.Text = "Show answers";
-            }
-        }
-
         public void remove()
         {
             this.Parent.Controls.Remove(this);
         }
+
     }
 }
