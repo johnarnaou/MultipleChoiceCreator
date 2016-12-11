@@ -24,6 +24,7 @@ namespace Multiple_Choice_Creator
             this.shrinkMode = shrinkMode;
             this.BackColor = c;
             this.Dock = DockStyle.Top;
+            this.Height = 188;
             q = qa.getQuestion();
             setQuestion(q.getText());
             fillAnswers(qa);

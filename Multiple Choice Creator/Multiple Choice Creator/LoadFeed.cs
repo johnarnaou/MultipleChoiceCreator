@@ -102,10 +102,22 @@ namespace Multiple_Choice_Creator
             index++;
         }
 
-        public void setShrinkMode(bool shrinkMode)
+        public void shrinkExpand(bool shrinkMode)
         {
-            this.shrinkMode = shrinkMode;
-             
+            if (shrinkMode)
+            {
+                for (int i = 0; i < index; i++)
+                {
+                    myLayoutControls[i].Height = toolbar.Height;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < index; i++)
+                {
+                    myLayoutControls[i].Height = 188;
+                }
+            }
         }
 
         public void fillSearch(DataTable data, int num)

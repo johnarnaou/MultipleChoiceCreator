@@ -97,10 +97,7 @@ namespace Multiple_Choice_Creator
                 ExpandButton.Visible = true;
                 ShrinkButton.Visible = false;
             }
-
-            feed.setShrinkMode(shrinkMode);
-            feed.controlsDispose();
-            feed.load();
+            feed.shrinkExpand(shrinkMode);
         }
 
         private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
