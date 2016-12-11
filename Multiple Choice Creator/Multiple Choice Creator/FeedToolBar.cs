@@ -40,7 +40,6 @@ namespace Multiple_Choice_Creator
                 noFeedWasLoaded = false;
             }
             HomeButton.Visible = true;
-            ShrinkButton.Visible = false;
             string keyword = searchTextBox.Text;
             QuestTableAdapter myAdapter = new QuestTableAdapter();
             DataTable data = myAdapter.getsearchQuestionByID("%" + keyword + "%");
@@ -52,11 +51,13 @@ namespace Multiple_Choice_Creator
                 feed.NoFeed("Question not found using keyword: " + keyword);
                 found = false;
                 ShrinkButton.Visible = false;
+                ExpandButton.Visible = false;
             }
             else
             {
                 found = true;
                 feed.fillSearch(data, num);
+                feed.shrinkExpand(shrinkMode);
             }
             
 
