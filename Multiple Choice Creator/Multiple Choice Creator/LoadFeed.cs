@@ -182,5 +182,19 @@ namespace Multiple_Choice_Creator
             myLayoutControls = new List<FeedPanel>();
         }
 
+        public void add(QuestionAnswer element)
+        {
+            if (index % 2 == 0)
+                c = Color.LightBlue;
+            else
+                c = Color.LightGray;
+
+            myLayoutControls.Add(new FeedPanel(c, element, shrinkMode));
+
+            panel.Controls.Add(myLayoutControls[index]);
+
+            index++;
+        }
+
     }
 }
