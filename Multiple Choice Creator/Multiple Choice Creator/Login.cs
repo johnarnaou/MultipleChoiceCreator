@@ -16,7 +16,7 @@ namespace Multiple_Choice_Creator
 {
     public partial class Login : Form
     {
-        Form signUp, mainForm;
+        Form signUp, mainForm,VerificationCode;
         public Login()
         {
             InitializeComponent();
@@ -60,21 +60,17 @@ namespace Multiple_Choice_Creator
             user.setUserID((int)uAdapter.getUserID(mail));
             if (dUser.login(user))
             {
-                if (mainForm == null)
-                {
-                    mainForm = new HomeScreen(user);
-                    mainForm.StartPosition = FormStartPosition.CenterScreen;//isws na mhn xreiazetai
-                    mainForm.Show();
-                    //na aferw to log in kai register apo to menu toy xrhsth??
-
+                if (dUser.checkIfVerified(user)) { 
+                    
+                    setDefaultsUnamePworld();
+                    this.Hide();
                 }
                 else
                 {
-                    mainForm.Focus();
+                    Form VerificationCode = new VerificationCode(user);
+                    VerificationCode.Show();
+                    this.Hide();
                 }
-                setDefaultsUnamePworld();
-                this.Hide();
-
 
             }
             else {
@@ -90,6 +86,23 @@ namespace Multiple_Choice_Creator
 
             /*An einai ok tsekaroyme ta checkbox gia to an tha apothikeusoyme se arxeio ta username kai password toy xrhsth gia na ta exei sto mellon*/
 
+        }
+
+        //this method is to open the mainForm whenever we need and it simplifies the Login button click method.
+        private void showMainForm(User user)
+        {
+            if (mainForm == null)
+            {
+                mainForm = new HomeScreen(user);
+                mainForm.StartPosition = FormStartPosition.CenterScreen;//isws na mhn xreiazetai
+                mainForm.Show();
+                //na aferw to log in kai register apo to menu toy xrhsth??
+
+            }
+            else
+            {
+                mainForm.Focus();
+            }
         }
 
         //this method is to save tho the properties settings the username and the password if the user checked the boxs

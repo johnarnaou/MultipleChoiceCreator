@@ -148,6 +148,12 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\TopicTree.cs" />
+    <Compile Include="VerificationCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerificationCode.Designer.cs">
+      <DependentUpon>VerificationCode.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FeedPanel.resx">
       <DependentUpon>FeedPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +183,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerificationCode.resx">
+      <DependentUpon>VerificationCode.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="mltChoiceDataSet.xsc">
       <DependentUpon>mltChoiceDataSet.xsd</DependentUpon>

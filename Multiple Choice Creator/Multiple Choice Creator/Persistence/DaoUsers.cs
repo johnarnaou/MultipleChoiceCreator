@@ -160,7 +160,7 @@ namespace Multiple_Choice_Creator.Persistence
                 try
                 {
 
-                    string query = "";
+                    string query = "";//To query auto tha elegxei apon user an einai verified (tha mpei allh mia metavlith)
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
                    
@@ -191,6 +191,27 @@ namespace Multiple_Choice_Creator.Persistence
             {
                 Console.WriteLine(ex.ToString());
             }
+        }
+
+        public bool checkTheVerificationCode(int userID,String VerificationCode)
+        {
+            open();//open a new connection
+            bool result = false;
+            try
+            {
+
+                string query = "";//To query gia to insert sto ACK
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
+
+                result=(bool)cmd.ExecuteScalar();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
         }
         
 
