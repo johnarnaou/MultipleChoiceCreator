@@ -114,6 +114,9 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Manage.cs" />
+    <Compile Include="mltChoiceDataSet.cs">
+      <DependentUpon>mltChoiceDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="mltChoiceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

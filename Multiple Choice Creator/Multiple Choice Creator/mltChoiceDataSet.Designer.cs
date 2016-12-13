@@ -5031,10 +5031,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO `Answ` (`answer`) VALUES (@p1)";
+            this._commandCollection[3].CommandText = "INSERT INTO `Answ` (`answer`) VALUES (@answer)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
+            param.ParameterName = "@answer";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.Size = 255;
@@ -5329,16 +5329,16 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int insertAnsw(string p1)
+        public virtual int insertAnsw(string answer)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
-            if ((p1 == null))
+            if ((answer == null))
             {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
             else
             {
-                command.Parameters[0].Value = ((string)(p1));
+                command.Parameters[0].Value = ((string)(answer));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open)
@@ -5617,10 +5617,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Id FROM Quest WHERE (userid = @Param)";
+            this._commandCollection[2].CommandText = "SELECT Id FROM Quest WHERE (userid = @uId)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Param";
+            param.ParameterName = "@uId";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -5641,10 +5641,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[3].Parameters.Add(param);
             this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT question FROM Quest WHERE Id = @Param";
+            this._commandCollection[4].CommandText = "SELECT question FROM Quest WHERE Id = @idUserQ";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Param";
+            param.ParameterName = "@idUserQ";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -5652,10 +5652,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[4].Parameters.Add(param);
             this._commandCollection[5] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT COUNT(question) FROM Quest WHERE userid = @Param";
+            this._commandCollection[5].CommandText = "SELECT COUNT(question) FROM Quest WHERE userid = @usesId";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Param";
+            param.ParameterName = "@usesId";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -5663,11 +5663,11 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[5].Parameters.Add(param);
             this._commandCollection[6] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "INSERT INTO Quest(question,difficulty,userid,timeCre,timeLatMod)VALUES(@p1,@p2,@p" +
-                "3,NOW(),NOW())";
+            this._commandCollection[6].CommandText = "INSERT INTO Quest(question,difficulty,userid,timeCre,timeLatMod)VALUES(@question," +
+                "@difficulty,@creationTime,NOW(),NOW())";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
+            param.ParameterName = "@question";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.Size = 255;
@@ -5675,7 +5675,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             param.SourceColumn = "question";
             this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
+            param.ParameterName = "@difficulty";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.Size = 1;
@@ -5683,7 +5683,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             param.SourceColumn = "difficulty";
             this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
+            param.ParameterName = "@creationTime";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -5691,8 +5691,8 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[6].Parameters.Add(param);
             this._commandCollection[7] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "UPDATE `Quest`\r\nset question=@newQuest,difficulty=@newDiff\r\nWHERE ((`Id` = @quest" +
-                "Id))";
+            this._commandCollection[7].CommandText = "UPDATE `Quest`\r\nset question=@newQuest,difficulty=@newDiff,timeLatMod=NOW()\r\nWHER" +
+                "E ((`Id` = @questId))";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@newQuest";
@@ -5810,12 +5810,12 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual mltChoiceDataSet.QuestDataTable GetDataByUserID(global::System.Nullable<int> Param)
+        public virtual mltChoiceDataSet.QuestDataTable GetDataByUserID(global::System.Nullable<int> uId)
         {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((Param.HasValue == true))
+            if ((uId.HasValue == true))
             {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param.Value));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(uId.Value));
             }
             else
             {
@@ -5959,10 +5959,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual string getQuestionWithId(int Param)
+        public virtual object getQuestionWithId(int idUserQ)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[4];
-            command.Parameters[0].Value = ((int)(Param));
+            command.Parameters[0].Value = ((int)(idUserQ));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open)
                         != global::System.Data.ConnectionState.Open))
@@ -5988,19 +5988,19 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             }
             else
             {
-                return ((string)(returnValue));
+                return ((object)(returnValue));
             }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object getSize(global::System.Nullable<int> Param)
+        public virtual object getSize(global::System.Nullable<int> usesId)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[5];
-            if ((Param.HasValue == true))
+            if ((usesId.HasValue == true))
             {
-                command.Parameters[0].Value = ((int)(Param.Value));
+                command.Parameters[0].Value = ((int)(usesId.Value));
             }
             else
             {
@@ -6039,28 +6039,28 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int insertQuest(string p1, string p2, global::System.Nullable<int> p3)
+        public virtual int insertQuest(string question, string difficulty, global::System.Nullable<int> creationTime)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[6];
-            if ((p1 == null))
+            if ((question == null))
             {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
             else
             {
-                command.Parameters[0].Value = ((string)(p1));
+                command.Parameters[0].Value = ((string)(question));
             }
-            if ((p2 == null))
+            if ((difficulty == null))
             {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else
             {
-                command.Parameters[1].Value = ((string)(p2));
+                command.Parameters[1].Value = ((string)(difficulty));
             }
-            if ((p3.HasValue == true))
+            if ((creationTime.HasValue == true))
             {
-                command.Parameters[2].Value = ((int)(p3.Value));
+                command.Parameters[2].Value = ((int)(creationTime.Value));
             }
             else
             {
@@ -6529,24 +6529,25 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[4].Parameters.Add(param);
             this._commandCollection[5] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "INSERT INTO `QuestAnsw` (`questId`, `answId`, `correct`) VALUES (@p1, @p2, @p3)";
+            this._commandCollection[5].CommandText = "INSERT INTO `QuestAnsw` (`questId`, `answId`, `correct`) VALUES (@questionId, @an" +
+                "swerId, @correctorNot)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
+            param.ParameterName = "@questionId";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "questId";
             this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
+            param.ParameterName = "@answerId";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "answId";
             this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
+            param.ParameterName = "@correctorNot";
             param.DbType = global::System.Data.DbType.Object;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.Size = 1024;
@@ -6976,32 +6977,32 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int insertQuestAnsw(global::System.Nullable<int> p1, global::System.Nullable<int> p2, object p3)
+        public virtual int insertQuestAnsw(global::System.Nullable<int> questionId, global::System.Nullable<int> answerId, object correctorNot)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[5];
-            if ((p1.HasValue == true))
+            if ((questionId.HasValue == true))
             {
-                command.Parameters[0].Value = ((int)(p1.Value));
+                command.Parameters[0].Value = ((int)(questionId.Value));
             }
             else
             {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((p2.HasValue == true))
+            if ((answerId.HasValue == true))
             {
-                command.Parameters[1].Value = ((int)(p2.Value));
+                command.Parameters[1].Value = ((int)(answerId.Value));
             }
             else
             {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((p3 == null))
+            if ((correctorNot == null))
             {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else
             {
-                command.Parameters[2].Value = ((object)(p3));
+                command.Parameters[2].Value = ((object)(correctorNot));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open)
