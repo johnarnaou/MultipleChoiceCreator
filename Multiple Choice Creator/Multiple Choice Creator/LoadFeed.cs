@@ -97,6 +97,8 @@ namespace Multiple_Choice_Creator
 
             myLayoutControls.Add(new FeedPanel(c, qa, shrinkMode));
 
+            myLayoutControls[index].setFeed(this);
+
             panel.Controls.Add(myLayoutControls[index]);
 
             index++;
@@ -150,7 +152,9 @@ namespace Multiple_Choice_Creator
             qa.setAnswersDataTable(answers);
 
             myLayoutControls.Add(new FeedPanel(c, qa, shrinkMode));
-            
+
+            myLayoutControls[index].setFeed(this);
+
             panel.Controls.Add(myLayoutControls[index]);
 
             index++;
@@ -191,11 +195,27 @@ namespace Multiple_Choice_Creator
 
             myLayoutControls.Add(new FeedPanel(c, element, shrinkMode));
 
+            myLayoutControls[index].setFeed(this);
+
             panel.Controls.Add(myLayoutControls[index]);
 
             toolbar.Dock = DockStyle.Top;
 
             index++;
+        }
+
+        public void delete(Question element)
+        {
+            for(int i=0; i<index; i++)
+            {
+                if(myLayoutControls[i].getQuestionID() == element.getQuestionID())
+                {
+                    myLayoutControls[i].remove();
+                    myLayoutControls.RemoveAt(i);
+                    index--;
+                    qaTableAdapter.deleteQuestAnsw(element.getQuestionID());
+                }
+            }
         }
 
     }

@@ -16,8 +16,10 @@ namespace Multiple_Choice_Creator
     public partial class FeedPanel : UserControl
     {
         private Question q;
+        private QuestionAnswer qa;
         private AnswDataTable answers;
         private bool shrinkMode;
+        private LoadFeed feed;
         public FeedPanel(Color c, QuestionAnswer qa, bool shrinkMode)
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace Multiple_Choice_Creator
             q = qa.getQuestion();
             setQuestion(q.getText());
             fillAnswers(qa);
+            this.qa = qa;
            
         }
 
@@ -61,5 +64,19 @@ namespace Multiple_Choice_Creator
             this.Parent.Controls.Remove(this);
         }
 
+        public void setFeed(Object feed)
+        {
+            this.feed = (LoadFeed)feed;
+        }
+
+        private void DeleteButtton_Click(object sender, EventArgs e)
+        {
+            feed.delete(q);
+        }
+
+        public int getQuestionID()
+        {
+            return q.getQuestionID();
+        }
     }
 }

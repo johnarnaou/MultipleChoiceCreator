@@ -81,6 +81,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfirmDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmDelete.Designer.cs">
+      <DependentUpon>ConfirmDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaoMysql.cs" />
     <Compile Include="FeedPanel.cs">
       <SubType>UserControl</SubType>
@@ -157,6 +163,9 @@
     <Compile Include="VerificationCode.Designer.cs">
       <DependentUpon>VerificationCode.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConfirmDelete.resx">
+      <DependentUpon>ConfirmDelete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FeedPanel.resx">
       <DependentUpon>FeedPanel.cs</DependentUpon>
     </EmbeddedResource>

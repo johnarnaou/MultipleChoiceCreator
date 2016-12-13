@@ -34,8 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.answersDataGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.SaveToolStrip = new System.Windows.Forms.ToolStripButton();
-            this.EditToolStrip = new System.Windows.Forms.ToolStripButton();
+            this.DeleteButtton = new System.Windows.Forms.ToolStripButton();
             this.QuestionLabel = new System.Windows.Forms.ToolStripLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
@@ -68,8 +67,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SaveToolStrip,
-            this.EditToolStrip,
+            this.DeleteButtton,
             this.QuestionLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -77,25 +75,16 @@
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // SaveToolStrip
+            // DeleteButtton
             // 
-            this.SaveToolStrip.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.SaveToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolStrip.Image")));
-            this.SaveToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveToolStrip.Name = "SaveToolStrip";
-            this.SaveToolStrip.Size = new System.Drawing.Size(23, 22);
-            this.SaveToolStrip.Text = "Save";
-            // 
-            // EditToolStrip
-            // 
-            this.EditToolStrip.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.EditToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.EditToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("EditToolStrip.Image")));
-            this.EditToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.EditToolStrip.Name = "EditToolStrip";
-            this.EditToolStrip.Size = new System.Drawing.Size(23, 22);
-            this.EditToolStrip.Text = "Edit";
+            this.DeleteButtton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.DeleteButtton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.DeleteButtton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButtton.Image")));
+            this.DeleteButtton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DeleteButtton.Name = "DeleteButtton";
+            this.DeleteButtton.Size = new System.Drawing.Size(23, 22);
+            this.DeleteButtton.Text = "Delete";
+            this.DeleteButtton.Click += new System.EventHandler(this.DeleteButtton_Click);
             // 
             // QuestionLabel
             // 
@@ -129,8 +118,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView answersDataGridView;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton SaveToolStrip;
-        private System.Windows.Forms.ToolStripButton EditToolStrip;
+        private System.Windows.Forms.ToolStripButton DeleteButtton;
         private System.Windows.Forms.ToolStripLabel QuestionLabel;
     }
 }

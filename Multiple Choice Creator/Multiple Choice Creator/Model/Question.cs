@@ -28,7 +28,7 @@ namespace Multiple_Choice_Creator.Model
         public Question(int id)
         {
             this.id = id;
-            setText(adapter.getQuestionWithId(id));
+            setText((string)adapter.getQuestionWithId(id));
         }
 
         private void setText(string text)
