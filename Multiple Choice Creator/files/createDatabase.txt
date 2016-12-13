@@ -2,6 +2,8 @@ create table Quest
 (
 Id int not null auto_increment,
 question varchar(255),
+timeCre timestamp,
+timeLatMod timestamp,
 primary key(Id)
 );
 
@@ -79,3 +81,14 @@ status boolean,
 primary key (Id),
 foreign key (userId) references Users(Id)
 );
+
+CREATE TRIGGER deleteFromQuest_Answ_TopicQuest    
+  AFTER DELETE ON QuestAnsw     
+  FOR EACH ROW     
+BEGIN
+SET FOREIGN_KEY_CHECKS=0;
+  DELETE FROM Quest where OLD.questId =Id;
+  DELETE FROM Answ where OLD.answId =Id;
+  DELETE FROM TopicQuest where OLD.questId=questId;
+SET FOREIGN_KEY_CHECKS=1;
+END;
