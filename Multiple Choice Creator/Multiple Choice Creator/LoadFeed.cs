@@ -25,7 +25,8 @@ namespace Multiple_Choice_Creator
         List<FeedPanel> myLayoutControls = new List<FeedPanel>();
         NoFeed noFeedControl;
         Color c;
-        bool shrinkMode = false;
+        ConfirmDelete confirm;
+        bool shrinkMode = false, ask = true;
 
         int index = 0;
         public LoadFeed(Panel p, User user)
@@ -206,14 +207,25 @@ namespace Multiple_Choice_Creator
 
         public void delete(Question element)
         {
-            for(int i=0; i<index; i++)
+            if (ask)
             {
-                if(myLayoutControls[i].getQuestionID() == element.getQuestionID())
+                confirm = new ConfirmDelete();
+                confirm.Show();
+                ask = !confirm.getConfirm();
+                toolbar.setAskBeforeDelete(ask);
+            }
+
+            if (confirm.getConfirm())
+            {
+                for (int i = 0; i < index; i++)
                 {
-                    myLayoutControls[i].remove();
-                    myLayoutControls.RemoveAt(i);
-                    index--;
-                    qaTableAdapter.deleteQuestAnsw(element.getQuestionID());
+                    if (myLayoutControls[i].getQuestionID() == element.getQuestionID())
+                    {
+                        myLayoutControls[i].remove();
+                        myLayoutControls.RemoveAt(i);
+                        index--;
+                        qaTableAdapter.deleteQuestAnsw(element.getQuestionID());
+                    }
                 }
             }
         }

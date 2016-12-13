@@ -17,7 +17,8 @@ namespace Multiple_Choice_Creator
     {
         LoadFeed feed;
         Panel panel;
-        bool found, noFeedWasLoaded, shrinkMode = false;
+        Settings settings;
+        bool found, noFeedWasLoaded, shrinkMode = false, askBeforeDelete = true;
         public FeedToolBar(Panel p, User user)
         {
             InitializeComponent();
@@ -82,6 +83,17 @@ namespace Multiple_Choice_Creator
         private void ExpandButton_Click(object sender, EventArgs e)
         {
             ShrinkButton_Click(sender, e);
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            settings = new Settings(askBeforeDelete);
+            settings.Show();
+        }
+
+        public void setAskBeforeDelete(bool value)
+        {
+            askBeforeDelete = value;
         }
 
         private void ShrinkButton_Click(object sender, EventArgs e)
