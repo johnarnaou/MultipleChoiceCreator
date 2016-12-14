@@ -53,5 +53,10 @@ namespace Multiple_Choice_Creator
         {
 
         }
+
+        private void richTextBox1_Enter(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "";
+        }
     }
 }

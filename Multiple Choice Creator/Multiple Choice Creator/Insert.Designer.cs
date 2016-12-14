@@ -136,9 +136,9 @@
             this.Answer,
             this.CorrectCheck});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 47);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 82);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(718, 316);
+            this.dataGridView1.Size = new System.Drawing.Size(718, 281);
             this.dataGridView1.TabIndex = 7;
             // 
             // Answer
@@ -156,9 +156,10 @@
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(718, 47);
+            this.richTextBox1.Size = new System.Drawing.Size(718, 82);
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "Write a question";
+            this.richTextBox1.Enter += new System.EventHandler(this.richTextBox1_Enter);
             // 
             // groupBox3
             // 
