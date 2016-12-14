@@ -95,12 +95,10 @@ namespace Multiple_Choice_Creator
 
         private void deleteTimer_Tick(object sender, EventArgs e)
         {
-            Debug.WriteLine("Height: " + this.Height);
             if (this.Height <= 30)
             {
                 this.deleteTimer.Enabled = false;
                 feed.delete(q);
-                Debug.WriteLine("Deleted");
             }
             else this.Height -= 20;
         }
