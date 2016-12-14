@@ -23,6 +23,7 @@ namespace Multiple_Choice_Creator
         {
             InitializeComponent();
             this.user = user;
+            this.Dock = DockStyle.Fill;
             currFeed = (LoadFeed)feed;
         }
         private void button1_Click(object sender, EventArgs e)
