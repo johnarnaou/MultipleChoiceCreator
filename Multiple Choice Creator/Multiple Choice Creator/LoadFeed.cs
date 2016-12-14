@@ -90,7 +90,7 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(qa, shrinkMode));
+            myLayoutControls.Add(new FeedPanel(qa, shrinkMode, false));
 
             myLayoutControls[index].setFeed(this);
 
@@ -141,7 +141,7 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(qa, shrinkMode));
+            myLayoutControls.Add(new FeedPanel(qa, shrinkMode,false));
 
             myLayoutControls[index].setFeed(this);
 
@@ -179,7 +179,7 @@ namespace Multiple_Choice_Creator
         public void add(QuestionAnswer element)
         {
 
-            myLayoutControls.Add(new FeedPanel(element, shrinkMode));
+            myLayoutControls.Add(new FeedPanel(element, shrinkMode, true));
 
             myLayoutControls[index].setFeed(this);
 

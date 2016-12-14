@@ -36,6 +36,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.DeleteButtton = new System.Windows.Forms.ToolStripButton();
             this.QuestionLabel = new System.Windows.Forms.ToolStripLabel();
+            this.showTimer = new System.Windows.Forms.Timer(this.components);
+            this.deleteTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -51,7 +53,7 @@
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 185);
+            this.panel1.Size = new System.Drawing.Size(530, 177);
             this.panel1.TabIndex = 13;
             // 
             // answersDataGridView
@@ -61,7 +63,7 @@
             this.answersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.answersDataGridView.Location = new System.Drawing.Point(0, 25);
             this.answersDataGridView.Name = "answersDataGridView";
-            this.answersDataGridView.Size = new System.Drawing.Size(530, 160);
+            this.answersDataGridView.Size = new System.Drawing.Size(530, 152);
             this.answersDataGridView.TabIndex = 14;
             // 
             // toolStrip1
@@ -92,6 +94,14 @@
             this.QuestionLabel.Size = new System.Drawing.Size(58, 22);
             this.QuestionLabel.Text = "Question:";
             // 
+            // showTimer
+            // 
+            this.showTimer.Tick += new System.EventHandler(this.tm_Tick);
+            // 
+            // deleteTimer
+            // 
+            this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
+            // 
             // FeedPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -102,7 +112,7 @@
             this.Name = "FeedPanel";
             this.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Size = new System.Drawing.Size(533, 188);
+            this.Size = new System.Drawing.Size(533, 180);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).EndInit();
@@ -120,5 +130,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton DeleteButtton;
         private System.Windows.Forms.ToolStripLabel QuestionLabel;
+        private System.Windows.Forms.Timer showTimer;
+        private System.Windows.Forms.Timer deleteTimer;
     }
 }
