@@ -36,10 +36,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CorrectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -54,9 +54,7 @@
             this.trackBar1.Maximum = 2;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(282, 45);
-            this.trackBar1.SmallChange = 5;
             this.trackBar1.TabIndex = 11;
-            this.trackBar1.TickFrequency = 5;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
@@ -142,6 +140,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(718, 281);
             this.dataGridView1.TabIndex = 7;
             // 
+            // Answer
+            // 
+            this.Answer.HeaderText = "Answer";
+            this.Answer.Name = "Answer";
+            // 
+            // CorrectCheck
+            // 
+            this.CorrectCheck.HeaderText = "Correct";
+            this.CorrectCheck.Name = "CorrectCheck";
+            // 
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -165,16 +173,6 @@
             this.groupBox3.Size = new System.Drawing.Size(718, 100);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
-            // 
-            // Answer
-            // 
-            this.Answer.HeaderText = "Answer";
-            this.Answer.Name = "Answer";
-            // 
-            // CorrectCheck
-            // 
-            this.CorrectCheck.HeaderText = "Correct";
-            this.CorrectCheck.Name = "CorrectCheck";
             // 
             // Insert
             // 
