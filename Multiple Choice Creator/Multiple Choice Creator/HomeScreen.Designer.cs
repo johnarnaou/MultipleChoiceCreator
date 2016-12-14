@@ -29,16 +29,31 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.CreateNewTestLabel = new System.Windows.Forms.Label();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.CreateNewTestLabel = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.SuspendLayout();
@@ -57,10 +72,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer4);
             this.splitContainer1.Panel1.Controls.Add(this.CreateNewTestLabel);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
             this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitContainer1.Panel2
@@ -69,6 +82,115 @@
             this.splitContainer1.Size = new System.Drawing.Size(1082, 626);
             this.splitContainer1.SplitterDistance = 231;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.button1);
+            this.splitContainer4.Panel1.Controls.Add(this.checkBox3);
+            this.splitContainer4.Panel1.Controls.Add(this.checkBox2);
+            this.splitContainer4.Panel1.Controls.Add(this.checkBox1);
+            this.splitContainer4.Panel1.Controls.Add(this.label1);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.splitContainer5);
+            this.splitContainer4.Size = new System.Drawing.Size(229, 624);
+            this.splitContainer4.SplitterDistance = 312;
+            this.splitContainer4.TabIndex = 7;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(154, 24);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(49, 17);
+            this.checkBox3.TabIndex = 3;
+            this.checkBox3.Text = "Hard";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(76, 24);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(63, 17);
+            this.checkBox2.TabIndex = 2;
+            this.checkBox2.Text = "Medium";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(11, 24);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(49, 17);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "Easy";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Difficulty";
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.label4);
+            this.splitContainer5.Panel1.Controls.Add(this.textBox1);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.treeView1);
+            this.splitContainer5.Size = new System.Drawing.Size(229, 308);
+            this.splitContainer5.SplitterDistance = 76;
+            this.splitContainer5.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Search";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox1.Location = new System.Drawing.Point(0, 56);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(229, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(229, 228);
+            this.treeView1.TabIndex = 0;
             // 
             // CreateNewTestLabel
             // 
@@ -81,37 +203,6 @@
             this.CreateNewTestLabel.TabIndex = 6;
             this.CreateNewTestLabel.Text = "Create New Test";
             this.CreateNewTestLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 223);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Search";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(59, 220);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView1.Location = new System.Drawing.Point(12, 378);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(202, 234);
-            this.treeView1.TabIndex = 0;
             // 
             // splitContainer2
             // 
@@ -141,6 +232,15 @@
             this.splitContainer3.SplitterDistance = 243;
             this.splitContainer3.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(139, 271);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Clear Filters";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,10 +252,19 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomeScreen_FormClosed);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel1.PerformLayout();
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel1.PerformLayout();
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -174,5 +283,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label CreateNewTestLabel;
         private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.Button button1;
     }
 }
