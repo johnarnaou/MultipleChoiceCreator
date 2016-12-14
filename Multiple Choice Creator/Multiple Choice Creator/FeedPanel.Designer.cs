@@ -36,9 +36,9 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.DeleteButtton = new System.Windows.Forms.ToolStripButton();
             this.QuestionLabel = new System.Windows.Forms.ToolStripLabel();
+            this.saveButton = new System.Windows.Forms.ToolStripButton();
             this.showTimer = new System.Windows.Forms.Timer(this.components);
             this.deleteTimer = new System.Windows.Forms.Timer(this.components);
-            this.saveButton = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -70,6 +70,7 @@
             this.answersDataGridView.TabIndex = 14;
             this.answersDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.answersDataGridView_CellBeginEdit);
             this.answersDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.answersDataGridView_CellEndEdit);
+            this.answersDataGridView.Enter += new System.EventHandler(this.answersDataGridView_Enter);
             this.answersDataGridView.Leave += new System.EventHandler(this.answersDataGridView_Leave);
             // 
             // toolStrip1
@@ -101,14 +102,6 @@
             this.QuestionLabel.Size = new System.Drawing.Size(58, 22);
             this.QuestionLabel.Text = "Question:";
             // 
-            // showTimer
-            // 
-            this.showTimer.Tick += new System.EventHandler(this.tm_Tick);
-            // 
-            // deleteTimer
-            // 
-            this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
-            // 
             // saveButton
             // 
             this.saveButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -120,6 +113,14 @@
             this.saveButton.Text = "Save";
             this.saveButton.Visible = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // showTimer
+            // 
+            this.showTimer.Tick += new System.EventHandler(this.tm_Tick);
+            // 
+            // deleteTimer
+            // 
+            this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
             // 
             // FeedPanel
             // 

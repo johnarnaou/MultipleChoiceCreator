@@ -19,7 +19,7 @@ namespace Multiple_Choice_Creator
     {
         private Question q;
         private QuestionAnswer qa;
-        private AnswDataTable answers;
+        private AnswDataTable answers, backup;
         private bool shrinkMode, tempValue;
         private LoadFeed feed;
         private AnswTableAdapter answAdapter = new AnswTableAdapter();
@@ -142,13 +142,15 @@ namespace Multiple_Choice_Creator
                                              MessageBoxIcon.Question);
                 if(result == DialogResult.No)
                 {
-                    if (eve.ColumnIndex == 0)
-                        answers.Rows[eve.RowIndex][eve.ColumnIndex] = tempAnsw;
-                    else if (eve.ColumnIndex == 1)
-                        answers.Rows[eve.RowIndex][eve.ColumnIndex] = tempValue;
+                    
                 }
                 saveButton.Visible = false;
             }
+        }
+
+        private void answersDataGridView_Enter(object sender, EventArgs e)
+        {
+            backup = answers;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -161,10 +163,6 @@ namespace Multiple_Choice_Creator
             eve = e;
             saveButton.Visible = true;
             valuesChanged = true;
-            if (e.ColumnIndex == 0)
-                tempAnsw = (string)answers.Rows[e.RowIndex][e.ColumnIndex];
-            else if (e.RowIndex == 1)
-                tempValue = (bool)answers.Rows[e.RowIndex][e.ColumnIndex];
         }
     }
 }
