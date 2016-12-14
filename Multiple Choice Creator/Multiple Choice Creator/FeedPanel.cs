@@ -20,12 +20,15 @@ namespace Multiple_Choice_Creator
         private Question q;
         private QuestionAnswer qa;
         private AnswDataTable answers;
-        private bool shrinkMode;
+        private bool shrinkMode, tempValue;
         private LoadFeed feed;
         private AnswTableAdapter answAdapter = new AnswTableAdapter();
         private QuestAnswTableAdapter qaAdapter = new QuestAnswTableAdapter();
         private List<int> answIDs = new List<int>();
         private int height = 180;
+        private bool valuesChanged = false;
+        private DataGridViewCellEventArgs eve;
+        private string tempAnsw;
         public FeedPanel(QuestionAnswer qa, bool shrinkMode, bool style)
         {
             InitializeComponent();
@@ -52,7 +55,7 @@ namespace Multiple_Choice_Creator
             this.answers.Constraints.Clear();
             for(int i=0; i<this.answers.Count; i++)
             {
-                answIDs.Add((int)this.answers.Rows[i][0]);
+                answIDs.Add((int)this.answers.Rows[i][3]);
             }
             this.answers.Columns.Remove("Id");
             this.answers.Columns.Remove("questId");
@@ -113,9 +116,9 @@ namespace Multiple_Choice_Creator
 
         private void answersDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            this.eve = e;
             if (e.ColumnIndex == 0)
             {
-                Debug.WriteLine("this is a string");
                 answAdapter.updateAnsw((string)answers.Rows[e.RowIndex][e.ColumnIndex], answIDs[e.RowIndex]);
             }
             else if (e.ColumnIndex == 1)
@@ -127,6 +130,33 @@ namespace Multiple_Choice_Creator
                     value = 0;
                 qaAdapter.updateCorAnswer(value, answIDs[e.RowIndex]);
             }
+        }
+
+        private void answersDataGridView_Leave(object sender, EventArgs e)
+        {
+            if (valuesChanged) {
+                string message = "Keep changes?";
+                string caption = "Unsaved content";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+                if(result == DialogResult.No)
+                {
+                    if (eve.ColumnIndex == 0)
+                        answers.Rows[eve.RowIndex][eve.ColumnIndex] = tempAnsw;
+                    else if (eve.ColumnIndex == 1)
+                        answers.Rows[eve.RowIndex][eve.ColumnIndex] = tempValue;
+                }
+            }
+        }
+
+        private void answersDataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            valuesChanged = true;
+            if (e.ColumnIndex == 0)
+                tempAnsw = (string)answers.Rows[e.RowIndex][e.ColumnIndex];
+            else if (e.RowIndex == 1)
+                tempValue = (bool)answers.Rows[e.RowIndex][e.ColumnIndex];
         }
     }
 }

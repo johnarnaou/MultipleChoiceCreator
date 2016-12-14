@@ -67,7 +67,9 @@
             this.answersDataGridView.Name = "answersDataGridView";
             this.answersDataGridView.Size = new System.Drawing.Size(530, 152);
             this.answersDataGridView.TabIndex = 14;
+            this.answersDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.answersDataGridView_CellBeginEdit);
             this.answersDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.answersDataGridView_CellEndEdit);
+            this.answersDataGridView.Leave += new System.EventHandler(this.answersDataGridView_Leave);
             // 
             // toolStrip1
             // 
