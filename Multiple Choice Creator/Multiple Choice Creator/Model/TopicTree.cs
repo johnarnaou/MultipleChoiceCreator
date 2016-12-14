@@ -28,6 +28,8 @@ namespace Multiple_Choice_Creator
 
                     TreeNode tnode = new TreeNode(myList[i].getName());
                     treeView1.Nodes.Add(tnode);
+                    //printKids(myList[i].getID(), tnode); <-- edw υπάρχει θέμα
+
                 }
             }
             treeView1.ExpandAll();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,7 @@ namespace Multiple_Choice_Creator.Persistence
         {//an den dumbei kanena exception tote elegxoume an mas epestrepse count=1 to query mas
          //praktika elegxoume an yparxei enas user me email=user.getEmail() kai password=user.getPassword()
          //an uparxei tote to query mas tha mas epistrepsei 1 
-            sendMail(user);
+            //sendMail(user);
             open();//open a new connection
             int logged=0;
             try {
@@ -110,6 +111,7 @@ namespace Multiple_Choice_Creator.Persistence
             try
             {
                 client.Send(msg);
+
                 //Uplode to the table for the verification codes the data
                 //tha prepei na exei perastei to user kai to munima na einai kati se fash Welcome user.getName() bla bla 
                 return "Mail has been successfully sent!";
@@ -132,6 +134,7 @@ namespace Multiple_Choice_Creator.Persistence
             msg.Subject = "Multiple Choise Team Mail Verification" + DateTime.Now.ToString();
             string verificationCode = RandomString();
             msg.Body = "Welcome " + user.getFname() + " Verification Code: '" + verificationCode + "'";
+            insertVerificationCode(user.getUserID(), verificationCode);
             //Edw tha kaleite h methodos gia na ginete to insert toy id tou xrhsth kai to verification code sto ACK
             return msg;
         }
@@ -155,59 +158,66 @@ namespace Multiple_Choice_Creator.Persistence
         public bool checkIfVerified(User user)
         {
             
-                open();//open a new connection
                 bool result = false;
                 try
                 {
-
-                    string query = "";//To query auto tha elegxei apon user an einai verified (tha mpei allh mia metavlith)
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
-                   
-                    result = (bool)cmd.ExecuteScalar();
+                    ACKTableAdapter ackAdapter = new ACKTableAdapter();
+                    int apot = Convert.ToInt32(ackAdapter.countVerification(user.getUserID(),1));//apo authn thn entolh an to apotelesma einai 1 tote exei kanei verify
                     Console.WriteLine("Result= " + result);
+                    if (apot == 1)
+                    {
+                        result = true;
+                    }
                 }
-                catch (MySql.Data.MySqlClient.MySqlException ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                 }
             return result;
         }
 
-        public void insertVerificationCode(string userID,string verificationCode)
+        public void insertVerificationCode(int userID,string verificationCode)
         {
-            open();//open a new connection
             try
             {
-
-                string query = "";//To query gia to insert sto ACK
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
-                              
-                cmd.ExecuteScalar();
+                ACKTableAdapter ackAdapter = new ACKTableAdapter();
+                ackAdapter.InsertQuery(verificationCode, userID, 0);
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                //pop a message here!
             }
         }
 
+        public void reSendVerificationCode(int userID, string verificationCode)
+        {
+            try
+            {
+                ACKTableAdapter ackAdapter = new ACKTableAdapter();
+                ackAdapter.UpdateQuery(verificationCode, userID);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                //pop a message here!
+            }
+        }
+
+
         public bool checkTheVerificationCode(int userID,String VerificationCode)
         {
-            open();//open a new connection
             bool result = false;
             try
             {
-
-                string query = "";//To query gia to insert sto ACK
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                cmd.Prepare();//pernaei to h entolh mas apo merikous standar elegxous
-
-                result=(bool)cmd.ExecuteScalar();
+                ACKTableAdapter ackAdapter = new ACKTableAdapter();
+                int apot = ackAdapter.deleteACKnumber(0, userID);//Na to tsekarw!!
+                if (apot == 1)
+                {
+                    result = true;
+                }
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }

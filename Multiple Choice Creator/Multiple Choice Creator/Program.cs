@@ -17,9 +17,9 @@ namespace Multiple_Choice_Creator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            User temp = new User("johnarnaou@gmail.com", "123");
-            temp.setUserID(5);
-            HomeScreen form = new HomeScreen(temp);
+            //User temp = new User("johnarnaou@gmail.com", "123");
+            //temp.setUserID(5);
+            Login form = new Login();
             form.StartPosition = FormStartPosition.CenterScreen;
             Application.Run(form);
             
