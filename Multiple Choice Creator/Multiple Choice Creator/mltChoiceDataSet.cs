@@ -4,6 +4,9 @@
 
     partial class mltChoiceDataSet
     {
+        partial class UsersDataTable
+        {
+        }
     }
 }
 
