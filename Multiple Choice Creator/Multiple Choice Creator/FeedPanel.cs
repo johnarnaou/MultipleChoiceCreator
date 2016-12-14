@@ -11,6 +11,7 @@ using Multiple_Choice_Creator.Model;
 using System.Collections;
 using static Multiple_Choice_Creator.mltChoiceDataSet;
 using System.Diagnostics;
+using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 
 namespace Multiple_Choice_Creator
 {
@@ -21,6 +22,9 @@ namespace Multiple_Choice_Creator
         private AnswDataTable answers;
         private bool shrinkMode;
         private LoadFeed feed;
+        private AnswTableAdapter answAdapter = new AnswTableAdapter();
+        private QuestAnswTableAdapter qaAdapter = new QuestAnswTableAdapter();
+        private List<int> answIDs = new List<int>();
         private int height = 180;
         public FeedPanel(QuestionAnswer qa, bool shrinkMode, bool style)
         {
@@ -46,6 +50,10 @@ namespace Multiple_Choice_Creator
         {
             this.answers = answers.getAnswersDataTable();
             this.answers.Constraints.Clear();
+            for(int i=0; i<this.answers.Count; i++)
+            {
+                answIDs.Add((int)this.answers.Rows[i][0]);
+            }
             this.answers.Columns.Remove("Id");
             this.answers.Columns.Remove("questId");
             this.answers.Columns.Remove("answId");
@@ -103,5 +111,22 @@ namespace Multiple_Choice_Creator
             else this.Height -= 20;
         }
 
+        private void answersDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                Debug.WriteLine("this is a string");
+                answAdapter.updateAnsw((string)answers.Rows[e.RowIndex][e.ColumnIndex], answIDs[e.RowIndex]);
+            }
+            else if (e.ColumnIndex == 1)
+            {
+                int value;
+                if ((bool)answers.Rows[e.RowIndex][e.ColumnIndex])
+                    value = 1;
+                else
+                    value = 0;
+                qaAdapter.updateCorAnswer(value, answIDs[e.RowIndex]);
+            }
+        }
     }
 }

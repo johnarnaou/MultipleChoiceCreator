@@ -58,6 +58,8 @@
             // 
             // answersDataGridView
             // 
+            this.answersDataGridView.AllowUserToAddRows = false;
+            this.answersDataGridView.AllowUserToDeleteRows = false;
             this.answersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.answersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.answersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -65,6 +67,7 @@
             this.answersDataGridView.Name = "answersDataGridView";
             this.answersDataGridView.Size = new System.Drawing.Size(530, 152);
             this.answersDataGridView.TabIndex = 14;
+            this.answersDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.answersDataGridView_CellEndEdit);
             // 
             // toolStrip1
             // 
