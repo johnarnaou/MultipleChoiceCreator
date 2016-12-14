@@ -43,6 +43,7 @@ namespace Multiple_Choice_Creator
                 this.Height = 0;
                 showWithStyle();
             }
+            answersDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         private void showWithStyle()

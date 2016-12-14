@@ -11153,7 +11153,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        COUNT(*) AS Expr1\r\nFROM            ACK\r\nWHERE        (userId = @uId" +
-                ") AND (status = @stat)";
+                ")";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@uId";
@@ -11161,13 +11161,6 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "userId";
-            this._commandCollection[1].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@stat";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "status";
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
@@ -11489,7 +11482,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object countVerification(global::System.Nullable<int> uId, global::System.Nullable<int> stat)
+        public virtual object countVerification(global::System.Nullable<int> uId)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
             if ((uId.HasValue == true))
@@ -11499,14 +11492,6 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             else
             {
                 command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((stat.HasValue == true))
-            {
-                command.Parameters[1].Value = ((int)(stat.Value));
-            }
-            else
-            {
-                command.Parameters[1].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open)
@@ -11585,7 +11570,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(string ackNum, global::System.Nullable<int> uId, global::System.Nullable<int> stat)
+        public virtual int insertAckNumber(string ackNum, global::System.Nullable<int> uId, global::System.Nullable<int> stat)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
             if ((ackNum == null))
@@ -11637,7 +11622,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(string newNum, global::System.Nullable<int> uId)
+        public virtual int updateAckNumber(string newNum, global::System.Nullable<int> uId)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[4];
             if ((newNum == null))

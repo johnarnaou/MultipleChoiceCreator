@@ -23,7 +23,9 @@ namespace Multiple_Choice_Creator
         {
             InitializeComponent();
             this.user = user;
+            this.Dock = DockStyle.Fill;
             currFeed = (LoadFeed)feed;
+            this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -52,5 +54,11 @@ namespace Multiple_Choice_Creator
         {
 
         }
+
+        private void richTextBox1_Enter(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "";
+        }
+
     }
 }
