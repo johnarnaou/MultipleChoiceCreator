@@ -30,16 +30,16 @@
         {
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.diffLabel = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.diffLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CorrectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CorrectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -71,16 +71,17 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
-            // diffLabel
+            // radioButton1
             // 
-            this.diffLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.diffLabel.Location = new System.Drawing.Point(230, 80);
-            this.diffLabel.Name = "diffLabel";
-            this.diffLabel.Size = new System.Drawing.Size(276, 14);
-            this.diffLabel.TabIndex = 12;
-            this.diffLabel.Text = "Easy";
-            this.diffLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.radioButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 11);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(54, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Public";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
@@ -94,17 +95,16 @@
             this.radioButton2.Text = "Private";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // diffLabel
             // 
-            this.radioButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 11);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(54, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Public";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.diffLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.diffLabel.Location = new System.Drawing.Point(230, 80);
+            this.diffLabel.Name = "diffLabel";
+            this.diffLabel.Size = new System.Drawing.Size(276, 14);
+            this.diffLabel.TabIndex = 12;
+            this.diffLabel.Text = "Easy";
+            this.diffLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button1
             // 
@@ -142,16 +142,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(718, 281);
             this.dataGridView1.TabIndex = 7;
             // 
-            // Answer
-            // 
-            this.Answer.HeaderText = "Column1";
-            this.Answer.Name = "Answer";
-            // 
-            // CorrectCheck
-            // 
-            this.CorrectCheck.HeaderText = "Column1";
-            this.CorrectCheck.Name = "CorrectCheck";
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -175,6 +165,16 @@
             this.groupBox3.Size = new System.Drawing.Size(718, 100);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
+            // 
+            // Answer
+            // 
+            this.Answer.HeaderText = "Answer";
+            this.Answer.Name = "Answer";
+            // 
+            // CorrectCheck
+            // 
+            this.CorrectCheck.HeaderText = "Correct";
+            this.CorrectCheck.Name = "CorrectCheck";
             // 
             // Insert
             // 
@@ -205,10 +205,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CorrectCheck;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label diffLabel;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CorrectCheck;
     }
 }
