@@ -7192,8 +7192,8 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[6].Parameters.Add(param);
             this._commandCollection[7] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "UPDATE       QuestAnsw\r\nSET                correct = @newCorrect\r\nWHERE        (q" +
-                "uestId = @qId) AND (answId = @aId)";
+            this._commandCollection[7].CommandText = "UPDATE       QuestAnsw\r\nSET                correct = @newCorrect\r\nWHERE         (" +
+                "answId = @aId)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@newCorrect";
@@ -7202,14 +7202,6 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "correct";
-            this._commandCollection[7].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@qId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "questId";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._commandCollection[7].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@aId";
@@ -7719,7 +7711,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int updateCorAnswer(object newCorrect, global::System.Nullable<int> qId, global::System.Nullable<int> aId)
+        public virtual int updateCorAnswer(object newCorrect, global::System.Nullable<int> aId)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[7];
             if ((newCorrect == null))
@@ -7730,21 +7722,13 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             {
                 command.Parameters[0].Value = ((object)(newCorrect));
             }
-            if ((qId.HasValue == true))
+            if ((aId.HasValue == true))
             {
-                command.Parameters[1].Value = ((int)(qId.Value));
+                command.Parameters[1].Value = ((int)(aId.Value));
             }
             else
             {
                 command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((aId.HasValue == true))
-            {
-                command.Parameters[2].Value = ((int)(aId.Value));
-            }
-            else
-            {
-                command.Parameters[2].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open)
