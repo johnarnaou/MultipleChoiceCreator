@@ -101,11 +101,11 @@ namespace Multiple_Choice_Creator
             if (trackBar1.Value==0)
             {
                 diffLabel.Text = "Easy";
-            }else if (trackBar1.Value == 5)
+            }else if (trackBar1.Value == 1)
             {
                 diffLabel.Text = "Medium";
             }
-            else
+            else 
             {
                 diffLabel.Text = "Hard";
             }

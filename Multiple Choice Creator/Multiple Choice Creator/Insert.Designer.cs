@@ -46,12 +46,12 @@
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(266, 210);
+            this.trackBar1.Maximum = 2;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(237, 45);
             this.trackBar1.SmallChange = 5;
             this.trackBar1.TabIndex = 11;
             this.trackBar1.TickFrequency = 5;
-            this.trackBar1.Value = 1;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
