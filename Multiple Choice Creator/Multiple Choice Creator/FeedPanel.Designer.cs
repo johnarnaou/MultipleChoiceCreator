@@ -38,6 +38,7 @@
             this.QuestionLabel = new System.Windows.Forms.ToolStripLabel();
             this.showTimer = new System.Windows.Forms.Timer(this.components);
             this.deleteTimer = new System.Windows.Forms.Timer(this.components);
+            this.saveButton = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -75,7 +76,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DeleteButtton,
-            this.QuestionLabel});
+            this.QuestionLabel,
+            this.saveButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(530, 25);
@@ -107,6 +109,18 @@
             // 
             this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
             // 
+            // saveButton
+            // 
+            this.saveButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(23, 22);
+            this.saveButton.Text = "Save";
+            this.saveButton.Visible = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // FeedPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,5 +151,6 @@
         private System.Windows.Forms.ToolStripLabel QuestionLabel;
         private System.Windows.Forms.Timer showTimer;
         private System.Windows.Forms.Timer deleteTimer;
+        private System.Windows.Forms.ToolStripButton saveButton;
     }
 }
