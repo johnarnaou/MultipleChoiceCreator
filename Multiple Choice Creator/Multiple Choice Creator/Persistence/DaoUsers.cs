@@ -162,7 +162,7 @@ namespace Multiple_Choice_Creator.Persistence
                 try
                 {
                     ACKTableAdapter ackAdapter = new ACKTableAdapter();
-                    int apot = Convert.ToInt32(ackAdapter.countVerification(user.getUserID(),1));//apo authn thn entolh an to apotelesma einai 1 tote exei kanei verify
+                    int apot = Convert.ToInt32(ackAdapter.countVerification(user.getUserID()));//apo authn thn entolh an to apotelesma einai 1 tote exei kanei verify
                     Console.WriteLine("Result= " + result);
                     if (apot == 1)
                     {
@@ -181,7 +181,7 @@ namespace Multiple_Choice_Creator.Persistence
             try
             {
                 ACKTableAdapter ackAdapter = new ACKTableAdapter();
-                ackAdapter.InsertQuery(verificationCode, userID, 0);
+                ackAdapter.insertAckNumber(verificationCode, userID, 0);
             }
             catch (Exception ex)
             {
@@ -195,7 +195,7 @@ namespace Multiple_Choice_Creator.Persistence
             try
             {
                 ACKTableAdapter ackAdapter = new ACKTableAdapter();
-                ackAdapter.UpdateQuery(verificationCode, userID);
+                ackAdapter.updateAckNumber(verificationCode, userID);
             }
             catch (Exception ex)
             {
