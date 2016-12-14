@@ -20,11 +20,10 @@ namespace Multiple_Choice_Creator
         private AnswDataTable answers;
         private bool shrinkMode;
         private LoadFeed feed;
-        public FeedPanel(Color c, QuestionAnswer qa, bool shrinkMode)
+        public FeedPanel(QuestionAnswer qa, bool shrinkMode)
         {
             InitializeComponent();
             this.shrinkMode = shrinkMode;
-            this.BackColor = c;
             this.Dock = DockStyle.Top;
             this.Height = 188;
             q = qa.getQuestion();

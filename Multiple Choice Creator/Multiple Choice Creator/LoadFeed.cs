@@ -24,7 +24,6 @@ namespace Multiple_Choice_Creator
         User user;
         List<FeedPanel> myLayoutControls = new List<FeedPanel>();
         NoFeed noFeedControl;
-        Color c;
         ConfirmDelete confirm;
         bool shrinkMode = false;
 
@@ -59,17 +58,11 @@ namespace Multiple_Choice_Creator
 
         private void fill(int size)
         {
-            Color c;
             DataTable data = qTableAdapter.GetDataByUserID(user.getUserID());
             toolbar.Enabled = true;
             for (var i = 0; i < size; i++)
             {
-                if (i % 2 == 0)
-                    c = Color.LightBlue;
-                else
-                    c = Color.LightGray;
-
-                displayUser((int)data.Rows[i][0],c);
+                displayUser((int)data.Rows[i][0]);
             }
 
             toolbarload();
@@ -80,7 +73,7 @@ namespace Multiple_Choice_Creator
             panel.Controls.Add(toolbar);
         }
 
-        private void displayUser(int id, Color c)
+        private void displayUser(int id)
         {
             Question q = new Question(id);
             AnswDataTable answers;
@@ -97,7 +90,7 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(c, qa, shrinkMode));
+            myLayoutControls.Add(new FeedPanel(qa, shrinkMode));
 
             myLayoutControls[index].setFeed(this);
 
@@ -129,17 +122,12 @@ namespace Multiple_Choice_Creator
             controlsDispose();
             for (int i = 0; i < num; i++)
             {
-                if (i % 2 == 0)
-                    c = Color.LightBlue;
-                else
-                    c = Color.LightGray;
-
                 Debug.WriteLine("ADDED");
-                displaySearch((int)data.Rows[i][0], c);
+                displaySearch((int)data.Rows[i][0]);
             }
             toolbarload();
         }
-        private void displaySearch(int id, Color c)
+        private void displaySearch(int id)
         {
             Question q = new Question(id);
             AnswDataTable answers;
@@ -153,7 +141,7 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(c, qa, shrinkMode));
+            myLayoutControls.Add(new FeedPanel(qa, shrinkMode));
 
             myLayoutControls[index].setFeed(this);
 
@@ -190,12 +178,8 @@ namespace Multiple_Choice_Creator
 
         public void add(QuestionAnswer element)
         {
-            if (index % 2 == 0)
-                c = Color.LightBlue;
-            else
-                c = Color.LightGray;
 
-            myLayoutControls.Add(new FeedPanel(c, element, shrinkMode));
+            myLayoutControls.Add(new FeedPanel(element, shrinkMode));
 
             myLayoutControls[index].setFeed(this);
 
