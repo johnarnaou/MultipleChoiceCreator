@@ -36,7 +36,6 @@
             this.HomeButton = new System.Windows.Forms.ToolStripButton();
             this.ShrinkButton = new System.Windows.Forms.ToolStripButton();
             this.ExpandButton = new System.Windows.Forms.ToolStripButton();
-            this.settingsButton = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +53,6 @@
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsButton,
             this.searchButton,
             this.searchTextBox,
             this.HomeButton,
@@ -116,16 +114,6 @@
             this.ExpandButton.Visible = false;
             this.ExpandButton.Click += new System.EventHandler(this.ExpandButton_Click);
             // 
-            // settingsButton
-            // 
-            this.settingsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
-            this.settingsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(23, 22);
-            this.settingsButton.Text = "Settings";
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
-            // 
             // FeedToolBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +139,5 @@
         private System.Windows.Forms.ToolStripButton HomeButton;
         private System.Windows.Forms.ToolStripButton ShrinkButton;
         private System.Windows.Forms.ToolStripButton ExpandButton;
-        private System.Windows.Forms.ToolStripButton settingsButton;
     }
 }

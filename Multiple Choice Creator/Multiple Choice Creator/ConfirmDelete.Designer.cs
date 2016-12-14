@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.noButton = new System.Windows.Forms.Button();
             this.yesButton = new System.Windows.Forms.Button();
-            this.dontAskCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -69,23 +68,11 @@
             this.yesButton.UseVisualStyleBackColor = true;
             this.yesButton.Click += new System.EventHandler(this.yesButton_Click);
             // 
-            // dontAskCheckBox
-            // 
-            this.dontAskCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.dontAskCheckBox.Location = new System.Drawing.Point(162, 150);
-            this.dontAskCheckBox.Name = "dontAskCheckBox";
-            this.dontAskCheckBox.Size = new System.Drawing.Size(117, 24);
-            this.dontAskCheckBox.TabIndex = 3;
-            this.dontAskCheckBox.Text = "Don\'t ask again";
-            this.dontAskCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.dontAskCheckBox.UseVisualStyleBackColor = true;
-            // 
             // ConfirmDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 186);
-            this.Controls.Add(this.dontAskCheckBox);
             this.Controls.Add(this.yesButton);
             this.Controls.Add(this.noButton);
             this.Controls.Add(this.label1);
@@ -102,6 +89,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button noButton;
         private System.Windows.Forms.Button yesButton;
-        private System.Windows.Forms.CheckBox dontAskCheckBox;
     }
 }
