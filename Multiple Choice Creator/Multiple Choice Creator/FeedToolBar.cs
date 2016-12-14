@@ -75,7 +75,6 @@ namespace Multiple_Choice_Creator
                 feed.NoFeedControlDispose();
             feed.load();
             HomeButton.Visible = false;
-            ShrinkButton.Visible = true;
             this.searchTextBox.Text = "";
         }
 

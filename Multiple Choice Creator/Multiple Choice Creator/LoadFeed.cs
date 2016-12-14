@@ -112,7 +112,7 @@ namespace Multiple_Choice_Creator
             {
                 for (int i = 0; i < index; i++)
                 {
-                    myLayoutControls[i].Height = 188;
+                    myLayoutControls[i].Height = 180;
                 }
             }
         }
