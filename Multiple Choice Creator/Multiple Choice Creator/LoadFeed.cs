@@ -35,6 +35,7 @@ namespace Multiple_Choice_Creator
             panel = p;
             toolbar = new FeedToolBar(panel, user);
             toolbar.setFeed(this);
+            
         }
 
         public void load()

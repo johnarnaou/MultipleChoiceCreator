@@ -9,49 +9,45 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using Multiple_Choice_Creator.Model;
+using static Multiple_Choice_Creator.mltChoiceDataSet;
 
 namespace Multiple_Choice_Creator
 {
     public partial class Insert : UserControl
     {
         User user;
-        public Insert(User user)
-        {
-            InitializeComponent();
-            this.user = user;
-            //this.Dock = Top;
-        }
-
+        LoadFeed currFeed;
+        ///local variables not used in constructor///////////////////////////////////////
         String question;
         QuestTableAdapter qTableAdapter;
         DataTable qID;
         int qid;
+        string dif = "E";
+        public Insert(User user,Object feed)
+        {
+            InitializeComponent();
+            this.user = user;
+            currFeed = (LoadFeed)feed;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            /* string dif = "E";
-             if (trackBar1.Value == 0)
-             {
-                 dif = "E";
-             }
-             else if (trackBar1.Value == 5)
-             {
-                 dif = "M";
-             }
-             else
-             {
-                 dif = "H";
-             }
-             String question = richTextBox1.Text;
-             QuestTableAdapter qTableAdapter = new QuestTableAdapter();
-
-             qTableAdapter.insertQuest(question, dif, user.getUserID());
-             DataTable qID = qTableAdapter.getIdOfInsertedQuest(question);
-
-             int qid = Convert.ToInt32(qID.Rows[0][0].ToString());*/
-            insertQuestin();
+            dif = "E";
+            if (trackBar1.Value == 0)
+            {
+                dif = "E";
+            }
+            else if (trackBar1.Value == 5)
+            {
+                dif = "M";
+            }
+            else
+            {
+                dif = "H";
+            }
+            insertQuestion();
             string correct="";
             AnswTableAdapter aTableAdapter = new AnswTableAdapter();
-            DataTable aid;
+            AnswDataTable aid=null;//arxika einai null
             QuestAnswTableAdapter a = new QuestAnswTableAdapter();
             for (int rows = 0; rows < dataGridView1.Rows.Count-1; rows++)
             {
@@ -65,17 +61,21 @@ namespace Multiple_Choice_Creator
                     Console.WriteLine(exc.ToString());
                     correct = "False";
                 }
-                correct = "True";
                 aTableAdapter.insertAnsw(textAnsw);
                 aid = aTableAdapter.getIdOfInsertedAnsw(textAnsw);
                 a.insertQuestAnsw(qid, Convert.ToInt32(aid.Rows[0][0].ToString()), Convert.ToBoolean(correct));
             }
-            MessageBox.Show("well done");
+            Question quest = new Question(richTextBox1.Text, Convert.ToChar(dif), user.getUserID());
+            AnswDataTable insAnsw = aTableAdapter.GetAnswersByQuestionID(qid);
+            QuestionAnswer qaInserted = new QuestionAnswer(quest);
+            qaInserted.setAnswersDataTable(insAnsw);
+            currFeed.add(qaInserted);
+            MessageBox.Show("the insert of question-answers has been completed");
         }
       
-        private void insertQuestin()
+        private void insertQuestion()
         {
-            string dif = "E";
+            dif = "E";
             if (trackBar1.Value == 0)
             {
                 dif = "E";
@@ -93,7 +93,6 @@ namespace Multiple_Choice_Creator
 
             qTableAdapter.insertQuest(question, dif, user.getUserID());
             qID = qTableAdapter.getIdOfInsertedQuest(question);
-
             qid = Convert.ToInt32(qID.Rows[0][0].ToString());
         }
 
@@ -110,6 +109,11 @@ namespace Multiple_Choice_Creator
             {
                 diffLabel.Text = "Hard";
             }
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+
         }
     }
 }

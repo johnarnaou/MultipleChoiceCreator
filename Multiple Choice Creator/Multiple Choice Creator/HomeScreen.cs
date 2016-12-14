@@ -18,10 +18,11 @@ namespace Multiple_Choice_Creator
         public HomeScreen(User user)
         {
             InitializeComponent();
-            manage = new Manage(user, splitContainer3.Panel1);
-            splitContainer3.Panel2.AutoScroll = true;
             feed = new LoadFeed(splitContainer3.Panel2, user);
+            splitContainer3.Panel2.AutoScroll = true;
             feed.load();
+            manage = new Manage(user,splitContainer3.Panel1,feed);
+            
             
         }
 

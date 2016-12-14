@@ -51,12 +51,12 @@ namespace Multiple_Choice_Creator.Model
             return this.text;
         }
 
-        private char getDifficulty()
+        public char getDifficulty()
         {
             return this.difficulty;
         }
 
-        private DateTime getCreationTime()
+        public DateTime getCreationTime()
         {
             return this.creationTime;
         }
