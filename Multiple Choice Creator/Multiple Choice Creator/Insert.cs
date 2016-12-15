@@ -35,8 +35,9 @@ namespace Multiple_Choice_Creator
             AnswDataTable inseAnsw = new Manage().inserQ(questIns,dataGridView1,user);
             qaInserted.setAnswersDataTable(inseAnsw);
             bool ins=saveChanges();
-            currFeed.add(qaInserted);
-            
+            if (ins==true) {
+                currFeed.add(qaInserted);
+            }
         }
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
