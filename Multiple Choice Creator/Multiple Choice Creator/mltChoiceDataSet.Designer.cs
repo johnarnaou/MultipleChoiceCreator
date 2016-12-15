@@ -11814,7 +11814,8 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@num";
-            param.DbType = global::System.Data.DbType.Object;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "";
@@ -11822,7 +11823,8 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[2].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@uId";
-            param.DbType = global::System.Data.DbType.Object;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "";
@@ -12172,7 +12174,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int deleteACKnumber(object num, object uId)
+        public virtual int deleteACKnumber(string num, int uId)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
             if ((num == null))
@@ -12181,16 +12183,9 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             }
             else
             {
-                command.Parameters[0].Value = ((object)(num));
+                command.Parameters[0].Value = ((string)(num));
             }
-            if ((uId == null))
-            {
-                throw new global::System.ArgumentNullException("uId");
-            }
-            else
-            {
-                command.Parameters[1].Value = ((object)(uId));
-            }
+            command.Parameters[1].Value = ((int)(uId));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open)
                         != global::System.Data.ConnectionState.Open))
