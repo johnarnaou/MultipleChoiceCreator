@@ -106,6 +106,7 @@ namespace Multiple_Choice_Creator
                 for (int i = 0; i < index; i++)
                 {
                     myLayoutControls[i].Height = toolbar.Height;
+                    myLayoutControls[i].setShrinkMode(shrinkMode);
                 }
             }
             else
@@ -113,6 +114,7 @@ namespace Multiple_Choice_Creator
                 for (int i = 0; i < index; i++)
                 {
                     myLayoutControls[i].Height = 180;
+                    myLayoutControls[i].setShrinkMode(shrinkMode);
                 }
             }
         }
