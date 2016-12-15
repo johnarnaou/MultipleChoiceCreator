@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -40,10 +41,14 @@
             this.CorrectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.mltChoiceDataSet = new Multiple_Choice_Creator.mltChoiceDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mltChoiceDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -111,7 +116,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Save";
+            this.button1.Text = "Insert";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -174,6 +179,16 @@
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = this.mltChoiceDataSet;
+            this.bindingSource1.Position = 0;
+            // 
+            // mltChoiceDataSet
+            // 
+            this.mltChoiceDataSet.DataSetName = "mltChoiceDataSet";
+            this.mltChoiceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Insert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +205,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mltChoiceDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +225,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CorrectCheck;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private mltChoiceDataSet mltChoiceDataSet;
     }
 }

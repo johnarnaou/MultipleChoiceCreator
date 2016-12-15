@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using Multiple_Choice_Creator.Model;
 using static Multiple_Choice_Creator.mltChoiceDataSet;
-
 namespace Multiple_Choice_Creator
 {
     public partial class Insert : UserControl
@@ -29,11 +28,15 @@ namespace Multiple_Choice_Creator
         }
         private void button1_Click(object sender, EventArgs e)
         {
+
+            
             Question questIns=new Model.Question(richTextBox1.Text, Convert.ToChar(dif), user.getUserID());
             QuestionAnswer qaInserted = new QuestionAnswer(questIns);
             AnswDataTable inseAnsw = new Manage().inserQ(questIns,dataGridView1,user);
             qaInserted.setAnswersDataTable(inseAnsw);
+            saveChanges();
             currFeed.add(qaInserted);
+            
         }
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
@@ -48,6 +51,82 @@ namespace Multiple_Choice_Creator
             {
                 diffLabel.Text = "Hard";
             }
+        }
+
+        private bool saveChanges()
+        {
+            if (validateData())
+            {
+                if (!dataHasErrors())
+                {
+                    TableAdapterManager manageDataset = new TableAdapterManager();
+                    manageDataset.UpdateAll(mltChoiceDataSet);
+                    MessageBox.Show("Your changes were saved", "Saved",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool validateData()
+        {
+            if (Validate())
+            {
+                try
+                {
+                    bindingSource1.EndEdit();
+                    return true;
+                }
+                catch (Exception exc)
+                {
+                    if (MessageBox.Show("Invalid data was entered", "wrong", MessageBoxButtons.YesNo, MessageBoxIcon.Error)==DialogResult.Yes)
+                    {
+                        bindingSource1.CancelEdit();
+                    }
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        private bool dataHasErrors()
+        {
+            bool err = false;
+            string errorStringQ = "";
+            string errorStringA = "";
+            if (mltChoiceDataSet.Quest.HasErrors)
+            {
+                foreach (DataRow row in mltChoiceDataSet.Quest)
+                {
+                    if (row.HasErrors)
+                    {
+                        errorStringQ += row.RowError + Environment.NewLine;
+                    }
+                }
+                MessageBox.Show("the following errors occured in Question"
+                + Environment.NewLine + errorStringQ, "Question", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                err = true;
+            }
+            if (mltChoiceDataSet.Answ.HasErrors)
+            {
+                foreach (DataRow row in mltChoiceDataSet.Answ)
+                {
+                    if (row.HasErrors)
+                    {
+                        errorStringA += row.RowError + Environment.NewLine;
+                    }
+                }
+                err = true;
+                MessageBox.Show("the following errors occured in Answer"
+                + Environment.NewLine + errorStringA, "Answer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            if (err==true)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
