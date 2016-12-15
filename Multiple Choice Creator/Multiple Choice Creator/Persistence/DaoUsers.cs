@@ -105,10 +105,10 @@ namespace Multiple_Choice_Creator.Persistence
         }
 
         //This method is to send mail to the user for the mail verification
-        public string sendMail(User user)
+        public string sendMail(User user,int way)
         {
             MailMessage msg = new MailMessage();
-            msg=addMailParameters(msg,user);
+            msg=addMailParameters(msg,user,way);
             SmtpClient client = new SmtpClient();
             client = addClientParameters(client);
             try
@@ -130,14 +130,19 @@ namespace Multiple_Choice_Creator.Persistence
         }
 
         //this method is to add parameters to the mail 
-        private MailMessage addMailParameters(MailMessage msg, User user)
+        private MailMessage addMailParameters(MailMessage msg, User user,int way)
         {
             msg.From = new MailAddress("multiplechoiceteamteithe@gmail.com");
             msg.To.Add(user.getEmail());
             msg.Subject = "Multiple Choise Team Mail Verification" + DateTime.Now.ToString();
             string verificationCode = RandomString();
             msg.Body = "Welcome " + user.getFname() + " Verification Code: '" + verificationCode + "'";
-            insertVerificationCode(user.getUserID(), verificationCode);
+            if (way == 0) { 
+                insertVerificationCode(user.getUserID(), verificationCode);
+            }else if (way == 1)
+            {
+                reSendVerificationCode(user.getUserID(), verificationCode);
+            }
             //Edw tha kaleite h methodos gia na ginete to insert toy id tou xrhsth kai to verification code sto ACK
             return msg;
         }
@@ -214,7 +219,7 @@ namespace Multiple_Choice_Creator.Persistence
             try
             {
                 ACKTableAdapter ackAdapter = new ACKTableAdapter();
-                int apot = ackAdapter.deleteACKnumber(0, user.getUserID());//Na to tsekarw!!
+                ackAdapter.deleteACKnumber(VerificationCode, user.getUserID());//Na to tsekarw!!
                 if (checkIfVerified(user))
                 {
                     result = true;

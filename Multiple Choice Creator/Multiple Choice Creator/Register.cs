@@ -56,7 +56,7 @@ namespace Multiple_Choice_Creator
                     DaoMysql dmsql = new DaoMysql();
                     if (dUser.register(user))
                     {
-                            dUser.sendMail(user);
+                            dUser.sendMail(user,0);
                             Form VerificationCode = new VerificationCode(user);
                             VerificationCode.Show();
                             this.Hide();

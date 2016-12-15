@@ -72,7 +72,7 @@ namespace Multiple_Choice_Creator
 
         private void button2_Click(object sender, EventArgs e)
         {
-            duser.sendMail(user);
+            duser.sendMail(user,1);
         }
     }
 }
