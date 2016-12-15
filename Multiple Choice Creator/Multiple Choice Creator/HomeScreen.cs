@@ -112,7 +112,7 @@ namespace Multiple_Choice_Creator
         {
             TreeNode result = null;
 
-            if (node.Text.Contains(searchText))
+            if (node.Text.ToUpper().Contains(searchText.ToUpper()))
             {
                 result = node;
             }
@@ -128,6 +128,11 @@ namespace Multiple_Choice_Creator
                 }
             }
             return result;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            textBox1.Focus();
         }
     }
 }

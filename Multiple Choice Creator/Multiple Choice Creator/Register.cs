@@ -54,7 +54,7 @@ namespace Multiple_Choice_Creator
                     markUnWritten(firstName, lastName, email, password);
                     DaoUsers dUser = DaoUsers.getInstance();
                     DaoMysql dmsql = new DaoMysql();
-                    if (dmsql.register(firstName, lastName, email, password))
+                    if (dUser.register(user))
                     {
                             dUser.sendMail(user);
                             Form VerificationCode = new VerificationCode(user);

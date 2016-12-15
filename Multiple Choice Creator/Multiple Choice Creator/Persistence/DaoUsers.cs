@@ -82,6 +82,9 @@ namespace Multiple_Choice_Creator.Persistence
                 MySqlCommand cmd2 = new MySqlCommand(queryCheck, conn);
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader mdr = cmd.ExecuteReader();
+                UsersTableAdapter uta = new UsersTableAdapter();
+                int apot = Convert.ToInt32(uta.getUserID(user.getEmail()));
+                user.setUserID(apot);
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {

@@ -188,6 +188,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.AccessibleDescription = "Search on TreeView";
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox1.HideSelection = false;
             this.textBox1.Location = new System.Drawing.Point(22, 45);
@@ -256,6 +257,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 35);
             this.label2.TabIndex = 6;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // HomeScreen
             // 
