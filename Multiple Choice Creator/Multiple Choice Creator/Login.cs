@@ -46,6 +46,7 @@ namespace Multiple_Choice_Creator
         String password;
         private void loginButton_Click(object sender, EventArgs e)
         {
+            try { 
             //var HSForm = new HomeScreen();
             //HSForm.Show();
             //var HSForm1 = new NewHomeScreen_Popis_();
@@ -85,11 +86,14 @@ namespace Multiple_Choice_Creator
 
 
 
-            /*Kaloume apo thn klash DaoMySql thn methodo gia na tsekarei to login
-            setaroume ta user attributes.*/
+                /*Kaloume apo thn klash DaoMySql thn methodo gia na tsekarei to login
+                setaroume ta user attributes.*/
 
-            /*An einai ok tsekaroyme ta checkbox gia to an tha apothikeusoyme se arxeio ta username kai password toy xrhsth gia na ta exei sto mellon*/
-
+                /*An einai ok tsekaroyme ta checkbox gia to an tha apothikeusoyme se arxeio ta username kai password toy xrhsth gia na ta exei sto mellon*/
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         //this method is to open the mainForm whenever we need and it simplifies the Login button click method.
