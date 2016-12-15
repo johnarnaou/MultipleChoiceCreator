@@ -43,7 +43,7 @@ namespace Multiple_Choice_Creator
             int k = Convert.ToInt32(a);
             if (k == 0)
             {
-                NoFeed("No Questions...");
+                NoFeed("No Questions..., Try inserting some!!");
                 toolbar.setNoFeedWasLoaded(true);
                 toolbar.Enabled = false;
             }
@@ -106,6 +106,7 @@ namespace Multiple_Choice_Creator
                 for (int i = 0; i < index; i++)
                 {
                     myLayoutControls[i].Height = toolbar.Height;
+                    myLayoutControls[i].setShrinkMode(shrinkMode);
                 }
             }
             else
@@ -113,6 +114,7 @@ namespace Multiple_Choice_Creator
                 for (int i = 0; i < index; i++)
                 {
                     myLayoutControls[i].Height = 180;
+                    myLayoutControls[i].setShrinkMode(shrinkMode);
                 }
             }
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -40,10 +41,18 @@
             this.CorrectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.questBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mltChoiceDataSet = new Multiple_Choice_Creator.mltChoiceDataSet();
+            this.questTableAdapter = new Multiple_Choice_Creator.mltChoiceDataSetTableAdapters.QuestTableAdapter();
+            this.answBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.answTableAdapter = new Multiple_Choice_Creator.mltChoiceDataSetTableAdapters.AnswTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mltChoiceDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.answBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -111,7 +120,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Save";
+            this.button1.Text = "Insert";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -174,6 +183,29 @@
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             // 
+            // questBindingSource
+            // 
+            this.questBindingSource.DataMember = "Quest";
+            this.questBindingSource.DataSource = this.mltChoiceDataSet;
+            // 
+            // mltChoiceDataSet
+            // 
+            this.mltChoiceDataSet.DataSetName = "mltChoiceDataSet";
+            this.mltChoiceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // questTableAdapter
+            // 
+            this.questTableAdapter.ClearBeforeFill = true;
+            // 
+            // answBindingSource
+            // 
+            this.answBindingSource.DataMember = "Answ";
+            this.answBindingSource.DataSource = this.mltChoiceDataSet;
+            // 
+            // answTableAdapter
+            // 
+            this.answTableAdapter.ClearBeforeFill = true;
+            // 
             // Insert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +222,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mltChoiceDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.answBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +243,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CorrectCheck;
+        private System.Windows.Forms.BindingSource questBindingSource;
+        private mltChoiceDataSet mltChoiceDataSet;
+        private mltChoiceDataSetTableAdapters.QuestTableAdapter questTableAdapter;
+        private System.Windows.Forms.BindingSource answBindingSource;
+        private mltChoiceDataSetTableAdapters.AnswTableAdapter answTableAdapter;
     }
 }

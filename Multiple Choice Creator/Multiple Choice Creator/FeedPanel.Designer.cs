@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedPanel));
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.answersDataGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -39,6 +38,7 @@
             this.saveButton = new System.Windows.Forms.ToolStripButton();
             this.showTimer = new System.Windows.Forms.Timer(this.components);
             this.deleteTimer = new System.Windows.Forms.Timer(this.components);
+            this.hideTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -84,6 +84,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(530, 25);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.MouseHover += new System.EventHandler(this.toolStrip1_MouseHover);
             // 
             // DeleteButtton
             // 
@@ -101,6 +102,7 @@
             this.QuestionLabel.Name = "QuestionLabel";
             this.QuestionLabel.Size = new System.Drawing.Size(58, 22);
             this.QuestionLabel.Text = "Question:";
+            this.QuestionLabel.Click += new System.EventHandler(this.QuestionLabel_Click);
             // 
             // saveButton
             // 
@@ -116,11 +118,18 @@
             // 
             // showTimer
             // 
+            this.showTimer.Interval = 50;
             this.showTimer.Tick += new System.EventHandler(this.tm_Tick);
             // 
             // deleteTimer
             // 
+            this.deleteTimer.Interval = 50;
             this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
+            // 
+            // hideTimer
+            // 
+            this.hideTimer.Interval = 50;
+            this.hideTimer.Tick += new System.EventHandler(this.hideTimer_Tick);
             // 
             // FeedPanel
             // 
@@ -143,8 +152,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView answersDataGridView;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -153,5 +160,6 @@
         private System.Windows.Forms.Timer showTimer;
         private System.Windows.Forms.Timer deleteTimer;
         private System.Windows.Forms.ToolStripButton saveButton;
+        private System.Windows.Forms.Timer hideTimer;
     }
 }

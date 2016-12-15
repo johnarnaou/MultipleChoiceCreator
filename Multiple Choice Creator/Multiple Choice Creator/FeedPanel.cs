@@ -20,7 +20,7 @@ namespace Multiple_Choice_Creator
         private Question q;
         private QuestionAnswer qa;
         private AnswDataTable answers, backup;
-        private bool shrinkMode, tempValue;
+        private bool shrinkMode, toolTipEnabled = false;
         private LoadFeed feed;
         private AnswTableAdapter answAdapter = new AnswTableAdapter();
         private QuestAnswTableAdapter qaAdapter = new QuestAnswTableAdapter();
@@ -74,11 +74,6 @@ namespace Multiple_Choice_Creator
             this.QuestionLabel.Text = question;
         }
 
-        private void addCheckBox_MouseEnter(object sender, EventArgs e)
-        {
-            toolTip1.Show("Add to test", this);
-        }
-
         public void remove()
         {
             this.Parent.Controls.Remove(this);
@@ -102,7 +97,7 @@ namespace Multiple_Choice_Creator
         private void tm_Tick(object sender, EventArgs e)
         {
             if (this.Height >= height) this.showTimer.Enabled = false;
-            else this.Height += 20;
+            else this.Height += 10;
         }
 
         private void deleteTimer_Tick(object sender, EventArgs e)
@@ -112,7 +107,7 @@ namespace Multiple_Choice_Creator
                 this.deleteTimer.Enabled = false;
                 feed.delete(q);
             }
-            else this.Height -= 20;
+            else this.Height -= 10;
         }
 
         private void answersDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -133,6 +128,11 @@ namespace Multiple_Choice_Creator
             saveButton.Visible = false;
         }
 
+        public void setShrinkMode(bool value)
+        {
+            shrinkMode = value;
+            toolTipEnabled = value;
+        }
         private void answersDataGridView_Leave(object sender, EventArgs e)
         {
             if (valuesChanged) {
@@ -152,6 +152,58 @@ namespace Multiple_Choice_Creator
         private void answersDataGridView_Enter(object sender, EventArgs e)
         {
             backup = answers;
+        }
+
+        private void toolStrip1_MouseHover(object sender, EventArgs e)
+        {
+            Debug.WriteLine(shrinkMode);
+            ToolTip ToolTip1 = new ToolTip();
+            if (toolTipEnabled)
+            {
+                string text = "";
+                if (answers.Count > 0)
+                {
+                    for (int i = 0; i < answers.Count; i++)
+                    {
+                        text = text + "Answer " + (i + 1) + ": " + answers[i][0] + "\n";
+                    }
+                } else
+                {
+                    text = "No Answers";
+                }
+                ToolTip1.Active = true;
+                ToolTip1.SetToolTip(this.toolStrip1, text);
+                Debug.WriteLine(text);
+            } else
+            {
+                ToolTip1.Active = false;
+            }
+        }
+
+        private void hideTimer_Tick(object sender, EventArgs e)
+        {
+            if (this.Height <= toolStrip1.Height)
+            {
+                this.hideTimer.Enabled = false;
+            }
+            else this.Height -= 10;
+        }
+
+        private void QuestionLabel_Click(object sender, EventArgs e)
+        {
+            if (shrinkMode)
+            {
+                showTimer.Enabled = true;
+                tm_Tick(sender, e);
+                shrinkMode = false;
+                toolTipEnabled = false;
+            }
+            else
+            {
+                hideTimer.Enabled = true;
+                shrinkMode = true;
+                toolTipEnabled = true;
+            }
         }
 
         private void saveButton_Click(object sender, EventArgs e)

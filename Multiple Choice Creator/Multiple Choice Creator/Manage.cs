@@ -25,12 +25,12 @@ namespace Multiple_Choice_Creator
 
         public Manage() { }//to xreiazomaste gia na kaloume t methosdo insertQ
 
+       
         public AnswDataTable inserQ(Question q,DataGridView manageGrid,User user)
         {
             QuestTableAdapter qTableAdapter;
             DataTable questionId;
             int qid;
-            
             qTableAdapter = new QuestTableAdapter();
             qTableAdapter.insertQuest(q.getText(), Convert.ToString(q.getDifficulty()),user.getUserID());
             questionId = qTableAdapter.getIdOfInsertedQuest(q.getText());
@@ -38,6 +38,8 @@ namespace Multiple_Choice_Creator
             AnswDataTable answData = insertAnsw(qid, manageGrid);
             return answData;
         }
+
+      
 
         private AnswDataTable insertAnsw(int questionId,DataGridView manageGrid)
         {

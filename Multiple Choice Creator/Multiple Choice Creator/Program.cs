@@ -22,8 +22,6 @@ namespace Multiple_Choice_Creator
             Login form = new Login();
             form.StartPosition = FormStartPosition.CenterScreen;
             Application.Run(form);
-            
-           
         }
     }
 }
