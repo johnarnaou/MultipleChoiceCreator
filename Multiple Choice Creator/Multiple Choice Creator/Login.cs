@@ -60,9 +60,12 @@ namespace Multiple_Choice_Creator
             user.setUserID((int)uAdapter.getUserID(mail));
             if (dUser.login(user))
             {
-                if (dUser.checkIfVerified(user)) { 
-                    
+                if (dUser.checkIfVerified(user)) {
+
                     //setDefaultsUnamePworld();
+                    HomeScreen form = new HomeScreen(user);
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.Show();
                     this.Hide();
                 }
                 else

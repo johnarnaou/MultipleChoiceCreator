@@ -164,7 +164,7 @@ namespace Multiple_Choice_Creator.Persistence
                     ACKTableAdapter ackAdapter = new ACKTableAdapter();
                     int apot = Convert.ToInt32(ackAdapter.countVerification(user.getUserID()));//apo authn thn entolh an to apotelesma einai 1 tote exei kanei verify
                     Console.WriteLine("Result= " + result);
-                    if (apot == 1)
+                    if (apot == 0)
                     {
                         result = true;
                     }
@@ -205,14 +205,14 @@ namespace Multiple_Choice_Creator.Persistence
         }
 
 
-        public bool checkTheVerificationCode(int userID,String VerificationCode)
+        public bool checkTheVerificationCode(User user,String VerificationCode)
         {
             bool result = false;
             try
             {
                 ACKTableAdapter ackAdapter = new ACKTableAdapter();
-                int apot = ackAdapter.deleteACKnumber(0, userID);//Na to tsekarw!!
-                if (apot == 1)
+                int apot = ackAdapter.deleteACKnumber(0, user.getUserID());//Na to tsekarw!!
+                if (checkIfVerified(user))
                 {
                     result = true;
                 }

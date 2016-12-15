@@ -37,7 +37,7 @@ namespace Multiple_Choice_Creator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(duser.checkTheVerificationCode(user.getUserID(), textBox1.Text))
+            if(duser.checkTheVerificationCode(user, textBox1.Text))
             {
                 if (mainForm == null)
                 {
