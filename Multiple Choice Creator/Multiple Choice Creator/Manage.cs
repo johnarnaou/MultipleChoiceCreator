@@ -25,6 +25,7 @@ namespace Multiple_Choice_Creator
 
         public Manage() { }//to xreiazomaste gia na kaloume t methosdo insertQ
 
+       
         public AnswDataTable inserQ(Question q,DataGridView manageGrid,User user)
         {
             QuestTableAdapter qTableAdapter;
@@ -37,6 +38,8 @@ namespace Multiple_Choice_Creator
             AnswDataTable answData = insertAnsw(qid, manageGrid);
             return answData;
         }
+
+      
 
         private AnswDataTable insertAnsw(int questionId,DataGridView manageGrid)
         {

@@ -11810,22 +11810,22 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "delete from ACK WHERE status=@stat and userId=@uId";
+            this._commandCollection[2].CommandText = "DELETE FROM ACK\r\nWHERE        (ackNum = @num) AND (userId = @uId)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@stat";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.ParameterName = "@num";
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
             param.IsNullable = true;
-            param.SourceColumn = "status";
+            param.SourceColumn = "";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._commandCollection[2].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@uId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
             param.IsNullable = true;
-            param.SourceColumn = "userId";
+            param.SourceColumn = "";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
@@ -12172,24 +12172,24 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int deleteACKnumber(global::System.Nullable<int> stat, global::System.Nullable<int> uId)
+        public virtual int deleteACKnumber(object num, object uId)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
-            if ((stat.HasValue == true))
+            if ((num == null))
             {
-                command.Parameters[0].Value = ((int)(stat.Value));
+                throw new global::System.ArgumentNullException("num");
             }
             else
             {
-                command.Parameters[0].Value = global::System.DBNull.Value;
+                command.Parameters[0].Value = ((object)(num));
             }
-            if ((uId.HasValue == true))
+            if ((uId == null))
             {
-                command.Parameters[1].Value = ((int)(uId.Value));
+                throw new global::System.ArgumentNullException("uId");
             }
             else
             {
-                command.Parameters[1].Value = global::System.DBNull.Value;
+                command.Parameters[1].Value = ((object)(uId));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open)
