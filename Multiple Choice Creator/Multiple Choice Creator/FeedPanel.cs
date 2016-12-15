@@ -102,7 +102,7 @@ namespace Multiple_Choice_Creator
         private void tm_Tick(object sender, EventArgs e)
         {
             if (this.Height >= height) this.showTimer.Enabled = false;
-            else this.Height += 20;
+            else this.Height += 10;
         }
 
         private void deleteTimer_Tick(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace Multiple_Choice_Creator
                 this.deleteTimer.Enabled = false;
                 feed.delete(q);
             }
-            else this.Height -= 20;
+            else this.Height -= 10;
         }
 
         private void answersDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)

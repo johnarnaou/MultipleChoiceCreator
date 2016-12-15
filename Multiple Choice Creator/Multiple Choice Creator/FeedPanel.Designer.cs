@@ -116,10 +116,12 @@
             // 
             // showTimer
             // 
+            this.showTimer.Interval = 50;
             this.showTimer.Tick += new System.EventHandler(this.tm_Tick);
             // 
             // deleteTimer
             // 
+            this.deleteTimer.Interval = 50;
             this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
             // 
             // FeedPanel

@@ -43,7 +43,7 @@ namespace Multiple_Choice_Creator
             int k = Convert.ToInt32(a);
             if (k == 0)
             {
-                NoFeed("No Questions...");
+                NoFeed("No Questions..., Try inserting some!!");
                 toolbar.setNoFeedWasLoaded(true);
                 toolbar.Enabled = false;
             }
