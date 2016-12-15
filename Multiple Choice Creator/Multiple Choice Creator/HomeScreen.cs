@@ -50,12 +50,48 @@ namespace Multiple_Choice_Creator
         {
 
         }
-
+        public List<TreeNode> tmNodes = new List<TreeNode>();
+        //isws kai na thelei mono gia ena node
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+            if (textBox1.Text.Length > 2) { 
+                foreach (TreeNode node in this.treeView1.Nodes)
+                {
+
+                    TreeNode tmpNode = FindNode(node, textBox1.Text);
+                    if (tmpNode != null)
+                    {
+                        this.myNodeExpand(tmpNode);
+                        tmpNode.BackColor = Color.Orange;
+                        removeColor(tmNodes);
+                        tmNodes =new List<TreeNode>();
+                        tmNodes.Add(tmpNode);
+                        //treeView1.Select();
+                        //treeView1.SelectedNode = tmpNode;
+                    }
+
+
+                }
+            }
         }
 
+        private void myNodeExpand(TreeNode nodeExpand)
+        {
+            while (nodeExpand != null)
+            {
+                nodeExpand.Expand();
+                nodeExpand = nodeExpand.Parent;
+                
+            }
+        }
+
+        private void removeColor(List<TreeNode> listoOfNodes)
+        {
+            foreach (TreeNode node in listoOfNodes)
+            {
+                node.BackColor = Color.White;
+            }
+        }
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
@@ -63,19 +99,32 @@ namespace Multiple_Choice_Creator
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
-            foreach (TreeNode node in this.treeView1.Nodes)
+            
+        }
+
+
+
+
+        private TreeNode FindNode(TreeNode node, string searchText)
+        {
+            TreeNode result = null;
+
+            if (node.Text.Contains(searchText))
             {
-
-                if (node.Text.ToUpper().Contains(this.textBox1.Text.ToUpper()))
+                result = node;
+            }
+            else
+            {
+                foreach (TreeNode child in node.Nodes)
                 {
-
-                    treeView1.Select(); // First give the focus to the treeview control,
-                    //doing this, the control is able to show the selectednode.
-                    treeView1.SelectedNode = node;
-                    break;
-
+                    result = FindNode(child, searchText);
+                    if (result != null)
+                    {
+                        break;
+                    }
                 }
             }
+            return result;
         }
     }
 }

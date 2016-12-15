@@ -28,7 +28,7 @@ namespace Multiple_Choice_Creator
 
                     TreeNode tnode = new TreeNode(myList[i].getName());
                     treeView1.Nodes.Add(tnode);
-                    //printKids(myList[i].getID(), tnode); <-- edw υπάρχει θέμα
+                    printKids(myList[i].getId(), tnode);
 
                 }
             }
@@ -45,7 +45,7 @@ namespace Multiple_Choice_Creator
                 {
                     TreeNode cnode = new TreeNode(myList[i].getName());
                     tnode.Nodes.Add(cnode);
-                    printKids(myList[i].getParent(), cnode);
+                    printKids(myList[i].getId(), cnode);
                 }
             }
         }

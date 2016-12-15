@@ -10,10 +10,11 @@ namespace Multiple_Choice_Creator.Model
     {
         private string name;
         private string description;
-        private int parent;
+        private int parent,id;
 
-        public Topic(string name,string description,int parent)
+        public Topic(int id,string name,string description,int parent)
         {
+            this.id = id;
             this.name = name;
             this.description = description;
             this.parent = parent;     
@@ -22,6 +23,11 @@ namespace Multiple_Choice_Creator.Model
         public string getName()
         {
             return this.name;
+        }
+
+        public int getId()
+        {
+            return this.id;
         }
 
         public string getDescription()

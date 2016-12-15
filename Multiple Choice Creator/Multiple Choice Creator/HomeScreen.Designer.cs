@@ -188,6 +188,7 @@
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox1.HideSelection = false;
             this.textBox1.Location = new System.Drawing.Point(0, 56);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(229, 20);

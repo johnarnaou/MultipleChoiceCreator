@@ -191,7 +191,7 @@ namespace Multiple_Choice_Creator
                 MySqlDataReader mdr = cmd.ExecuteReader();
                 while (mdr.Read())
                 {
-                    Topic tempTheme = new Topic(mdr["name"].ToString(), mdr["Description"].ToString(), Int32.Parse(mdr["Parent"].ToString()));
+                    Topic tempTheme = new Topic(Int32.Parse(mdr["Id"].ToString()),mdr["name"].ToString(), mdr["Description"].ToString(), Int32.Parse(mdr["Parent"].ToString()));
                     myList.Add(tempTheme);
                 }
                 return myList;
