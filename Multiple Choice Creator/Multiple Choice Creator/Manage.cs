@@ -30,7 +30,6 @@ namespace Multiple_Choice_Creator
             QuestTableAdapter qTableAdapter;
             DataTable questionId;
             int qid;
-            
             qTableAdapter = new QuestTableAdapter();
             qTableAdapter.insertQuest(q.getText(), Convert.ToString(q.getDifficulty()),user.getUserID());
             questionId = qTableAdapter.getIdOfInsertedQuest(q.getText());
