@@ -15,10 +15,12 @@ namespace Multiple_Choice_Creator
         Panel panel;
         User user;
         Insert management;
-        public Manage(User user, Panel panel,LoadFeed curfeed)
+        Filters filters;
+        public Manage(User user, Panel panel,LoadFeed curfeed,Filters filters)
         {
             this.user = user;
-            this.management = new Insert(user,curfeed);
+            this.filters = filters;
+            this.management = new Insert(user,curfeed,this);
             this.panel = panel;
             panel.Controls.Add(management);
         }
@@ -31,15 +33,28 @@ namespace Multiple_Choice_Creator
             QuestTableAdapter qTableAdapter;
             DataTable questionId;
             int qid;
+            List<string> themes = filters.returnThemes();
             qTableAdapter = new QuestTableAdapter();
             qTableAdapter.insertQuest(q.getText(), Convert.ToString(q.getDifficulty()),user.getUserID());
             questionId = qTableAdapter.getIdOfInsertedQuest(q.getText());
             qid = Convert.ToInt32(questionId.Rows[0][0].ToString());
+            insertThemes(themes,qid);
             AnswDataTable answData = insertAnsw(qid, manageGrid);
             return answData;
         }
 
-      
+        private void insertThemes(List<string> themeList,int qId)
+        {
+            TopicTableAdapter topic = new TopicTableAdapter();
+            TopicQuestTableAdapter tq = new TopicQuestTableAdapter();
+            for (int i=0; i<themeList.Count; i++)
+            {   
+                DataTable topicId = topic.getIdOfTopic(themeList[i]);
+                //MessageBox.Show(topicId.Rows[0][0].ToString());
+                tq.insertTopicQuest(qId,Convert.ToInt32(topicId.Rows[0][0].ToString()));
+            }
+            
+        }
 
         private AnswDataTable insertAnsw(int questionId,DataGridView manageGrid)
         {

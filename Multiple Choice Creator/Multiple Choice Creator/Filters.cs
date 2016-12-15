@@ -38,7 +38,6 @@ namespace Multiple_Choice_Creator
             List<String> myList = new List<string>();
             foreach (TreeNode child in this.treeView1.Nodes)
             {
-                
                 if (child.Checked)
                 {
                     myList.Add(child.Text);

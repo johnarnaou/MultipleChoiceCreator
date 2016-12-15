@@ -21,6 +21,11 @@ namespace Multiple_Choice_Creator
             this.panel = myPanel;
             this.panel.Controls.Add(myFilters);
         }
+
+        public Filters getFilters()
+        {
+            return myFilters;
+        }
         
     }
 

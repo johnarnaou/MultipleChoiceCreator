@@ -23,8 +23,9 @@ namespace Multiple_Choice_Creator
             feed = new LoadFeed(splitContainer3.Panel2, user);
             splitContainer3.Panel2.AutoScroll = true;
             feed.load();
-            manage = new Manage(user, splitContainer3.Panel1, feed);
             myFilter = new Filter(splitContainer1.Panel1);
+            manage = new Manage(user, splitContainer3.Panel1, feed,myFilter.getFilters());
+           
 
         }
 

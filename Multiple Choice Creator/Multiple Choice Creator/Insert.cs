@@ -14,13 +14,15 @@ namespace Multiple_Choice_Creator
 {
     public partial class Insert : UserControl
     {
+        Manage mang;
         User user;
         LoadFeed currFeed;
         ///local variables not used in constructor///////
         string dif = "E";
-        public Insert(User user,Object feed)
+        public Insert(User user,Object feed,Object manage)
         {
             InitializeComponent();
+            this.mang = (Manage)manage;
             this.user = user;
             this.Dock = DockStyle.Fill;
             currFeed = (LoadFeed)feed;
@@ -28,11 +30,9 @@ namespace Multiple_Choice_Creator
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
-            
             Question questIns=new Model.Question(richTextBox1.Text, Convert.ToChar(dif), user.getUserID());
             QuestionAnswer qaInserted = new QuestionAnswer(questIns);
-            AnswDataTable inseAnsw = new Manage().inserQ(questIns,dataGridView1,user);
+            AnswDataTable inseAnsw = mang.inserQ(questIns,dataGridView1,user);
             qaInserted.setAnswersDataTable(inseAnsw);
             bool ins=saveChanges();
             if (ins==true) {
