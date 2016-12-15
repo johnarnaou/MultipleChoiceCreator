@@ -52,9 +52,11 @@ namespace Multiple_Choice_Creator
         }
         public List<TreeNode> tmNodes = new List<TreeNode>();
         //isws kai na thelei mono gia ena node
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 2) { 
+            removeColor(tmNodes);
+            if (textBox1.Text.Length > 0) { 
                 foreach (TreeNode node in this.treeView1.Nodes)
                 {
 
@@ -63,9 +65,10 @@ namespace Multiple_Choice_Creator
                     {
                         this.myNodeExpand(tmpNode);
                         tmpNode.BackColor = Color.Orange;
-                        removeColor(tmNodes);
+                        
                         tmNodes =new List<TreeNode>();
                         tmNodes.Add(tmpNode);
+                        break;
                         //treeView1.Select();
                         //treeView1.SelectedNode = tmpNode;
                     }

@@ -65,6 +65,11 @@ namespace Multiple_Choice_Creator
             Application.Exit();
         }
 
+        private void VerificationCode_FormClosed(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             duser.sendMail(user);

@@ -117,4 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAA7NJREFUSEuNVllPE1EU7j8yURRkESgCZbMtspW97PrgAzHB+GDiAyKbQFkkNiSE
+        B4MoMQqVQkvxQTRReVDWigI+GAgYU2MChJgc5zszt850BvFLTqZz753vu+c7587URCdgce8DDS+56dZ8
+        E13xO6lmppSvuMc45k/CsSKejWdU7LFT0aSVKrwFVD1dQrUzZVTnK+cr7jGOeazD+uOgEzn8fUgN/kpy
+        eGy8a5CeFFiH9XgOz0dCI7K3v0t5E1nknHZoCCq9hVQxVUBOryOcjVHgOTwPHjXCItgBFlTPlPADIIcV
+        uB/86KKR1SFqeXub8ieyqVwSrPUZi2E9eNQZhUWQqsgAfsPnYGiV59a+rdCb9XkK/QrxvXtxgPInc3QC
+        IsADPgEWQdHgKRYgAwgAs8s+Smg9S+aOWLp4L4F/Ox7k8tzEylMq8lh1AiLAJ5qBRRwSqSgyLPoUWmOB
+        2JbTZO/PpNyBrHBku1IpqT2GH7422iBn79eLyM0gb9aEPgexmICnAHYdKSDC0p1MXb422tzdIHN7LNV4
+        S6l+tkInBF7wm4aX3dzvGEQXocioASwyEkDY+jIoqyeFN3Oh9RxZeyzkfO6g+oBWCLzgN+HkVk8Xy4NS
+        16CLXq+/4hoYCSCQobAssS2a763dFiody6eGucqwCHjBb8IrQvQ+zgHaFF0Eu4wEEJd606lsqFARieEx
+        FpIyKhqxh4XAC36TKLgYxDkA0EUocqQAArt/GQyQd8lDaV2JmjlbbwbluXNk66SGAL8mEwQOGs4BAEtQ
+        ZNQAO0UGEGh60sjz0XdOUapka2SD2PsyeQy8VwNV2pqos5namGQidBGKnNx+ni1CBgLB7VUaXxjjzdj6
+        M7RCkkhOTxrdnLuu7S61EA7aDX8jfdn+rFDKgEXIILgjvw2Are+bFHc3SieUKW3O5evUnpPIqPIVk/2h
+        heKbo9gmFBk1gEXjC48UCRlfWeiMRsjcEUcLW+/0Jz4yUEDnRDF3jvAeV1iEDNSAEGzFPMRSOuN5XPfu
+        Mgqc5uoXJWR1yQ0AIZBg55FCbd5mrmFKZxw9fj/KY4ZvYaOol9qxdrqMWxTdoxZCBgJ1IxWU0W2mvPs5
+        yohKJPJ7YhjKixDZqIVgUetUMwukdyXxQT442leYVSKA0ZdRF5IQ7Ls8mM1ZiRrBImQAgZ2f2wqjDI0I
+        8L/f+IZAJZ9sCMlFjmOLDo4OFKa/0IkInPhvRbLV6XeQZTCJUjriw0U2wrEiAv/83yUd5OUfi8rK40D0
+        Byo47BL+rU4RAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>
