@@ -100,6 +100,13 @@
     <Compile Include="FeedToolBar.Designer.cs">
       <DependentUpon>FeedToolBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filter.cs" />
+    <Compile Include="Filters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Filters.Designer.cs">
+      <DependentUpon>Filters.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FeedToolBar.resx">
       <DependentUpon>FeedToolBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filters.resx">
+      <DependentUpon>Filters.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>

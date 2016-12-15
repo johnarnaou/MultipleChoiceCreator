@@ -32,7 +32,7 @@ namespace Multiple_Choice_Creator
 
                 }
             }
-            treeView1.ExpandAll();
+            //treeView1.ExpandAll();
             
         }
         //This method is to create everey node for every other node that is not a start node and it calls itself to 

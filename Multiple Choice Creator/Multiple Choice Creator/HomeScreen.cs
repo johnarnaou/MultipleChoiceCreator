@@ -15,19 +15,20 @@ namespace Multiple_Choice_Creator
     {
         LoadFeed feed;
         Manage manage;
+        Filter myFilter;
         public HomeScreen(User user)
         {
             InitializeComponent();
-            fillTreeView();
+            //fillTreeView();
             feed = new LoadFeed(splitContainer3.Panel2, user);
             splitContainer3.Panel2.AutoScroll = true;
             feed.load();
             manage = new Manage(user, splitContainer3.Panel1, feed);
-
+            myFilter = new Filter(splitContainer1.Panel1);
 
         }
 
-
+        /*
         private void fillTreeView()
         {
             DaoMysql dMsql = new DaoMysql();
@@ -39,7 +40,7 @@ namespace Multiple_Choice_Creator
 
         }
 
-
+    */
 
         private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -50,9 +51,14 @@ namespace Multiple_Choice_Creator
         {
 
         }
-        public List<TreeNode> tmNodes = new List<TreeNode>();
-        //isws kai na thelei mono gia ena node
 
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        //public List<TreeNode> tmNodes = new List<TreeNode>();
+        //isws kai na thelei mono gia ena node
+        /*
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             removeColor(tmNodes);
@@ -133,6 +139,6 @@ namespace Multiple_Choice_Creator
         private void label2_Click(object sender, EventArgs e)
         {
             textBox1.Focus();
-        }
+        }*/
     }
 }

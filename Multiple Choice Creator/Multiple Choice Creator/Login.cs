@@ -60,9 +60,10 @@ namespace Multiple_Choice_Creator
             user.setUserID((int)uAdapter.getUserID(mail));
             if (dUser.login(user))
             {
+                setDefaultsUnamePworld();
                 if (dUser.checkIfVerified(user)) {
 
-                    //setDefaultsUnamePworld();
+                    
                     HomeScreen form = new HomeScreen(user);
                     form.StartPosition = FormStartPosition.CenterScreen;
                     form.Show();
@@ -109,7 +110,7 @@ namespace Multiple_Choice_Creator
         }
 
         //this method is to save tho the properties settings the username and the password if the user checked the boxs
-       /* private void setDefaultsUnamePworld()
+        private void setDefaultsUnamePworld()
         {
             if (checkBox1.Checked)
             {
@@ -122,7 +123,7 @@ namespace Multiple_Choice_Creator
 
             Properties.Settings.Default.Save();
 
-        }*/
+        }
 
         //kakh methodos thelei douleia
         private void checkeUP(string username, string password)
