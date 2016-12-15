@@ -124,7 +124,7 @@ namespace Multiple_Choice_Creator
         private void label2_Click(object sender, EventArgs e)
         {
             textBox1.Focus();
-            List<String> mys = returnThemes();
+            //List<String> mys = returnThemes();
 
         }
 

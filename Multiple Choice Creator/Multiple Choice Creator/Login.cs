@@ -20,12 +20,12 @@ namespace Multiple_Choice_Creator
         public Login()
         {
             InitializeComponent();
-            //setUserDataToForm();
+            setUserDataToForm();
             /*Edw tha elegxoume an o xrhsths exei stored username h password etsi wste na ta exoyme san text sth forma an exei*/
             //signUp = new Login();
         }
         //this method is to load to the login forom the data if the user has saved his preferences for username or password
-       /* private void setUserDataToForm()
+        private void setUserDataToForm()
         {
             if (Properties.Settings.Default.userName != null)
             {
@@ -37,7 +37,7 @@ namespace Multiple_Choice_Creator
                 textBox2.Text = (string)Properties.Settings.Default.passUser;
                 checkBox2.Checked = true;
             }
-        }*/
+        }
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Application.Form.ShowDialog(new StartPageVdiamant());
@@ -52,7 +52,7 @@ namespace Multiple_Choice_Creator
             //HSForm1.Show();
             mail = textBox1.Text;
             password = textBox2.Text;
-            //checkeUP(mail, password);
+            checkeUP(mail, password);
             DaoMysql dbOb = new DaoMysql();
             User user = new User(mail, password);
             DaoUsers dUser=DaoUsers.getInstance();

@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multiple Choice Creator", "Multiple Choice Creator\Multiple Choice Creator.csproj", "{405AE072-9C07-4D8E-A0B4-5D0C63DA2F22}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Multiple Choice Beta", "Multiple Choice Beta\Multiple Choice Beta.vdproj", "{A8F13AA3-7591-4588-A1B6-43BF1F3E2D4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{405AE072-9C07-4D8E-A0B4-5D0C63DA2F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{405AE072-9C07-4D8E-A0B4-5D0C63DA2F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{405AE072-9C07-4D8E-A0B4-5D0C63DA2F22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F13AA3-7591-4588-A1B6-43BF1F3E2D4F}.Debug|Any CPU.ActiveCfg = Debug
+		{A8F13AA3-7591-4588-A1B6-43BF1F3E2D4F}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
