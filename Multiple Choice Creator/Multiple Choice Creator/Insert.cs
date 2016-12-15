@@ -34,7 +34,7 @@ namespace Multiple_Choice_Creator
             QuestionAnswer qaInserted = new QuestionAnswer(questIns);
             AnswDataTable inseAnsw = new Manage().inserQ(questIns,dataGridView1,user);
             qaInserted.setAnswersDataTable(inseAnsw);
-            saveChanges();
+            bool ins=saveChanges();
             currFeed.add(qaInserted);
             
         }
@@ -71,21 +71,39 @@ namespace Multiple_Choice_Creator
 
         private bool validateData()
         {
+            bool flug = false;
             if (Validate())
             {
                 try
                 {
-                    bindingSource1.EndEdit();
-                    return true;
+                    questBindingSource.EndEdit();
+                    flug= true;
                 }
                 catch (Exception exc)
                 {
                     if (MessageBox.Show("Invalid data was entered", "wrong", MessageBoxButtons.YesNo, MessageBoxIcon.Error)==DialogResult.Yes)
                     {
-                        bindingSource1.CancelEdit();
+                        questBindingSource.CancelEdit();
                     }
                     return false;
                 }
+                try
+                {
+                    answBindingSource.EndEdit();
+                    flug= true;
+                }
+                catch (Exception exc)
+                {
+                    if (MessageBox.Show("Invalid data was entered", "wrong", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                    {
+                        answBindingSource.CancelEdit();
+                    }
+                    return false;
+                }
+            }
+            if (flug==true)
+            {
+                return true;
             }
             return false;
         }

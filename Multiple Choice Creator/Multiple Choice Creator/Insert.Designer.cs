@@ -41,14 +41,18 @@
             this.CorrectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.questBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mltChoiceDataSet = new Multiple_Choice_Creator.mltChoiceDataSet();
+            this.questTableAdapter = new Multiple_Choice_Creator.mltChoiceDataSetTableAdapters.QuestTableAdapter();
+            this.answBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.answTableAdapter = new Multiple_Choice_Creator.mltChoiceDataSetTableAdapters.AnswTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mltChoiceDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.answBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -179,15 +183,28 @@
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             // 
-            // bindingSource1
+            // questBindingSource
             // 
-            this.bindingSource1.DataSource = this.mltChoiceDataSet;
-            this.bindingSource1.Position = 0;
+            this.questBindingSource.DataMember = "Quest";
+            this.questBindingSource.DataSource = this.mltChoiceDataSet;
             // 
             // mltChoiceDataSet
             // 
             this.mltChoiceDataSet.DataSetName = "mltChoiceDataSet";
             this.mltChoiceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // questTableAdapter
+            // 
+            this.questTableAdapter.ClearBeforeFill = true;
+            // 
+            // answBindingSource
+            // 
+            this.answBindingSource.DataMember = "Answ";
+            this.answBindingSource.DataSource = this.mltChoiceDataSet;
+            // 
+            // answTableAdapter
+            // 
+            this.answTableAdapter.ClearBeforeFill = true;
             // 
             // Insert
             // 
@@ -205,8 +222,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mltChoiceDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.answBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,7 +243,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CorrectCheck;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource questBindingSource;
         private mltChoiceDataSet mltChoiceDataSet;
+        private mltChoiceDataSetTableAdapters.QuestTableAdapter questTableAdapter;
+        private System.Windows.Forms.BindingSource answBindingSource;
+        private mltChoiceDataSetTableAdapters.AnswTableAdapter answTableAdapter;
     }
 }
