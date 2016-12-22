@@ -44,6 +44,8 @@ namespace Multiple_Choice_Creator
 
         private ACKDataTable tableACK;
 
+        private DiffDataTable tableDiff;
+
         private global::System.Data.DataRelation relationQuestAnsw_ibfk_1;
 
         private global::System.Data.DataRelation relationQuestAnsw_ibfk_2;
@@ -129,6 +131,10 @@ namespace Multiple_Choice_Creator
                 if ((ds.Tables["ACK"] != null))
                 {
                     base.Tables.Add(new ACKDataTable(ds.Tables["ACK"]));
+                }
+                if ((ds.Tables["Diff"] != null))
+                {
+                    base.Tables.Add(new DiffDataTable(ds.Tables["Diff"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -259,6 +265,18 @@ namespace Multiple_Choice_Creator
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DiffDataTable Diff
+        {
+            get
+            {
+                return this.tableDiff;
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode
@@ -373,6 +391,10 @@ namespace Multiple_Choice_Creator
                 {
                     base.Tables.Add(new ACKDataTable(ds.Tables["ACK"]));
                 }
+                if ((ds.Tables["Diff"] != null))
+                {
+                    base.Tables.Add(new DiffDataTable(ds.Tables["Diff"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -482,6 +504,14 @@ namespace Multiple_Choice_Creator
                     this.tableACK.InitVars();
                 }
             }
+            this.tableDiff = ((DiffDataTable)(base.Tables["Diff"]));
+            if ((initTable == true))
+            {
+                if ((this.tableDiff != null))
+                {
+                    this.tableDiff.InitVars();
+                }
+            }
             this.relationQuestAnsw_ibfk_1 = this.Relations["QuestAnsw_ibfk_1"];
             this.relationQuestAnsw_ibfk_2 = this.Relations["QuestAnsw_ibfk_2"];
             this.relationTag_ibfk_1 = this.Relations["Tag_ibfk_1"];
@@ -520,6 +550,8 @@ namespace Multiple_Choice_Creator
             base.Tables.Add(this.tableUsers);
             this.tableACK = new ACKDataTable();
             base.Tables.Add(this.tableACK);
+            this.tableDiff = new DiffDataTable();
+            base.Tables.Add(this.tableDiff);
             this.relationQuestAnsw_ibfk_1 = new global::System.Data.DataRelation("QuestAnsw_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tableQuest.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableQuestAnsw.questIdColumn}, false);
@@ -623,6 +655,13 @@ namespace Multiple_Choice_Creator
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeDiff()
+        {
+            return false;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e)
         {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove))
@@ -714,6 +753,9 @@ namespace Multiple_Choice_Creator
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void ACKRowChangeEventHandler(object sender, ACKRowChangeEvent e);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void DiffRowChangeEventHandler(object sender, DiffRowChangeEvent e);
 
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3892,6 +3934,340 @@ namespace Multiple_Choice_Creator
         }
 
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DiffDataTable : global::System.Data.TypedTableBase<DiffRow>
+        {
+
+            private global::System.Data.DataColumn columnId;
+
+            private global::System.Data.DataColumn columnname;
+
+            private global::System.Data.DataColumn columnabbreviation;
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DiffDataTable()
+            {
+                this.TableName = "Diff";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DiffDataTable(global::System.Data.DataTable table)
+            {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive))
+                {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString()))
+                {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace))
+                {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected DiffDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+                    base(info, context)
+            {
+                this.InitVars();
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn
+            {
+                get
+                {
+                    return this.columnId;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nameColumn
+            {
+                get
+                {
+                    return this.columnname;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn abbreviationColumn
+            {
+                get
+                {
+                    return this.columnabbreviation;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count
+            {
+                get
+                {
+                    return this.Rows.Count;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DiffRow this[int index]
+            {
+                get
+                {
+                    return ((DiffRow)(this.Rows[index]));
+                }
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DiffRowChangeEventHandler DiffRowChanging;
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DiffRowChangeEventHandler DiffRowChanged;
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DiffRowChangeEventHandler DiffRowDeleting;
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DiffRowChangeEventHandler DiffRowDeleted;
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddDiffRow(DiffRow row)
+            {
+                this.Rows.Add(row);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DiffRow AddDiffRow(int Id, string name, string abbreviation)
+            {
+                DiffRow rowDiffRow = ((DiffRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Id,
+                        name,
+                        abbreviation};
+                rowDiffRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDiffRow);
+                return rowDiffRow;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DiffRow FindById(int Id)
+            {
+                return ((DiffRow)(this.Rows.Find(new object[] {
+                            Id})));
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone()
+            {
+                DiffDataTable cln = ((DiffDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance()
+            {
+                return new DiffDataTable();
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars()
+            {
+                this.columnId = base.Columns["Id"];
+                this.columnname = base.Columns["name"];
+                this.columnabbreviation = base.Columns["abbreviation"];
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass()
+            {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname);
+                this.columnabbreviation = new global::System.Data.DataColumn("abbreviation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnabbreviation);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AllowDBNull = false;
+                this.columnId.Unique = true;
+                this.columnname.MaxLength = 255;
+                this.columnabbreviation.MaxLength = 1;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DiffRow NewDiffRow()
+            {
+                return ((DiffRow)(this.NewRow()));
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder)
+            {
+                return new DiffRow(builder);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType()
+            {
+                return typeof(DiffRow);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e)
+            {
+                base.OnRowChanged(e);
+                if ((this.DiffRowChanged != null))
+                {
+                    this.DiffRowChanged(this, new DiffRowChangeEvent(((DiffRow)(e.Row)), e.Action));
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e)
+            {
+                base.OnRowChanging(e);
+                if ((this.DiffRowChanging != null))
+                {
+                    this.DiffRowChanging(this, new DiffRowChangeEvent(((DiffRow)(e.Row)), e.Action));
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e)
+            {
+                base.OnRowDeleted(e);
+                if ((this.DiffRowDeleted != null))
+                {
+                    this.DiffRowDeleted(this, new DiffRowChangeEvent(((DiffRow)(e.Row)), e.Action));
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e)
+            {
+                base.OnRowDeleting(e);
+                if ((this.DiffRowDeleting != null))
+                {
+                    this.DiffRowDeleting(this, new DiffRowChangeEvent(((DiffRow)(e.Row)), e.Action));
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveDiffRow(DiffRow row)
+            {
+                this.Rows.Remove(row);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs)
+            {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                mltChoiceDataSet ds = new mltChoiceDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DiffDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace))
+                {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try
+                    {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext();)
+                        {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length))
+                            {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length)
+                                            && (s1.ReadByte() == s2.ReadByte()));)
+                                {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length))
+                                {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally
+                    {
+                        if ((s1 != null))
+                        {
+                            s1.Close();
+                        }
+                        if ((s2 != null))
+                        {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class AnswRow : global::System.Data.DataRow
@@ -5256,6 +5632,107 @@ namespace Multiple_Choice_Creator
         }
 
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DiffRow : global::System.Data.DataRow
+        {
+
+            private DiffDataTable tableDiff;
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DiffRow(global::System.Data.DataRowBuilder rb) :
+                    base(rb)
+            {
+                this.tableDiff = ((DiffDataTable)(this.Table));
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id
+            {
+                get
+                {
+                    return ((int)(this[this.tableDiff.IdColumn]));
+                }
+                set
+                {
+                    this[this.tableDiff.IdColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string name
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableDiff.nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'Diff\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableDiff.nameColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string abbreviation
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableDiff.abbreviationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'abbreviation\' in table \'Diff\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableDiff.abbreviationColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnameNull()
+            {
+                return this.IsNull(this.tableDiff.nameColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnameNull()
+            {
+                this[this.tableDiff.nameColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsabbreviationNull()
+            {
+                return this.IsNull(this.tableDiff.abbreviationColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetabbreviationNull()
+            {
+                this[this.tableDiff.abbreviationColumn] = global::System.Convert.DBNull;
+            }
+        }
+
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -5597,6 +6074,46 @@ namespace Multiple_Choice_Creator
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ACKRow Row
+            {
+                get
+                {
+                    return this.eventRow;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action
+            {
+                get
+                {
+                    return this.eventAction;
+                }
+            }
+        }
+
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class DiffRowChangeEvent : global::System.EventArgs
+        {
+
+            private DiffRow eventRow;
+
+            private global::System.Data.DataRowAction eventAction;
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DiffRowChangeEvent(DiffRow row, global::System.Data.DataRowAction action)
+            {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DiffRow Row
             {
                 get
                 {
@@ -6667,7 +7184,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection()
         {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[8];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[9];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, difficulty, question, timeCre, timeLatMod, userid FROM Quest WHERE (qu" +
@@ -6683,11 +7200,11 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Id, difficulty, question, timeCre, timeLatMod, userid FROM Quest WHERE (qu" +
-                "estion = @insertedQuestt)";
+            this._commandCollection[1].CommandText = "SELECT        difficulty\r\nFROM            Quest\r\nWHERE        (question = @paramq" +
+                "uest)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@insertedQuestt";
+            param.ParameterName = "@paramquest";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.Size = 255;
@@ -6696,21 +7213,34 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Id, difficulty, question, timeCre, timeLatMod, userid FROM Quest WHERE (us" +
-                "erid = @uId)";
+            this._commandCollection[2].CommandText = "SELECT Id, difficulty, question, timeCre, timeLatMod, userid FROM Quest WHERE (qu" +
+                "estion = @insertedQuestt)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@insertedQuestt";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
+            param.IsNullable = true;
+            param.SourceColumn = "question";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT Id, difficulty, question, timeCre, timeLatMod, userid FROM Quest WHERE (us" +
+                "erid = @uId)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@uId";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "userid";
-            this._commandCollection[2].Parameters.Add(param);
-            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT        COUNT(*)\r\nFROM            Quest\r\nWHERE        (question LIKE @param" +
+            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT        COUNT(*)\r\nFROM            Quest\r\nWHERE        (question LIKE @param" +
                 "quest)";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@paramquest";
             param.DbType = global::System.Data.DbType.String;
@@ -6718,53 +7248,25 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             param.Size = 255;
             param.IsNullable = true;
             param.SourceColumn = "question";
-            this._commandCollection[3].Parameters.Add(param);
-            this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT question, difficulty, timeCre, timeLatMod, userid FROM Quest WHERE (Id = @" +
+            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT question, difficulty, timeCre, timeLatMod, userid FROM Quest WHERE (Id = @" +
                 "idUserQ)";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idUserQ";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Id";
-            this._commandCollection[4].Parameters.Add(param);
-            this._commandCollection[5] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT COUNT(question) FROM Quest WHERE userid = @usesId";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@usesId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "userid";
             this._commandCollection[5].Parameters.Add(param);
             this._commandCollection[6] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "INSERT INTO Quest(question,difficulty,userid,timeCre,timeLatMod)VALUES(@question," +
-                "@difficulty,@creationTime,NOW(),NOW())";
+            this._commandCollection[6].CommandText = "SELECT COUNT(question) FROM Quest WHERE userid = @usesId";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@question";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 255;
-            param.IsNullable = true;
-            param.SourceColumn = "question";
-            this._commandCollection[6].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@difficulty";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
-            param.Size = 1;
-            param.IsNullable = true;
-            param.SourceColumn = "difficulty";
-            this._commandCollection[6].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@creationTime";
+            param.ParameterName = "@usesId";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -6772,11 +7274,11 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[6].Parameters.Add(param);
             this._commandCollection[7] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "UPDATE `Quest`\r\nset question=@newQuest,difficulty=@newDiff,timeLatMod=NOW()\r\nWHER" +
-                "E ((`Id` = @questId))";
+            this._commandCollection[7].CommandText = "INSERT INTO Quest(question,difficulty,userid,timeCre,timeLatMod)VALUES(@question," +
+                "@difficulty,@creationTime,NOW(),NOW())";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@newQuest";
+            param.ParameterName = "@question";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.Size = 255;
@@ -6784,7 +7286,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             param.SourceColumn = "question";
             this._commandCollection[7].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@newDiff";
+            param.ParameterName = "@difficulty";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.Size = 1;
@@ -6792,13 +7294,41 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             param.SourceColumn = "difficulty";
             this._commandCollection[7].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@creationTime";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "userid";
+            this._commandCollection[7].Parameters.Add(param);
+            this._commandCollection[8] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = "UPDATE `Quest`\r\nset question=@newQuest,difficulty=@newDiff,timeLatMod=NOW()\r\nWHER" +
+                "E ((`Id` = @questId))";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@newQuest";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
+            param.IsNullable = true;
+            param.SourceColumn = "question";
+            this._commandCollection[8].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@newDiff";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.Size = 1;
+            param.IsNullable = true;
+            param.SourceColumn = "difficulty";
+            this._commandCollection[8].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@questId";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[7].Parameters.Add(param);
+            this._commandCollection[8].Parameters.Add(param);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6848,9 +7378,52 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int fillByIdOfInsertedQuest(mltChoiceDataSet.QuestDataTable dataTable, string insertedQuestt)
+        public virtual int fillByDifficulty(mltChoiceDataSet.QuestDataTable dataTable, string paramquest)
         {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((paramquest == null))
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(paramquest));
+            }
+            if ((this.ClearBeforeFill == true))
+            {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual mltChoiceDataSet.QuestDataTable getQuestByDifficulty(string paramquest)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((paramquest == null))
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(paramquest));
+            }
+            mltChoiceDataSet.QuestDataTable dataTable = new mltChoiceDataSet.QuestDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int fillByIdOfInsertedQuest(mltChoiceDataSet.QuestDataTable dataTable, string insertedQuestt)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((insertedQuestt == null))
             {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -6873,7 +7446,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual mltChoiceDataSet.QuestDataTable getIdOfInsertedQuest(string insertedQuestt)
         {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((insertedQuestt == null))
             {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -6893,7 +7466,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual mltChoiceDataSet.QuestDataTable GetDataByUserID(global::System.Nullable<int> uId)
         {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((uId.HasValue == true))
             {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(uId.Value));
@@ -7141,7 +7714,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<long> getNumberOfSearchResults(string paramquest)
         {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[4];
             if ((paramquest == null))
             {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -7184,7 +7757,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object getQuestionWithId(int idUserQ)
         {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[4];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[5];
             command.Parameters[0].Value = ((int)(idUserQ));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open)
@@ -7220,7 +7793,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object getSize(global::System.Nullable<int> usesId)
         {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[5];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[6];
             if ((usesId.HasValue == true))
             {
                 command.Parameters[0].Value = ((int)(usesId.Value));
@@ -7264,7 +7837,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int insertQuest(string question, string difficulty, global::System.Nullable<int> creationTime)
         {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[6];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[7];
             if ((question == null))
             {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -7316,7 +7889,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int updateQuest(string newQuest, string newDiff, int questId)
         {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[7];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[8];
             if ((newQuest == null))
             {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -12305,6 +12878,521 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
     }
 
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class DiffTableAdapter : global::System.ComponentModel.Component
+    {
+
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+
+        private bool _clearBeforeFill;
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public DiffTableAdapter()
+        {
+            this.ClearBeforeFill = true;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter
+        {
+            get
+            {
+                if ((this._adapter == null))
+                {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection
+        {
+            get
+            {
+                if ((this._connection == null))
+                {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set
+            {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null))
+                {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null))
+                {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null))
+                {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1))
+                {
+                    if ((this.CommandCollection[i] != null))
+                    {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction
+        {
+            get
+            {
+                return this._transaction;
+            }
+            set
+            {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1))
+                {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null)
+                            && (this.Adapter.DeleteCommand != null)))
+                {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null)
+                            && (this.Adapter.InsertCommand != null)))
+                {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null)
+                            && (this.Adapter.UpdateCommand != null)))
+                {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection
+        {
+            get
+            {
+                if ((this._commandCollection == null))
+                {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill
+        {
+            get
+            {
+                return this._clearBeforeFill;
+            }
+            set
+            {
+                this._clearBeforeFill = value;
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter()
+        {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Diff";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("name", "name");
+            tableMapping.ColumnMappings.Add("abbreviation", "abbreviation");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Diff` WHERE ((`Id` = @p1) AND ((@p2 = 1 AND `name` IS NULL) OR (`nam" +
+                "e` = @p3)) AND ((@p4 = 1 AND `abbreviation` IS NULL) OR (`abbreviation` = @p5)))" +
+                "";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "abbreviation";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "abbreviation";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Diff` (`name`, `abbreviation`) VALUES (@p1, @p2)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "name";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "abbreviation";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `Diff` SET `name` = @p1, `abbreviation` = @p2 WHERE ((`Id` = @p3) AND ((@p" +
+                "4 = 1 AND `name` IS NULL) OR (`name` = @p5)) AND ((@p6 = 1 AND `abbreviation` IS" +
+                " NULL) OR (`abbreviation` = @p7)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "name";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "abbreviation";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "abbreviation";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "abbreviation";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection()
+        {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::Multiple_Choice_Creator.Properties.Settings.Default.mltChoiceConnString;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection()
+        {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT `Id`, `name`, `abbreviation` FROM `Diff`";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int fillByDifficulties(mltChoiceDataSet.DiffDataTable dataTable)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true))
+            {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual mltChoiceDataSet.DiffDataTable getDifficulties()
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            mltChoiceDataSet.DiffDataTable dataTable = new mltChoiceDataSet.DiffDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(mltChoiceDataSet.DiffDataTable dataTable)
+        {
+            return this.Adapter.Update(dataTable);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(mltChoiceDataSet dataSet)
+        {
+            return this.Adapter.Update(dataSet, "Diff");
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow)
+        {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows)
+        {
+            return this.Adapter.Update(dataRows);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int p1, string p3, string p5)
+        {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
+            if ((p3 == null))
+            {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(p3));
+            }
+            if ((p5 == null))
+            {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(p5));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open)
+                        != global::System.Data.ConnectionState.Open))
+            {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try
+            {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally
+            {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
+                {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string p1, string p2)
+        {
+            if ((p1 == null))
+            {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
+            }
+            if ((p2 == null))
+            {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open)
+                        != global::System.Data.ConnectionState.Open))
+            {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try
+            {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally
+            {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
+                {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string p1, string p2, int p3, string p5, string p7)
+        {
+            if ((p1 == null))
+            {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
+            }
+            if ((p2 == null))
+            {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3));
+            if ((p5 == null))
+            {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(p5));
+            }
+            if ((p7 == null))
+            {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(p7));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open)
+                        != global::System.Data.ConnectionState.Open))
+            {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try
+            {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally
+            {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
+                {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -12334,6 +13422,8 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         private UsersTableAdapter _usersTableAdapter;
 
         private ACKTableAdapter _aCKTableAdapter;
+
+        private DiffTableAdapter _diffTableAdapter;
 
         private bool _backupDataSetBeforeUpdate;
 
@@ -12508,6 +13598,23 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public DiffTableAdapter DiffTableAdapter
+        {
+            get
+            {
+                return this._diffTableAdapter;
+            }
+            set
+            {
+                this._diffTableAdapter = value;
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate
         {
             get
@@ -12576,6 +13683,11 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
                 {
                     return this._aCKTableAdapter.Connection;
                 }
+                if (((this._diffTableAdapter != null)
+                            && (this._diffTableAdapter.Connection != null)))
+                {
+                    return this._diffTableAdapter.Connection;
+                }
                 return null;
             }
             set
@@ -12625,6 +13737,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
                     count = (count + 1);
                 }
                 if ((this._aCKTableAdapter != null))
+                {
+                    count = (count + 1);
+                }
+                if ((this._diffTableAdapter != null))
                 {
                     count = (count + 1);
                 }
@@ -12739,6 +13855,17 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._diffTableAdapter != null))
+            {
+                global::System.Data.DataRow[] updatedRows = dataSet.Diff.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null)
+                            && (0 < updatedRows.Length)))
+                {
+                    result = (result + this._diffTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
 
@@ -12840,6 +13967,16 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._diffTableAdapter != null))
+            {
+                global::System.Data.DataRow[] addedRows = dataSet.Diff.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null)
+                            && (0 < addedRows.Length)))
+                {
+                    result = (result + this._diffTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
 
@@ -12851,6 +13988,16 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         private int UpdateDeletedRows(mltChoiceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows)
         {
             int result = 0;
+            if ((this._diffTableAdapter != null))
+            {
+                global::System.Data.DataRow[] deletedRows = dataSet.Diff.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null)
+                            && (0 < deletedRows.Length)))
+                {
+                    result = (result + this._diffTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._aCKTableAdapter != null))
             {
                 global::System.Data.DataRow[] deletedRows = dataSet.ACK.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -13042,6 +14189,12 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._diffTableAdapter != null)
+                        && (this.MatchTableAdapterConnection(this._diffTableAdapter.Connection) == false)))
+            {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null))
             {
@@ -13179,6 +14332,17 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(this._aCKTableAdapter.Adapter);
                     }
                 }
+                if ((this._diffTableAdapter != null))
+                {
+                    revertConnections.Add(this._diffTableAdapter, this._diffTableAdapter.Connection);
+                    this._diffTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._diffTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._diffTableAdapter.Adapter.AcceptChangesDuringUpdate)
+                    {
+                        this._diffTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._diffTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -13294,6 +14458,11 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
                 {
                     this._aCKTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._aCKTableAdapter]));
                     this._aCKTableAdapter.Transaction = null;
+                }
+                if ((this._diffTableAdapter != null))
+                {
+                    this._diffTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._diffTableAdapter]));
+                    this._diffTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count))
                 {
