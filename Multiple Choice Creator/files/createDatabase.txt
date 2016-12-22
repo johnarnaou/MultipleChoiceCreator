@@ -82,6 +82,14 @@ primary key (Id),
 foreign key (userId) references Users(Id)
 );
 
+create table Diff
+(
+  Id int,
+  name varchar(255),
+  abbreviation char,
+  Primary key(Id)
+);
+
 CREATE TRIGGER deleteFromQuest_Answ_TopicQuest    
   AFTER DELETE ON QuestAnsw     
   FOR EACH ROW     
