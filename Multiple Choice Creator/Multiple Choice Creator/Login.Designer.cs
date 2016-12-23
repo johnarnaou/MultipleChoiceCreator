@@ -78,6 +78,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
             this.checkBox2.Location = new System.Drawing.Point(169, 165);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(126, 17);
@@ -94,6 +95,7 @@
             this.checkBox1.TabIndex = 12;
             this.checkBox1.Text = "Remember Username";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // button3
             // 
@@ -161,9 +163,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(86, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Username:";
+            this.label2.Text = "E-mail:";
             // 
             // loginButton
             // 

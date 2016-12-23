@@ -46,6 +46,7 @@ namespace Multiple_Choice_Creator
         String password;
         private void loginButton_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             try { 
             //var HSForm = new HomeScreen();
             //HSForm.Show();
@@ -94,6 +95,7 @@ namespace Multiple_Choice_Creator
             {
                 Console.WriteLine(ex.ToString());
             }
+            Cursor.Current = Cursors.Default;
         }
 
         //this method is to open the mainForm whenever we need and it simplifies the Login button click method.
@@ -167,6 +169,19 @@ namespace Multiple_Choice_Creator
             this.Close();
 
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                checkBox2.Enabled = true;
+            }
+            else
+            {
+                checkBox2.Checked = false;
+                checkBox2.Enabled = false;
+            }
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)

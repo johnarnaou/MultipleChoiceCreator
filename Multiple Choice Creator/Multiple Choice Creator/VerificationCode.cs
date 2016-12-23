@@ -29,6 +29,7 @@ namespace Multiple_Choice_Creator
         }
 
         Form mainForm;
+        Form Register;
 
         public VerificationCode(string userID)
         {
@@ -37,7 +38,8 @@ namespace Multiple_Choice_Creator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(duser.checkTheVerificationCode(user, textBox1.Text))
+            Cursor.Current = Cursors.WaitCursor;
+            if (duser.checkTheVerificationCode(user, textBox1.Text))
             {
                 if (mainForm == null)
                 {
@@ -57,22 +59,27 @@ namespace Multiple_Choice_Creator
                 textBox1.Text = "";
                 label3.Visible = true;
             }
-            
+            Cursor.Current = Cursors.Default;
         }
 
-        private void VerificationCode_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void VerificationCode_FormClosed(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
-            duser.sendMail(user,1);
+            Cursor.Current = Cursors.WaitCursor;
+            String msg=duser.sendMail(user,1);
+            Cursor.Current = Cursors.Default;
+            DialogResult dr = MessageBox.Show(msg, "Close");
+        }
+
+        private void VerificationCode_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            try { 
+            //Register.Close();
+            Application.Exit();
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

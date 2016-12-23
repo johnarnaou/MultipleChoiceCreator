@@ -53,7 +53,7 @@ namespace Multiple_Choice_Creator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            Cursor.Current = Cursors.WaitCursor;
             String firstName = textBox1.Text;
             String lastName = textBox2.Text;
             String email = textBox3.Text;
@@ -69,6 +69,7 @@ namespace Multiple_Choice_Creator
                     {
                             dUser.sendMail(user,0);
                             Form VerificationCode = new VerificationCode(user);
+                            VerificationCode.StartPosition = FormStartPosition.CenterScreen;
                             VerificationCode.Show();
                             this.Hide();
                      
@@ -83,6 +84,7 @@ namespace Multiple_Choice_Creator
                     DialogResult dr = MessageBox.Show("Mail Not Valid!", "Close");
                 }
             }
+            Cursor.Current = Cursors.Default;
         }
         bool IsValidEmail(string email)
         {
@@ -130,6 +132,13 @@ namespace Multiple_Choice_Creator
                 label9.Text = "";
             }
             Refresh();
+        }
+
+        private void Register_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            loginForm.StartPosition = FormStartPosition.CenterScreen;
+            loginForm.Show();
         }
     }
 }

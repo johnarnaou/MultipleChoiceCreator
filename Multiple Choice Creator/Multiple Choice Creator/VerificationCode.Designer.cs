@@ -106,6 +106,7 @@
             this.Controls.Add(this.button1);
             this.Name = "VerificationCode";
             this.Text = "VerificationCode";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VerificationCode_FormClosing_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
