@@ -1,4 +1,5 @@
 ﻿using System;
+using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using Multiple_Choice_Creator.Model;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,8 @@ namespace Multiple_Choice_Creator
             //myTreeview = treeView1;
             
             InitializeComponent();
+            fill_listView();
+            this.listView1.BackColor = DefaultBackColor;
             this.Dock = DockStyle.Fill;
             fillTreeView();
         }
@@ -154,6 +157,35 @@ namespace Multiple_Choice_Creator
             }
         }
 
+        private void fill_listView()
+        {
+            try
+            {
+                listView1.Clear();
+                foreach(ListViewItem item in this.listView1.Items)
+                {
+                    listView1.Items.Remove(item);
+                }
+                DiffTableAdapter myDiffAdapter = new DiffTableAdapter();
+                mltChoiceDataSet.DiffDataTable diff = myDiffAdapter.getDifficulties();
+                for(int i = 0; i < diff.Count(); i++)
+                {
+                    ListViewItem myListViewItem=new ListViewItem((String)diff[i]["name"]);
+                    listView1.Items.Add(myListViewItem);
+                }
+                listView1.BackColor = Color.LightSteelBlue;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
 
+        
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
