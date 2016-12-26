@@ -123,13 +123,7 @@ namespace Multiple_Choice_Creator
             }
             return result;
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            textBox1.Focus();
-            //List<String> mys = returnThemes();
-
-        }
+        
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
@@ -186,6 +180,52 @@ namespace Multiple_Choice_Creator
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void expand_Click(object sender, EventArgs e)
+        {
+            treeView1.ExpandAll();
+
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            treeView1.CollapseAll();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            foreach(TreeNode node in this.treeView1.Nodes)
+            {
+                node.Checked = false;
+                CheckChildren(node, false);
+            }
+            foreach (ListViewItem item in this.listView1.Items)
+            {
+                item.Checked = false;
+                item.Selected = false;
+            }
+
+        }
+
+        private void CheckChildren(TreeNode rootNode, bool isChecked)
+        {
+            foreach (TreeNode node in rootNode.Nodes)
+            {
+                CheckChildren(node, isChecked);
+                node.Checked = isChecked;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Focus();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            textBox1.Focus();
         }
     }
 }

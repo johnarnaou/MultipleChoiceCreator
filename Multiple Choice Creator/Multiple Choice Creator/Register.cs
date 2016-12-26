@@ -84,6 +84,10 @@ namespace Multiple_Choice_Creator
                     DialogResult dr = MessageBox.Show("Mail Not Valid!", "Close");
                 }
             }
+            else
+            {
+                DialogResult dr = MessageBox.Show("You must fill all the fields above!", "Close");
+            }
             Cursor.Current = Cursors.Default;
         }
         bool IsValidEmail(string email)
