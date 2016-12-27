@@ -16,6 +16,7 @@ namespace Multiple_Choice_Creator
         LoadFeed feed;
         Manage manage;
         Filter myFilter;
+        CreateTest createTest;
         public HomeScreen(User user)
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace Multiple_Choice_Creator
             splitContainer3.Panel2.AutoScroll = true;
             feed.load();
             myFilter = new Filter(splitContainer1.Panel1);
+            createTest = new CreateTest(splitContainer2.Panel2);
             manage = new Manage(user, splitContainer3.Panel1, feed,myFilter.getFilters());
            
 

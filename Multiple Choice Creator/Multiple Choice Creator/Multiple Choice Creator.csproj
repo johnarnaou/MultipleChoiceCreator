@@ -87,6 +87,13 @@
     <Compile Include="ConfirmDelete.Designer.cs">
       <DependentUpon>ConfirmDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateTest.cs" />
+    <Compile Include="CreateTestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateTestControl.Designer.cs">
+      <DependentUpon>CreateTestControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaoMysql.cs" />
     <Compile Include="FeedPanel.cs">
       <SubType>UserControl</SubType>
@@ -172,6 +179,9 @@
     </Compile>
     <EmbeddedResource Include="ConfirmDelete.resx">
       <DependentUpon>ConfirmDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateTestControl.resx">
+      <DependentUpon>CreateTestControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FeedPanel.resx">
       <DependentUpon>FeedPanel.cs</DependentUpon>
