@@ -20,8 +20,7 @@ namespace Multiple_Choice_Creator
             //myTreeview = treeView1;
             
             InitializeComponent();
-            fill_listView();
-            this.listView1.BackColor = DefaultBackColor;
+            fill_checkedListBox();
             this.Dock = DockStyle.Fill;
             fillTreeView();
         }
@@ -151,23 +150,23 @@ namespace Multiple_Choice_Creator
             }
         }
 
-        private void fill_listView()
+        private void fill_checkedListBox()
         {
             try
             {
-                listView1.Clear();
-                foreach(ListViewItem item in this.listView1.Items)
+                checkedListBox1.Items.Clear();
+                foreach(object itemChecked in this.checkedListBox1.Items)
                 {
-                    listView1.Items.Remove(item);
+                    checkedListBox1.Items.Remove(itemChecked);
                 }
                 DiffTableAdapter myDiffAdapter = new DiffTableAdapter();
                 mltChoiceDataSet.DiffDataTable diff = myDiffAdapter.getDifficulties();
                 for(int i = 0; i < diff.Count(); i++)
                 {
-                    ListViewItem myListViewItem=new ListViewItem((String)diff[i]["name"]);
-                    listView1.Items.Add(myListViewItem);
+                    object mycheckedListBoxItem = (String)diff[i]["name"];
+                    checkedListBox1.Items.Add(mycheckedListBoxItem);
                 }
-                listView1.BackColor = Color.LightSteelBlue;
+                //checkedListBox1.BackColor = Color.LightSteelBlue;
             }
             catch (Exception ex)
             {
@@ -201,10 +200,10 @@ namespace Multiple_Choice_Creator
                 node.Checked = false;
                 CheckChildren(node, false);
             }
-            foreach (ListViewItem item in this.listView1.Items)
+            foreach (int i in checkedListBox1.CheckedIndices)
             {
-                item.Checked = false;
-                item.Selected = false;
+                checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                checkedListBox1.SetSelected(i, false);
             }
 
         }

@@ -53,6 +53,12 @@ namespace Multiple_Choice_Creator
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox4.Text != textBox5.Text)
+            {
+                //temporary
+                DialogResult dr = MessageBox.Show("Passwords don't match!", "Close");
+                return;
+            }
             Cursor.Current = Cursors.WaitCursor;
             String firstName = textBox1.Text;
             String lastName = textBox2.Text;

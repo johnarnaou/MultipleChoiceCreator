@@ -16,7 +16,7 @@ namespace Multiple_Choice_Creator
 {
     public partial class Login : Form
     {
-        Form signUp, mainForm,VerificationCode;
+        Form signUp, mainForm,VerificationCode,ForgotPass;
         public Login()
         {
             InitializeComponent();
@@ -74,6 +74,7 @@ namespace Multiple_Choice_Creator
                 else
                 {
                     Form VerificationCode = new VerificationCode(user);
+                    VerificationCode.StartPosition = FormStartPosition.CenterScreen;
                     VerificationCode.Show();
                     this.Hide();
                 }
@@ -182,6 +183,17 @@ namespace Multiple_Choice_Creator
                 checkBox2.Checked = false;
                 checkBox2.Enabled = false;
             }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            if (ForgotPass == null)
+            {
+                ForgotPass = new ForgotPassword();
+            }
+            ForgotPass.StartPosition = FormStartPosition.CenterScreen;
+            ForgotPass.Show();
+            this.Hide();
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
