@@ -41,6 +41,7 @@
             this.create.TabIndex = 0;
             this.create.Text = "Create PDF";
             this.create.UseVisualStyleBackColor = true;
+            this.create.Click += new System.EventHandler(this.create_Click);
             // 
             // label1
             // 
