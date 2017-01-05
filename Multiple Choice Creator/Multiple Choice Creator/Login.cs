@@ -27,7 +27,7 @@ namespace Multiple_Choice_Creator
         //this method is to load to the login forom the data if the user has saved his preferences for username or password
         private void setUserDataToForm()
         {
-            /*if (Properties.Settings.Default.userName != null)
+            if (Properties.Settings.Default.userName != null)
             {
                 textBox1.Text = (string)Properties.Settings.Default.userName;
                 checkBox1.Checked=true;
@@ -36,7 +36,7 @@ namespace Multiple_Choice_Creator
             {
                 textBox2.Text = (string)Properties.Settings.Default.passUser;
                 checkBox2.Checked = true;
-            }*/
+            }
         }
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -119,7 +119,7 @@ namespace Multiple_Choice_Creator
         //this method is to save tho the properties settings the username and the password if the user checked the boxs
         private void setDefaultsUnamePworld()
         {
-            /*if (checkBox1.Checked)
+            if (checkBox1.Checked)
             {
                 Properties.Settings.Default.userName = textBox1.Text;
             }
@@ -128,7 +128,7 @@ namespace Multiple_Choice_Creator
                 Properties.Settings.Default.passUser = textBox2.Text;
             }
 
-            Properties.Settings.Default.Save();*/
+            Properties.Settings.Default.Save();
 
         }
 
