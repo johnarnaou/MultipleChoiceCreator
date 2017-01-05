@@ -7275,7 +7275,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[7] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[7].Connection = this.Connection;
             this._commandCollection[7].CommandText = "INSERT INTO Quest(question,difficulty,userid,timeCre,timeLatMod)VALUES(@question," +
-                "@difficulty,@creationTime,NOW(),NOW())";
+                "@difficulty,@userId,NOW(),NOW())";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@question";
@@ -7294,7 +7294,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             param.SourceColumn = "difficulty";
             this._commandCollection[7].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@creationTime";
+            param.ParameterName = "@userId";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7835,7 +7835,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int insertQuest(string question, string difficulty, global::System.Nullable<int> creationTime)
+        public virtual int insertQuest(string question, string difficulty, global::System.Nullable<int> userId)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[7];
             if ((question == null))
@@ -7854,9 +7854,9 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             {
                 command.Parameters[1].Value = ((string)(difficulty));
             }
-            if ((creationTime.HasValue == true))
+            if ((userId.HasValue == true))
             {
-                command.Parameters[2].Value = ((int)(creationTime.Value));
+                command.Parameters[2].Value = ((int)(userId.Value));
             }
             else
             {

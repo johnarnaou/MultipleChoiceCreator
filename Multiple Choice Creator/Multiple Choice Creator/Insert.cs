@@ -44,13 +44,17 @@ namespace Multiple_Choice_Creator
             if (trackBar1.Value==0)
             {
                 diffLabel.Text = "Easy";
-            }else if (trackBar1.Value == 1)
+                dif = "E";
+            }
+            else if (trackBar1.Value == 1)
             {
                 diffLabel.Text = "Medium";
+                dif = "M";
             }
             else 
             {
                 diffLabel.Text = "Hard";
+                dif = "H";
             }
         }
 
