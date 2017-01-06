@@ -217,5 +217,10 @@ namespace Multiple_Choice_Creator
             saveButton.Visible = true;
             valuesChanged = true;
         }
+
+        public string getQuestionDifficulty()
+        {
+            return this.q.getDifficulty();
+        }
     }
 }

@@ -9,19 +9,18 @@ namespace Multiple_Choice_Creator.Model
 {
     public class Question
     {
-        private string text;
-        private char difficulty;
+        private string text, difficulty;
         private int userId,id;
         private DateTime creationTime;
         private DateTime LastModifTime;
         private QuestTableAdapter adapter = new QuestTableAdapter();
         private QuestionAnswer qa;
 
-        public Question(string text,char difficulty,int userId)
+        public Question(string text,string difficulty,int userId)
         {
             this.text = text;
-            this.difficulty = difficulty;
             this.userId = userId;
+            this.difficulty = difficulty;
             creationTime = DateTime.Now;
         }
 
@@ -29,6 +28,7 @@ namespace Multiple_Choice_Creator.Model
         {
             this.id = id;
             setText((string)adapter.getQuestionWithId(id));
+            setDifficulty();
         }
 
         private void setText(string text)
@@ -36,9 +36,9 @@ namespace Multiple_Choice_Creator.Model
             this.text = text;
         }
 
-        private void setDifficulty(char difficulty)
+        private void setDifficulty()
         {
-            this.difficulty = difficulty;
+            difficulty = (string)adapter.getDifficultyByQuestId(id);
         }
 
         private void setLastModifTime(DateTime LastModifTime)
@@ -51,7 +51,7 @@ namespace Multiple_Choice_Creator.Model
             return this.text;
         }
 
-        public char getDifficulty()
+        public string getDifficulty()
         {
             return this.difficulty;
         }

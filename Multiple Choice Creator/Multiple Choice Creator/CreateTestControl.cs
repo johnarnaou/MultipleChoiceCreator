@@ -50,7 +50,7 @@ namespace Multiple_Choice_Creator
         private void button1_Click(object sender, EventArgs e)
         {
             
-            Question q = new Question("Where Am I?",'1',1);
+            Question q = new Question("Where Am I?","1",1);
             Answer ans = new Answer(2, "Wrong1Debug");
             Answer ans2 = new Answer(3, "Wrong2Debug");
             List<Answer> lwrong= new List<Answer>();

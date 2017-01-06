@@ -22,9 +22,9 @@ namespace Multiple_Choice_Creator
         QuestAnswTableAdapter qaTableAdapter = new QuestAnswTableAdapter();
         AnswTableAdapter aTableAdapter = new AnswTableAdapter();
         User user;
-        List<FeedPanel> myLayoutControls = new List<FeedPanel>();
+        List<FeedPanel> myLayoutControls = new List<FeedPanel>(), BackUpLayoutControls = new List<FeedPanel>();
         NoFeed noFeedControl;
-        ConfirmDelete confirm;
+        int controlsCount = 0;
         bool shrinkMode = false;
 
         int index = 0;
@@ -40,16 +40,16 @@ namespace Multiple_Choice_Creator
         public void load()
         {
             Object a = qTableAdapter.getSize(user.getUserID());
-            int k = Convert.ToInt32(a);
-            if (k == 0)
+            controlsCount = Convert.ToInt32(a);
+            if (controlsCount == 0)
             {
                 NoFeed("No Questions..., Try inserting some!!");
                 toolbar.setNoFeedWasLoaded(true);
                 toolbar.Enabled = false;
             }
-            else if(k<50)
+            else if(controlsCount<50)
             {
-                fill(k);
+                fill(controlsCount);
             } else
             {
                 fill(50);
@@ -204,6 +204,37 @@ namespace Multiple_Choice_Creator
                     qaTableAdapter.deleteQuestAnsw(element.getQuestionID());
                 }
             }
+        }
+
+        public void filterLoad(string filter)
+        {
+            BackUpLayoutControls = myLayoutControls;
+            for(int i=0; i<myLayoutControls.Count; i++)
+            {
+                if(myLayoutControls[i].getQuestionDifficulty() != filter)
+                {
+                    myLayoutControls.RemoveAt(i);
+                }
+            }
+        }
+
+        public void reload(List<FeedPanel> LayoutControls)
+        {
+            if (controlsCount == 0)
+                NoFeedControlDispose();
+            else
+                controlsDispose();
+            for(int i =0; i<LayoutControls.Count; i++)
+            {
+                panel.Controls.Add(LayoutControls[i]);
+            }
+            toolbarload();
+        }
+
+        public void clearFilter()
+        {
+            myLayoutControls = BackUpLayoutControls;
+            reload(myLayoutControls);
         }
 
     }

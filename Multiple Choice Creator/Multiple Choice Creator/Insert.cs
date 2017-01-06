@@ -30,7 +30,7 @@ namespace Multiple_Choice_Creator
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Question questIns=new Model.Question(richTextBox1.Text, Convert.ToChar(dif), user.getUserID());
+            Question questIns=new Model.Question(richTextBox1.Text, dif, user.getUserID());
             QuestionAnswer qaInserted = new QuestionAnswer(questIns);
             AnswDataTable inseAnsw = mang.inserQ(questIns,dataGridView1,user);
             qaInserted.setAnswersDataTable(inseAnsw);
