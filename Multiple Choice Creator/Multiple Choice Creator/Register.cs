@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.Persistence;
 using Multiple_Choice_Creator.Model;
+using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Multiple_Choice_Creator
 {
@@ -150,5 +152,33 @@ namespace Multiple_Choice_Creator
             loginForm.StartPosition = FormStartPosition.CenterScreen;
             loginForm.Show();
         }
+
+        private void textBox1_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show("PLease type your first name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+            }
+            return;
+        }
+
+        private void textBox2_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                MessageBox.Show("PLease type your Last name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+            }
+            return;
+        }
+
+        bool invalid = false;
+        private void textBox3_Validating(object sender, CancelEventArgs e)
+        {
+            
+        }
+
+        
     }
 }
