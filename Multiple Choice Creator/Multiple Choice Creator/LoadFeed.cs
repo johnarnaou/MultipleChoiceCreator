@@ -22,7 +22,7 @@ namespace Multiple_Choice_Creator
         QuestAnswTableAdapter qaTableAdapter = new QuestAnswTableAdapter();
         AnswTableAdapter aTableAdapter = new AnswTableAdapter();
         User user;
-        List<FeedPanel> myLayoutControls = new List<FeedPanel>(), BackUpLayoutControls = new List<FeedPanel>();
+        List<FeedPanel> myLayoutControls = new List<FeedPanel>(), filteredLayoutControls = new List<FeedPanel>();
         NoFeed noFeedControl;
         int controlsCount = 0;
         bool shrinkMode = false;
@@ -206,26 +206,48 @@ namespace Multiple_Choice_Creator
             }
         }
 
-        public void filterLoad(string filter)
+        public void filterControlsDispose()
         {
-            BackUpLayoutControls = myLayoutControls;
-            for(int i=0; i<myLayoutControls.Count; i++)
+            for (int i = 0; i < filteredLayoutControls.Count; i++)
             {
-                if(myLayoutControls[i].getQuestionDifficulty() != filter)
-                {
-                    myLayoutControls.RemoveAt(i);
-                }
+                filteredLayoutControls[i].remove();
             }
+            filteredLayoutControls = new List<FeedPanel>();
         }
 
-        public void reload(List<FeedPanel> LayoutControls)
+        public void filterLoad(List<string> filter)
+        {
+            filteredLayoutControls = new List<FeedPanel>();
+            for(int i=0; i<filter.Count; i++)
+            {
+                for (int j = 0; j < myLayoutControls.Count; j++)
+                {
+                    if (myLayoutControls[j].getQuestionDifficulty() == filter[i])
+                    {
+                        filteredLayoutControls.Add(myLayoutControls[j]);
+                    } else
+                    {
+                        myLayoutControls[j].Visible = false;
+                    }
+                }
+            }
+            if (filteredLayoutControls.Count > 0)
+            {
+                reload(filteredLayoutControls);
+            }
+            else
+                NoFeed("No content using this filter");
+        }
+
+        private void reload(List<FeedPanel> LayoutControls)
         {
             if (controlsCount == 0)
                 NoFeedControlDispose();
             else
-                controlsDispose();
+                filterControlsDispose();
             for(int i =0; i<LayoutControls.Count; i++)
             {
+                LayoutControls[i].Visible = true;
                 panel.Controls.Add(LayoutControls[i]);
             }
             toolbarload();
@@ -233,7 +255,6 @@ namespace Multiple_Choice_Creator
 
         public void clearFilter()
         {
-            myLayoutControls = BackUpLayoutControls;
             reload(myLayoutControls);
         }
 

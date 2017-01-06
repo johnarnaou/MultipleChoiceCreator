@@ -36,6 +36,7 @@ namespace Multiple_Choice_Creator
             this.Dock = DockStyle.Top;
             q = qa.getQuestion();
             setQuestion(q.getText());
+            setDifficulty();
             fillAnswers(qa);
             this.qa = qa;
             if (style)
@@ -44,6 +45,7 @@ namespace Multiple_Choice_Creator
                 showWithStyle();
             }
             answersDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            answersDataGridView.ScrollBars = ScrollBars.None;
         }
 
         private void showWithStyle()
@@ -72,6 +74,25 @@ namespace Multiple_Choice_Creator
         private void setQuestion(string question)
         {
             this.QuestionLabel.Text = question;
+        }
+
+        private void setDifficulty()
+        {
+            switch (getQuestionDifficulty())
+            {
+                case "E":
+                    this.diffLabel.Text = diffLabel.Text + " Easy";
+                    break;
+                case "M":
+                    this.diffLabel.Text = diffLabel.Text + " Medium";
+                    break;
+                case "H":
+                    this.diffLabel.Text = diffLabel.Text + " Hard";
+                    break;
+                default:
+                    this.diffLabel.Text = diffLabel.Text + " Not set";
+                    break;
+            }
         }
 
         public void remove()
@@ -135,6 +156,8 @@ namespace Multiple_Choice_Creator
         }
         private void answersDataGridView_Leave(object sender, EventArgs e)
         {
+            answersDataGridView.ScrollBars = ScrollBars.None;
+
             if (valuesChanged) {
                 string message = "Keep changes?";
                 string caption = "Unsaved content";
@@ -211,6 +234,12 @@ namespace Multiple_Choice_Creator
             answersDataGridView_Leave(sender, eve);
         }
 
+        private void answersDataGridView_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Clicked");
+            answersDataGridView.ScrollBars = ScrollBars.Both;
+        }
+
         private void answersDataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             eve = e;
@@ -222,5 +251,6 @@ namespace Multiple_Choice_Creator
         {
             return this.q.getDifficulty();
         }
+
     }
 }

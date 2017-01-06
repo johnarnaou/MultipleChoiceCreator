@@ -39,6 +39,7 @@
             this.showTimer = new System.Windows.Forms.Timer(this.components);
             this.deleteTimer = new System.Windows.Forms.Timer(this.components);
             this.hideTimer = new System.Windows.Forms.Timer(this.components);
+            this.diffLabel = new System.Windows.Forms.ToolStripLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -70,6 +71,7 @@
             this.answersDataGridView.TabIndex = 14;
             this.answersDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.answersDataGridView_CellBeginEdit);
             this.answersDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.answersDataGridView_CellEndEdit);
+            this.answersDataGridView.Click += new System.EventHandler(this.answersDataGridView_Click);
             this.answersDataGridView.Enter += new System.EventHandler(this.answersDataGridView_Enter);
             this.answersDataGridView.Leave += new System.EventHandler(this.answersDataGridView_Leave);
             // 
@@ -78,7 +80,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DeleteButtton,
             this.QuestionLabel,
-            this.saveButton});
+            this.saveButton,
+            this.diffLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(530, 25);
@@ -131,6 +134,13 @@
             this.hideTimer.Interval = 50;
             this.hideTimer.Tick += new System.EventHandler(this.hideTimer_Tick);
             // 
+            // diffLabel
+            // 
+            this.diffLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.diffLabel.Name = "diffLabel";
+            this.diffLabel.Size = new System.Drawing.Size(58, 22);
+            this.diffLabel.Text = "Difficulty:";
+            // 
             // FeedPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,5 +171,6 @@
         private System.Windows.Forms.Timer deleteTimer;
         private System.Windows.Forms.ToolStripButton saveButton;
         private System.Windows.Forms.Timer hideTimer;
+        private System.Windows.Forms.ToolStripLabel diffLabel;
     }
 }
