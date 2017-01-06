@@ -7438,19 +7438,6 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual mltChoiceDataSet.QuestDataTable getDifficultyByQuestId(int paramqId)
-        {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(paramqId));
-            mltChoiceDataSet.QuestDataTable dataTable = new mltChoiceDataSet.QuestDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(mltChoiceDataSet.QuestDataTable dataTable)
         {
             return this.Adapter.Update(dataTable);
@@ -7674,6 +7661,42 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
                 {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual string getDifficultyByQuestId(int paramqId)
+        {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
+            command.Parameters[0].Value = ((int)(paramqId));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open)
+                        != global::System.Data.ConnectionState.Open))
+            {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try
+            {
+                returnValue = command.ExecuteScalar();
+            }
+            finally
+            {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
+                {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null)
+                        || (returnValue.GetType() == typeof(global::System.DBNull))))
+            {
+                return null;
+            }
+            else
+            {
+                return ((string)(returnValue));
             }
         }
 
