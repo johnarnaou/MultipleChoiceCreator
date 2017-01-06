@@ -33,6 +33,11 @@ namespace Multiple_Choice_Creator
             Question questIns=new Model.Question(richTextBox1.Text, dif, user.getUserID());
             QuestionAnswer qaInserted = new QuestionAnswer(questIns);
             AnswDataTable inseAnsw = mang.inserQ(questIns,dataGridView1,user);
+            if (inseAnsw==null)//ama mou epistrepsei null tote shmainei oti kati phge lathos
+            {
+                MessageBox.Show("Insertion cancelled","Inforamtion",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return;//Opote akurwnw olh th diadikasia kanwntas apla ena return
+            }
             qaInserted.setAnswersDataTable(inseAnsw);
             bool ins=saveChanges();
             if (ins==true) {
