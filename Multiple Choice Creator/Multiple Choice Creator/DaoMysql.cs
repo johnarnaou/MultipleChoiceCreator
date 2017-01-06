@@ -17,7 +17,7 @@ namespace Multiple_Choice_Creator
     {
 
         private static MySql.Data.MySqlClient.MySqlConnection conn;
-        private static string myConnectionString = "server=192.168.6.177;uid=kantonio;" + "pwd=123456;database=kantonio;";
+        private static string myConnectionString = "server=192.168.6.249;uid=kantonio;" + "pwd=123456;database=kantonio;";
 
         public DaoMysql()
         {
