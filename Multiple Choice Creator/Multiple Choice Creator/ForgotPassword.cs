@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Multiple_Choice_Creator.Persistence;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,8 @@ namespace Multiple_Choice_Creator
             textBox1.Text = null;
             panel1.Visible = false;
             panel2.Visible = true;
+            DaoUsers dUser = new DaoUsers();
+            dUser.sendMail(null,3);
             Update();
 
         }

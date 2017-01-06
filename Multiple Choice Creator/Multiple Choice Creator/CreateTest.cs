@@ -11,12 +11,14 @@ namespace Multiple_Choice_Creator
 
     class CreateTest
     {
-        Panel panel;
-        CreateTestControl createtestcontrol = new CreateTestControl();
+        Panel panel=new Panel();
+        CreateTestControl createtestcontrol;
         public CreateTest(Panel myPanel)
         {
+            createtestcontrol = new CreateTestControl();
             this.panel = myPanel;
             this.panel.Controls.Add(createtestcontrol);
+            
         }
     }
 }

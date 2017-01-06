@@ -103,6 +103,34 @@ namespace Multiple_Choice_Creator.Persistence
             return new string(Enumerable.Repeat(chars, 8)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+        public string forgotMail(String mail)
+        {
+            MailMessage msg = new MailMessage();
+            msg = createForgotMSG(msg,mail);
+            SmtpClient client = new SmtpClient();
+            client = addClientParameters(client);
+            return sendmyMail(client,msg);
+        }
+
+        public MailMessage createForgotMSG(MailMessage msg,string mail)
+        { 
+            msg.From = new MailAddress("multiplechoiceteamteithe@gmail.com");
+            msg.To.Add(mail);
+            msg.Subject = "Multiple Choise Team, Security Code" + DateTime.Now.ToString();
+            string securityCode = RandomString();
+            msg.Body = "Your security code to change your password is: '" + securityCode+"'";
+            UsersTableAdapter uta = new UsersTableAdapter();
+            
+            //auto na mpainei se allh function me try catch kai na petaei mnma
+            //pairnoume to id tou user
+            //string userID = uta.getUserID(mail);
+            //kanoume insert ston pinaka gia tous security kwdikous
+            //
+            //kaloume insert
+            //Edw tha kaleite h methodos gia na ginete to insert toy id tou xrhsth kai to verification code sto ACK
+            return msg;
+
+        }
 
         //This method is to send mail to the user for the mail verification
         public string sendMail(User user,int way)
@@ -111,6 +139,12 @@ namespace Multiple_Choice_Creator.Persistence
             msg=addMailParameters(msg,user,way);
             SmtpClient client = new SmtpClient();
             client = addClientParameters(client);
+            return sendmyMail(client, msg);
+            
+        }
+
+        public string sendmyMail(SmtpClient client, MailMessage msg)
+        {
             try
             {
                 client.Send(msg);
@@ -127,6 +161,7 @@ namespace Multiple_Choice_Creator.Persistence
             {
                 msg.Dispose();
             }
+
         }
 
         //this method is to add parameters to the mail 
