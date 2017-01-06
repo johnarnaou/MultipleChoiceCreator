@@ -32,7 +32,7 @@ namespace Multiple_Choice_Creator
             foreach (Answer apant in correct)
             {
                 
-                Correct.Text = Correct.Text + " , " + apant.ToString();
+                Correct.Text = Correct.Text + " , " + apant.getText();
             }
             xMore.Text = wrong.Count().ToString() + " wrong answ";
             Update();

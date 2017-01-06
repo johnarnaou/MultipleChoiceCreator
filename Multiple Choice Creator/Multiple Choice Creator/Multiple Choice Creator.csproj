@@ -187,12 +187,6 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\TopicTree.cs" />
-    <Compile Include="testPrintForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="testPrintForm.Designer.cs">
-      <DependentUpon>testPrintForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="VerificationCode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,9 +237,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="testPrintForm.resx">
-      <DependentUpon>testPrintForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerificationCode.resx">
       <DependentUpon>VerificationCode.cs</DependentUpon>
