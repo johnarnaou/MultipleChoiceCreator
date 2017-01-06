@@ -159,8 +159,34 @@ namespace Multiple_Choice_Creator
 
         private void richTextBox1_Enter(object sender, EventArgs e)
         {
-            richTextBox1.Text = "";
+           // richTextBox1.Text = "";
         }
 
+        private void dataGridView1_Validating(object sender, CancelEventArgs e)
+        {
+            errorProvider.Clear();
+            if (string.IsNullOrWhiteSpace(dataGridView1.Rows[0].Cells[0].Value as string)
+                && string.IsNullOrWhiteSpace(dataGridView1.Rows[1].Cells[0].Value as string))
+            {
+                MessageBox.Show("There are no answers.You must type at least two answers","Error"
+                    ,MessageBoxButtons.OK,MessageBoxIcon.Error);
+                errorProvider.SetError(this.dataGridView1,"Please type at least one answer");
+                e.Cancel = true;//den ton afhnoume na fugei apo to text box mexri na grapsei mia toulaxiston apanthsh
+            }
+            return;
+        }
+
+        private void richTextBox1_Validating(object sender, CancelEventArgs e)
+        {
+            errorProvider.Clear();
+            if (string.IsNullOrWhiteSpace(richTextBox1.Text))
+            {
+                MessageBox.Show("There is no question.You must type a question ", "Error"
+                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider.SetError(this.richTextBox1, "Please type a question");
+                e.Cancel = true;//den ton afhnoume na fugei apo to text box mexri na grapsei mia erwthsh
+            }
+            return;
+        }
     }
 }

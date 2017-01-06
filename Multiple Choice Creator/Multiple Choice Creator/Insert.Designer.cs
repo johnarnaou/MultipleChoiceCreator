@@ -46,6 +46,7 @@
             this.questTableAdapter = new Multiple_Choice_Creator.mltChoiceDataSetTableAdapters.QuestTableAdapter();
             this.answBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.answTableAdapter = new Multiple_Choice_Creator.mltChoiceDataSetTableAdapters.AnswTableAdapter();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -53,6 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mltChoiceDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.answBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -148,6 +150,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(718, 281);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.Validating += new System.ComponentModel.CancelEventHandler(this.dataGridView1_Validating);
             // 
             // Answer
             // 
@@ -168,6 +171,7 @@
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "Write a question";
             this.richTextBox1.Enter += new System.EventHandler(this.richTextBox1_Enter);
+            this.richTextBox1.Validating += new System.ComponentModel.CancelEventHandler(this.richTextBox1_Validating);
             // 
             // groupBox3
             // 
@@ -206,6 +210,10 @@
             // 
             this.answTableAdapter.ClearBeforeFill = true;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // Insert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mltChoiceDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.answBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,5 +257,6 @@
         private mltChoiceDataSetTableAdapters.QuestTableAdapter questTableAdapter;
         private System.Windows.Forms.BindingSource answBindingSource;
         private mltChoiceDataSetTableAdapters.AnswTableAdapter answTableAdapter;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
