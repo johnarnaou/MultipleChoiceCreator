@@ -19,9 +19,10 @@ namespace Multiple_Choice_Creator.Model
             this.description = description;
             this.parent = parent;     
         }
-        public Topic(String name)
+        public Topic(String name,int id)
         {
-
+            this.id = id;
+            this.name = name;
         }
 
         public string getName()

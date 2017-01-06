@@ -47,8 +47,9 @@ namespace Multiple_Choice_Creator
             for (int i=0; i<themeList.Count; i++)
             {   
                 DataTable topicId = topic.getIdOfTopic(themeList[i]);
+                Topic currentTopic = new Topic(themeList[i], Convert.ToInt32(topicId.Rows[0][0].ToString()));
                 //MessageBox.Show(topicId.Rows[0][0].ToString());
-                tq.insertTopicQuest(qId,Convert.ToInt32(topicId.Rows[0][0].ToString()));
+                tq.insertTopicQuest(qId, currentTopic.getId());
             }
         }
 
