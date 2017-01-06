@@ -30,11 +30,17 @@ namespace Multiple_Choice_Creator
             QuestTableAdapter qTableAdapter;
             DataTable questionId;
             int qid;
+            List<string> themes = filters.returnThemes();
+            themes = filters.returnThemes();
+            if (themes.Count == 0)//prin kanw otidipote mesa sto eisagwgh prepei na eleksw an o xrhsths exei epileksei thematikes enothtes
+            {
+              MessageBox.Show("You did not select theme for this question.Please choose at least one", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              return null;
+            }
             qTableAdapter = new QuestTableAdapter();
             qTableAdapter.insertQuest(q.getText(),Convert.ToString(q.getDifficulty()),user.getUserID());
             questionId = qTableAdapter.getIdOfInsertedQuest(q.getText());
             qid = Convert.ToInt32(questionId.Rows[0][0].ToString());
-            List<string> themes = filters.returnThemes();
             insertThemes(themes,qid);
             AnswDataTable answData = insertAnsw(qid, manageGrid);
             return answData;
