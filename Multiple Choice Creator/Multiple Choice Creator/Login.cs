@@ -55,7 +55,7 @@ namespace Multiple_Choice_Creator
             mail = textBox1.Text;
             password = textBox2.Text;
             checkeUP(mail, password);
-            DaoMysql dbOb = new DaoMysql();
+           // DaoMysql dbOb = new DaoMysql();
             User user = new User(mail, password);
             DaoUsers dUser=DaoUsers.getInstance();
             UsersTableAdapter uAdapter = new UsersTableAdapter();

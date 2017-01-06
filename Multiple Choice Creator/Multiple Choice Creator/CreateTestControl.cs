@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using iTextSharp.text;
+//using iTextSharp.text;
 using System.IO;
 using iTextSharp.text.pdf;
 using Multiple_Choice_Creator.Model;
@@ -17,7 +17,7 @@ namespace Multiple_Choice_Creator
 {
     public partial class CreateTestControl : UserControl
     {
-        private static List<Question> list;
+        //private static List<Question> list;
         public CreateTestControl()
         {
             InitializeComponent();
@@ -26,8 +26,8 @@ namespace Multiple_Choice_Creator
         }
 
         private void create_Click(object sender, EventArgs e)
-        {/*
-            list = new List<Question>();
+          {
+              /*list = new List<Question>();
             var query = from c in list
                         select c;
 

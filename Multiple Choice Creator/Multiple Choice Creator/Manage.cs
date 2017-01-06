@@ -24,20 +24,17 @@ namespace Multiple_Choice_Creator
             this.panel = panel;
             panel.Controls.Add(management);
         }
-
-        public Manage() { }//to xreiazomaste gia na kaloume t methosdo insertQ
-
-       
+        
         public AnswDataTable inserQ(Question q,DataGridView manageGrid,User user)
         {
             QuestTableAdapter qTableAdapter;
             DataTable questionId;
             int qid;
-            List<string> themes = filters.returnThemes();
             qTableAdapter = new QuestTableAdapter();
-            qTableAdapter.insertQuest(q.getText(), Convert.ToString(q.getDifficulty()),user.getUserID());
+            qTableAdapter.insertQuest(q.getText(),Convert.ToString(q.getDifficulty()),user.getUserID());
             questionId = qTableAdapter.getIdOfInsertedQuest(q.getText());
             qid = Convert.ToInt32(questionId.Rows[0][0].ToString());
+            List<string> themes = filters.returnThemes();
             insertThemes(themes,qid);
             AnswDataTable answData = insertAnsw(qid, manageGrid);
             return answData;
@@ -53,7 +50,6 @@ namespace Multiple_Choice_Creator
                 //MessageBox.Show(topicId.Rows[0][0].ToString());
                 tq.insertTopicQuest(qId,Convert.ToInt32(topicId.Rows[0][0].ToString()));
             }
-            
         }
 
         private AnswDataTable insertAnsw(int questionId,DataGridView manageGrid)
