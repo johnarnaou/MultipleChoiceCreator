@@ -17,6 +17,7 @@ namespace Multiple_Choice_Creator
     {
         LoadFeed feed;
         Panel panel;
+        List<string> filters = new List<string>();
         bool found, noFeedWasLoaded, shrinkMode = false;
         public FeedToolBar(Panel p, User user)
         {
@@ -81,6 +82,36 @@ namespace Multiple_Choice_Creator
         private void ExpandButton_Click(object sender, EventArgs e)
         {
             ShrinkButton_Click(sender, e);
+        }
+
+        private void easyButton_Click(object sender, EventArgs e)
+        {
+            filters.Add("E");
+            feed.filterLoad(filters);
+            easyButton.Enabled = false;
+        }
+
+        private void medButton_Click(object sender, EventArgs e)
+        {
+            filters.Add("M");
+            feed.filterLoad(filters);
+            medButton.Enabled = false;
+        }
+
+        private void hardButton_Click(object sender, EventArgs e)
+        {
+            filters.Add("H");
+            feed.filterLoad(filters);
+            hardButton.Enabled = false;
+        }
+
+        private void clearFilterButton_Click(object sender, EventArgs e)
+        {
+            easyButton.Enabled = true;
+            medButton.Enabled = true;
+            hardButton.Enabled = true;
+            filters = new List<string>();
+            feed.clearFilter();
         }
 
         private void ShrinkButton_Click(object sender, EventArgs e)
