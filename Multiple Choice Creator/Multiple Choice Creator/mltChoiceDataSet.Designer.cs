@@ -7200,16 +7200,14 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        difficulty\r\nFROM            Quest\r\nWHERE        (question = @paramq" +
-                "uest)";
+            this._commandCollection[1].CommandText = "SELECT        difficulty\r\nFROM            Quest\r\nWHERE        (Id = @paramqId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@paramquest";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 255;
+            param.ParameterName = "@paramqId";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "question";
+            param.SourceColumn = "Id";
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
@@ -7378,17 +7376,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int fillByDifficulty(mltChoiceDataSet.QuestDataTable dataTable, string paramquest)
+        public virtual int fillByDifficulty(mltChoiceDataSet.QuestDataTable dataTable, int paramqId)
         {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((paramquest == null))
-            {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(paramquest));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(paramqId));
             if ((this.ClearBeforeFill == true))
             {
                 dataTable.Clear();
@@ -7401,17 +7392,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual mltChoiceDataSet.QuestDataTable getQuestByDifficulty(string paramquest)
+        public virtual mltChoiceDataSet.QuestDataTable getQuestByDifficulty(int paramqId)
         {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((paramquest == null))
-            {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(paramquest));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(paramqId));
             mltChoiceDataSet.QuestDataTable dataTable = new mltChoiceDataSet.QuestDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
