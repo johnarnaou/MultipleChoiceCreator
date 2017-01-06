@@ -11,6 +11,7 @@ using Multiple_Choice_Creator.Persistence;
 using Multiple_Choice_Creator.Model;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Net.Mail;
 
 namespace Multiple_Choice_Creator
 {
@@ -176,9 +177,32 @@ namespace Multiple_Choice_Creator
         bool invalid = false;
         private void textBox3_Validating(object sender, CancelEventArgs e)
         {
-            
+            try
+            {
+                MailAddress m = new MailAddress(textBox3.Text);
+            }
+            catch (FormatException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                MessageBox.Show("Invalid Email adresss", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+            }
         }
 
-        
+        private void textBox4_Validating(object sender, CancelEventArgs e)
+        {
+            string passwordGiven = textBox4.Text;
+            bool valid = false;
+            if (passwordGiven.Any(char.IsUpper) && passwordGiven.Any(char.IsLower) 
+                && passwordGiven.Any(char.IsDigit))
+            {
+                valid = true;
+            }
+            if (valid!=true)
+            {
+                MessageBox.Show("Invalid password.The password must contain at least "+
+                    "one lower case,upper case and number character","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
     }
 }
