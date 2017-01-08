@@ -231,9 +231,6 @@ namespace Multiple_Choice_Creator
         }
 
         List<string> DifficultiesChecked=new List<string>();
-        DiffTableAdapter dta;
-        List<string> mydiffsArr = new List<string>();
-        List<ListItem> selected = new List<ListItem>();
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
 
@@ -247,7 +244,19 @@ namespace Multiple_Choice_Creator
                 DifficultiesChecked.Add(itemChecked.ToString());
             }
             CheckedListBox justChecked = (CheckedListBox)sender;
+            CheckedListBox.CheckedItemCollection coll = justChecked.CheckedItems;
             MessageBox.Show("Sender is: "+ justChecked.Text);
+            if (DifficultiesChecked.Contains(justChecked.Text))
+            {
+                DifficultiesChecked.Remove(justChecked.Text);
+            }
+            else
+            {
+                DifficultiesChecked.Add(justChecked.Text);
+            }
+            MessageBox.Show("justChecked.Text is: " + justChecked.Text);
+            myfeed.filterLoad(DifficultiesChecked);
+
             /*//foreach(object itemChecked in checkedListBox1.CheckedItems)
             //{
             for(int i = 0; i < checkedListBox1.CheckedItems.Count; i++)

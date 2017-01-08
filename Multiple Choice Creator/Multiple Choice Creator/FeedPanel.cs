@@ -255,7 +255,8 @@ namespace Multiple_Choice_Creator
                 }
             }
 
-            qPreview = new QuePreview(cr.getflowlayoutPanel(), q, correctAnsw, incorrectAnsw);
+            qPreview = new QuePreview(cr.getflowlayoutPanel(), q, correctAnsw, incorrectAnsw,cr.getMyPList());
+            cr.getMyPList().Add(qPreview.getMyQuePrev());
         }
 
         private void removeButton_Click(object sender, EventArgs e)

@@ -23,6 +23,7 @@ namespace Multiple_Choice_Creator.Model
             this.difficulty = difficulty;
             creationTime = DateTime.Now;
         }
+        public Question() {  }
 
         public Question(int id)
         {
