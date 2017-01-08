@@ -18,11 +18,18 @@ namespace Multiple_Choice_Creator
     public partial class CreateTestControl : UserControl
     {
         //private static List<Question> list;
-        public CreateTestControl()
+        User myUser;
+        public CreateTestControl(User usr)
         {
             InitializeComponent();
-
+            myUser = usr;
             this.Dock = DockStyle.Fill;
+        }
+        List<QuestionPreview> myQPList = new List<QuestionPreview>();
+
+        public List<QuestionPreview> getMyPList()
+        {
+            return myQPList;
         }
 
         public FlowLayoutPanel getflowlayoutPanel()
@@ -74,13 +81,13 @@ namespace Multiple_Choice_Creator
             string aw = "teithe";
 
 
-            
+
             //QuePreview myQuewPreview = new QuePreview(panel1, QA);
             //Console.WriteLine(QA.ToString());
 
             //Εδω θα μπαίνει από panel to view a question
-            qPreview = new QuePreview(flowLayoutPanel1, q, lCorrect,lwrong);
-           // panel1.Controls.Add(createtestcontrol);
+            qPreview = new QuePreview(flowLayoutPanel1, q, lCorrect, lwrong, myQPList);
+            // panel1.Controls.Add(createtestcontrol);
         }
     }
 }
