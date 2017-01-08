@@ -30,6 +30,7 @@ namespace Multiple_Choice_Creator
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Question questIns=new Model.Question(richTextBox1.Text, dif, user.getUserID());
             QuestionAnswer qaInserted = new QuestionAnswer(questIns);
             AnswDataTable inseAnsw = mang.inserQ(questIns,dataGridView1,user);
@@ -43,6 +44,7 @@ namespace Multiple_Choice_Creator
             if (ins==true) {
                 currFeed.add(qaInserted);
             }
+            Cursor.Current = Cursors.Default;
         }
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {

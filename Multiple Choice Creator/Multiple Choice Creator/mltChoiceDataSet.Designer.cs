@@ -7225,10 +7225,11 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT        difficulty\r\nFROM            Quest\r\nWHERE        (Id = @paramqId)";
+            this._commandCollection[3].CommandText = "SELECT        d.name\r\nFROM            Diff d INNER JOIN\r\n                        " +
+                " Quest q ON d.abbreviation = q.difficulty\r\nWHERE        (q.Id = @questId)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@paramqId";
+            param.ParameterName = "@questId";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7667,10 +7668,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual string getDifficultyByQuestId(int paramqId)
+        public virtual object getDifficultyByQuestId(int questId)
         {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
-            command.Parameters[0].Value = ((int)(paramqId));
+            command.Parameters[0].Value = ((int)(questId));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open)
                         != global::System.Data.ConnectionState.Open))
@@ -7696,7 +7697,7 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             }
             else
             {
-                return ((string)(returnValue));
+                return ((object)(returnValue));
             }
         }
 
