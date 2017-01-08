@@ -89,7 +89,6 @@
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(100, 25);
             this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
-            this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
             // 
             // HomeButton
             // 
