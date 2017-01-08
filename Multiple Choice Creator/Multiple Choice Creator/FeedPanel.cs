@@ -29,7 +29,9 @@ namespace Multiple_Choice_Creator
         private bool valuesChanged = false;
         private DataGridViewCellCancelEventArgs eve;
         private string tempAnsw;
-        public FeedPanel(QuestionAnswer qa, bool shrinkMode, bool style)
+        private CreateTestControl cr;
+        private QuePreview qPreview;
+        public FeedPanel(QuestionAnswer qa, bool shrinkMode, bool style, CreateTestControl cr)
         {
             InitializeComponent();
             this.shrinkMode = shrinkMode;
@@ -39,6 +41,7 @@ namespace Multiple_Choice_Creator
             setDifficulty();
             fillAnswers(qa);
             this.qa = qa;
+            this.cr = cr;
             if (style)
             {
                 this.Height = 0;
@@ -224,6 +227,45 @@ namespace Multiple_Choice_Creator
         {
             Debug.WriteLine("Clicked");
             answersDataGridView.ScrollBars = ScrollBars.Both;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            toolStrip1.BackColor = Color.Green;
+            if (!shrinkMode)
+            {
+                hideTimer.Enabled = true;
+                shrinkMode = true;
+            }
+            addButton.Visible = false;
+            removeButton.Visible = true;
+
+            List<Answer> correctAnsw = new List<Answer>();
+            List<Answer> incorrectAnsw = new List<Answer>();
+
+            for(int i=0; i<answers.Count; i++)
+            {
+                if ((bool)answers.Rows[i]["correct"])
+                {
+                    correctAnsw.Add(new Answer(0,(string)answers.Rows[i]["answer"]));
+                }
+                else
+                {
+                    incorrectAnsw.Add(new Answer(0, (string)answers.Rows[i]["answer"]));
+                }
+            }
+
+            qPreview = new QuePreview(cr.getflowlayoutPanel(), q, correctAnsw, incorrectAnsw);
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            toolStrip1.BackColor = Color.White;
+            showWithStyle();
+            removeButton.Visible = false;
+            addButton.Visible = true;
+            shrinkMode = false;
+            
         }
 
         private void answersDataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)

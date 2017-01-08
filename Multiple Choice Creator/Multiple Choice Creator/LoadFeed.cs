@@ -26,15 +26,17 @@ namespace Multiple_Choice_Creator
         NoFeed noFeedControl;
         int controlsCount = 0;
         bool shrinkMode = false;
+        CreateTestControl cr;
+        QuePreview qPreview;
 
         int index = 0;
-        public LoadFeed(Panel p, User user)
+        public LoadFeed(Panel p, User user, CreateTestControl cr)
         {
             this.user = user;
             panel = p;
             toolbar = new FeedToolBar(panel, user);
             toolbar.setFeed(this);
-            
+            this.cr = cr;
         }
 
         public void load()
@@ -44,8 +46,6 @@ namespace Multiple_Choice_Creator
             if (controlsCount == 0)
             {
                 NoFeed("No Questions..., Try inserting some!!");
-                toolbar.setNoFeedWasLoaded(true);
-                toolbar.Enabled = false;
             }
             else if(controlsCount<50)
             {
@@ -90,7 +90,7 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(qa, shrinkMode, false));
+            myLayoutControls.Add(new FeedPanel(qa, shrinkMode, false,cr));
 
             myLayoutControls[index].setFeed(this);
 
@@ -143,7 +143,7 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(qa, shrinkMode,false));
+            myLayoutControls.Add(new FeedPanel(qa, shrinkMode,false,cr));
 
             myLayoutControls[index].setFeed(this);
 
@@ -159,6 +159,8 @@ namespace Multiple_Choice_Creator
             controlsDispose();
             noFeedControl = new NoFeed(text);
             noFeedControl.Dock = DockStyle.Top;
+            toolbar.setNoFeedWasLoaded(true);
+            toolbar.Enabled = false;
             panel.Controls.Add(noFeedControl);
             toolbarload();
         }
@@ -180,8 +182,9 @@ namespace Multiple_Choice_Creator
 
         public void add(QuestionAnswer element)
         {
-
-            myLayoutControls.Add(new FeedPanel(element, shrinkMode, true));
+            if (myLayoutControls.Count == 0)
+                NoFeedControlDispose();
+            myLayoutControls.Add(new FeedPanel(element, shrinkMode, true,cr));
 
             myLayoutControls[index].setFeed(this);
 
@@ -204,6 +207,8 @@ namespace Multiple_Choice_Creator
                     qaTableAdapter.deleteQuestAnsw(element.getQuestionID());
                 }
             }
+            if (myLayoutControls.Count == 0)
+                NoFeed("No Questions..., Try inserting some!!");
         }
 
         public void filterControlsDispose()

@@ -21,11 +21,13 @@ namespace Multiple_Choice_Creator
         {
             InitializeComponent();
             //fillTreeView();
-            feed = new LoadFeed(splitContainer3.Panel2, user);
+            
             splitContainer3.Panel2.AutoScroll = true;
-            feed.load();
+            
             
             createTest = new CreateTest(splitContainer2.Panel2);
+            feed = new LoadFeed(splitContainer3.Panel2, user, createTest.getCTC());
+            feed.load();
             myFilter = new Filter(splitContainer1.Panel1, feed);
             manage = new Manage(user, splitContainer3.Panel1, feed,myFilter.getFilters());
            
