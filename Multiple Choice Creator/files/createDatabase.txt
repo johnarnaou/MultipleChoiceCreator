@@ -2,6 +2,7 @@ create table Quest
 (
 Id int not null auto_increment,
 question varchar(255),
+difficulty char(1),
 timeCre timestamp,
 timeLatMod timestamp,
 primary key(Id)
@@ -17,6 +18,7 @@ primary key(Id)
 create table QuestAnsw
 (
 Id int not null auto_increment,
+correct  tinyint(1),
 questId int,
 answId int,
 primary key(Id),
@@ -100,3 +102,12 @@ SET FOREIGN_KEY_CHECKS=0;
   DELETE FROM TopicQuest where OLD.questId=questId;
 SET FOREIGN_KEY_CHECKS=1;
 END;
+
+create table ResetPass
+(
+Id int,
+userId int,
+fCcode varchar(255),
+Primary key(Id),
+foreign key (userId) references Users(id) 
+);
