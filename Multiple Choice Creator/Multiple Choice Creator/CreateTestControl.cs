@@ -25,6 +25,11 @@ namespace Multiple_Choice_Creator
             this.Dock = DockStyle.Fill;
         }
 
+        public FlowLayoutPanel getflowlayoutPanel()
+        {
+            return this.flowLayoutPanel1;
+        }
+
         private void create_Click(object sender, EventArgs e)
           {
               /*list = new List<Question>();
