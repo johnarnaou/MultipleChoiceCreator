@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
 
 namespace Multiple_Choice_Creator
 {
@@ -232,10 +233,22 @@ namespace Multiple_Choice_Creator
         List<string> DifficultiesChecked=new List<string>();
         DiffTableAdapter dta;
         List<string> mydiffsArr = new List<string>();
+        List<ListItem> selected = new List<ListItem>();
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
 
-            //foreach(object itemChecked in checkedListBox1.CheckedItems)
+            foreach (object itemChecked in checkedListBox1.CheckedItems)
+            {
+
+                // Use the IndexOf method to get the index of an item.
+                MessageBox.Show("Item with title: \"" + itemChecked.ToString() +
+                                "\", is checked. Checked state is: " +
+                                checkedListBox1.GetItemCheckState(checkedListBox1.Items.IndexOf(itemChecked)).ToString() + ".");
+                DifficultiesChecked.Add(itemChecked.ToString());
+            }
+            CheckedListBox justChecked = (CheckedListBox)sender;
+            MessageBox.Show("Sender is: "+ justChecked.Text);
+            /*//foreach(object itemChecked in checkedListBox1.CheckedItems)
             //{
             for(int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
             {
@@ -257,8 +270,8 @@ namespace Multiple_Choice_Creator
             {
                 mydiffsArr.Add(dta.getAbbreviationOfDiff(DifficultiesChecked[i]));
             }
-            //}
-            myfeed.filterLoad(mydiffsArr);
+            //}*/
+            //myfeed.filterLoad(mydiffsArr);
         }
     }
 }

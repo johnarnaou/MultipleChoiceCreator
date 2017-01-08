@@ -20,5 +20,9 @@ namespace Multiple_Choice_Creator
             this.panel.Controls.Add(createtestcontrol);
             
         }
+        public CreateTestControl getCTC()
+        {
+            return this.createtestcontrol;
+        }
     }
 }
