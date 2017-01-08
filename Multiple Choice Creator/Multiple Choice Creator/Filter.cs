@@ -15,9 +15,13 @@ namespace Multiple_Choice_Creator
         List<String> treeViewTopics = new List<String>();
         Panel panel;
         Filters myFilters;
-        public Filter(Panel myPanel)
+        LoadFeed myfeed;
+        
+
+        public Filter(Panel myPanel, object feed)
         {
-            myFilters = new Filters();
+            this.myfeed = (LoadFeed)feed;
+            myFilters = new Filters(myfeed);
             this.panel = myPanel;
             this.panel.Controls.Add(myFilters);
         }
