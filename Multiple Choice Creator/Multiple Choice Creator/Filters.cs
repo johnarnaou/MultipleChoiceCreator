@@ -14,12 +14,14 @@ namespace Multiple_Choice_Creator
 {
     public partial class Filters : UserControl
     {
-        public Filters()
+        LoadFeed myfeed;
+        public Filters(object feed)
         {
 
             //myTreeview = treeView1;
-            
+
             InitializeComponent();
+            myfeed = (LoadFeed)feed;
             fill_checkedListBox();
             this.Dock = DockStyle.Fill;
             fillTreeView();
@@ -225,6 +227,38 @@ namespace Multiple_Choice_Creator
         private void button2_Click_1(object sender, EventArgs e)
         {
             textBox1.Focus();
+        }
+
+        List<string> DifficultiesChecked=new List<string>();
+        DiffTableAdapter dta;
+        List<string> mydiffsArr = new List<string>();
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+
+            //foreach(object itemChecked in checkedListBox1.CheckedItems)
+            //{
+            for(int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
+            {
+                DifficultiesChecked.Add(checkedListBox1.CheckedItems.ToString());
+            }
+
+
+
+            if (DifficultiesChecked.Contains(sender.ToString()))
+            {
+                DifficultiesChecked.Remove(sender.ToString());
+            }
+            else
+            {
+                DifficultiesChecked.Add(sender.ToString());
+            }
+
+            for(int i=0;i<DifficultiesChecked.Count;i++)
+            {
+                mydiffsArr.Add(dta.getAbbreviationOfDiff(DifficultiesChecked[i]));
+            }
+            //}
+            myfeed.filterLoad(mydiffsArr);
         }
     }
 }
