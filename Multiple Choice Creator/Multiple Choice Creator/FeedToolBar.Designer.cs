@@ -37,9 +37,9 @@
             this.ShrinkButton = new System.Windows.Forms.ToolStripButton();
             this.ExpandButton = new System.Windows.Forms.ToolStripButton();
             this.easyButton = new System.Windows.Forms.ToolStripButton();
+            this.medButton = new System.Windows.Forms.ToolStripButton();
             this.hardButton = new System.Windows.Forms.ToolStripButton();
             this.clearFilterButton = new System.Windows.Forms.ToolStripButton();
-            this.medButton = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +89,7 @@
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(100, 25);
             this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
+            this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
             // 
             // HomeButton
             // 
@@ -132,6 +133,16 @@
             this.easyButton.Text = "E";
             this.easyButton.Click += new System.EventHandler(this.easyButton_Click);
             // 
+            // medButton
+            // 
+            this.medButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.medButton.Image = ((System.Drawing.Image)(resources.GetObject("medButton.Image")));
+            this.medButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.medButton.Name = "medButton";
+            this.medButton.Size = new System.Drawing.Size(23, 22);
+            this.medButton.Text = "M";
+            this.medButton.Click += new System.EventHandler(this.medButton_Click);
+            // 
             // hardButton
             // 
             this.hardButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -151,16 +162,6 @@
             this.clearFilterButton.Size = new System.Drawing.Size(38, 22);
             this.clearFilterButton.Text = "Clear";
             this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
-            // 
-            // medButton
-            // 
-            this.medButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.medButton.Image = ((System.Drawing.Image)(resources.GetObject("medButton.Image")));
-            this.medButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.medButton.Name = "medButton";
-            this.medButton.Size = new System.Drawing.Size(23, 22);
-            this.medButton.Text = "M";
-            this.medButton.Click += new System.EventHandler(this.medButton_Click);
             // 
             // FeedToolBar
             // 

@@ -78,21 +78,7 @@ namespace Multiple_Choice_Creator
 
         private void setDifficulty()
         {
-            switch (getQuestionDifficulty())
-            {
-                case "E":
-                    this.diffLabel.Text = diffLabel.Text + " Easy";
-                    break;
-                case "M":
-                    this.diffLabel.Text = diffLabel.Text + " Medium";
-                    break;
-                case "H":
-                    this.diffLabel.Text = diffLabel.Text + " Hard";
-                    break;
-                default:
-                    this.diffLabel.Text = diffLabel.Text + " Not set";
-                    break;
-            }
+            this.diffLabel.Text = this.diffLabel.Text + " " + q.getDifficulty();
         }
 
         public void remove()

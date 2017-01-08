@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using Multiple_Choice_Creator.Model;
 using System.Diagnostics;
+using Lucene;
 
 namespace Multiple_Choice_Creator
 {
