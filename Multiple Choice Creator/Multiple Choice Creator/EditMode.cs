@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.Model;
 using static Multiple_Choice_Creator.mltChoiceDataSet;
-
+using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 namespace Multiple_Choice_Creator
 {
     public partial class EditMode : UserControl
@@ -28,7 +28,7 @@ namespace Multiple_Choice_Creator
             diff = q.getDifficulty();
             loadInfo();
         }
-
+        //Long Live Da Duke
         public void loadInfo()
         {
             questRichTextBox.Text = q.getText();
@@ -37,14 +37,17 @@ namespace Multiple_Choice_Creator
             if(diff == "Easy")
             {
                 diffTrackBar.Value = 0;
+                diff="E";
             }
             else if (diff == "Medium")
             {
                 diffTrackBar.Value = 1;
+                diff = "M";
             }
             else if(diff == "Hard")
             {
                 diffTrackBar.Value = 2;
+                diff = "H";
             }
             diffLabel.Text = diff;
         }
@@ -57,9 +60,26 @@ namespace Multiple_Choice_Creator
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            updateQuestionAndAnswers();
             panel.updateContent(questRichTextBox.Text, (AnswDataTable)answDataGridView.DataSource, diff);
             panel.showInsert();
+            MessageBox.Show("Your changes were saved");
             this.Dispose();
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void updateQuestionAndAnswers()
+        {
+            QuestTableAdapter questAdapt = new QuestTableAdapter();
+            questAdapt.updateQuest(questRichTextBox.Text, diff, q.getQuestionID());
+
+            AnswTableAdapter asnwAdapt = new AnswTableAdapter();
+            List<int> answIds = panel.getAnswIDs();
+            for (int i = 0; i < answDataGridView.Rows.Count - 1; i++)
+            {
+                asnwAdapt.updateAnsw(answDataGridView.Rows[i].Cells[0].Value.ToString(), answIds[i]);
+            }
         }
 
         private void diffTrackBar_ValueChanged(object sender, EventArgs e)
@@ -72,6 +92,29 @@ namespace Multiple_Choice_Creator
                 diffLabel.Text = "Hard";
 
             diff = diffLabel.Text;
+        }
+
+        private void questRichTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(questRichTextBox.Text))
+            {
+                MessageBox.Show("There is no question.Please enter a question ", "Error"
+                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;//den ton afhnoume na fugei apo to text box mexri na grapsei mia erwthsh
+            }
+            return;
+        }
+
+        private void answDataGridView_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(answDataGridView.Rows[0].Cells[0].Value as string)
+                && string.IsNullOrWhiteSpace(answDataGridView.Rows[1].Cells[0].Value as string))
+            {
+                MessageBox.Show("There are no answers.You must type at least two answers", "Error"
+                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;//den ton afhnoume na fugei apo to text box mexri na grapsei mia toulaxiston apanthsh
+            }
+            return;
         }
     }
 }

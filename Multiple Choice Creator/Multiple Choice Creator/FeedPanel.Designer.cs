@@ -37,12 +37,12 @@
             this.QuestionLabel = new System.Windows.Forms.ToolStripLabel();
             this.addButton = new System.Windows.Forms.ToolStripButton();
             this.removeButton = new System.Windows.Forms.ToolStripButton();
-            this.saveButton = new System.Windows.Forms.ToolStripButton();
+            this.editButton = new System.Windows.Forms.ToolStripButton();
             this.diffLabel = new System.Windows.Forms.ToolStripLabel();
             this.showTimer = new System.Windows.Forms.Timer(this.components);
             this.deleteTimer = new System.Windows.Forms.Timer(this.components);
             this.hideTimer = new System.Windows.Forms.Timer(this.components);
-            this.editButton = new System.Windows.Forms.ToolStripButton();
+            this.saveButton = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -136,17 +136,16 @@
             this.removeButton.Visible = false;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
-            // saveButton
+            // editButton
             // 
-            this.saveButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(23, 22);
-            this.saveButton.Text = "Save";
-            this.saveButton.Visible = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.editButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.editButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
+            this.editButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(23, 22);
+            this.editButton.Text = "Edit";
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // diffLabel
             // 
@@ -170,16 +169,17 @@
             this.hideTimer.Interval = 50;
             this.hideTimer.Tick += new System.EventHandler(this.hideTimer_Tick);
             // 
-            // editButton
+            // saveButton
             // 
-            this.editButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.editButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
-            this.editButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(23, 22);
-            this.editButton.Text = "Edit";
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            this.saveButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(23, 22);
+            this.saveButton.Text = "Save";
+            this.saveButton.Visible = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // FeedPanel
             // 
@@ -209,11 +209,11 @@
         private System.Windows.Forms.ToolStripLabel QuestionLabel;
         private System.Windows.Forms.Timer showTimer;
         private System.Windows.Forms.Timer deleteTimer;
-        private System.Windows.Forms.ToolStripButton saveButton;
         private System.Windows.Forms.Timer hideTimer;
         private System.Windows.Forms.ToolStripLabel diffLabel;
         private System.Windows.Forms.ToolStripButton addButton;
         private System.Windows.Forms.ToolStripButton removeButton;
         private System.Windows.Forms.ToolStripButton editButton;
+        private System.Windows.Forms.ToolStripButton saveButton;
     }
 }

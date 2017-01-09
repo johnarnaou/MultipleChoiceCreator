@@ -307,5 +307,10 @@ namespace Multiple_Choice_Creator
             
         }
 
+        public List<int> getAnswIDs()
+        {
+            return answIDs;
+        }
+
     }
 }
