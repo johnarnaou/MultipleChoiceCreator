@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using iTextSharp.text;
 using System.IO;
 using iTextSharp.text.pdf;
 using Multiple_Choice_Creator.Model;
 using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
+using iTextSharp.text;
 
 namespace Multiple_Choice_Creator
 {
@@ -37,27 +37,37 @@ namespace Multiple_Choice_Creator
             return this.flowLayoutPanel1;
         }
 
+        Question q;
+        QuePreview qPreview;
+        List<Answer> corans;
+        List<Answer> lwrong;
+
+        bool leftorrigt = true;
+        int metr;
+
         private void create_Click(object sender, EventArgs e)
           {
-              /*list = new List<Question>();
-            var query = from c in list
-                        select c;
-
-
+            metr = 1;
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Test.pdf";
-            Document DC = new Document();
+            Document DC = new Document(PageSize.LETTER, 20, 20, 20, 20);
             FileStream FS = File.Create(path);
             PdfWriter.GetInstance(DC, FS);
             DC.Open();
-            foreach (var X in query)
-            {
-                //DC.Add(new Paragraph(X));
-            }
-            
-            DC.Close();*/
+            DC.SetMarginMirroring(true);
+            PdfPTable table;
+            PdfPCell cell;
+            Paragraph paragraph;
+
+            DC.Add(new Paragraph("Author: " + myUser.getEmail() + " " + myUser.getLname()));
+            DC.Add(new Paragraph("Semester: "));
+            DC.Add(new Paragraph("Lesson: "));
+            DC.Add(new Paragraph("Full Name: "));
+            DC.Add(new Paragraph("Student Number: "));
+
+            DC.Close();
         }
 
-        QuePreview qPreview;
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
