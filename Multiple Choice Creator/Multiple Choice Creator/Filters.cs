@@ -234,7 +234,25 @@ namespace Multiple_Choice_Creator
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
 
-            foreach (object itemChecked in checkedListBox1.CheckedItems)
+            List<string> checkedItems = new List<string>();
+            foreach (var item in checkedListBox1.CheckedItems)
+                checkedItems.Add(item.ToString());
+
+            if (e.NewValue == CheckState.Checked)
+                checkedItems.Add(checkedListBox1.Items[e.Index].ToString());
+            else
+            {
+                checkedItems.Remove(checkedListBox1.Items[e.Index].ToString());
+            }
+
+            foreach (string item in checkedItems)
+            {
+                Console.WriteLine("ITEM: "+item);
+            }
+            myfeed.filterLoad(checkedItems);
+
+
+            /*foreach (object itemChecked in checkedListBox1.CheckedItems)
             {
 
                 // Use the IndexOf method to get the index of an item.
@@ -257,7 +275,7 @@ namespace Multiple_Choice_Creator
             MessageBox.Show("justChecked.Text is: " + justChecked.Text);
             myfeed.filterLoad(DifficultiesChecked);
 
-            /*//foreach(object itemChecked in checkedListBox1.CheckedItems)
+            //foreach(object itemChecked in checkedListBox1.CheckedItems)
             //{
             for(int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
             {
