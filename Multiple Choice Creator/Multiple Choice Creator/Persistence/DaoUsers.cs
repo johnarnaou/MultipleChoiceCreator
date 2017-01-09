@@ -97,10 +97,10 @@ namespace Multiple_Choice_Creator.Persistence
 
         //This method is to create a 8 digit random text for the mail verification
         private static Random random = new Random();
-        public static string RandomString()
+        public static string RandomString(int ar)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
-            return new string(Enumerable.Repeat(chars, 8)
+            return new string(Enumerable.Repeat(chars,ar)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
         public string forgotMail(String mail)
@@ -117,7 +117,7 @@ namespace Multiple_Choice_Creator.Persistence
             msg.From = new MailAddress("multiplechoiceteamteithe@gmail.com");
             msg.To.Add(mail);
             msg.Subject = "Multiple Choise Team, Security Code" + DateTime.Now.ToString();
-            string securityCode = RandomString();
+            string securityCode = RandomString(8);
             msg.Body = "Your security code to change your password is: '" + securityCode+"'";
             UsersTableAdapter uta = new UsersTableAdapter();
             
@@ -136,11 +136,44 @@ namespace Multiple_Choice_Creator.Persistence
         public string sendMail(User user,int way)
         {
             MailMessage msg = new MailMessage();
-            msg=addMailParameters(msg,user,way);
             SmtpClient client = new SmtpClient();
+            if (way == 3)
+            {
+                msg = insertSecurityCodeMail(msg, user);
+            }
+            else {
+                msg = addMailParameters(msg, user, way);
+            }
+            
+            
+            
             client = addClientParameters(client);
             return sendmyMail(client, msg);
             
+        }
+        ResetPassTableAdapter rpta = new ResetPassTableAdapter();
+        UsersTableAdapter uta = new UsersTableAdapter();
+
+        private MailMessage insertSecurityCodeMail(MailMessage msg, User user)
+        {
+            msg.From = new MailAddress("multiplechoiceteamteithe@gmail.com");
+            msg.To.Add(user.getEmail());
+            msg.Subject = "Multiple Choise Team Security code" + DateTime.Now.ToString();
+            string securityCode = RandomString(12);
+            msg.Body = "Your security code to restore your password is '"+ securityCode + "'\n\n Please enter the security code to the field required and type your new password.";
+            int count = Convert.ToInt32(rpta.getCountofUsersbyId((uta.getUserID(user.getEmail()))));
+            if (count > 0)
+            {
+                rpta.updateResetPass(securityCode, uta.getUserID(user.getEmail()));
+            }else
+            {
+                rpta.insertResetPass(uta.getUserID(user.getEmail()), securityCode);
+            }
+            
+            //insertVerificationCode(user.getUserID(), verificationCode);
+            //reSendVerificationCode(user.getUserID(), verificationCode);
+            //Edw tha kaleite h methodos gia na ginete to insert toy id tou xrhsth kai to verification code sto ACK
+            return msg;
         }
 
         public string sendmyMail(SmtpClient client, MailMessage msg)
@@ -170,7 +203,7 @@ namespace Multiple_Choice_Creator.Persistence
             msg.From = new MailAddress("multiplechoiceteamteithe@gmail.com");
             msg.To.Add(user.getEmail());
             msg.Subject = "Multiple Choise Team Mail Verification" + DateTime.Now.ToString();
-            string verificationCode = RandomString();
+            string verificationCode = RandomString(8);
             msg.Body = "Welcome " + user.getFname() + " Verification Code: '" + verificationCode + "'";
             if (way == 0) { 
                 insertVerificationCode(user.getUserID(), verificationCode);

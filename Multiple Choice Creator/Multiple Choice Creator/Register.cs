@@ -97,7 +97,6 @@ namespace Multiple_Choice_Creator
             bool apot = true;
             if (textBox4.Text != textBox5.Text)
             {
-                textBox5.Focus();
                 errorProvider1.SetError(textBox5, "The passwords don't match!");
                 textBox4.Focus();
                 errorProvider1.SetError(textBox4, "The passwords don't match!");
