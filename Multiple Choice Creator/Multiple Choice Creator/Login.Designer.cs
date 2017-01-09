@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -41,8 +43,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -76,6 +79,16 @@
             this.groupBox1.Size = new System.Drawing.Size(489, 250);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(156, 115);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Forgot - Change Password";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // checkBox2
             // 
@@ -179,15 +192,9 @@
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // label7
+            // errorProvider1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(156, 115);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Forgot - Change Password";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.errorProvider1.ContainerControl = this;
             // 
             // Login
             // 
@@ -201,6 +208,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -221,5 +229,6 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
