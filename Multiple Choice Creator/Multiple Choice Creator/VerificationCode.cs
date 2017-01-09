@@ -16,8 +16,16 @@ namespace Multiple_Choice_Creator
     {
         User user;
         DaoUsers duser = new DaoUsers();
+        Login lgform;
         public VerificationCode(User tempUser)
         {
+            InitializeComponent();
+            user = tempUser;
+        }
+
+        public VerificationCode(User tempUser,Login login)
+        {
+            lgform = login;
             InitializeComponent();
             user = tempUser;
         }
@@ -35,6 +43,7 @@ namespace Multiple_Choice_Creator
         {
             InitializeComponent();
         }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -51,6 +60,10 @@ namespace Multiple_Choice_Creator
                 else
                 {
                     mainForm.Focus();
+                }
+                if (lgform != null)
+                {
+                    lgform = null;
                 }
                 this.Hide();
             }

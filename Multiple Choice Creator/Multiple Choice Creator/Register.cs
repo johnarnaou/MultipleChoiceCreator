@@ -17,8 +17,14 @@ namespace Multiple_Choice_Creator
 {
     public partial class Register : Form
     {
-        Form loginForm = new Login();
+        Login loginForm;
         Form mainForm;
+        public Register(Login mylogin)
+        {
+            loginForm = mylogin;
+            InitializeComponent();
+        }
+
         public Register()
         {
             InitializeComponent();
@@ -68,7 +74,7 @@ namespace Multiple_Choice_Creator
                 if (dUser.register(user))
                 {
                     dUser.sendMail(user, 0);
-                    Form VerificationCode = new VerificationCode(user);
+                    Form VerificationCode = new VerificationCode(user, loginForm);
                     VerificationCode.StartPosition = FormStartPosition.CenterScreen;
                     VerificationCode.Show();
                     this.Hide();

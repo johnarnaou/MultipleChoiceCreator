@@ -206,7 +206,7 @@ namespace Multiple_Choice_Creator
         {
             if (signUp == null)
             {
-                signUp = new Register();
+                signUp = new Register(this);
             }
             signUp.StartPosition = FormStartPosition.CenterScreen;
             signUp.Show();
