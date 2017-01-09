@@ -56,49 +56,77 @@ namespace Multiple_Choice_Creator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox4.Text != textBox5.Text)
-            {
-                //temporary
-                DialogResult dr = MessageBox.Show("Passwords don't match!", "Close");
-                return;
-            }
+            if (!checkForNull()) { return; }
+            if (!checkForPassMathing()) { return; }
+            
             Cursor.Current = Cursors.WaitCursor;
-            String firstName = textBox1.Text;
-            String lastName = textBox2.Text;
-            String email = textBox3.Text;
-            String password = textBox4.Text;
-            if (firstName != "" && lastName != "" && email != "" && password != "")
-            {
-                if (IsValidEmail(email)) { 
-                    User user = new User(email, password, firstName, lastName);
-                    markUnWritten(firstName, lastName, email, password);
-                    DaoUsers dUser = DaoUsers.getInstance();
-                    DaoMysql dmsql = new DaoMysql();
-                    if (dUser.register(user))
-                    {
-                            dUser.sendMail(user,0);
-                            Form VerificationCode = new VerificationCode(user);
-                            VerificationCode.StartPosition = FormStartPosition.CenterScreen;
-                            VerificationCode.Show();
-                            this.Hide();
-                     
-                    }
-                    else
-                    {
-                        //Se periptwsh pou gia opoiodhpote logo den mporesei na kanei register
-                        DialogResult dr = MessageBox.Show("Error on Registration", "Close");
-                    }
-                }else
+
+            if (IsValidEmail(textBox3.Text)) {
+                User user = new User(textBox3.Text, textBox4.Text, textBox1.Text, textBox2.Text);
+                DaoUsers dUser = DaoUsers.getInstance();
+                DaoMysql dmsql = new DaoMysql();
+                if (dUser.register(user))
+                {
+                    dUser.sendMail(user, 0);
+                    Form VerificationCode = new VerificationCode(user);
+                    VerificationCode.StartPosition = FormStartPosition.CenterScreen;
+                    VerificationCode.Show();
+                    this.Hide();
+
+                }
+                else
+                {
+                    //Se periptwsh pou gia opoiodhpote logo den mporesei na kanei register
+                    DialogResult dr = MessageBox.Show("Error on Registration", "Close");
+                }
+                } else
                 {
                     DialogResult dr = MessageBox.Show("Mail Not Valid!", "Close");
                 }
+                Cursor.Current = Cursors.Default;
             }
-            else
+
+        private bool checkForPassMathing()
+        {
+            bool apot = true;
+            if (textBox4.Text != textBox5.Text)
             {
-                DialogResult dr = MessageBox.Show("You must fill all the fields above!", "Close");
+                textBox5.Focus();
+                errorProvider1.SetError(textBox5, "The passwords don't match!");
+                textBox4.Focus();
+                errorProvider1.SetError(textBox4, "The passwords don't match!");
+                apot = false;
+            }else
+            {
+                errorProvider1.SetError(textBox4, null);
+                errorProvider1.SetError(textBox5, null);
             }
-            Cursor.Current = Cursors.Default;
+            return apot;
         }
+
+        private bool checkForNull()
+        {
+            bool apot = true;
+            foreach (Control textBox in Controls)
+            {
+                if (textBox is TextBox)
+                {
+                    if (textBox.Text == "")
+                    {
+                        textBox.Focus();
+                        errorProvider1.SetError(textBox, "This field is required!");
+                        apot = false;
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(textBox, null);
+                    }
+                }
+            }
+
+            return apot;
+        }
+
         bool IsValidEmail(string email)
         {
             try
@@ -112,7 +140,7 @@ namespace Multiple_Choice_Creator
             }
         }
 
-        private void markUnWritten(string firstName, string lastName, string email, String password)
+        /*private void markUnWritten(string firstName, string lastName, string email, String password)
         {
             if (firstName == "") { 
                 label6.Text = "*";
@@ -145,7 +173,7 @@ namespace Multiple_Choice_Creator
                 label9.Text = "";
             }
             Refresh();
-        }
+        }*/
 
         private void Register_FormClosing_1(object sender, FormClosingEventArgs e)
         {
@@ -154,7 +182,7 @@ namespace Multiple_Choice_Creator
             loginForm.Show();
         }
 
-        private void textBox1_Validating(object sender, CancelEventArgs e)
+       /* private void textBox1_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
@@ -203,6 +231,6 @@ namespace Multiple_Choice_Creator
                 MessageBox.Show("Invalid password.The password must contain at least "+
                     "one lower case,upper case and number character","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-        }
+        }*/
     }
 }

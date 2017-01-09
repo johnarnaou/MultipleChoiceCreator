@@ -51,7 +51,12 @@ namespace Multiple_Choice_Creator
 
         private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
+            try {
             Application.Exit();
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         private void splitContainer3_Panel2_Paint(object sender, PaintEventArgs e)

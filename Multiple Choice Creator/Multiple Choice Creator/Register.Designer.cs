@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,7 +66,7 @@
             this.label2.Location = new System.Drawing.Point(74, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 12;
             this.label2.Text = "First Name:";
             // 
             // label3
@@ -72,7 +75,7 @@
             this.label3.Location = new System.Drawing.Point(74, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 13;
             this.label3.Text = "Last Name:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
@@ -82,7 +85,7 @@
             this.label4.Location = new System.Drawing.Point(74, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 14;
             this.label4.Text = "E-mail:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
@@ -91,16 +94,14 @@
             this.textBox1.Location = new System.Drawing.Point(77, 76);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(172, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(77, 125);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(172, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
+            this.textBox2.TabIndex = 2;
             // 
             // label5
             // 
@@ -108,7 +109,7 @@
             this.label5.Location = new System.Drawing.Point(74, 206);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 6;
+            this.label5.TabIndex = 15;
             this.label5.Text = "Password:";
             // 
             // textBox3
@@ -116,8 +117,7 @@
             this.textBox3.Location = new System.Drawing.Point(77, 171);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(172, 20);
-            this.textBox3.TabIndex = 7;
-            this.textBox3.Validating += new System.ComponentModel.CancelEventHandler(this.textBox3_Validating);
+            this.textBox3.TabIndex = 3;
             // 
             // textBox4
             // 
@@ -125,15 +125,14 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.PasswordChar = '*';
             this.textBox4.Size = new System.Drawing.Size(172, 20);
-            this.textBox4.TabIndex = 8;
-            this.textBox4.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
+            this.textBox4.TabIndex = 4;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(168, 315);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 23);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -143,7 +142,7 @@
             this.button2.Location = new System.Drawing.Point(77, 315);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
+            this.button2.TabIndex = 11;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -190,7 +189,7 @@
             this.label10.Location = new System.Drawing.Point(74, 255);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(94, 13);
-            this.label10.TabIndex = 15;
+            this.label10.TabIndex = 16;
             this.label10.Text = "Confirm Password:";
             // 
             // textBox5
@@ -199,7 +198,11 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.PasswordChar = '*';
             this.textBox5.Size = new System.Drawing.Size(172, 20);
-            this.textBox5.TabIndex = 16;
+            this.textBox5.TabIndex = 5;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // Register
             // 
@@ -226,6 +229,7 @@
             this.Name = "Register";
             this.Text = "Register";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing_1);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +254,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
