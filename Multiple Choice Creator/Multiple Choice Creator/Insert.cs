@@ -27,6 +27,7 @@ namespace Multiple_Choice_Creator
             this.Dock = DockStyle.Fill;
             currFeed = (LoadFeed)feed;
             this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
         }
         private void button1_Click(object sender, EventArgs e)
         {
