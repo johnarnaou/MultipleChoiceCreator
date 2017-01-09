@@ -20,9 +20,11 @@ namespace Multiple_Choice_Creator
         List<Answer> myLWro { get; }
         FlowLayoutPanel father;
         List<QuestionPreview> myQPList;
+        TopicQuestTableAdapter tqta = new TopicQuestTableAdapter();
         public QuestionPreview(Question myQuestion,List<Answer> correct, List<Answer> wrong,FlowLayoutPanel theFather, Object myQPList)
         {
             InitializeComponent();
+            questLabel.MaximumSize = new Size(150, 0);
             father = theFather;
             this.Width = father.Width;
             this.myQPList=(List<QuestionPreview>)myQPList;
@@ -30,13 +32,22 @@ namespace Multiple_Choice_Creator
             myLCorr = correct;
             myLWro = wrong;
             questLabel.Text = myQ.getText();
-            Correct.Text = correct.Count().ToString()+": ";
-            foreach (Answer apant in correct)
+            foreach (Answer apant in myLCorr)
             {
-                
-                Correct.Text = Correct.Text + " , " + apant.getText();
+                ListViewItem tmpItem = new ListViewItem(apant.getText());
+                tmpItem.BackColor = Color.LightGreen;
+                listView1.Items.Add(tmpItem); 
             }
-            xMore.Text = wrong.Count().ToString() + " wrong answ";
+            foreach (Answer apant in myLWro)
+            {
+                ListViewItem tmpItem = new ListViewItem(apant.getText());
+                tmpItem.BackColor = Color.IndianRed;
+                listView1.Items.Add(tmpItem);
+            }
+            
+            category.Text = category.Text + " " + tqta.getTopicNameByQuestId(myQ.getQuestionID()).ToString();
+            Difficulty.Text = Difficulty.Text + " "+myQ.getDifficulty();
+            //xMore.Text = wrong.Count().ToString() + " wrong answ";
             Update();
 
 
