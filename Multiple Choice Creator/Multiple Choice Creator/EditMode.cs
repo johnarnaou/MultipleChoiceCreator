@@ -57,7 +57,21 @@ namespace Multiple_Choice_Creator
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            panel.updateContent(questRichTextBox.Text, (AnswDataTable)answDataGridView.DataSource, diff);
+            panel.showInsert();
+            this.Dispose();
+        }
 
+        private void diffTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            if (diffTrackBar.Value == 0)
+                diffLabel.Text = "Easy";
+            else if (diffTrackBar.Value == 1)
+                diffLabel.Text = "Medium";
+            else if (diffTrackBar.Value == 2)
+                diffLabel.Text = "Hard";
+
+            diff = diffLabel.Text;
         }
     }
 }

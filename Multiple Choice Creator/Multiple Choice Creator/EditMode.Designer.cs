@@ -116,6 +116,7 @@
             this.diffTrackBar.Name = "diffTrackBar";
             this.diffTrackBar.Size = new System.Drawing.Size(557, 45);
             this.diffTrackBar.TabIndex = 13;
+            this.diffTrackBar.ValueChanged += new System.EventHandler(this.diffTrackBar_ValueChanged);
             // 
             // groupBox1
             // 

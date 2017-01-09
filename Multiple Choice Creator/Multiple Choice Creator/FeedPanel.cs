@@ -28,7 +28,6 @@ namespace Multiple_Choice_Creator
         private int height = 180;
         private bool valuesChanged = false;
         private DataGridViewCellCancelEventArgs eve;
-        private string tempAnsw;
         private CreateTestControl cr;
         private QuePreview qPreview;
         private Panel edit;
@@ -40,7 +39,7 @@ namespace Multiple_Choice_Creator
             this.Dock = DockStyle.Top;
             q = qa.getQuestion();
             setQuestion(q.getText());
-            setDifficulty();
+            setDifficulty(q.getDifficulty());
             fillAnswers(qa);
             this.qa = qa;
             this.cr = cr;
@@ -79,14 +78,21 @@ namespace Multiple_Choice_Creator
                 this.Height = toolStrip1.Height;
             }
         }
+
+        public void updateContent(string question, AnswDataTable updatedTable, string diff)
+        {
+            setQuestion(question);
+            answersDataGridView.DataSource = updatedTable;
+            setDifficulty(diff);
+        }
         private void setQuestion(string question)
         {
             this.QuestionLabel.Text = question;
         }
 
-        private void setDifficulty()
+        private void setDifficulty(string difficulty)
         {
-            this.diffLabel.Text = this.diffLabel.Text + " " + q.getDifficulty();
+            this.diffLabel.Text = "Difficulty: " + difficulty;
         }
 
         public void remove()
