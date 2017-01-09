@@ -54,48 +54,54 @@ namespace Multiple_Choice_Creator
             //HSForm1.Show();
             mail = textBox1.Text;
             password = textBox2.Text;
-            checkeUP(mail, password);
-           // DaoMysql dbOb = new DaoMysql();
-            User user = new User(mail, password);
-            DaoUsers dUser=DaoUsers.getInstance();
-            UsersTableAdapter uAdapter = new UsersTableAdapter();
-            user.setUserID((int)uAdapter.getUserID(mail));
-            if (dUser.login(user))
-            {
-                setDefaultsUnamePworld();
-                if (dUser.checkIfVerified(user)) {
+                if (checkeUP())
+                {
+
+                
+                   // DaoMysql dbOb = new DaoMysql();
+                    User user = new User(mail, password);
+                    DaoUsers dUser=DaoUsers.getInstance();
+                    UsersTableAdapter uAdapter = new UsersTableAdapter();
+                    user.setUserID((int)uAdapter.getUserID(mail));
+                    if (dUser.login(user))
+                    {
+                        setDefaultsUnamePworld();
+                        if (dUser.checkIfVerified(user)) {
 
                     
-                    HomeScreen form = new HomeScreen(user);
-                    form.StartPosition = FormStartPosition.CenterScreen;
-                    form.Show();
-                    this.Hide();
+                            HomeScreen form = new HomeScreen(user);
+                            form.StartPosition = FormStartPosition.CenterScreen;
+                            form.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            Form VerificationCode = new VerificationCode(user);
+                            VerificationCode.StartPosition = FormStartPosition.CenterScreen;
+                            VerificationCode.Show();
+                            this.Hide();
+                        }
+
+                    }
+                    else {
+                        //edw mporoyme na tsekaroyme kai an uparxei to username kai an uparxei na to kratame alliws na ta svhnoyme ola ta periexomena apo ta textbox.
+                        DialogResult dr = MessageBox.Show("Error, Please Try Again", "Close");
+                    }
+
+
+
+
+                            /*Kaloume apo thn klash DaoMySql thn methodo gia na tsekarei to login
+                            setaroume ta user attributes.*/
+
+                            /*An einai ok tsekaroyme ta checkbox gia to an tha apothikeusoyme se arxeio ta username kai password toy xrhsth gia na ta exei sto mellon*/
                 }
-                else
-                {
-                    Form VerificationCode = new VerificationCode(user);
-                    VerificationCode.StartPosition = FormStartPosition.CenterScreen;
-                    VerificationCode.Show();
-                    this.Hide();
-                }
-
             }
-            else {
-                //edw mporoyme na tsekaroyme kai an uparxei to username kai an uparxei na to kratame alliws na ta svhnoyme ola ta periexomena apo ta textbox.
-                DialogResult dr = MessageBox.Show("Error, Please Try Again", "Close");
-            }
-
-
-
-
-                /*Kaloume apo thn klash DaoMySql thn methodo gia na tsekarei to login
-                setaroume ta user attributes.*/
-
-                /*An einai ok tsekaroyme ta checkbox gia to an tha apothikeusoyme se arxeio ta username kai password toy xrhsth gia na ta exei sto mellon*/
-            }catch(Exception ex)
+            catch(Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
+
             Cursor.Current = Cursors.Default;
         }
 
@@ -133,36 +139,31 @@ namespace Multiple_Choice_Creator
         }
 
         //kakh methodos thelei douleia
-        private void checkeUP(string username, string password)
+        private bool checkeUP()
         {
-            if (username == "")
+            bool apot = true;
+            if (textBox2.Text == "")
             {
-                label4.Text = "please enter username!";
-                label5.Text = "*";
-            }
-            else if (username != "")
-            {
-                label4.Text = "";
-                label5.Text = "";
-            }
-            if (password == "")
-            {
-                label4.Text = "please enter password!";
-                label6.Text = "*";
+                textBox2.Focus();
+                errorProvider1.SetError(textBox2, "You must enter your password!");
+                apot = false;
             }
             else
             {
-                label6.Text = "";
-                if (username != "")
-                    label4.Text = "";
+                errorProvider1.SetError(textBox2, null);
             }
-
-            if (username == "" && password == "")
+            if (textBox1.Text == "")
             {
-                label4.Text = "please enter username and passworld!";
+                textBox1.Focus();
+                errorProvider1.SetError(textBox1, "You must enter your username!");
+                apot = false;
             }
-
-            Refresh();
+            else
+            {
+                errorProvider1.SetError(textBox1, null);
+            }
+            return apot;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
