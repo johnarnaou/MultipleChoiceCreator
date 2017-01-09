@@ -31,7 +31,9 @@ namespace Multiple_Choice_Creator
         private string tempAnsw;
         private CreateTestControl cr;
         private QuePreview qPreview;
-        public FeedPanel(QuestionAnswer qa, bool shrinkMode, bool style, CreateTestControl cr)
+        private Panel edit;
+
+        public FeedPanel(QuestionAnswer qa, bool shrinkMode, bool style, CreateTestControl cr, Panel edit)
         {
             InitializeComponent();
             this.shrinkMode = shrinkMode;
@@ -42,6 +44,9 @@ namespace Multiple_Choice_Creator
             fillAnswers(qa);
             this.qa = qa;
             this.cr = cr;
+
+            this.edit = edit;
+
             if (style)
             {
                 this.Height = 0;
@@ -269,6 +274,14 @@ namespace Multiple_Choice_Creator
             
         }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            EditMode editor = new EditMode(q, answers, this);
+            feed.hideInsert();
+            edit.Controls.Add(editor);
+            this.toolStrip1.BackColor = Color.Yellow;
+        }
+
         private void answersDataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             eve = e;
@@ -279,6 +292,13 @@ namespace Multiple_Choice_Creator
         public string getQuestionDifficulty()
         {
             return this.q.getDifficulty();
+        }
+
+        public void showInsert()
+        {
+            this.toolStrip1.BackColor = Color.White;
+            feed.showInsert();
+            
         }
 
     }

@@ -17,7 +17,7 @@ namespace Multiple_Choice_Creator
     class LoadFeed
     {
         FeedToolBar toolbar;
-        Panel panel;
+        Panel panel, edit;
         QuestTableAdapter qTableAdapter = new QuestTableAdapter();
         QuestAnswTableAdapter qaTableAdapter = new QuestAnswTableAdapter();
         AnswTableAdapter aTableAdapter = new AnswTableAdapter();
@@ -27,16 +27,17 @@ namespace Multiple_Choice_Creator
         int controlsCount = 0;
         bool shrinkMode = false;
         CreateTestControl cr;
-        QuePreview qPreview;
+        Manage manage;
 
         int index = 0;
-        public LoadFeed(Panel p, User user, CreateTestControl cr)
+        public LoadFeed(Panel p, User user, CreateTestControl cr, Panel edit)
         {
             this.user = user;
             panel = p;
             toolbar = new FeedToolBar(panel, user);
             toolbar.setFeed(this);
             this.cr = cr;
+            this.edit = edit;
         }
 
         public void load()
@@ -90,7 +91,7 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(qa, shrinkMode, false,cr));
+            myLayoutControls.Add(new FeedPanel(qa, shrinkMode, false,cr,edit));
 
             myLayoutControls[index].setFeed(this);
 
@@ -143,7 +144,7 @@ namespace Multiple_Choice_Creator
 
             qa.setAnswersDataTable(answers);
 
-            myLayoutControls.Add(new FeedPanel(qa, shrinkMode,false,cr));
+            myLayoutControls.Add(new FeedPanel(qa, shrinkMode,false,cr,edit));
 
             myLayoutControls[index].setFeed(this);
 
@@ -184,7 +185,7 @@ namespace Multiple_Choice_Creator
         {
             if (myLayoutControls.Count == 0)
                 NoFeedControlDispose();
-            myLayoutControls.Add(new FeedPanel(element, shrinkMode, true,cr));
+            myLayoutControls.Add(new FeedPanel(element, shrinkMode, true,cr,edit));
 
             myLayoutControls[index].setFeed(this);
 
@@ -261,6 +262,21 @@ namespace Multiple_Choice_Creator
         public void clearFilter()
         {
             reload(myLayoutControls);
+        }
+
+        public void setManage(Manage m)
+        {
+            manage = m;
+        }
+
+        public void showInsert()
+        {
+            manage.show();
+        }
+
+        public void hideInsert()
+        {
+            manage.hide();
         }
 
     }

@@ -27,11 +27,11 @@ namespace Multiple_Choice_Creator
             
             
             createTest = new CreateTest(splitContainer2.Panel2, myUser);
-            feed = new LoadFeed(splitContainer3.Panel2, user, createTest.getCTC());
+            feed = new LoadFeed(splitContainer3.Panel2, user, createTest.getCTC(), splitContainer3.Panel1);
             feed.load();
             myFilter = new Filter(splitContainer1.Panel1, feed);
             manage = new Manage(user, splitContainer3.Panel1, feed,myFilter.getFilters());
-           
+            feed.setManage(manage);
 
         }
 
