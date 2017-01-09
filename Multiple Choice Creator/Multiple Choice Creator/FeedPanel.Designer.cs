@@ -36,12 +36,13 @@
             this.DeleteButtton = new System.Windows.Forms.ToolStripButton();
             this.QuestionLabel = new System.Windows.Forms.ToolStripLabel();
             this.addButton = new System.Windows.Forms.ToolStripButton();
+            this.removeButton = new System.Windows.Forms.ToolStripButton();
             this.saveButton = new System.Windows.Forms.ToolStripButton();
             this.diffLabel = new System.Windows.Forms.ToolStripLabel();
             this.showTimer = new System.Windows.Forms.Timer(this.components);
             this.deleteTimer = new System.Windows.Forms.Timer(this.components);
             this.hideTimer = new System.Windows.Forms.Timer(this.components);
-            this.removeButton = new System.Windows.Forms.ToolStripButton();
+            this.editButton = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -84,6 +85,7 @@
             this.QuestionLabel,
             this.addButton,
             this.removeButton,
+            this.editButton,
             this.saveButton,
             this.diffLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -122,6 +124,18 @@
             this.addButton.Text = "Add to test";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // removeButton
+            // 
+            this.removeButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.removeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.removeButton.Image = ((System.Drawing.Image)(resources.GetObject("removeButton.Image")));
+            this.removeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(23, 22);
+            this.removeButton.Text = "Remove from test";
+            this.removeButton.Visible = false;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
             // saveButton
             // 
             this.saveButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -156,17 +170,16 @@
             this.hideTimer.Interval = 50;
             this.hideTimer.Tick += new System.EventHandler(this.hideTimer_Tick);
             // 
-            // removeButton
+            // editButton
             // 
-            this.removeButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.removeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.removeButton.Image = ((System.Drawing.Image)(resources.GetObject("removeButton.Image")));
-            this.removeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(23, 22);
-            this.removeButton.Text = "Remove from test";
-            this.removeButton.Visible = false;
-            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            this.editButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.editButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
+            this.editButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(23, 22);
+            this.editButton.Text = "Edit";
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // FeedPanel
             // 
@@ -201,5 +214,6 @@
         private System.Windows.Forms.ToolStripLabel diffLabel;
         private System.Windows.Forms.ToolStripButton addButton;
         private System.Windows.Forms.ToolStripButton removeButton;
+        private System.Windows.Forms.ToolStripButton editButton;
     }
 }

@@ -106,6 +106,12 @@
       <DependentUpon>CreateTestControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DaoMysql.cs" />
+    <Compile Include="EditMode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditMode.Designer.cs">
+      <DependentUpon>EditMode.cs</DependentUpon>
+    </Compile>
     <Compile Include="FeedPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateTestControl.resx">
       <DependentUpon>CreateTestControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMode.resx">
+      <DependentUpon>EditMode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FeedPanel.resx">
       <DependentUpon>FeedPanel.cs</DependentUpon>

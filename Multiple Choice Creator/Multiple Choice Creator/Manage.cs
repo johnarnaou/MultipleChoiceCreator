@@ -59,6 +59,16 @@ namespace Multiple_Choice_Creator
             }
         }
 
+        public void hide()
+        {
+            management.Visible = false;
+        }
+
+        public void show()
+        {
+            management.Visible = true;
+        }
+
         private AnswDataTable insertAnsw(int questionId,DataGridView manageGrid)
         {
             string correct = "";

@@ -28,20 +28,24 @@ namespace Multiple_Choice_Creator
         private int height = 180;
         private bool valuesChanged = false;
         private DataGridViewCellCancelEventArgs eve;
-        private string tempAnsw;
         private CreateTestControl cr;
         private QuePreview qPreview;
-        public FeedPanel(QuestionAnswer qa, bool shrinkMode, bool style, CreateTestControl cr)
+        private Panel edit;
+
+        public FeedPanel(QuestionAnswer qa, bool shrinkMode, bool style, CreateTestControl cr, Panel edit)
         {
             InitializeComponent();
             this.shrinkMode = shrinkMode;
             this.Dock = DockStyle.Top;
             q = qa.getQuestion();
             setQuestion(q.getText());
-            setDifficulty();
+            setDifficulty(q.getDifficulty());
             fillAnswers(qa);
             this.qa = qa;
             this.cr = cr;
+
+            this.edit = edit;
+
             if (style)
             {
                 this.Height = 0;
@@ -74,14 +78,21 @@ namespace Multiple_Choice_Creator
                 this.Height = toolStrip1.Height;
             }
         }
+
+        public void updateContent(string question, AnswDataTable updatedTable, string diff)
+        {
+            setQuestion(question);
+            answersDataGridView.DataSource = updatedTable;
+            setDifficulty(diff);
+        }
         private void setQuestion(string question)
         {
             this.QuestionLabel.Text = question;
         }
 
-        private void setDifficulty()
+        private void setDifficulty(string difficulty)
         {
-            this.diffLabel.Text = this.diffLabel.Text + " " + q.getDifficulty();
+            this.diffLabel.Text = "Difficulty: " + difficulty;
         }
 
         public void remove()
@@ -269,6 +280,14 @@ namespace Multiple_Choice_Creator
             
         }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            EditMode editor = new EditMode(q, answers, this);
+            feed.hideInsert();
+            edit.Controls.Add(editor);
+            this.toolStrip1.BackColor = Color.Yellow;
+        }
+
         private void answersDataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             eve = e;
@@ -279,6 +298,13 @@ namespace Multiple_Choice_Creator
         public string getQuestionDifficulty()
         {
             return this.q.getDifficulty();
+        }
+
+        public void showInsert()
+        {
+            this.toolStrip1.BackColor = Color.White;
+            feed.showInsert();
+            
         }
 
     }
