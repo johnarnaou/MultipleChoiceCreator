@@ -16,6 +16,7 @@ namespace Multiple_Choice_Creator
     public partial class Filters : UserControl
     {
         LoadFeed myfeed;
+        string[] orderByFilter = { "Date added asc", "Date added desc", "Date Modified asc", "Date Modified desc" };
         public Filters(object feed)
         {
 
@@ -25,7 +26,16 @@ namespace Multiple_Choice_Creator
             myfeed = (LoadFeed)feed;
             fill_checkedListBox();
             this.Dock = DockStyle.Fill;
+            fillOrderCheckedList();
             fillTreeView();
+        }
+
+        private void fillOrderCheckedList()
+        {
+            for(int i = 0; i < orderByFilter.Count(); i++)
+            {
+                checkedListBox2.Items.Add(orderByFilter[i]);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -299,6 +309,16 @@ namespace Multiple_Choice_Creator
             }
             //}*/
             //myfeed.filterLoad(mydiffsArr);
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
