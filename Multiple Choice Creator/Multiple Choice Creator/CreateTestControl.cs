@@ -44,7 +44,7 @@ namespace Multiple_Choice_Creator
 
         bool leftorrigt = true;
         int metr;
-
+        string apot = "";
         private void create_Click(object sender, EventArgs e)
           {
             metr = 1;
@@ -64,7 +64,55 @@ namespace Multiple_Choice_Creator
             DC.Add(new Paragraph("Full Name: "));
             DC.Add(new Paragraph("Student Number: "));
 
-            DC.Close();
+            table = new PdfPTable(2);
+            bool prime = false;
+            if (myQPList.Count % 2 > 0)
+                prime = true;
+            foreach (QuestionPreview QP in myQPList)
+            {
+
+                q = QP.getQuestion();
+                corans = QP.getCorrAnswers();
+                lwrong = QP.getWrongAnswers();
+
+                string erwt = "";
+                string apant = "";
+                erwt += metr + ") " + q.getText() + "\n\n";
+
+                Answer[] FinalAnswers = new Answer[corans.Count + lwrong.Count];
+                int i = 0;
+                foreach (Answer A in corans)
+                {
+                    FinalAnswers[i] = A;
+                    i++;
+                }
+                foreach (Answer A in lwrong)
+                {
+                    FinalAnswers[i] = A;
+                    i++;
+                }
+                
+
+                
+                for (int x = 0; x < FinalAnswers.Count(); x++)
+                {
+                    apant += "   O " + FinalAnswers[x].getText() + "\n";        
+                    if (corans.Contains(FinalAnswers[x]))
+                    {
+                        apot += "\n" + metr + "" + (x + 1);
+                    }
+                }
+                
+
+
+                metr++;
+
+                paragraph = new Paragraph();
+                paragraph.Add(new Chunk(erwt, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, 15)));
+                paragraph.Add(new Chunk(apant, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, 13)));
+
+                DC.Close();
+            }
         }
 
         
