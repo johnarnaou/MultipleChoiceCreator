@@ -358,11 +358,12 @@ namespace Multiple_Choice_Creator
                     }
                 }
                 reload(managingControls);
+                filterDiffMode = true;
             }
             else
             {
                 reload(managingControls);
-                filterAnswMode = false;
+                filterDiffMode = false;
             }
         }
 
