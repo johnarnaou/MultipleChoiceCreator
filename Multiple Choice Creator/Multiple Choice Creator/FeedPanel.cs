@@ -267,7 +267,16 @@ namespace Multiple_Choice_Creator
             }
 
             qPreview = new QuePreview(cr.getflowlayoutPanel(), q, correctAnsw, incorrectAnsw,cr.getMyPList());
-            cr.getMyPList().Add(qPreview.getMyQuePrev());
+            cr.getMyPList().Add(qPreview.getMyQuePrev(), this);
+        }
+
+        public void unMark()
+        {
+            toolStrip1.BackColor = Color.White;
+            showWithStyle();
+            removeButton.Visible = false;
+            addButton.Visible = true;
+            shrinkMode = false;
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -277,7 +286,6 @@ namespace Multiple_Choice_Creator
             removeButton.Visible = false;
             addButton.Visible = true;
             shrinkMode = false;
-            
         }
 
         private void editButton_Click(object sender, EventArgs e)
