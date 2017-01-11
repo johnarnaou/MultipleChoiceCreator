@@ -339,9 +339,17 @@ namespace Multiple_Choice_Creator
 
         private void treeView1_AfterCheck(object sender, TreeViewEventArgs e)
         {
-            List<string> checkedItems = new List<string>();
-            List<TreeNode> list = new List<TreeNode>();
-            LookupChecks(treeView1.Nodes, list);
+            List<string> checkedItems = returnThemes();
+            /*TreeNode mysender = (TreeNode)sender;
+            if (mysender.Checked)
+            {
+                if (!checkedItems.Contains(mysender.Text))
+                {
+                    checkedItems.Add(mysender.Text);
+                }
+            }*/
+            myfeed.filterTopic(returnThemes());
+            //LookupChecks(treeView1.Nodes, list);
             //myfeed.filterLoad(checkedItems);
 
         }
