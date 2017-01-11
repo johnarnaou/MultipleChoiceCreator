@@ -174,6 +174,7 @@
             this.nOFanswersF.TabIndex = 7;
             this.nOFanswersF.Text = "Number of Answers from";
             this.nOFanswersF.UseVisualStyleBackColor = true;
+            this.nOFanswersF.CheckStateChanged += new System.EventHandler(this.nOFanswersF_CheckStateChanged);
             // 
             // checkedListBox1
             // 

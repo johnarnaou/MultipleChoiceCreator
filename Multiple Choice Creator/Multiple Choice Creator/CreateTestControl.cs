@@ -19,10 +19,12 @@ namespace Multiple_Choice_Creator
     {
         //private static List<Question> list;
         User myUser;
+        CreatePDF createpdf;
         public CreateTestControl(User usr)
         {
             InitializeComponent();
             myUser = usr;
+            createpdf = new CreatePDF(this.flowLayoutPanel2,myUser,this);
             this.Dock = DockStyle.Fill;
         }
         List<QuestionPreview> myQPList = new List<QuestionPreview>();
@@ -54,6 +56,11 @@ namespace Multiple_Choice_Creator
         string apot = "";
         private void create_Click(object sender, EventArgs e)
           {
+            createPDF();
+          }
+
+
+        public void createPDF() {
             metr = 1;
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Test.pdf";
             Document DC = new Document(PageSize.LETTER, 20, 20, 20, 20);
@@ -98,18 +105,18 @@ namespace Multiple_Choice_Creator
                     FinalAnswers[i] = A;
                     i++;
                 }
-                
 
-                
+
+
                 for (int x = 0; x < FinalAnswers.Count(); x++)
                 {
-                    apant += "   O " + FinalAnswers[x].getText() + "\n";        
+                    apant += "   O " + FinalAnswers[x].getText() + "\n";
                     if (corans.Contains(FinalAnswers[x]))
                     {
                         apot += "\n" + metr + "" + (x + 1);
                     }
                 }
-                
+
 
 
                 metr++;
@@ -118,16 +125,16 @@ namespace Multiple_Choice_Creator
                 paragraph.Add(new Chunk(erwt, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, 15)));
                 paragraph.Add(new Chunk(apant, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, 13)));
                 cellConfigure(table, new PdfPCell(paragraph));
-
-                if (prime)                  
+            }
+                if (prime)
                 {
                     cellConfigure(table, new PdfPCell(new Paragraph()));
                     leftorrigt = true;
                 }
                 DC.Add(table);
-                DC.Add(new Paragraph("Apotelesmata: " + apot));     
+                DC.Add(new Paragraph("Apotelesmata: " + apot));
                 DC.Close();
-            }
+            
         }
         private void cellConfigure(PdfPTable table, PdfPCell cell)	
         {
@@ -172,6 +179,11 @@ namespace Multiple_Choice_Creator
             //Εδω θα μπαίνει από panel to view a question
             //qPreview = new QuePreview(flowLayoutPanel1, q, lCorrect, lwrong, myQPList);
             // panel1.Controls.Add(createtestcontrol);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -69,6 +69,7 @@ namespace Multiple_Choice_Creator.Persistence
             {
                 return true;
             }
+            MessageBox.Show("Log in Failed","Unable to connect", MessageBoxButtons.OK);
             return false;
         }
 
