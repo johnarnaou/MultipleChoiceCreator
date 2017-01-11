@@ -12,6 +12,7 @@ using iTextSharp.text.pdf;
 using Multiple_Choice_Creator.Model;
 using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using iTextSharp.text;
+using Multiple_Choice_Creator.Persistence;
 
 namespace Multiple_Choice_Creator
 {
@@ -56,13 +57,15 @@ namespace Multiple_Choice_Creator
         string apot = "";
         private void create_Click(object sender, EventArgs e)
           {
-            createPDF();
+            //createPDF();
           }
 
 
-        public void createPDF() {
+        
+
+        public void createPDF(string topText, bool info, bool email, bool date, int questionfs, int answerfs, bool createAnswers, bool sendMail, string path)
+        {
             metr = 1;
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Test.pdf";
             Document DC = new Document(PageSize.LETTER, 20, 20, 20, 20);
             FileStream FS = File.Create(path);
             PdfWriter.GetInstance(DC, FS);
@@ -71,12 +74,14 @@ namespace Multiple_Choice_Creator
             PdfPTable table;
             PdfPCell cell;
             Paragraph paragraph;
-
-            DC.Add(new Paragraph("Author: " + myUser.getEmail() + " " + myUser.getLname()));
-            DC.Add(new Paragraph("Semester: "));
-            DC.Add(new Paragraph("Lesson: "));
-            DC.Add(new Paragraph("Full Name: "));
-            DC.Add(new Paragraph("Student Number: "));
+            DC.Add(new Paragraph(topText + "\n\n"));
+            if (info) { DC.Add(new Paragraph("Author: " + myUser.getFname() + " " + myUser.getLname())); }
+            if (email) { DC.Add(new Paragraph("Author E-Mail: " + myUser.getEmail())); }
+            if (date) { DC.Add(new Paragraph(DateTime.Now.ToString() + "\n\n")); }
+            //DC.Add(new Paragraph("Semester: "));
+            //DC.Add(new Paragraph("Lesson: "));
+            //DC.Add(new Paragraph("Full Name: "));
+            //DC.Add(new Paragraph("Student Number: "));
 
             table = new PdfPTable(2);
             bool prime = false;
@@ -122,19 +127,62 @@ namespace Multiple_Choice_Creator
                 metr++;
 
                 paragraph = new Paragraph();
-                paragraph.Add(new Chunk(erwt, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, 15)));
-                paragraph.Add(new Chunk(apant, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, 13)));
+                paragraph.Add(new Chunk(erwt, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, questionfs)));
+                paragraph.Add(new Chunk(apant, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, answerfs)));
                 cellConfigure(table, new PdfPCell(paragraph));
             }
-                if (prime)
+            if (prime)
+            {
+                cellConfigure(table, new PdfPCell(new Paragraph()));
+                leftorrigt = true;
+            }
+            DC.Add(table);
+            string results = null;
+            if (createAnswers)
+            {
+                results = createAnswersOfTest(apot, path);
+                //DC.Add(new Paragraph("Apotelesmata: " + apot));
+
+            }
+
+            DC.Close();
+            if (sendMail)
+            {
+                try
                 {
-                    cellConfigure(table, new PdfPCell(new Paragraph()));
-                    leftorrigt = true;
+                    DaoUsers duser = new DaoUsers();
+                    //duser.sendPDFtoUser(myUser, path, results);          <------------------------------------------check
                 }
-                DC.Add(table);
-                DC.Add(new Paragraph("Apotelesmata: " + apot));
-                DC.Close();
-            
+                catch (Exception e)
+                {
+                    MessageBox.Show("Back up mail couldn't be send", "Close");
+                }
+            }
+
+        }
+
+        private string createAnswersOfTest(string apot, string path)
+        {
+            Document DC = new Document(PageSize.LETTER, 20, 20, 20, 20);
+            string fixedpath = createAnsPath(path);
+            FileStream FS = File.Create(fixedpath);
+            PdfWriter.GetInstance(DC, FS);
+            DC.Open();
+            DC.SetMarginMirroring(true);
+            DC.Add(new Paragraph("The results of the created test are: \n\n"));
+            DC.Add(new Paragraph(apot));
+            DC.Close();
+            return fixedpath;
+
+
+        }
+
+        private string createAnsPath(string str)
+        {
+            str = str.Replace(str.Substring(str.Length - 4), "");
+            str = str + "Results.pdf";
+            return str;
+
         }
         private void cellConfigure(PdfPTable table, PdfPCell cell)	
         {
