@@ -32,6 +32,11 @@ namespace Multiple_Choice_Creator.Model
             setDifficulty();
         }
 
+        private void setCreationTime()
+        {
+            creationTime = (DateTime)adapter.getTime(id);
+        }
+
         private void setText(string text)
         {
             this.text = text;

@@ -22,10 +22,10 @@ namespace Multiple_Choice_Creator
         QuestAnswTableAdapter qaTableAdapter = new QuestAnswTableAdapter();
         AnswTableAdapter aTableAdapter = new AnswTableAdapter();
         User user;
-        List<FeedPanel> myLayoutControls = new List<FeedPanel>(), filteredLayoutControls = new List<FeedPanel>();
+        List<FeedPanel> myLayoutControls = new List<FeedPanel>(), filteredLayoutControls = new List<FeedPanel>(), managingControls = new List<FeedPanel>();
         NoFeed noFeedControl;
         int controlsCount = 0;
-        bool shrinkMode = false;
+        bool shrinkMode = false, filterDiffMode = false, filterAnswMode = false, filterDateMode = false;
         CreateTestControl cr;
         Manage manage;
 
@@ -221,28 +221,149 @@ namespace Multiple_Choice_Creator
             filteredLayoutControls = new List<FeedPanel>();
         }
 
-        public void filterLoad(List<string> filter)
+        public void filterDiff(List<string> filter)
         {
-            filteredLayoutControls = new List<FeedPanel>();
-            for(int i=0; i<filter.Count; i++)
+            if(filterAnswMode || filterDateMode)
             {
-                for (int j = 0; j < myLayoutControls.Count; j++)
-                {
-                    if (myLayoutControls[j].getQuestionDifficulty() == filter[i])
-                    {
-                        filteredLayoutControls.Add(myLayoutControls[j]);
-                    } else
-                    {
-                        myLayoutControls[j].Visible = false;
-                    }
-                }
-            }
-            if (filteredLayoutControls.Count > 0)
-            {
-                reload(filteredLayoutControls);
+                managingControls = filteredLayoutControls;
             }
             else
-                NoFeed("No content using this filter");
+            {
+                managingControls = myLayoutControls;
+            }
+
+            filteredLayoutControls = new List<FeedPanel>();
+
+            if (filter.Count > 0)
+            {
+                for (int i = 0; i < filter.Count; i++)
+                {
+                    for (int j = 0; j < managingControls.Count; j++)
+                    {
+                        if (managingControls[j].getQuestionDifficulty() == filter[i])
+                        {
+                            filteredLayoutControls.Add(managingControls[j]);
+                        }
+                        else
+                        {
+                            managingControls[j].Visible = false;
+                        }
+                    }
+                }
+                if (filteredLayoutControls.Count > 0)
+                {
+                    reload(filteredLayoutControls);
+                    filterDiffMode = true;
+                }
+                else
+                {
+                    NoFeed("No content using this filter");
+                    filterDiffMode = false;
+                }
+                    
+            } else
+            {
+                reload(managingControls);
+                filterDiffMode = false;
+            }
+        }
+
+        public void filterAnswers(List<int> number)
+        {
+            if(filterDiffMode || filterDateMode)
+            {
+                managingControls = myLayoutControls;
+            } else
+            {
+                managingControls = filteredLayoutControls;
+            }
+
+            filteredLayoutControls = new List<FeedPanel>();
+
+            if(number.Count > 0)
+            {
+                for(int i=0; i<managingControls.Count; i++)
+                {
+                    if(managingControls[i].getNumberOfAnswers() > number[0] && managingControls[i].getNumberOfAnswers() < number[1])
+                    {
+                        filteredLayoutControls.Add(managingControls[i]);
+                    }
+                    else
+                    {
+                        managingControls[i].Visible = false;
+                    }
+                }
+                if(filteredLayoutControls.Count > 0)
+                {
+                    reload(filteredLayoutControls);
+                    filterAnswMode = true;
+                }
+                else
+                {
+                    NoFeed("No content using this filter");
+                    filterAnswMode = false;
+                }
+            } 
+            else
+            {
+                reload(managingControls);
+                filterAnswMode = false;
+            }
+        }
+
+        public void filterDate(string method) // "asc" for ascending "desc" for descending
+        {
+            if (filterDiffMode || filterAnswMode)
+            {
+                managingControls = myLayoutControls;
+            }
+            else
+            {
+                managingControls = filteredLayoutControls;
+            }
+
+            filteredLayoutControls = new List<FeedPanel>();
+
+            if (controlsCount > 0)
+            {
+                FeedPanel temp;
+                if (method == "asc")
+                {
+                    for (int i = 0; i < managingControls.Count; i++)
+                    {
+                        for (int j = 0; j < managingControls.Count - 1; j++)
+                        {
+                            if (managingControls[j].getTime() > managingControls[j + 1].getTime())
+                            {
+                                temp = managingControls[j + 1];
+                                managingControls[j + 1] = managingControls[j];
+                                managingControls[j] = temp;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < managingControls.Count; i++)
+                    {
+                        for (int j = 0; j < managingControls.Count - 1; j++)
+                        {
+                            if (managingControls[j].getTime() < managingControls[j + 1].getTime())
+                            {
+                                temp = managingControls[j + 1];
+                                managingControls[j + 1] = managingControls[j];
+                                managingControls[j] = temp;
+                            }
+                        }
+                    }
+                }
+                reload(managingControls);
+            }
+            else
+            {
+                reload(managingControls);
+                filterAnswMode = false;
+            }
         }
 
         private void reload(List<FeedPanel> LayoutControls)

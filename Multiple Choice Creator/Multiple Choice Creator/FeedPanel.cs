@@ -55,6 +55,16 @@ namespace Multiple_Choice_Creator
             answersDataGridView.ScrollBars = ScrollBars.None;
         }
 
+        public int getNumberOfAnswers()
+        {
+            return answers.Count;
+        }
+
+        public DateTime getTime()
+        {
+            return q.getCreationTime();
+        }
+
         private void showWithStyle()
         {
             this.showTimer.Enabled = true;
