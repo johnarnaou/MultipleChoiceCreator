@@ -191,7 +191,7 @@ WHERE        (answer = @insertedAnsw)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="kantonio.Diff" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getDifficultyByQuestId" Modifier="Public" Name="getDifficultyByQuestId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getDifficultyByQuestId">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="kantonio.Diff" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getDifficultyByQuestId" Modifier="Public" Name="getDifficultyByQuestId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getDifficultyByQuestId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        d.name
@@ -204,7 +204,7 @@ WHERE        (q.Id = @questId)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getNumberOfSearchResults" Modifier="Public" Name="getNumberOfSearchResults" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getNumberOfSearchResults">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getNumberOfSearchResults" Modifier="Public" Name="getNumberOfSearchResults" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getNumberOfSearchResults">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*)
@@ -216,7 +216,7 @@ WHERE        (question LIKE @paramquest)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="kantonio.Quest" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getQuestionWithId" Modifier="Public" Name="getQuestionWithId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getQuestionWithId">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="kantonio.Quest" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getQuestionWithId" Modifier="Public" Name="getQuestionWithId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getQuestionWithId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT question, difficulty, timeCre, timeLatMod, userid FROM Quest WHERE (Id = @idUserQ)</CommandText>
@@ -226,7 +226,7 @@ WHERE        (question LIKE @paramquest)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getSize" Modifier="Public" Name="getSize" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="getSize">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getSize" Modifier="Public" Name="getSize" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getSize">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(question) FROM Quest WHERE userid = @usesId</CommandText>
@@ -236,7 +236,7 @@ WHERE        (question LIKE @paramquest)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="kantonio.Quest" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getTime" Modifier="Public" Name="getTime" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getTime">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="kantonio.Quest" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getTime" Modifier="Public" Name="getTime" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="getTime">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select timeCre from Quest where id=@qId</CommandText>
@@ -344,7 +344,7 @@ WHERE        (questId = @delquestId)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="fillByUserAnswers" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="getUserAnswers" GeneratorSourceName="fillByUserAnswers" GetMethodModifier="Public" GetMethodName="getUserAnswers" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="getUserAnswers" UserSourceName="fillByUserAnswers">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="fillByUserAnswers" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="getUserAnswers" GeneratorSourceName="fillByUserAnswers" GetMethodModifier="Public" GetMethodName="getUserAnswers" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="getUserAnswers" UserSourceName="fillByUserAnswers">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        QA.Id, QA.questId, QA.answId, QA.correct, A.answer
@@ -367,7 +367,7 @@ WHERE        (QA.questId = @questId)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getNumberOfAnswers" Modifier="Public" Name="getNumberOfAnswers" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getNumberOfAnswers">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getNumberOfAnswers" Modifier="Public" Name="getNumberOfAnswers" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getNumberOfAnswers">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM QuestAnsw WHERE questId = @Param</CommandText>
@@ -647,7 +647,7 @@ WHERE        (name = @topicName)</CommandText>
               <Mapping SourceColumn="topicId" DataSetColumn="topicId" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="getCountTopicsQ" GeneratorSourceName="getCountOfTopicsByQuestId" Modifier="Public" Name="getCountOfTopicsByQuestId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getCountOfTopicsByQuestId">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="getCountTopicsQ" GeneratorSourceName="getCountOfTopicsByQuestId" Modifier="Public" Name="getCountOfTopicsByQuestId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getCountOfTopicsByQuestId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(topicId) AS Expr1
@@ -751,7 +751,7 @@ WHERE        (tq.questId = @paramquestid)</CommandText>
               <Mapping SourceColumn="Lname" DataSetColumn="Lname" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="checkExistanceOfUserMail" Modifier="Public" Name="checkExistanceOfUserMail" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="checkExistanceOfUserMail">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="checkExistanceOfUserMail" Modifier="Public" Name="checkExistanceOfUserMail" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="checkExistanceOfUserMail">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS Expr1
@@ -769,6 +769,18 @@ WHERE        (Email = @userMail)</CommandText>
                     <CommandText>SELECT        Email, Password, Fname, Lname
 FROM            Users
 WHERE        (Id = @userId)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="userId" ColumnName="id" DataSourceName="kantonio.Users" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@userId" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="kantonio.Users" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="getFirstLastNameById" GetMethodModifier="Public" GetMethodName="getFirstLastNameById" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="getFirstLastNameById" UserSourceName="getFirstLastNameById">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Fname, Lname
+FROM            Users
+WHERE        (id = @userId)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="userId" ColumnName="id" DataSourceName="kantonio.Users" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@userId" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -859,7 +871,7 @@ WHERE        (id = @userId)</CommandText>
               <Mapping SourceColumn="status" DataSetColumn="status" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="countVerification" Modifier="Public" Name="countVerification" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="countVerification">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="countVerification" Modifier="Public" Name="countVerification" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="countVerification">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS Expr1
@@ -1030,7 +1042,7 @@ WHERE        (name = @diffName)</CommandText>
               <Mapping SourceColumn="fCcode" DataSetColumn="fCcode" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getCountofUsersbyId" Modifier="Public" Name="getCountofUsersbyId" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getCountofUsersbyId">
+              <DbSource ConnectionRef="mltChoiceConnString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getCountofUsersbyId" Modifier="Public" Name="getCountofUsersbyId" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getCountofUsersbyId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM ResetPass where userId=@uId</CommandText>
@@ -1088,7 +1100,7 @@ WHERE        (userId = @uId)</CommandText>
   <xs:element name="mltChoiceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="mltChoiceDataSet" msprop:Generator_UserDSName="mltChoiceDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Answ" msprop:Generator_TableClassName="AnswDataTable" msprop:Generator_TableVarName="tableAnsw" msprop:Generator_RowChangedName="AnswRowChanged" msprop:Generator_TablePropName="Answ" msprop:Generator_RowDeletingName="AnswRowDeleting" msprop:Generator_RowChangingName="AnswRowChanging" msprop:Generator_RowEvHandlerName="AnswRowChangeEventHandler" msprop:Generator_RowDeletedName="AnswRowDeleted" msprop:Generator_RowClassName="AnswRow" msprop:Generator_UserTableName="Answ" msprop:Generator_RowEvArgName="AnswRowChangeEvent">
+        <xs:element name="Answ" msprop:Generator_TableClassName="AnswDataTable" msprop:Generator_TableVarName="tableAnsw" msprop:Generator_TablePropName="Answ" msprop:Generator_RowDeletingName="AnswRowDeleting" msprop:Generator_RowChangingName="AnswRowChanging" msprop:Generator_RowEvHandlerName="AnswRowChangeEventHandler" msprop:Generator_RowDeletedName="AnswRowDeleted" msprop:Generator_UserTableName="Answ" msprop:Generator_RowChangedName="AnswRowChanged" msprop:Generator_RowEvArgName="AnswRowChangeEvent" msprop:Generator_RowClassName="AnswRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1102,7 +1114,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Quest" msprop:Generator_TableClassName="QuestDataTable" msprop:Generator_TableVarName="tableQuest" msprop:Generator_RowChangedName="QuestRowChanged" msprop:Generator_TablePropName="Quest" msprop:Generator_RowDeletingName="QuestRowDeleting" msprop:Generator_RowChangingName="QuestRowChanging" msprop:Generator_RowEvHandlerName="QuestRowChangeEventHandler" msprop:Generator_RowDeletedName="QuestRowDeleted" msprop:Generator_RowClassName="QuestRow" msprop:Generator_UserTableName="Quest" msprop:Generator_RowEvArgName="QuestRowChangeEvent">
+        <xs:element name="Quest" msprop:Generator_TableClassName="QuestDataTable" msprop:Generator_TableVarName="tableQuest" msprop:Generator_TablePropName="Quest" msprop:Generator_RowDeletingName="QuestRowDeleting" msprop:Generator_RowChangingName="QuestRowChanging" msprop:Generator_RowEvHandlerName="QuestRowChangeEventHandler" msprop:Generator_RowDeletedName="QuestRowDeleted" msprop:Generator_UserTableName="Quest" msprop:Generator_RowChangedName="QuestRowChanged" msprop:Generator_RowEvArgName="QuestRowChangeEvent" msprop:Generator_RowClassName="QuestRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1126,7 +1138,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="QuestAnsw" msprop:Generator_TableClassName="QuestAnswDataTable" msprop:Generator_TableVarName="tableQuestAnsw" msprop:Generator_RowChangedName="QuestAnswRowChanged" msprop:Generator_TablePropName="QuestAnsw" msprop:Generator_RowDeletingName="QuestAnswRowDeleting" msprop:Generator_RowChangingName="QuestAnswRowChanging" msprop:Generator_RowEvHandlerName="QuestAnswRowChangeEventHandler" msprop:Generator_RowDeletedName="QuestAnswRowDeleted" msprop:Generator_RowClassName="QuestAnswRow" msprop:Generator_UserTableName="QuestAnsw" msprop:Generator_RowEvArgName="QuestAnswRowChangeEvent">
+        <xs:element name="QuestAnsw" msprop:Generator_TableClassName="QuestAnswDataTable" msprop:Generator_TableVarName="tableQuestAnsw" msprop:Generator_TablePropName="QuestAnsw" msprop:Generator_RowDeletingName="QuestAnswRowDeleting" msprop:Generator_RowChangingName="QuestAnswRowChanging" msprop:Generator_RowEvHandlerName="QuestAnswRowChangeEventHandler" msprop:Generator_RowDeletedName="QuestAnswRowDeleted" msprop:Generator_UserTableName="QuestAnsw" msprop:Generator_RowChangedName="QuestAnswRowChanged" msprop:Generator_RowEvArgName="QuestAnswRowChangeEvent" msprop:Generator_RowClassName="QuestAnswRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1136,7 +1148,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Tag" msprop:Generator_TableClassName="TagDataTable" msprop:Generator_TableVarName="tableTag" msprop:Generator_RowChangedName="TagRowChanged" msprop:Generator_TablePropName="Tag" msprop:Generator_RowDeletingName="TagRowDeleting" msprop:Generator_RowChangingName="TagRowChanging" msprop:Generator_RowEvHandlerName="TagRowChangeEventHandler" msprop:Generator_RowDeletedName="TagRowDeleted" msprop:Generator_RowClassName="TagRow" msprop:Generator_UserTableName="Tag" msprop:Generator_RowEvArgName="TagRowChangeEvent">
+        <xs:element name="Tag" msprop:Generator_TableClassName="TagDataTable" msprop:Generator_TableVarName="tableTag" msprop:Generator_TablePropName="Tag" msprop:Generator_RowDeletingName="TagRowDeleting" msprop:Generator_RowChangingName="TagRowChanging" msprop:Generator_RowEvHandlerName="TagRowChangeEventHandler" msprop:Generator_RowDeletedName="TagRowDeleted" msprop:Generator_UserTableName="Tag" msprop:Generator_RowChangedName="TagRowChanged" msprop:Generator_RowEvArgName="TagRowChangeEvent" msprop:Generator_RowClassName="TagRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1151,7 +1163,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TagQuest" msprop:Generator_TableClassName="TagQuestDataTable" msprop:Generator_TableVarName="tableTagQuest" msprop:Generator_RowChangedName="TagQuestRowChanged" msprop:Generator_TablePropName="TagQuest" msprop:Generator_RowDeletingName="TagQuestRowDeleting" msprop:Generator_RowChangingName="TagQuestRowChanging" msprop:Generator_RowEvHandlerName="TagQuestRowChangeEventHandler" msprop:Generator_RowDeletedName="TagQuestRowDeleted" msprop:Generator_RowClassName="TagQuestRow" msprop:Generator_UserTableName="TagQuest" msprop:Generator_RowEvArgName="TagQuestRowChangeEvent">
+        <xs:element name="TagQuest" msprop:Generator_TableClassName="TagQuestDataTable" msprop:Generator_TableVarName="tableTagQuest" msprop:Generator_TablePropName="TagQuest" msprop:Generator_RowDeletingName="TagQuestRowDeleting" msprop:Generator_RowChangingName="TagQuestRowChanging" msprop:Generator_RowEvHandlerName="TagQuestRowChangeEventHandler" msprop:Generator_RowDeletedName="TagQuestRowDeleted" msprop:Generator_UserTableName="TagQuest" msprop:Generator_RowChangedName="TagQuestRowChanged" msprop:Generator_RowEvArgName="TagQuestRowChangeEvent" msprop:Generator_RowClassName="TagQuestRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1160,7 +1172,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Topic" msprop:Generator_TableClassName="TopicDataTable" msprop:Generator_TableVarName="tableTopic" msprop:Generator_RowChangedName="TopicRowChanged" msprop:Generator_TablePropName="Topic" msprop:Generator_RowDeletingName="TopicRowDeleting" msprop:Generator_RowChangingName="TopicRowChanging" msprop:Generator_RowEvHandlerName="TopicRowChangeEventHandler" msprop:Generator_RowDeletedName="TopicRowDeleted" msprop:Generator_RowClassName="TopicRow" msprop:Generator_UserTableName="Topic" msprop:Generator_RowEvArgName="TopicRowChangeEvent">
+        <xs:element name="Topic" msprop:Generator_TableClassName="TopicDataTable" msprop:Generator_TableVarName="tableTopic" msprop:Generator_TablePropName="Topic" msprop:Generator_RowDeletingName="TopicRowDeleting" msprop:Generator_RowChangingName="TopicRowChanging" msprop:Generator_RowEvHandlerName="TopicRowChangeEventHandler" msprop:Generator_RowDeletedName="TopicRowDeleted" msprop:Generator_UserTableName="Topic" msprop:Generator_RowChangedName="TopicRowChanged" msprop:Generator_RowEvArgName="TopicRowChangeEvent" msprop:Generator_RowClassName="TopicRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1182,7 +1194,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TopicQuest" msprop:Generator_TableClassName="TopicQuestDataTable" msprop:Generator_TableVarName="tableTopicQuest" msprop:Generator_RowChangedName="TopicQuestRowChanged" msprop:Generator_TablePropName="TopicQuest" msprop:Generator_RowDeletingName="TopicQuestRowDeleting" msprop:Generator_RowChangingName="TopicQuestRowChanging" msprop:Generator_RowEvHandlerName="TopicQuestRowChangeEventHandler" msprop:Generator_RowDeletedName="TopicQuestRowDeleted" msprop:Generator_RowClassName="TopicQuestRow" msprop:Generator_UserTableName="TopicQuest" msprop:Generator_RowEvArgName="TopicQuestRowChangeEvent">
+        <xs:element name="TopicQuest" msprop:Generator_TableClassName="TopicQuestDataTable" msprop:Generator_TableVarName="tableTopicQuest" msprop:Generator_TablePropName="TopicQuest" msprop:Generator_RowDeletingName="TopicQuestRowDeleting" msprop:Generator_RowChangingName="TopicQuestRowChanging" msprop:Generator_RowEvHandlerName="TopicQuestRowChangeEventHandler" msprop:Generator_RowDeletedName="TopicQuestRowDeleted" msprop:Generator_UserTableName="TopicQuest" msprop:Generator_RowChangedName="TopicQuestRowChanged" msprop:Generator_RowEvArgName="TopicQuestRowChangeEvent" msprop:Generator_RowClassName="TopicQuestRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1191,7 +1203,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_RowClassName="UsersRow" msprop:Generator_UserTableName="Users" msprop:Generator_RowEvArgName="UsersRowChangeEvent">
+        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_UserTableName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_RowClassName="UsersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -1226,7 +1238,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ACK" msprop:Generator_TableClassName="ACKDataTable" msprop:Generator_TableVarName="tableACK" msprop:Generator_RowChangedName="ACKRowChanged" msprop:Generator_TablePropName="ACK" msprop:Generator_RowDeletingName="ACKRowDeleting" msprop:Generator_RowChangingName="ACKRowChanging" msprop:Generator_RowEvHandlerName="ACKRowChangeEventHandler" msprop:Generator_RowDeletedName="ACKRowDeleted" msprop:Generator_RowClassName="ACKRow" msprop:Generator_UserTableName="ACK" msprop:Generator_RowEvArgName="ACKRowChangeEvent">
+        <xs:element name="ACK" msprop:Generator_TableClassName="ACKDataTable" msprop:Generator_TableVarName="tableACK" msprop:Generator_TablePropName="ACK" msprop:Generator_RowDeletingName="ACKRowDeleting" msprop:Generator_RowChangingName="ACKRowChanging" msprop:Generator_RowEvHandlerName="ACKRowChangeEventHandler" msprop:Generator_RowDeletedName="ACKRowDeleted" msprop:Generator_UserTableName="ACK" msprop:Generator_RowChangedName="ACKRowChanged" msprop:Generator_RowEvArgName="ACKRowChangeEvent" msprop:Generator_RowClassName="ACKRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1242,7 +1254,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Diff" msprop:Generator_TableClassName="DiffDataTable" msprop:Generator_TableVarName="tableDiff" msprop:Generator_RowChangedName="DiffRowChanged" msprop:Generator_TablePropName="Diff" msprop:Generator_RowDeletingName="DiffRowDeleting" msprop:Generator_RowChangingName="DiffRowChanging" msprop:Generator_RowEvHandlerName="DiffRowChangeEventHandler" msprop:Generator_RowDeletedName="DiffRowDeleted" msprop:Generator_RowClassName="DiffRow" msprop:Generator_UserTableName="Diff" msprop:Generator_RowEvArgName="DiffRowChangeEvent">
+        <xs:element name="Diff" msprop:Generator_TableClassName="DiffDataTable" msprop:Generator_TableVarName="tableDiff" msprop:Generator_TablePropName="Diff" msprop:Generator_RowDeletingName="DiffRowDeleting" msprop:Generator_RowChangingName="DiffRowChanging" msprop:Generator_RowEvHandlerName="DiffRowChangeEventHandler" msprop:Generator_RowDeletedName="DiffRowDeleted" msprop:Generator_UserTableName="Diff" msprop:Generator_RowChangedName="DiffRowChanged" msprop:Generator_RowEvArgName="DiffRowChangeEvent" msprop:Generator_RowClassName="DiffRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1263,7 +1275,7 @@ WHERE        (userId = @uId)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ResetPass" msprop:Generator_TableClassName="ResetPassDataTable" msprop:Generator_TableVarName="tableResetPass" msprop:Generator_RowChangedName="ResetPassRowChanged" msprop:Generator_TablePropName="ResetPass" msprop:Generator_RowDeletingName="ResetPassRowDeleting" msprop:Generator_RowChangingName="ResetPassRowChanging" msprop:Generator_RowEvHandlerName="ResetPassRowChangeEventHandler" msprop:Generator_RowDeletedName="ResetPassRowDeleted" msprop:Generator_RowClassName="ResetPassRow" msprop:Generator_UserTableName="ResetPass" msprop:Generator_RowEvArgName="ResetPassRowChangeEvent">
+        <xs:element name="ResetPass" msprop:Generator_TableClassName="ResetPassDataTable" msprop:Generator_TableVarName="tableResetPass" msprop:Generator_TablePropName="ResetPass" msprop:Generator_RowDeletingName="ResetPassRowDeleting" msprop:Generator_RowChangingName="ResetPassRowChanging" msprop:Generator_RowEvHandlerName="ResetPassRowChangeEventHandler" msprop:Generator_RowDeletedName="ResetPassRowDeleted" msprop:Generator_UserTableName="ResetPass" msprop:Generator_RowChangedName="ResetPassRowChanged" msprop:Generator_RowEvArgName="ResetPassRowChangeEvent" msprop:Generator_RowClassName="ResetPassRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1327,16 +1339,16 @@ WHERE        (userId = @uId)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="QuestAnsw_ibfk_1" msdata:parent="Quest" msdata:child="QuestAnsw" msdata:parentkey="Id" msdata:childkey="questId" msprop:Generator_UserChildTable="QuestAnsw" msprop:Generator_ChildPropName="GetQuestAnswRows" msprop:Generator_UserRelationName="QuestAnsw_ibfk_1" msprop:Generator_RelationVarName="relationQuestAnsw_ibfk_1" msprop:Generator_UserParentTable="Quest" msprop:Generator_ParentPropName="QuestRow" />
-      <msdata:Relationship name="QuestAnsw_ibfk_2" msdata:parent="Answ" msdata:child="QuestAnsw" msdata:parentkey="Id" msdata:childkey="answId" msprop:Generator_UserChildTable="QuestAnsw" msprop:Generator_ChildPropName="GetQuestAnswRows" msprop:Generator_UserRelationName="QuestAnsw_ibfk_2" msprop:Generator_RelationVarName="relationQuestAnsw_ibfk_2" msprop:Generator_UserParentTable="Answ" msprop:Generator_ParentPropName="AnswRow" />
-      <msdata:Relationship name="Tag_ibfk_1" msdata:parent="Users" msdata:child="Tag" msdata:parentkey="id" msdata:childkey="userId" msprop:Generator_UserChildTable="Tag" msprop:Generator_ChildPropName="GetTagRows" msprop:Generator_UserRelationName="Tag_ibfk_1" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_RelationVarName="relationTag_ibfk_1" msprop:Generator_UserParentTable="Users" />
-      <msdata:Relationship name="TagQuest_ibfk_1" msdata:parent="Tag" msdata:child="TagQuest" msdata:parentkey="Id" msdata:childkey="tagId" msprop:Generator_UserChildTable="TagQuest" msprop:Generator_ChildPropName="GetTagQuestRows" msprop:Generator_UserRelationName="TagQuest_ibfk_1" msprop:Generator_RelationVarName="relationTagQuest_ibfk_1" msprop:Generator_UserParentTable="Tag" msprop:Generator_ParentPropName="TagRow" />
-      <msdata:Relationship name="TagQuest_ibfk_2" msdata:parent="Quest" msdata:child="TagQuest" msdata:parentkey="Id" msdata:childkey="questId" msprop:Generator_UserChildTable="TagQuest" msprop:Generator_ChildPropName="GetTagQuestRows" msprop:Generator_UserRelationName="TagQuest_ibfk_2" msprop:Generator_RelationVarName="relationTagQuest_ibfk_2" msprop:Generator_UserParentTable="Quest" msprop:Generator_ParentPropName="QuestRow" />
-      <msdata:Relationship name="TopicQuest_ibfk_1" msdata:parent="Quest" msdata:child="TopicQuest" msdata:parentkey="Id" msdata:childkey="questId" msprop:Generator_UserChildTable="TopicQuest" msprop:Generator_ChildPropName="GetTopicQuestRows" msprop:Generator_UserRelationName="TopicQuest_ibfk_1" msprop:Generator_RelationVarName="relationTopicQuest_ibfk_1" msprop:Generator_UserParentTable="Quest" msprop:Generator_ParentPropName="QuestRow" />
-      <msdata:Relationship name="TopicQuest_ibfk_2" msdata:parent="Topic" msdata:child="TopicQuest" msdata:parentkey="Id" msdata:childkey="topicId" msprop:Generator_UserChildTable="TopicQuest" msprop:Generator_ChildPropName="GetTopicQuestRows" msprop:Generator_UserRelationName="TopicQuest_ibfk_2" msprop:Generator_RelationVarName="relationTopicQuest_ibfk_2" msprop:Generator_UserParentTable="Topic" msprop:Generator_ParentPropName="TopicRow" />
-      <msdata:Relationship name="ACK_ibfk_1" msdata:parent="Users" msdata:child="ACK" msdata:parentkey="id" msdata:childkey="userId" msprop:Generator_UserChildTable="ACK" msprop:Generator_ChildPropName="GetACKRows" msprop:Generator_UserRelationName="ACK_ibfk_1" msprop:Generator_RelationVarName="relationACK_ibfk_1" msprop:Generator_UserParentTable="Users" msprop:Generator_ParentPropName="UsersRow" />
-      <msdata:Relationship name="Quest_ibfk_1" msdata:parent="Users" msdata:child="Quest" msdata:parentkey="id" msdata:childkey="userid" msprop:Generator_UserChildTable="Quest" msprop:Generator_ChildPropName="GetQuestRows" msprop:Generator_UserRelationName="Quest_ibfk_1" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_RelationVarName="relationQuest_ibfk_1" msprop:Generator_UserParentTable="Users" />
-      <msdata:Relationship name="ResetPass_ibfk_1" msdata:parent="Users" msdata:child="ResetPass" msdata:parentkey="id" msdata:childkey="userId" msprop:Generator_UserChildTable="ResetPass" msprop:Generator_ChildPropName="GetResetPassRows" msprop:Generator_UserRelationName="ResetPass_ibfk_1" msprop:Generator_RelationVarName="relationResetPass_ibfk_1" msprop:Generator_UserParentTable="Users" msprop:Generator_ParentPropName="UsersRow" />
+      <msdata:Relationship name="QuestAnsw_ibfk_1" msdata:parent="Quest" msdata:child="QuestAnsw" msdata:parentkey="Id" msdata:childkey="questId" msprop:Generator_UserChildTable="QuestAnsw" msprop:Generator_ChildPropName="GetQuestAnswRows" msprop:Generator_UserRelationName="QuestAnsw_ibfk_1" msprop:Generator_ParentPropName="QuestRow" msprop:Generator_RelationVarName="relationQuestAnsw_ibfk_1" msprop:Generator_UserParentTable="Quest" />
+      <msdata:Relationship name="QuestAnsw_ibfk_2" msdata:parent="Answ" msdata:child="QuestAnsw" msdata:parentkey="Id" msdata:childkey="answId" msprop:Generator_UserChildTable="QuestAnsw" msprop:Generator_ChildPropName="GetQuestAnswRows" msprop:Generator_UserRelationName="QuestAnsw_ibfk_2" msprop:Generator_ParentPropName="AnswRow" msprop:Generator_RelationVarName="relationQuestAnsw_ibfk_2" msprop:Generator_UserParentTable="Answ" />
+      <msdata:Relationship name="Tag_ibfk_1" msdata:parent="Users" msdata:child="Tag" msdata:parentkey="id" msdata:childkey="userId" msprop:Generator_UserChildTable="Tag" msprop:Generator_ChildPropName="GetTagRows" msprop:Generator_UserRelationName="Tag_ibfk_1" msprop:Generator_RelationVarName="relationTag_ibfk_1" msprop:Generator_UserParentTable="Users" msprop:Generator_ParentPropName="UsersRow" />
+      <msdata:Relationship name="TagQuest_ibfk_1" msdata:parent="Tag" msdata:child="TagQuest" msdata:parentkey="Id" msdata:childkey="tagId" msprop:Generator_UserChildTable="TagQuest" msprop:Generator_ChildPropName="GetTagQuestRows" msprop:Generator_UserRelationName="TagQuest_ibfk_1" msprop:Generator_ParentPropName="TagRow" msprop:Generator_RelationVarName="relationTagQuest_ibfk_1" msprop:Generator_UserParentTable="Tag" />
+      <msdata:Relationship name="TagQuest_ibfk_2" msdata:parent="Quest" msdata:child="TagQuest" msdata:parentkey="Id" msdata:childkey="questId" msprop:Generator_UserChildTable="TagQuest" msprop:Generator_ChildPropName="GetTagQuestRows" msprop:Generator_UserRelationName="TagQuest_ibfk_2" msprop:Generator_ParentPropName="QuestRow" msprop:Generator_RelationVarName="relationTagQuest_ibfk_2" msprop:Generator_UserParentTable="Quest" />
+      <msdata:Relationship name="TopicQuest_ibfk_1" msdata:parent="Quest" msdata:child="TopicQuest" msdata:parentkey="Id" msdata:childkey="questId" msprop:Generator_UserChildTable="TopicQuest" msprop:Generator_ChildPropName="GetTopicQuestRows" msprop:Generator_UserRelationName="TopicQuest_ibfk_1" msprop:Generator_ParentPropName="QuestRow" msprop:Generator_RelationVarName="relationTopicQuest_ibfk_1" msprop:Generator_UserParentTable="Quest" />
+      <msdata:Relationship name="TopicQuest_ibfk_2" msdata:parent="Topic" msdata:child="TopicQuest" msdata:parentkey="Id" msdata:childkey="topicId" msprop:Generator_UserChildTable="TopicQuest" msprop:Generator_ChildPropName="GetTopicQuestRows" msprop:Generator_UserRelationName="TopicQuest_ibfk_2" msprop:Generator_ParentPropName="TopicRow" msprop:Generator_RelationVarName="relationTopicQuest_ibfk_2" msprop:Generator_UserParentTable="Topic" />
+      <msdata:Relationship name="ACK_ibfk_1" msdata:parent="Users" msdata:child="ACK" msdata:parentkey="id" msdata:childkey="userId" msprop:Generator_UserChildTable="ACK" msprop:Generator_ChildPropName="GetACKRows" msprop:Generator_UserRelationName="ACK_ibfk_1" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_RelationVarName="relationACK_ibfk_1" msprop:Generator_UserParentTable="Users" />
+      <msdata:Relationship name="Quest_ibfk_1" msdata:parent="Users" msdata:child="Quest" msdata:parentkey="id" msdata:childkey="userid" msprop:Generator_UserChildTable="Quest" msprop:Generator_ChildPropName="GetQuestRows" msprop:Generator_UserRelationName="Quest_ibfk_1" msprop:Generator_RelationVarName="relationQuest_ibfk_1" msprop:Generator_UserParentTable="Users" msprop:Generator_ParentPropName="UsersRow" />
+      <msdata:Relationship name="ResetPass_ibfk_1" msdata:parent="Users" msdata:child="ResetPass" msdata:parentkey="id" msdata:childkey="userId" msprop:Generator_UserChildTable="ResetPass" msprop:Generator_ChildPropName="GetResetPassRows" msprop:Generator_UserRelationName="ResetPass_ibfk_1" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_RelationVarName="relationResetPass_ibfk_1" msprop:Generator_UserParentTable="Users" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
