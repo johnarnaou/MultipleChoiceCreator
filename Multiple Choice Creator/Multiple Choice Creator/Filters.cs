@@ -398,5 +398,14 @@ namespace Multiple_Choice_Creator
                 }
             }
         }
+
+        private void nOFanswersF_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (nOFanswersF.Checked)
+            {
+                //swsto perimenw commit arnaout
+                //myfeed.filterAnswers((int)numericUpDown1.Value, (int)numericUpDown2.Value);
+            }
+        }
     }
 }
