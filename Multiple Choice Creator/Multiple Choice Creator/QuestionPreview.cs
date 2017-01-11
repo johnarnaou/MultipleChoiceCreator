@@ -46,8 +46,12 @@ namespace Multiple_Choice_Creator
                 tmpItem.BackColor = Color.IndianRed;
                 listView1.Items.Add(tmpItem);
             }
-            
+            try { 
             category.Text = category.Text + " " + tqta.getTopicNameByQuestId(myQ.getQuestionID()).ToString();
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
             Difficulty.Text = Difficulty.Text + " "+myQ.getDifficulty();
             //xMore.Text = wrong.Count().ToString() + " wrong answ";
             Update();
