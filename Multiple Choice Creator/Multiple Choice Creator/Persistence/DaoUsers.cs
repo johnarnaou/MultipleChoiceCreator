@@ -8,6 +8,7 @@ using Multiple_Choice_Creator.Model;
 using MySql.Data.MySqlClient;
 using System.Net.Mail;
 using System.Net;
+using System.Windows.Forms;
 
 namespace Multiple_Choice_Creator.Persistence
 {
@@ -36,6 +37,7 @@ namespace Multiple_Choice_Creator.Persistence
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
+                MessageBox.Show(ex.Message, "Could not open connection with database", MessageBoxButtons.OK);
                 Console.WriteLine(ex.ToString());
             }
         }
@@ -60,6 +62,7 @@ namespace Multiple_Choice_Creator.Persistence
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
+                MessageBox.Show(ex.ToString(), "Log in Failed", MessageBoxButtons.OK);
                 Console.WriteLine(ex.ToString());
             }
             if (logged == 1)
@@ -88,7 +91,8 @@ namespace Multiple_Choice_Creator.Persistence
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                ex.ToString();
+                MessageBox.Show(ex.Message, "Register Failed!", MessageBoxButtons.OK);
+                //ex.ToString();
                 return false;
             }
             return true;
@@ -188,6 +192,7 @@ namespace Multiple_Choice_Creator.Persistence
             }
             catch (Exception ex)
             {
+                //MessageBox.Show("Mai Failed! \n " + ex.ToString(), "OK", MessageBoxButtons.OK);
                 return "Fail Has error" + ex.Message;
             }
             finally
@@ -247,7 +252,8 @@ namespace Multiple_Choice_Creator.Persistence
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
+                MessageBox.Show("Check the verification Failed! \n " + ex.Message, "Check the verification Failed!", MessageBoxButtons.OK);
+                Console.WriteLine(ex.Message);
                 }
             return result;
         }
@@ -261,6 +267,7 @@ namespace Multiple_Choice_Creator.Persistence
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Insert Verification Code Failed! \n " + ex.Message, "Insert Verification Code Failed!", MessageBoxButtons.OK);
                 Console.WriteLine(ex.ToString());
                 //pop a message here!
             }
@@ -275,6 +282,7 @@ namespace Multiple_Choice_Creator.Persistence
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, "Re-Send Verification Code Failed!", MessageBoxButtons.OK);
                 Console.WriteLine(ex.ToString());
                 //pop a message here!
             }
@@ -295,6 +303,7 @@ namespace Multiple_Choice_Creator.Persistence
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, "Check the Verification Code Failed!", MessageBoxButtons.OK);
                 Console.WriteLine(ex.ToString());
             }
             return result;

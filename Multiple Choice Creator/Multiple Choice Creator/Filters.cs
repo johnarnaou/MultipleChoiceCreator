@@ -28,6 +28,10 @@ namespace Multiple_Choice_Creator
             this.Dock = DockStyle.Fill;
             fillOrderCheckedList();
             fillTreeView();
+            numericUpDown1.Minimum = 2;
+            numericUpDown2.Minimum = 2;
+
+
         }
 
         private void fillOrderCheckedList()
@@ -35,6 +39,7 @@ namespace Multiple_Choice_Creator
             for(int i = 0; i < orderByFilter.Count(); i++)
             {
                 checkedListBox2.Items.Add(orderByFilter[i]);
+
             }
         }
 
@@ -259,7 +264,7 @@ namespace Multiple_Choice_Creator
             {
                 Console.WriteLine("ITEM: "+item);
             }
-            myfeed.filterLoad(checkedItems);
+            myfeed.filterDiff(checkedItems);
 
 
             /*foreach (object itemChecked in checkedListBox1.CheckedItems)
@@ -313,7 +318,18 @@ namespace Multiple_Choice_Creator
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-
+            if (numericUpDown1.Value > numericUpDown2.Value)
+            {
+                //mporei kai return;
+                numericUpDown1.Value = numericUpDown2.Value;
+                errorProvider1.SetError(numericUpDown1, "Minimum number can't be bigger than maximum number");
+                //Update();
+            }
+            else
+            {
+                errorProvider1.SetError(numericUpDown1, null);
+            }
+            errorProvider1.SetError(numericUpDown2, null);
         }
         
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -339,6 +355,21 @@ namespace Multiple_Choice_Creator
 
                 LookupChecks(node.Nodes, list);
             }
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDown2.Value < numericUpDown1.Value)
+            {
+                numericUpDown2.Value = numericUpDown1.Value;
+                errorProvider1.SetError(numericUpDown2, "Maximum number can't be smaller than minimum number");
+                //Update();
+            }
+            else
+            {
+                errorProvider1.SetError(numericUpDown2, null);
+            }
+            errorProvider1.SetError(numericUpDown1, null);
         }
     }
 }

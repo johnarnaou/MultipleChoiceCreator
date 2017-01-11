@@ -59,7 +59,7 @@ namespace Multiple_Choice_Creator
             loginForm.Show();
 
         }
-
+        string result;
         private void button1_Click(object sender, EventArgs e)
         {
             if (!checkForNull()) { return; }
@@ -73,7 +73,7 @@ namespace Multiple_Choice_Creator
                 DaoMysql dmsql = new DaoMysql();
                 if (dUser.register(user))
                 {
-                    dUser.sendMail(user, 0);
+                    result=dUser.sendMail(user, 0);
                     Form VerificationCode = new VerificationCode(user, loginForm);
                     VerificationCode.StartPosition = FormStartPosition.CenterScreen;
                     VerificationCode.Show();
@@ -90,7 +90,9 @@ namespace Multiple_Choice_Creator
                     DialogResult dr = MessageBox.Show("Mail Not Valid!", "Close");
                 }
                 Cursor.Current = Cursors.Default;
-            }
+            MessageBox.Show("Registration Status", result, MessageBoxButtons.OK);
+            result = "";
+        }
 
         private bool checkForPassMathing()
         {

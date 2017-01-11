@@ -81,7 +81,7 @@ namespace Multiple_Choice_Creator
             Cursor.Current = Cursors.WaitCursor;
             String msg=duser.sendMail(user,1);
             Cursor.Current = Cursors.Default;
-            DialogResult dr = MessageBox.Show(msg, "Close");
+            MessageBox.Show("Re-send Status", msg, MessageBoxButtons.OK);
         }
 
         private void VerificationCode_FormClosing_1(object sender, FormClosingEventArgs e)

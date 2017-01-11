@@ -40,6 +40,12 @@ namespace Multiple_Choice_Creator
             this.edit = edit;
         }
 
+
+        public void filterTopic(List<string> topics)
+        {
+
+        }
+
         public void load()
         {
             Object a = qTableAdapter.getSize(user.getUserID());

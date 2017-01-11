@@ -22,7 +22,8 @@ namespace Multiple_Choice_Creator
         List<QuestionPreview> myQPList;
         TopicQuestTableAdapter tqta = new TopicQuestTableAdapter();
         FeedPanel fdPanel;
-        public QuestionPreview(Question myQuestion,List<Answer> correct, List<Answer> wrong,FlowLayoutPanel theFather, object myQPList,FeedPanel feedPanel)
+        CreateTestControl ctcPanel;
+        public QuestionPreview(Question myQuestion,List<Answer> correct, List<Answer> wrong,FlowLayoutPanel theFather, object myQPList,FeedPanel feedPanel, CreateTestControl ctcPnl)
         {
             InitializeComponent();
             questLabel.MaximumSize = new Size(150, 0);
@@ -33,6 +34,7 @@ namespace Multiple_Choice_Creator
             myQ = myQuestion;
             myLCorr = correct;
             myLWro = wrong;
+            ctcPanel = ctcPnl;
             questLabel.Text = myQ.getText();
             foreach (Answer apant in myLCorr)
             {
@@ -86,6 +88,7 @@ namespace Multiple_Choice_Creator
         {
             fdPanel.unMark();
             father.Controls.Remove(this);
+            ctcPanel.CountQuestion(-1);
             myQPList.Remove(this);
         }
     }
