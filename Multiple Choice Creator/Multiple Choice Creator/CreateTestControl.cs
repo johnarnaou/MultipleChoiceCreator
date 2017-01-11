@@ -117,12 +117,31 @@ namespace Multiple_Choice_Creator
                 paragraph = new Paragraph();
                 paragraph.Add(new Chunk(erwt, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, 15)));
                 paragraph.Add(new Chunk(apant, FontFactory.GetFont(FontFactory.HELVETICA, "ASCII", true, 13)));
+                cellConfigure(table, new PdfPCell(paragraph));
 
+                if (prime)                  
+                {
+                    cellConfigure(table, new PdfPCell(new Paragraph()));
+                    leftorrigt = true;
+                }
+                DC.Add(table);
+                DC.Add(new Paragraph("Apotelesmata: " + apot));     
                 DC.Close();
             }
         }
+        private void cellConfigure(PdfPTable table, PdfPCell cell)	
+        {
+            cell.BorderWidth = 0;
+            cell.Padding = 0;
+            cell.PaddingTop = 12;
+            cell.HorizontalAlignment = Element.ALIGN_LEFT;
+            table.AddCell(cell);
+            table.SetWidthPercentage(new float[2] { 460f, 140f }, PageSize.LETTER);
+            table.HorizontalAlignment = Element.ALIGN_CENTER;
+            leftorrigt = true;
 
-        
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
