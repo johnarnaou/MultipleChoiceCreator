@@ -378,6 +378,10 @@ namespace Multiple_Choice_Creator
             
             if (e.NewValue == CheckState.Checked)
             {
+                foreach (int i in checkedListBox2.CheckedIndices)
+                {
+                    checkedListBox2.SetItemCheckState(i, CheckState.Unchecked);
+                }
                 if (checkedListBox2.Items[e.Index].ToString().Equals(orderByFilter[0])) {
                     myfeed.filterDate("asc");
                 }else if(checkedListBox2.Items[e.Index].ToString().Equals(orderByFilter[1]))
