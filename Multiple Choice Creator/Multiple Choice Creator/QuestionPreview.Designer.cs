@@ -88,6 +88,7 @@
             // 
             // category
             // 
+            this.category.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.category.AutoSize = true;
             this.category.Location = new System.Drawing.Point(185, 56);
             this.category.Name = "category";
@@ -97,6 +98,7 @@
             // 
             // Difficulty
             // 
+            this.Difficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Difficulty.AutoSize = true;
             this.Difficulty.Location = new System.Drawing.Point(185, 78);
             this.Difficulty.Name = "Difficulty";

@@ -78,10 +78,15 @@ namespace Multiple_Choice_Creator
 
         private void button1_Click(object sender, EventArgs e)
         {
+            deleteThis();
+
+        }
+
+        public void deleteThis()
+        {
             fdPanel.unMark();
             father.Controls.Remove(this);
             myQPList.Remove(this);
-
         }
     }
 }

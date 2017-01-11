@@ -26,6 +26,13 @@ namespace Multiple_Choice_Creator
             this.Dock = DockStyle.Fill;
         }
         List<QuestionPreview> myQPList = new List<QuestionPreview>();
+        int numOfQuestions = 0;
+
+        public void CountQuestion(int num)
+        {
+            numOfQuestions+=num;
+            label3.Text = numOfQuestions.ToString();
+        }
 
         public List<QuestionPreview> getMyPList()
         {
