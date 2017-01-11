@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Multiple_Choice_Creator.Persistence;
 using Multiple_Choice_Creator.Model;
 using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
+using static Multiple_Choice_Creator.mltChoiceDataSet;
 
 namespace Multiple_Choice_Creator
 {
@@ -66,6 +67,21 @@ namespace Multiple_Choice_Creator
                     if (dUser.login(user))
                     {
                         setDefaultsUnamePworld();
+                        try { 
+                            UsersTableAdapter uta = new UsersTableAdapter();
+                            UsersDataTable udt = uta.getFirstLastNameById(user.getUserID());
+                            int ar = user.getUserID();
+                            string name = udt.Rows[0][0].ToString();
+                            string last= udt.Rows[0][1].ToString();
+                            user.setFname(udt.Rows[0][0].ToString());
+                            user.setLname(udt.Rows[0][1].ToString());
+                            //user.setLname(uta.getUserLast(user.getUserID()));
+                        }
+                        catch(Exception exception)
+                        {
+                            MessageBox.Show("Error on Login!", "Some properties haven't set", MessageBoxButtons.OK);
+                        }
+
                         if (dUser.checkIfVerified(user)) {
 
                     
@@ -85,7 +101,7 @@ namespace Multiple_Choice_Creator
                     }
                     else {
                         //edw mporoyme na tsekaroyme kai an uparxei to username kai an uparxei na to kratame alliws na ta svhnoyme ola ta periexomena apo ta textbox.
-                        DialogResult dr = MessageBox.Show("Error, Please Try Again", "Close");
+                        MessageBox.Show("Error on Login!", "Please try again", MessageBoxButtons.OK);
                     }
 
 
@@ -99,6 +115,7 @@ namespace Multiple_Choice_Creator
             }
             catch(Exception ex)
             {
+                MessageBox.Show("Log in Failed", "Unable to connect", MessageBoxButtons.OK);
                 Console.WriteLine(ex.ToString());
             }
 

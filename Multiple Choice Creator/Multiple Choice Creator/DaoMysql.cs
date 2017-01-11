@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Multiple_Choice_Creator.Model;
 using System.Net;
 using System.Net.Mail;
+using System.Windows.Forms;
 
 namespace Multiple_Choice_Creator
 {
@@ -97,7 +98,7 @@ namespace Multiple_Choice_Creator
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-
+                MessageBox.Show("Log in Failed", "Unable to connect", MessageBoxButtons.OK);
                 ex.ToString();
             }
             if (count == 1)

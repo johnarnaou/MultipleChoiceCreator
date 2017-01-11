@@ -220,7 +220,35 @@ namespace Multiple_Choice_Creator.Persistence
             //Edw tha kaleite h methodos gia na ginete to insert toy id tou xrhsth kai to verification code sto ACK
             return msg;
         }
-        
+        public string sendPDFtoUser(User user, string filenameTEST,string results)
+        {
+            //filenameTEST = @"c:\test.pdf";
+            //m.Attachments.Add(new Attachment(filename));
+
+            MailMessage msg = new MailMessage();
+            msg.Attachments.Add(new Attachment(filenameTEST));
+            if (results != null)
+            {
+                msg.Attachments.Add(new Attachment(results));
+                msg.Body = "We have attached you your pdf and the correct answers '";
+
+            }else
+            {
+                msg.Body = "We have attached you your pdf'";
+            }
+            SmtpClient client = new SmtpClient();
+            msg.From = new MailAddress("multiplechoiceteamteithe@gmail.com");
+            msg.To.Add(user.getEmail());
+            msg.Subject = "Multiple Choise Team PDF backup" + DateTime.Now.ToString();
+            
+            
+
+
+            client = addClientParameters(client);
+            return sendmyMail(client, msg);
+
+            
+        }
         //this method is to add parameters to the Client of the mail
         private SmtpClient addClientParameters(SmtpClient client)
         {
