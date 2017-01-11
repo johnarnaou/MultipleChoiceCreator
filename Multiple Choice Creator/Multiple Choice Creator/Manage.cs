@@ -27,7 +27,7 @@ namespace Multiple_Choice_Creator
         
         public AnswDataTable inserQ(Question q,DataGridView manageGrid,User user)
         {
-            QuestTableAdapter qTableAdapter;
+            QuestTableAdapter qTableAdapter; 
             DataTable questionId;
             int qid;
             List<string> themes = filters.returnThemes();
