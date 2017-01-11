@@ -40,6 +40,7 @@ namespace Multiple_Choice_Creator
             saveFileDialog1.Title = "Save As...";
             saveFileDialog1.DefaultExt = "*.pdf";
             saveFileDialog1.ShowDialog();
+            Cursor.Current = Cursors.WaitCursor;
             string path=null;
             if (saveFileDialog1.FileName != "")
             {
@@ -47,6 +48,7 @@ namespace Multiple_Choice_Creator
             }else
             {
                 MessageBox.Show("Error on save File","Add file name",MessageBoxButtons.OK);
+                Cursor.Current = Cursors.Default;
                 return;
             }
 
@@ -59,6 +61,7 @@ namespace Multiple_Choice_Creator
             bool createAnswers= checkBox4.Checked;
             bool sendMail= checkBox3.Checked;
             createTC.createPDF(topText, info, email, date, questionfs, answerfs, createAnswers, sendMail, path);
+            Cursor.Current = Cursors.Default;
         }
 
         private string checkThePDFfileName(string fileName)

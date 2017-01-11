@@ -70,11 +70,8 @@ namespace Multiple_Choice_Creator
                         try { 
                             UsersTableAdapter uta = new UsersTableAdapter();
                             UsersDataTable udt = uta.getFirstLastNameById(user.getUserID());
-                            int ar = user.getUserID();
-                            string name = udt.Rows[0][0].ToString();
-                            string last= udt.Rows[0][1].ToString();
-                            user.setFname(udt.Rows[0][0].ToString());
-                            user.setLname(udt.Rows[0][1].ToString());
+                            user.setFname(udt.Rows[0][3].ToString());
+                            user.setLname(udt.Rows[0][4].ToString());
                             //user.setLname(uta.getUserLast(user.getUserID()));
                         }
                         catch(Exception exception)
