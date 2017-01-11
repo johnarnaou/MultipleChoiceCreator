@@ -50,7 +50,7 @@ namespace Multiple_Choice_Creator
             category.Text = category.Text + " " + tqta.getTopicNameByQuestId(myQ.getQuestionID()).ToString();
             }catch(Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("The question added does not have category!");
             }
             Difficulty.Text = Difficulty.Text + " "+myQ.getDifficulty();
             //xMore.Text = wrong.Count().ToString() + " wrong answ";
