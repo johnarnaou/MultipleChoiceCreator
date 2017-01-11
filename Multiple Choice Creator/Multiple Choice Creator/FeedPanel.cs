@@ -266,8 +266,8 @@ namespace Multiple_Choice_Creator
                 }
             }
 
-            qPreview = new QuePreview(cr.getflowlayoutPanel(), q, correctAnsw, incorrectAnsw,cr.getMyPList());
-            cr.getMyPList().Add(qPreview.getMyQuePrev(), this);
+            qPreview = new QuePreview(cr.getflowlayoutPanel(), q, correctAnsw, incorrectAnsw,cr.getMyPList(), this);
+            cr.getMyPList().Add(qPreview.getMyQuePrev());
         }
 
         public void unMark()

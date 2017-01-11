@@ -144,7 +144,7 @@ namespace Multiple_Choice_Creator
             //Console.WriteLine(QA.ToString());
 
             //Εδω θα μπαίνει από panel to view a question
-            qPreview = new QuePreview(flowLayoutPanel1, q, lCorrect, lwrong, myQPList);
+            //qPreview = new QuePreview(flowLayoutPanel1, q, lCorrect, lwrong, myQPList);
             // panel1.Controls.Add(createtestcontrol);
         }
     }

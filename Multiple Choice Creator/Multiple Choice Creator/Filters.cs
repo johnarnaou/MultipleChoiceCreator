@@ -320,5 +320,25 @@ namespace Multiple_Choice_Creator
         {
 
         }
+
+        private void treeView1_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            List<string> checkedItems = new List<string>();
+            List<TreeNode> list = new List<TreeNode>();
+            LookupChecks(treeView1.Nodes, list);
+            //myfeed.filterLoad(checkedItems);
+
+        }
+
+        void LookupChecks(TreeNodeCollection nodes, List<TreeNode> list)
+        {
+            foreach (TreeNode node in nodes)
+            {
+                if (node.Checked)
+                    list.Add(node);
+
+                LookupChecks(node.Nodes, list);
+            }
+        }
     }
 }

@@ -18,14 +18,16 @@ namespace Multiple_Choice_Creator
         List<Answer> wrongs;
         int numberOfQuestions=0;
         List<QuestionPreview> myQPList;
-        public QuePreview(FlowLayoutPanel myPanel,Question qe,List<Answer> corr,List<Answer> wrong, object myQPList)
+        FeedPanel fdPanel;
+        public QuePreview(FlowLayoutPanel myPanel,Question qe,List<Answer> corr,List<Answer> wrong, object myQPList, FeedPanel feedPanel)
         {
             this.correct = corr;
             this.wrongs = wrong;
             this.myQuestion = qe;
             this.panel = myPanel;
+            this.fdPanel = feedPanel;
             this.myQPList = (List<QuestionPreview>)myQPList;
-            myQuePrev = new QuestionPreview(myQuestion, correct, wrongs,panel, this.myQPList);
+            myQuePrev = new QuestionPreview(myQuestion, correct, wrongs,panel, this.myQPList, fdPanel);
             this.panel.Controls.Add(myQuePrev);
             numberOfQuestions++;
         }

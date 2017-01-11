@@ -21,11 +21,13 @@ namespace Multiple_Choice_Creator
         FlowLayoutPanel father;
         List<QuestionPreview> myQPList;
         TopicQuestTableAdapter tqta = new TopicQuestTableAdapter();
-        public QuestionPreview(Question myQuestion,List<Answer> correct, List<Answer> wrong,FlowLayoutPanel theFather, Object myQPList)
+        FeedPanel fdPanel;
+        public QuestionPreview(Question myQuestion,List<Answer> correct, List<Answer> wrong,FlowLayoutPanel theFather, object myQPList,FeedPanel feedPanel)
         {
             InitializeComponent();
             questLabel.MaximumSize = new Size(150, 0);
             father = theFather;
+            fdPanel = feedPanel;
             this.Width = father.Width;
             this.myQPList=(List<QuestionPreview>)myQPList;
             myQ = myQuestion;
@@ -72,6 +74,7 @@ namespace Multiple_Choice_Creator
 
         private void button1_Click(object sender, EventArgs e)
         {
+            fdPanel.unMark();
             father.Controls.Remove(this);
             myQPList.Remove(this);
 
