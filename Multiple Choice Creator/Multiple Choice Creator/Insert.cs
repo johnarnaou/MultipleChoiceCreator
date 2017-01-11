@@ -42,7 +42,7 @@ namespace Multiple_Choice_Creator
             Question questIns=new Model.Question(richTextBox1.Text, dif, user.getUserID());
             QuestionAnswer qaInserted = new QuestionAnswer(questIns);
             string aboutToInsert = "Question:" + questIns.getText() + "\nWith answers:"+ this.getAnswersForInsertion() + "\n" + allThemes;
-            if (MessageBox.Show(aboutToInsert,"You are about to save the follwoing changes",MessageBoxButtons.YesNo)==DialogResult.No)
+            if (MessageBox.Show(aboutToInsert,"You are about to save the follwoing changes",MessageBoxButtons.YesNo,MessageBoxIcon.Information) ==DialogResult.No)
             {
                 return;
             }            
@@ -53,7 +53,6 @@ namespace Multiple_Choice_Creator
                 return;
             }
             qaInserted.setAnswersDataTable(inseAnsw);
-            MessageBox.Show(Convert.ToString(numberOfThemes));
             bool ins=saveChanges();
             if (ins==true) {
                 currFeed.add(qaInserted);
