@@ -282,11 +282,7 @@ namespace Multiple_Choice_Creator
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            toolStrip1.BackColor = Color.White;
-            showWithStyle();
-            removeButton.Visible = false;
-            addButton.Visible = true;
-            shrinkMode = false;
+            qPreview.getMyQuePrev().deleteThis();
         }
 
         private void editButton_Click(object sender, EventArgs e)
