@@ -135,10 +135,11 @@ namespace Multiple_Choice_Creator
             }
             DC.Add(table);
             string results = null;
+            string testT = "Test pdf succesfully send!";
             if (createAnswers)
             {
                 results = createAnswersOfTest(apot, path);
-                
+                testT = "Test and Anwers pdf succesfully send!";
 
             }
 
@@ -148,14 +149,15 @@ namespace Multiple_Choice_Creator
                 try
                 {
                     DaoUsers duser = new DaoUsers();
-                    duser.sendPDFtoUser(myUser, path, results);          
+                    duser.sendPDFtoUser(myUser, path, results);
+                    MessageBox.Show("Mail succesfully send!", "Close");
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show("Back up mail couldn't be send", "Close");
                 }
             }
-
+            MessageBox.Show(testT, "Close");
         }
 
         private string createAnswersOfTest(string apot, string path)
