@@ -39,7 +39,7 @@ namespace Multiple_Choice_Creator
             for(int i = 0; i < orderByFilter.Count(); i++)
             {
                 checkedListBox2.Items.Add(orderByFilter[i]);
-
+                
             }
         }
 
@@ -370,6 +370,21 @@ namespace Multiple_Choice_Creator
                 errorProvider1.SetError(numericUpDown2, null);
             }
             errorProvider1.SetError(numericUpDown1, null);
+        }
+
+        private void checkedListBox2_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            //Console.WriteLine(checkedListBox2.Items[e.Index].ToString());
+            
+            if (e.NewValue == CheckState.Checked)
+            {
+                if (checkedListBox2.Items[e.Index].ToString().Equals(orderByFilter[0])) {
+                    myfeed.filterDate("asc");
+                }else if(checkedListBox2.Items[e.Index].ToString().Equals(orderByFilter[1]))
+                {
+                    myfeed.filterDate("desc");
+                }
+            }
         }
     }
 }

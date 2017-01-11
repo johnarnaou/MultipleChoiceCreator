@@ -91,11 +91,13 @@
             // 
             // checkedListBox2
             // 
+            this.checkedListBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.checkedListBox2.FormattingEnabled = true;
             this.checkedListBox2.Location = new System.Drawing.Point(9, 130);
             this.checkedListBox2.Name = "checkedListBox2";
             this.checkedListBox2.Size = new System.Drawing.Size(252, 49);
             this.checkedListBox2.TabIndex = 12;
+            this.checkedListBox2.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox2_ItemCheck);
             this.checkedListBox2.SelectedIndexChanged += new System.EventHandler(this.checkedListBox2_SelectedIndexChanged);
             // 
             // label4
@@ -276,6 +278,7 @@
             // 
             // treeView1
             // 
+            this.treeView1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.treeView1.CheckBoxes = true;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));

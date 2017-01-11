@@ -90,7 +90,7 @@ namespace Multiple_Choice_Creator
         {
             clearFilterButton.Enabled = true;
             filters.Add("E");
-            feed.filterLoad(filters);
+            //feed.filterLoad(filters);
             easyButton.Enabled = false;
         }
 
@@ -98,7 +98,7 @@ namespace Multiple_Choice_Creator
         {
             clearFilterButton.Enabled = true;
             filters.Add("M");
-            feed.filterLoad(filters);
+            //feed.filterLoad(filters);
             medButton.Enabled = false;
         }
 
@@ -106,7 +106,7 @@ namespace Multiple_Choice_Creator
         {
             clearFilterButton.Enabled = true;
             filters.Add("H");
-            feed.filterLoad(filters);
+            //feed.filterLoad(filters);
             hardButton.Enabled = false;
         }
 
