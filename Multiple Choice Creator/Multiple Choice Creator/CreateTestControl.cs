@@ -18,7 +18,7 @@ namespace Multiple_Choice_Creator
 {
     public partial class CreateTestControl : UserControl
     {
-        //private static List<Question> list;
+        
         User myUser;
         CreatePDF createpdf;
         public CreateTestControl(User usr)
@@ -78,10 +78,7 @@ namespace Multiple_Choice_Creator
             if (info) { DC.Add(new Paragraph("Author: " + myUser.getFname() + " " + myUser.getLname())); }
             if (email) { DC.Add(new Paragraph("Author E-Mail: " + myUser.getEmail())); }
             if (date) { DC.Add(new Paragraph(DateTime.Now.ToString() + "\n\n")); }
-            //DC.Add(new Paragraph("Semester: "));
-            //DC.Add(new Paragraph("Lesson: "));
-            //DC.Add(new Paragraph("Full Name: "));
-            //DC.Add(new Paragraph("Student Number: "));
+           
 
             table = new PdfPTable(2);
             bool prime = false;
@@ -141,7 +138,7 @@ namespace Multiple_Choice_Creator
             if (createAnswers)
             {
                 results = createAnswersOfTest(apot, path);
-                //DC.Add(new Paragraph("Apotelesmata: " + apot));
+                
 
             }
 
@@ -151,7 +148,7 @@ namespace Multiple_Choice_Creator
                 try
                 {
                     DaoUsers duser = new DaoUsers();
-                    //duser.sendPDFtoUser(myUser, path, results);          <------------------------------------------check
+                    duser.sendPDFtoUser(myUser, path, results);          
                 }
                 catch (Exception e)
                 {
@@ -209,24 +206,11 @@ namespace Multiple_Choice_Creator
             lwrong.Add(ans2);
             List < Answer > lCorrect= new List<Answer>();
             Answer ans5 = new Answer(66, "CorrectAnswerDebug");
-            lCorrect.Add(ans5);
-            //QuestionAnswer QA = new QuestionAnswer(q);
-            //AnswTableAdapter ata = new AnswTableAdapter();
-            // mltChoiceDataSet.AnswDataTable ansDataTable=new mltChoiceDataSet.AnswDataTable();
-            //ata.FillAnswersByQuestionID(ansDataTable,1);
-            //QA.setAnswersDataTable(ansDataTable);
+            lCorrect.Add(ans5); 
             string qu = "Where am I?";
             string ac = "home";
             string aw = "teithe";
 
-
-
-            //QuePreview myQuewPreview = new QuePreview(panel1, QA);
-            //Console.WriteLine(QA.ToString());
-
-            //Εδω θα μπαίνει από panel to view a question
-            //qPreview = new QuePreview(flowLayoutPanel1, q, lCorrect, lwrong, myQPList);
-            // panel1.Controls.Add(createtestcontrol);
         }
 
         private void label1_Click(object sender, EventArgs e)
