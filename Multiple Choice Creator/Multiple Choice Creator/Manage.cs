@@ -31,14 +31,16 @@ namespace Multiple_Choice_Creator
             DataTable questionId;
             int qid;
             List<string> themes = filters.returnThemes();
-            themes = filters.returnThemes();
-            if (themes.Count == 0)//prin kanw otidipote mesa sto eisagwgh prepei na eleksw an o xrhsths exei epileksei thematikes enothtes
-            {
-              MessageBox.Show("You did not select theme for this question.Please choose at least one", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-              return null;
-            }
             qTableAdapter = new QuestTableAdapter();
-            qTableAdapter.insertQuest(q.getText(),Convert.ToString(q.getDifficulty()),user.getUserID());
+            try
+            {
+                qTableAdapter.insertQuest(q.getText(), Convert.ToString(q.getDifficulty()), user.getUserID());
+            }
+            catch (MySql.Data.MySqlClient.MySqlException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                return null;
+            }
             questionId = qTableAdapter.getIdOfInsertedQuest(q.getText());
             qid = Convert.ToInt32(questionId.Rows[0][0].ToString());
             insertThemes(themes,qid);
@@ -59,6 +61,22 @@ namespace Multiple_Choice_Creator
             }
         }
 
+        public int getThemesCount()
+        {
+            return filters.returnThemes().Count;
+        }
+
+        public string getThemes()
+        {
+            string allThemes = "Themes selected:";
+            List<string> themesList = filters.returnThemes();
+            for (int i=0; i<themesList.Count; i++)
+            {
+                allThemes += themesList[i]+",";
+            }
+            allThemes = allThemes.Remove(allThemes.Length-1);//na bgalw to teleutaio komma p den exei logo yparkshs
+            return allThemes;
+        }
         public void hide()
         {
             management.Visible = false;

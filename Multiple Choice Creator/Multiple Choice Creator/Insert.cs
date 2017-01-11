@@ -32,21 +32,45 @@ namespace Multiple_Choice_Creator
         private void button1_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            int numberOfThemes=mang.getThemesCount();
+            if (numberOfThemes==0)
+            {
+                MessageBox.Show("You did not select theme for this question.Please choose at least one", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string allThemes = mang.getThemes();
             Question questIns=new Model.Question(richTextBox1.Text, dif, user.getUserID());
             QuestionAnswer qaInserted = new QuestionAnswer(questIns);
-            AnswDataTable inseAnsw = mang.inserQ(questIns,dataGridView1,user);
-            if (inseAnsw==null)//ama mou epistrepsei null tote shmainei oti kati phge lathos
+            string aboutToInsert = "Question:" + questIns.getText() + "\nWith answers:"+ this.getAnswersForInsertion() + "\n" + allThemes;
+            if (MessageBox.Show(aboutToInsert,"You are about to save the follwoing changes",MessageBoxButtons.YesNo)==DialogResult.No)
             {
-                MessageBox.Show("Insertion cancelled","Inforamtion",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                return;//Opote akurwnw olh th diadikasia kanwntas apla ena return
+                return;
+            }            
+            AnswDataTable inseAnsw = mang.inserQ(questIns,dataGridView1,user);
+            if (inseAnsw==null)
+            {//an epistrepsei null shmainei oti m petakse exception kata th syndesh me th bash..to theloume logw vpn sth periptwsh mas
+                MessageBox.Show("A network problem has occured,please try again");
+                return;
             }
             qaInserted.setAnswersDataTable(inseAnsw);
+            MessageBox.Show(Convert.ToString(numberOfThemes));
             bool ins=saveChanges();
             if (ins==true) {
                 currFeed.add(qaInserted);
             }
             Cursor.Current = Cursors.Default;
         }
+        public string getAnswersForInsertion()
+        {
+            string allAnswers = "\n";
+            for (int i=0; i<dataGridView1.Rows.Count-1; i++)
+            {
+                allAnswers += Convert.ToString(i)+")"+dataGridView1.Rows[i].Cells[0].Value.ToString()+"\n";
+            }
+            return allAnswers;
+        }
+
+
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
             if (trackBar1.Value==0)
