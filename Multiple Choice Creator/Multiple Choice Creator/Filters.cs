@@ -16,7 +16,7 @@ namespace Multiple_Choice_Creator
     public partial class Filters : UserControl
     {
         LoadFeed myfeed;
-        string[] orderByFilter = { "Date added asc", "Date added desc"};
+        string[] orderByFilter = { "Ascending", "Descending" };
         public Filters(object feed)
         {
 
@@ -388,6 +388,7 @@ namespace Multiple_Choice_Creator
                 errorProvider1.SetError(numericUpDown2, null);
             }
             errorProvider1.SetError(numericUpDown1, null);
+
             filterBasedOnnumOfAnswers();
         }
 
