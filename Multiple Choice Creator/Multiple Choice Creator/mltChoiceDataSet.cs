@@ -1,6 +1,6 @@
 ﻿
 using System.Data;
-
+using System;
 namespace Multiple_Choice_Creator
 {
 
@@ -23,22 +23,21 @@ namespace Multiple_Choice_Creator
                 }
             }
 
-            private void AnswDataTable_AnswColumnChanging(object sender, AnswRowChangeEvent e)
+            private void AnswDataTable_AnswColumnChanging(object sender, DataColumnChangeEventArgs e)
             {//an ginetai update dhladh se kapoio keli tou pinaka Answ
-                if (e.Row.RowState == DataRowState.Modified)
+                
+                if (e.Column.ColumnName == "answer")
                 {
-                    if (e.Row.answer.Length < 20)
+                    if (Convert.ToString(e.ProposedValue).Length < 5)
                     {
-                        e.Row.RowError =
-                      "the answer can not be upbadated.Letters count<20";
-                        e.Row.CancelEdit();
-                        e.Row.RowError += ",edit cancelled";
-                    }
-                    else
-                    {
-                        e.Row.ClearErrors();
+                        e.Row.SetColumnError(e.Column, "error,not enough characters");
                     }
                 }
+                else
+                {
+                    e.Row.SetColumnError(e.Column,string.Empty);
+                }
+
             }
         }
 
@@ -59,22 +58,20 @@ namespace Multiple_Choice_Creator
                 }
             }
 
-            private void QuestDatatbale_QuestColumnChanging(object sender, QuestRowChangeEvent e)
+            private void QuestDatatbale_QuestColumnChanging(object sender, DataColumnChangeEventArgs e)
             {//when updating question
-                if (e.Row.RowState == DataRowState.Modified)
+                if (e.Column.ColumnName == "question")
                 {
-                    if (e.Row.question.Length < 20)
+                    if (Convert.ToString(e.ProposedValue).Length < 5)
                     {
-                        e.Row.RowError =
-                      "the question can not be upbadated.Letters count<20";
-                        e.Row.CancelEdit();
-                        e.Row.RowError += ",edit cancelled";
-                    }
-                    else
-                    {
-                        e.Row.ClearErrors();
+                        e.Row.SetColumnError(e.Column, "error,not enough characters");
                     }
                 }
+                else
+                {
+                    e.Row.SetColumnError(e.Column, string.Empty);
+                }
+
             }
         }
 
