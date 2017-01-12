@@ -40,6 +40,11 @@ namespace Multiple_Choice_Creator.Model
         {
             topic = (string)ta.getTopicNameByQuestId(id);
         }
+
+        public string getTopic()
+        {
+            return topic;
+        }
         private void setCreationTime()
         {
             creationTime = (DateTime)adapter.getTime(id);

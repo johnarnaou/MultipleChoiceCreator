@@ -17,7 +17,7 @@ namespace Multiple_Choice_Creator
         Question q;
         AnswDataTable answers;
         FeedPanel panel;
-        string diff;
+        string diff, topic;
         public EditMode(Question q, AnswDataTable answers, FeedPanel panel)
         {
             InitializeComponent();
@@ -26,6 +26,7 @@ namespace Multiple_Choice_Creator
             this.panel = panel;
             this.Dock = DockStyle.Fill;
             diff = q.getDifficulty();
+            topic = q.getTopic();
             loadInfo();
         }
         //Long Live Da Duke

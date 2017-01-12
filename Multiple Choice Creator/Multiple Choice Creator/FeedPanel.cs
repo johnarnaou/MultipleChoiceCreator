@@ -55,6 +55,11 @@ namespace Multiple_Choice_Creator
             answersDataGridView.ScrollBars = ScrollBars.None;
         }
 
+        private void setTopic()
+        {
+            topicLabel.Text = "";
+        }
+
         public int getNumberOfAnswers()
         {
             return answers.Count;
