@@ -12,7 +12,7 @@ namespace Multiple_Choice_Creator
             private void AnswDataTable_TableNewRow(object sender, DataTableNewRowEventArgs e)
             {
                 mltChoiceDataSet.AnswRow newrow = (mltChoiceDataSet.AnswRow)e.Row;
-                if (newrow.answer.Length < 20)
+                if (newrow.answer.Length < 5)
                 {
 
                     newrow.Delete();
@@ -47,7 +47,7 @@ namespace Multiple_Choice_Creator
             {
 
                 mltChoiceDataSet.QuestRow newrow = (mltChoiceDataSet.QuestRow)e.Row;
-                if (newrow.question.Length < 20)
+                if (newrow.question.Length < 5)
                 {
 
                     newrow.Delete();
