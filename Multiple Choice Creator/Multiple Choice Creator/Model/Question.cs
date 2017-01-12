@@ -30,6 +30,7 @@ namespace Multiple_Choice_Creator.Model
             this.id = id;
             setText((string)adapter.getQuestionWithId(id));
             setDifficulty();
+            setCreationTime();
         }
 
         private void setCreationTime()
