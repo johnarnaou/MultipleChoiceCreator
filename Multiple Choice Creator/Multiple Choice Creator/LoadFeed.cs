@@ -323,6 +323,11 @@ namespace Multiple_Choice_Creator
             }
         }
 
+        public int getNumberOfQA()
+        {
+            return controlsCount;
+        }
+
         public void filterDate(string method) // "asc" for ascending "desc" for descending
         {
             if (filterDiffMode || filterAnswMode)
