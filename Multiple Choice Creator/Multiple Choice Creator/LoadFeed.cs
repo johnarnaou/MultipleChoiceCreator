@@ -239,13 +239,14 @@ namespace Multiple_Choice_Creator
             }
 
             filteredLayoutControls = new List<FeedPanel>();
-
+            Debug.WriteLine(filter.Count);
             if (filter.Count > 0)
             {
                 for (int i = 0; i < filter.Count; i++)
                 {
                     for (int j = 0; j < managingControls.Count; j++)
                     {
+                        Debug.WriteLine(managingControls[j].getQuestionDifficulty() + " filter" + filter[i]);
                         if (managingControls[j].getQuestionDifficulty() == filter[i])
                         {
                             filteredLayoutControls.Add(managingControls[j]);

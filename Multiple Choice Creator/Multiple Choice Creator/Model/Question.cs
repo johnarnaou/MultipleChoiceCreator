@@ -38,7 +38,7 @@ namespace Multiple_Choice_Creator.Model
 
         private void setTopic()
         {
-            topic = (string)ta.getTopicNameByQuestId(id);
+           // topic = (string)ta.getTopicNameByQuestId(id);
         }
 
         public string getTopic()
