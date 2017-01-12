@@ -52,7 +52,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(337, 486);
+            this.panel1.Size = new System.Drawing.Size(337, 473);
             this.panel1.TabIndex = 7;
             // 
             // flowLayoutPanel1
@@ -63,7 +63,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 33);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(337, 453);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(337, 440);
             this.flowLayoutPanel1.TabIndex = 9;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -74,7 +74,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(337, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "0";
+            this.label3.Text = "Questions: 0";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label1
