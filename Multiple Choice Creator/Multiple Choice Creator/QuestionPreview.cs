@@ -91,5 +91,10 @@ namespace Multiple_Choice_Creator
             ctcPanel.CountQuestion(-1);
             myQPList.Remove(this);
         }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+            fdPanel.editThis();
+        }
     }
 }

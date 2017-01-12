@@ -85,7 +85,7 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(339, 17);
             this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Athur info";
+            this.checkBox1.Text = "Author info";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // checkBox2
@@ -96,7 +96,7 @@
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(339, 17);
             this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "Athur E-Mail";
+            this.checkBox2.Text = "Author E-Mail";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // numericUpDown1

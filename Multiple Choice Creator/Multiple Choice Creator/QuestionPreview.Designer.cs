@@ -59,6 +59,7 @@
             this.edit.Size = new System.Drawing.Size(20, 20);
             this.edit.TabIndex = 4;
             this.edit.UseVisualStyleBackColor = true;
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // listView1
             // 
