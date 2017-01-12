@@ -297,6 +297,11 @@ namespace Multiple_Choice_Creator
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            editThis();
+        }
+
+        public void editThis()
+        {
             EditMode editor = new EditMode(q, answers, this);
             feed.hideInsert();
             edit.Controls.Add(editor);

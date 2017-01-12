@@ -9,7 +9,7 @@ namespace Multiple_Choice_Creator.Model
 {
     public class Question
     {
-        private string text, difficulty;
+        private string text, difficulty, topic;
         private int userId,id;
         private DateTime creationTime;
         private DateTime LastModifTime;
@@ -33,6 +33,10 @@ namespace Multiple_Choice_Creator.Model
             setCreationTime();
         }
 
+        private void setTopic()
+        {
+
+        }
         private void setCreationTime()
         {
             creationTime = (DateTime)adapter.getTime(id);
