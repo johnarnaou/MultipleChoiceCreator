@@ -266,7 +266,8 @@ namespace Multiple_Choice_Creator
                 }
                 else
                 {
-                    NoFeed("No content using this filter");
+                    MessageBox.Show("No found");
+                    reload(managingControls);
                     filterDiffMode = false;
                 }
                     
@@ -290,7 +291,7 @@ namespace Multiple_Choice_Creator
 
             filteredLayoutControls = new List<FeedPanel>();
 
-            if(max - min > 0)
+            if(max - min >= 0)
             {
                 for(int i=0; i<managingControls.Count; i++)
                 {
@@ -310,7 +311,8 @@ namespace Multiple_Choice_Creator
                 }
                 else
                 {
-                    NoFeed("No content using this filter");
+                    MessageBox.Show("No found");
+                    reload(managingControls);
                     filterAnswMode = false;
                 }
             } 
@@ -333,7 +335,7 @@ namespace Multiple_Choice_Creator
             }
 
             filteredLayoutControls = new List<FeedPanel>();
-
+            Debug.WriteLine(method);
             if (controlsCount > 0)
             {
                 FeedPanel temp;
