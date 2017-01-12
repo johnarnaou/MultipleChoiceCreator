@@ -36,6 +36,7 @@
             this.questLabel = new System.Windows.Forms.Label();
             this.category = new System.Windows.Forms.Label();
             this.Difficulty = new System.Windows.Forms.Label();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,9 +93,9 @@
             // 
             this.category.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.category.Location = new System.Drawing.Point(185, 56);
+            this.category.Location = new System.Drawing.Point(171, 56);
             this.category.Name = "category";
-            this.category.Size = new System.Drawing.Size(139, 22);
+            this.category.Size = new System.Drawing.Size(60, 22);
             this.category.TabIndex = 8;
             this.category.Text = "Category:";
             // 
@@ -102,16 +103,26 @@
             // 
             this.Difficulty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Difficulty.Location = new System.Drawing.Point(185, 78);
+            this.Difficulty.Location = new System.Drawing.Point(171, 90);
             this.Difficulty.Name = "Difficulty";
-            this.Difficulty.Size = new System.Drawing.Size(139, 22);
+            this.Difficulty.Size = new System.Drawing.Size(153, 22);
             this.Difficulty.TabIndex = 9;
             this.Difficulty.Text = "Difficulty:";
+            // 
+            // listView2
+            // 
+            this.listView2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.listView2.Location = new System.Drawing.Point(237, 56);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(87, 22);
+            this.listView2.TabIndex = 10;
+            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // QuestionPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listView2);
             this.Controls.Add(this.Difficulty);
             this.Controls.Add(this.category);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -135,5 +146,6 @@
         private System.Windows.Forms.Label questLabel;
         private System.Windows.Forms.Label category;
         private System.Windows.Forms.Label Difficulty;
+        private System.Windows.Forms.ListView listView2;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using Multiple_Choice_Creator.Model;
+using static Multiple_Choice_Creator.mltChoiceDataSet;
 
 namespace Multiple_Choice_Creator
 {
@@ -48,8 +49,15 @@ namespace Multiple_Choice_Creator
                 tmpItem.BackColor = Color.IndianRed;
                 listView1.Items.Add(tmpItem);
             }
-            try { 
-            category.Text = category.Text + " " + tqta.getTopicNameByQuestId(myQ.getQuestionID()).ToString();
+            try {
+
+                TopicQuestDataTable myDataTable = tqta.getTopicNameByQId(myQ.getQuestionID().ToString());    
+                for(int i = 0; i < myDataTable.Rows.Count; i++)
+                {
+                    ListViewItem newItem= new ListViewItem((string)myDataTable.Rows[i][3]);
+                    listView2.Items.Add(newItem);
+                }
+            //category.Text = category.Text + " " + tqta.getTopicNameByQuestId(myQ.getQuestionID()).ToString();
             }catch(Exception e)
             {
                 MessageBox.Show("The question added does not have category!");
