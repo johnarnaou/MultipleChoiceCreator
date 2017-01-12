@@ -33,13 +33,13 @@ namespace Multiple_Choice_Creator.Model
             setText((string)adapter.getQuestionWithId(id));
             setDifficulty();
             setCreationTime();
-            setTopic();
+            //setTopic();
         }
 
-        private void setTopic()
+        /*private void setTopic()
         {
             topic = (string)ta.getTopicNameByQuestId(id);
-        }
+        }*/
         private void setCreationTime()
         {
             creationTime = (DateTime)adapter.getTime(id);

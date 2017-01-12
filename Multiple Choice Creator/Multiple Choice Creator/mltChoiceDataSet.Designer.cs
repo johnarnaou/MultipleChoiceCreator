@@ -11510,10 +11510,10 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@paramquestid";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
             param.IsNullable = true;
-            param.SourceColumn = "questId";
+            param.SourceColumn = "";
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
@@ -11557,6 +11557,26 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
         public virtual mltChoiceDataSet.TopicQuestDataTable GetData()
         {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            mltChoiceDataSet.TopicQuestDataTable dataTable = new mltChoiceDataSet.TopicQuestDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual mltChoiceDataSet.TopicQuestDataTable getTopicNameByQId(object paramquestid)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((paramquestid == null))
+            {
+                throw new global::System.ArgumentNullException("paramquestid");
+            }
+            else
+            {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(paramquestid));
+            }
             mltChoiceDataSet.TopicQuestDataTable dataTable = new mltChoiceDataSet.TopicQuestDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -11756,49 +11776,6 @@ namespace Multiple_Choice_Creator.mltChoiceDataSetTableAdapters
             if ((paramquestId.HasValue == true))
             {
                 command.Parameters[0].Value = ((int)(paramquestId.Value));
-            }
-            else
-            {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open)
-                        != global::System.Data.ConnectionState.Open))
-            {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try
-            {
-                returnValue = command.ExecuteScalar();
-            }
-            finally
-            {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
-                {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null)
-                        || (returnValue.GetType() == typeof(global::System.DBNull))))
-            {
-                return null;
-            }
-            else
-            {
-                return ((object)(returnValue));
-            }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object getTopicNameByQuestId(global::System.Nullable<int> paramquestid)
-        {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
-            if ((paramquestid.HasValue == true))
-            {
-                command.Parameters[0].Value = ((int)(paramquestid.Value));
             }
             else
             {
