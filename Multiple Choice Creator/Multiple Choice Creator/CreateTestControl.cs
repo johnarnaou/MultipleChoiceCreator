@@ -34,7 +34,7 @@ namespace Multiple_Choice_Creator
         public void CountQuestion(int num)
         {
             numOfQuestions+=num;
-            label3.Text = numOfQuestions.ToString();
+            label3.Text = "Questions:" +  numOfQuestions.ToString();
         }
 
         public List<QuestionPreview> getMyPList()
