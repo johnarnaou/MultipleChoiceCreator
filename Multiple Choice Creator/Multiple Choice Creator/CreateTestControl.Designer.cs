@@ -59,23 +59,23 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 36);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 33);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(337, 450);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(337, 453);
             this.flowLayoutPanel1.TabIndex = 9;
             this.flowLayoutPanel1.WrapContents = false;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(321, 20);
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(0, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.Size = new System.Drawing.Size(337, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "0";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label1
             // 
@@ -97,7 +97,6 @@
             this.Name = "CreateTestControl";
             this.Size = new System.Drawing.Size(337, 837);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
