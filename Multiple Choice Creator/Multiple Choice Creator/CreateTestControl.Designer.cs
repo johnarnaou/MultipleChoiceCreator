@@ -83,10 +83,10 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 492);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(330, 345);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(337, 345);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // CreateTestControl

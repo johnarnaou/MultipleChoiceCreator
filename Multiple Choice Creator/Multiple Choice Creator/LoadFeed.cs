@@ -339,7 +339,7 @@ namespace Multiple_Choice_Creator
                     {
                         for (int j = 0; j < managingControls.Count - 1; j++)
                         {
-                            if (managingControls[j].getTime() > managingControls[j + 1].getTime())
+                            if (managingControls[j].getTime().CompareTo(managingControls[j + 1].getTime()) < 0)
                             {
                                 temp = managingControls[j + 1];
                                 managingControls[j + 1] = managingControls[j];
@@ -354,7 +354,7 @@ namespace Multiple_Choice_Creator
                     {
                         for (int j = 0; j < managingControls.Count - 1; j++)
                         {
-                            if (managingControls[j].getTime() < managingControls[j + 1].getTime())
+                            if (managingControls[j].getTime().CompareTo(managingControls[j + 1].getTime()) > 0)
                             {
                                 temp = managingControls[j + 1];
                                 managingControls[j + 1] = managingControls[j];

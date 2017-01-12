@@ -74,5 +74,10 @@ namespace Multiple_Choice_Creator
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
