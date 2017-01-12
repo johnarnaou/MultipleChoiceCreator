@@ -25,7 +25,7 @@ namespace Multiple_Choice_Creator
 
             private void AnswDataTable_AnswColumnChanging(object sender, DataColumnChangeEventArgs e)
             {//an ginetai update dhladh se kapoio keli tou pinaka Answ
-                
+
                 if (e.Column.ColumnName == "answer")
                 {
                     if (Convert.ToString(e.ProposedValue).Length < 5)
@@ -35,7 +35,7 @@ namespace Multiple_Choice_Creator
                 }
                 else
                 {
-                    e.Row.SetColumnError(e.Column,string.Empty);
+                    e.Row.SetColumnError(e.Column, string.Empty);
                 }
 
             }

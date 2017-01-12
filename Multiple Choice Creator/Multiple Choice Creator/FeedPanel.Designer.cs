@@ -38,11 +38,12 @@
             this.addButton = new System.Windows.Forms.ToolStripButton();
             this.removeButton = new System.Windows.Forms.ToolStripButton();
             this.editButton = new System.Windows.Forms.ToolStripButton();
+            this.saveButton = new System.Windows.Forms.ToolStripButton();
             this.diffLabel = new System.Windows.Forms.ToolStripLabel();
             this.showTimer = new System.Windows.Forms.Timer(this.components);
             this.deleteTimer = new System.Windows.Forms.Timer(this.components);
             this.hideTimer = new System.Windows.Forms.Timer(this.components);
-            this.saveButton = new System.Windows.Forms.ToolStripButton();
+            this.topicLabel = new System.Windows.Forms.ToolStripLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -87,7 +88,8 @@
             this.removeButton,
             this.editButton,
             this.saveButton,
-            this.diffLabel});
+            this.diffLabel,
+            this.topicLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(530, 25);
@@ -147,6 +149,18 @@
             this.editButton.Text = "Edit";
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
+            // saveButton
+            // 
+            this.saveButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(23, 22);
+            this.saveButton.Text = "Save";
+            this.saveButton.Visible = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // diffLabel
             // 
             this.diffLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -169,17 +183,12 @@
             this.hideTimer.Interval = 50;
             this.hideTimer.Tick += new System.EventHandler(this.hideTimer_Tick);
             // 
-            // saveButton
+            // topicLabel
             // 
-            this.saveButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(23, 22);
-            this.saveButton.Text = "Save";
-            this.saveButton.Visible = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.topicLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.topicLabel.Name = "topicLabel";
+            this.topicLabel.Size = new System.Drawing.Size(39, 22);
+            this.topicLabel.Text = "Topic:";
             // 
             // FeedPanel
             // 
@@ -215,5 +224,6 @@
         private System.Windows.Forms.ToolStripButton removeButton;
         private System.Windows.Forms.ToolStripButton editButton;
         private System.Windows.Forms.ToolStripButton saveButton;
+        private System.Windows.Forms.ToolStripLabel topicLabel;
     }
 }
