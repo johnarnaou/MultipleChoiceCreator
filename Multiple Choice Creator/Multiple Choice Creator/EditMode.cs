@@ -17,7 +17,8 @@ namespace Multiple_Choice_Creator
         Question q;
         AnswDataTable answers;
         FeedPanel panel;
-        string diff, topic;
+        string diff;
+        Manage mang;
         public EditMode(Question q, AnswDataTable answers, FeedPanel panel)
         {
             InitializeComponent();
@@ -26,7 +27,6 @@ namespace Multiple_Choice_Creator
             this.panel = panel;
             this.Dock = DockStyle.Fill;
             diff = q.getDifficulty();
-            topic = q.getTopic();
             loadInfo();
         }
         //Long Live Da Duke
@@ -62,6 +62,10 @@ namespace Multiple_Choice_Creator
         private void saveButton_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            if (MessageBox.Show("Are you sure you want to save the following changes","Save",MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+            {
+                return;
+            }
             updateQuestionAndAnswers();
             panel.updateContent(questRichTextBox.Text, (AnswDataTable)answDataGridView.DataSource, diff);
             panel.showInsert();

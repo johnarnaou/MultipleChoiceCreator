@@ -56,5 +56,89 @@ namespace Multiple_Choice_Creator.Properties {
                 this["passUser"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool userInfo {
+            get {
+                return ((bool)(this["userInfo"]));
+            }
+            set {
+                this["userInfo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool mail {
+            get {
+                return ((bool)(this["mail"]));
+            }
+            set {
+                this["mail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool date {
+            get {
+                return ((bool)(this["date"]));
+            }
+            set {
+                this["date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool pdfWithAnsw {
+            get {
+                return ((bool)(this["pdfWithAnsw"]));
+            }
+            set {
+                this["pdfWithAnsw"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool sendBackup {
+            get {
+                return ((bool)(this["sendBackup"]));
+            }
+            set {
+                this["sendBackup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int qFontsize {
+            get {
+                return ((int)(this["qFontsize"]));
+            }
+            set {
+                this["qFontsize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("13")]
+        public int aFontsize {
+            get {
+                return ((int)(this["aFontsize"]));
+            }
+            set {
+                this["aFontsize"] = value;
+            }
+        }
     }
 }
