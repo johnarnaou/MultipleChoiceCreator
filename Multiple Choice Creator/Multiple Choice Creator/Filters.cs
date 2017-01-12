@@ -16,7 +16,7 @@ namespace Multiple_Choice_Creator
     public partial class Filters : UserControl
     {
         LoadFeed myfeed;
-        string[] orderByFilter = { "Date added asc", "Date added desc"};
+        string[] orderByFilter = { "Ascending", "Descending" };
         public Filters(object feed)
         {
 
@@ -349,7 +349,8 @@ namespace Multiple_Choice_Creator
 
         private void treeView1_AfterCheck(object sender, TreeViewEventArgs e)
         {
-            List<string> checkedItems = returnThemes();
+            //List<string> checkedItems = returnThemes();
+            myfeed.filterTopic(returnThemes());
             /*TreeNode mysender = (TreeNode)sender;
             if (mysender.Checked)
             {
@@ -358,7 +359,6 @@ namespace Multiple_Choice_Creator
                     checkedItems.Add(mysender.Text);
                 }
             }*/
-            myfeed.filterTopic(returnThemes());
             //LookupChecks(treeView1.Nodes, list);
             //myfeed.filterLoad(checkedItems);
 
@@ -388,6 +388,7 @@ namespace Multiple_Choice_Creator
                 errorProvider1.SetError(numericUpDown2, null);
             }
             errorProvider1.SetError(numericUpDown1, null);
+
             filterBasedOnnumOfAnswers();
         }
 
