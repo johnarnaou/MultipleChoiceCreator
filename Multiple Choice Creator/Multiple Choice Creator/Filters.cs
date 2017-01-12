@@ -16,7 +16,7 @@ namespace Multiple_Choice_Creator
     public partial class Filters : UserControl
     {
         LoadFeed myfeed;
-        string[] orderByFilter = { "Date added asc", "Date added desc", "Date Modified asc", "Date Modified desc" };
+        string[] orderByFilter = { "Date added asc", "Date added desc"};
         public Filters(object feed)
         {
 
@@ -30,6 +30,8 @@ namespace Multiple_Choice_Creator
             fillTreeView();
             numericUpDown1.Minimum = 2;
             numericUpDown2.Minimum = 2;
+            checkedListBox2.SetItemChecked(0, true);
+            
 
 
         }
@@ -223,6 +225,13 @@ namespace Multiple_Choice_Creator
                 checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
                 checkedListBox1.SetSelected(i, false);
             }
+            foreach (int i in checkedListBox2.CheckedIndices)
+            {
+                checkedListBox2.SetItemCheckState(i, CheckState.Unchecked);
+                checkedListBox2.SetSelected(i, false);
+            }
+            nOFanswersF.Checked = false;
+            myfeed.clearFilter();
 
         }
 
@@ -330,6 +339,7 @@ namespace Multiple_Choice_Creator
                 errorProvider1.SetError(numericUpDown1, null);
             }
             errorProvider1.SetError(numericUpDown2, null);
+            filterBasedOnnumOfAnswers();
         }
         
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -378,6 +388,7 @@ namespace Multiple_Choice_Creator
                 errorProvider1.SetError(numericUpDown2, null);
             }
             errorProvider1.SetError(numericUpDown1, null);
+            filterBasedOnnumOfAnswers();
         }
 
         private void checkedListBox2_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -401,10 +412,15 @@ namespace Multiple_Choice_Creator
 
         private void nOFanswersF_CheckStateChanged(object sender, EventArgs e)
         {
+            filterBasedOnnumOfAnswers();
+        }
+
+        private void filterBasedOnnumOfAnswers()
+        {
             if (nOFanswersF.Checked)
             {
                 //swsto perimenw commit arnaout
-                //myfeed.filterAnswers((int)numericUpDown1.Value, (int)numericUpDown2.Value);
+                myfeed.filterAnswers((int)numericUpDown1.Value, (int)numericUpDown2.Value);
             }
         }
     }
