@@ -125,10 +125,10 @@ namespace Multiple_Choice_Creator
 
                 for (int x = 0; x < FinalAnswers.Count(); x++)
                 {
-                    apant += "   O " + FinalAnswers[x].getText() + "\n";
+                    apant += "   O - " + FinalAnswers[x].getText() + "\n";
                     if (corans.Contains(FinalAnswers[x]))
                     {
-                        apot += "\n" + metr + "" + (x + 1);
+                        apot += "\n" + metr + " => " + (x + 1);
                     }
                 }
 
@@ -148,11 +148,11 @@ namespace Multiple_Choice_Creator
             }
             DC.Add(table);
             string results = null;
-            string testT = "Test pdf succesfully send!";
+            string testT = "Test pdf succesfully created!";
             if (createAnswers)
             {
                 results = createAnswersOfTest(apot, path);
-                testT = "Test and Anwers pdf succesfully send!";
+                testT = "Test and Anwers pdf succesfully created!";
 
             }
 
