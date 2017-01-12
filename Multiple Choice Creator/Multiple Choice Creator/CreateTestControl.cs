@@ -61,7 +61,20 @@ namespace Multiple_Choice_Creator
           }
 
 
-        
+        private static Random rng = new Random();
+        public static void Shuffle(Answer[] array)
+        {
+            rng = new Random();
+            int n = array.Length;
+            while (n > 1)
+            {
+                int k = rng.Next(n);
+                n--;
+                Answer temp = array[n];
+                array[n] = array[k];
+                array[k] = temp;
+            }
+        }
 
         public void createPDF(string topText, bool info, bool email, bool date, int questionfs, int answerfs, bool createAnswers, bool sendMail, string path)
         {
@@ -108,7 +121,7 @@ namespace Multiple_Choice_Creator
                     i++;
                 }
 
-
+                Shuffle(FinalAnswers);
 
                 for (int x = 0; x < FinalAnswers.Count(); x++)
                 {
