@@ -23,6 +23,7 @@ namespace Multiple_Choice_Creator
             //myTreeview = treeView1;
 
             InitializeComponent();
+            
             myfeed = (LoadFeed)feed;
             fill_checkedListBox();
             this.Dock = DockStyle.Fill;
@@ -340,11 +341,6 @@ namespace Multiple_Choice_Creator
             }
             errorProvider1.SetError(numericUpDown2, null);
             filterBasedOnnumOfAnswers();
-        }
-        
-        private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void treeView1_AfterCheck(object sender, TreeViewEventArgs e)

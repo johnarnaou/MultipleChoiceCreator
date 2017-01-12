@@ -241,7 +241,7 @@ namespace Multiple_Choice_Creator
 
             filteredLayoutControls = new List<FeedPanel>();
             Debug.WriteLine(filter.Count);
-            Debug.WriteLine(managingControls[0].getQuestionDifficulty());
+            
             if (filter.Count > 0)
             {
                 for (int i = 0; i < filter.Count; i++)
