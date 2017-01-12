@@ -274,7 +274,7 @@ namespace Multiple_Choice_Creator
             }
         }
 
-        public void filterAnswers(List<int> number)
+        public void filterAnswers(int min, int max)
         {
             if(filterDiffMode || filterDateMode)
             {
@@ -286,11 +286,11 @@ namespace Multiple_Choice_Creator
 
             filteredLayoutControls = new List<FeedPanel>();
 
-            if(number.Count > 0)
+            if(max - min > 0)
             {
                 for(int i=0; i<managingControls.Count; i++)
                 {
-                    if(managingControls[i].getNumberOfAnswers() > number[0] && managingControls[i].getNumberOfAnswers() < number[1])
+                    if(managingControls[i].getNumberOfAnswers() > min && managingControls[i].getNumberOfAnswers() < max)
                     {
                         filteredLayoutControls.Add(managingControls[i]);
                     }
@@ -364,12 +364,12 @@ namespace Multiple_Choice_Creator
                     }
                 }
                 reload(managingControls);
-                filterDiffMode = true;
+                filterDateMode = true;
             }
             else
             {
                 reload(managingControls);
-                filterDiffMode = false;
+                filterDateMode = false;
             }
         }
 
@@ -390,6 +390,9 @@ namespace Multiple_Choice_Creator
         public void clearFilter()
         {
             reload(myLayoutControls);
+            filterAnswMode = false;
+            filterDateMode = false;
+            filterDiffMode = false;
         }
 
         public void setManage(Manage m)
