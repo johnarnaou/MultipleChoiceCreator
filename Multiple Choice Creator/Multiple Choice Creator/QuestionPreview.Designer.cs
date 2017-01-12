@@ -43,7 +43,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(286, 4);
+            this.button1.Location = new System.Drawing.Point(304, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 20);
             this.button1.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             this.edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
-            this.edit.Location = new System.Drawing.Point(264, 4);
+            this.edit.Location = new System.Drawing.Point(278, 3);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(20, 20);
             this.edit.TabIndex = 4;
@@ -63,8 +63,9 @@
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listView1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.listView1.Location = new System.Drawing.Point(17, 56);
+            this.listView1.Location = new System.Drawing.Point(3, 56);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(162, 89);
             this.listView1.TabIndex = 6;
@@ -73,7 +74,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.questLabel);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 9);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(162, 41);
             this.flowLayoutPanel1.TabIndex = 7;
@@ -89,21 +90,21 @@
             // 
             // category
             // 
-            this.category.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.category.AutoSize = true;
+            this.category.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.category.Location = new System.Drawing.Point(185, 56);
             this.category.Name = "category";
-            this.category.Size = new System.Drawing.Size(52, 13);
+            this.category.Size = new System.Drawing.Size(139, 22);
             this.category.TabIndex = 8;
             this.category.Text = "Category:";
             // 
             // Difficulty
             // 
-            this.Difficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Difficulty.AutoSize = true;
+            this.Difficulty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Difficulty.Location = new System.Drawing.Point(185, 78);
             this.Difficulty.Name = "Difficulty";
-            this.Difficulty.Size = new System.Drawing.Size(50, 13);
+            this.Difficulty.Size = new System.Drawing.Size(139, 22);
             this.Difficulty.TabIndex = 9;
             this.Difficulty.Text = "Difficulty:";
             // 
@@ -122,7 +123,6 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
