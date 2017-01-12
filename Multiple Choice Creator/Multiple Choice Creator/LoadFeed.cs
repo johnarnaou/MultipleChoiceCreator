@@ -231,15 +231,17 @@ namespace Multiple_Choice_Creator
         {
             if(filterAnswMode || filterDateMode)
             {
-                managingControls = filteredLayoutControls;
+                
+                managingControls = myLayoutControls;
             }
             else
             {
-                managingControls = myLayoutControls;
+                managingControls = filteredLayoutControls;
             }
 
             filteredLayoutControls = new List<FeedPanel>();
             Debug.WriteLine(filter.Count);
+            Debug.WriteLine(managingControls[0].getQuestionDifficulty());
             if (filter.Count > 0)
             {
                 for (int i = 0; i < filter.Count; i++)
@@ -279,11 +281,11 @@ namespace Multiple_Choice_Creator
         {
             if(filterDiffMode || filterDateMode)
             {
-                managingControls = filteredLayoutControls;
                 
+                managingControls = myLayoutControls;
             } else
             {
-                managingControls = myLayoutControls;
+                managingControls = filteredLayoutControls;
             }
 
             filteredLayoutControls = new List<FeedPanel>();
@@ -323,12 +325,11 @@ namespace Multiple_Choice_Creator
         {
             if (filterDiffMode || filterAnswMode)
             {
-                managingControls = filteredLayoutControls;
-                
+                managingControls = myLayoutControls;
             }
             else
             {
-                managingControls = myLayoutControls;
+                managingControls = filteredLayoutControls;
             }
 
             filteredLayoutControls = new List<FeedPanel>();
