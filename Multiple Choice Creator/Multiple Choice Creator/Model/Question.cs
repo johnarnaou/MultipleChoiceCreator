@@ -1,6 +1,7 @@
 ﻿using Multiple_Choice_Creator.mltChoiceDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace Multiple_Choice_Creator.Model
         private DateTime LastModifTime;
         private QuestTableAdapter adapter = new QuestTableAdapter();
         private QuestionAnswer qa;
+        private TopicQuestTableAdapter ta = new TopicQuestTableAdapter();
 
         public Question(string text,string difficulty,int userId)
         {
@@ -31,11 +33,12 @@ namespace Multiple_Choice_Creator.Model
             setText((string)adapter.getQuestionWithId(id));
             setDifficulty();
             setCreationTime();
+            setTopic();
         }
 
         private void setTopic()
         {
-
+            topic = (string)ta.getTopicNameByQuestId(id);
         }
         private void setCreationTime()
         {
