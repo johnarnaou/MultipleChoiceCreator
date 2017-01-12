@@ -18,6 +18,7 @@ namespace Multiple_Choice_Creator
         AnswDataTable answers;
         FeedPanel panel;
         string diff;
+        Manage mang;
         public EditMode(Question q, AnswDataTable answers, FeedPanel panel)
         {
             InitializeComponent();
@@ -61,6 +62,10 @@ namespace Multiple_Choice_Creator
         private void saveButton_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            if (MessageBox.Show("Are you sure you want to save the following changes","Save",MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+            {
+                return;
+            }
             updateQuestionAndAnswers();
             panel.updateContent(questRichTextBox.Text, (AnswDataTable)answDataGridView.DataSource, diff);
             panel.showInsert();

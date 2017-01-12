@@ -117,6 +117,10 @@ namespace Multiple_Choice_Creator
 
         private void DeleteButtton_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("You are about to delete the follwoing question:"+q.getText(),"Delete Action" ,MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+            {
+                return;
+            }
             this.deleteTimer.Enabled = true;
         }
 

@@ -72,5 +72,10 @@ namespace Multiple_Choice_Creator.Model
             return this.id;
         }
 
+        public string toString()
+        {
+            return "First Name :" + fName + "\nLast Name:" + lName + "\nEmail:" + email;
+        }
+
     }
 }

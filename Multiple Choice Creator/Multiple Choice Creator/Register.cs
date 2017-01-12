@@ -66,11 +66,15 @@ namespace Multiple_Choice_Creator
             if (!checkForPassMathing()) { return; }
             
             Cursor.Current = Cursors.WaitCursor;
-
             if (IsValidEmail(textBox3.Text)) {
                 User user = new User(textBox3.Text, textBox4.Text, textBox1.Text, textBox2.Text);
                 DaoUsers dUser = DaoUsers.getInstance();
                 DaoMysql dmsql = new DaoMysql();
+                if (MessageBox.Show("Are you sure you want to be registered as:\n"+user.toString(), "Register", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                {
+                    Cursor.Current = Cursors.Default;
+                    return;
+                }
                 if (dUser.register(user))
                 {
                     result=dUser.sendMail(user, 0);
