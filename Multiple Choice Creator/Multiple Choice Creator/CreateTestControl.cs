@@ -52,6 +52,26 @@ namespace Multiple_Choice_Creator
         List<Answer> corans;
         List<Answer> lwrong;
 
+        private void paintMyQuestions()
+        {
+            bool change = true;
+            foreach (Control qpe in flowLayoutPanel1.Controls) { 
+                if (change)
+                {
+                    QuestionPreview tmpItem=(QuestionPreview)qpe;
+                    tmpItem.paintMyElements(Color.PapayaWhip);
+                    qpe.BackColor = Color.PapayaWhip;
+                    change = false;
+                }else
+                {
+                    qpe.BackColor = Color.Lavender;
+                    QuestionPreview tmpItem = (QuestionPreview)qpe;
+                    tmpItem.paintMyElements(Color.Lavender);
+                    change = true;
+                }
+            }
+        }
+
         bool leftorrigt = true;
         int metr;
         string apot = "";
@@ -231,6 +251,16 @@ namespace Multiple_Choice_Creator
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void flowLayoutPanel1_ControlAdded(object sender, ControlEventArgs e)
+        {
+            paintMyQuestions();
+        }
+
+        private void flowLayoutPanel1_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            paintMyQuestions();
         }
     }
 }

@@ -72,6 +72,14 @@ namespace Multiple_Choice_Creator
 
         }
 
+
+
+        public void paintMyElements(System.Drawing.Color col)
+        {
+            listView1.BackColor = col;
+            listView2.BackColor = col;
+        }
+
         public List<Answer> getCorrAnswers()
         {
             return myLCorr;
