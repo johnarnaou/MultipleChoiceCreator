@@ -33,7 +33,7 @@ namespace Multiple_Choice_Creator
         {
             if (string.IsNullOrWhiteSpace(richTextBox1.Text) || string.IsNullOrWhiteSpace(dataGridView1.Rows[0].Cells[0].Value as string))
             {
-                MessageBox.Show("There must be question and at least one answer in order to save your changes");
+                MessageBox.Show("There must be question and at least one answer in order to save your changes","Error",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 return;
             }
             Cursor.Current = Cursors.WaitCursor;
