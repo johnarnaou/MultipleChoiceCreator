@@ -18,7 +18,7 @@ namespace Multiple_Choice_Creator
         User user;
         LoadFeed currFeed;
         ///local variables not used in constructor///////
-        string dif = "E";
+        string dif = "Easy";
         public Insert(User user,Object feed,Object manage)
         {
             InitializeComponent();
@@ -31,6 +31,11 @@ namespace Multiple_Choice_Creator
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(richTextBox1.Text) || string.IsNullOrWhiteSpace(dataGridView1.Rows[0].Cells[0].Value as string))
+            {
+                MessageBox.Show("There must be question and at least one answer in order to save your changes");
+                return;
+            }
             Cursor.Current = Cursors.WaitCursor;
             int numberOfThemes=mang.getThemesCount();
             if (numberOfThemes==0)
@@ -57,8 +62,17 @@ namespace Multiple_Choice_Creator
             if (ins==true) {
                 currFeed.add(qaInserted);
             }
+            clear();
             Cursor.Current = Cursors.Default;
         }
+
+        private void clear()
+        {
+            richTextBox1.Text = "";
+            dataGridView1.Rows.Clear();
+            trackBar1.Value = 0;
+        }
+
         public string getAnswersForInsertion()
         {
             string allAnswers = "\n";
@@ -97,8 +111,8 @@ namespace Multiple_Choice_Creator
                 {
                     TableAdapterManager manageDataset = new TableAdapterManager();
                     manageDataset.UpdateAll(mltChoiceDataSet);
-                    MessageBox.Show("Your changes were saved", "Saved",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Your changes were saved", "Saved",
+                       // MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
@@ -196,10 +210,9 @@ namespace Multiple_Choice_Creator
         private void dataGridView1_Validating(object sender, CancelEventArgs e)
         {
             errorProvider.Clear();
-            if (string.IsNullOrWhiteSpace(dataGridView1.Rows[0].Cells[0].Value as string)
-                && string.IsNullOrWhiteSpace(dataGridView1.Rows[1].Cells[0].Value as string))
+            if (string.IsNullOrWhiteSpace(dataGridView1.Rows[0].Cells[0].Value as string))
             {
-                MessageBox.Show("There are no answers.You must type at least two answers","Error"
+                MessageBox.Show("There are no answers.You must type at least one answer","Error"
                     ,MessageBoxButtons.OK,MessageBoxIcon.Error);
                 errorProvider.SetError(this.dataGridView1,"Please type at least one answer");
                 e.Cancel = true;//den ton afhnoume na fugei apo to text box mexri na grapsei mia toulaxiston apanthsh
