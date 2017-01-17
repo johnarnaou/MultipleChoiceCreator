@@ -75,9 +75,10 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.questLabel);
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(162, 41);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(269, 41);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // questLabel
@@ -85,7 +86,7 @@
             this.questLabel.AutoSize = true;
             this.questLabel.Location = new System.Drawing.Point(3, 0);
             this.questLabel.Name = "questLabel";
-            this.questLabel.Size = new System.Drawing.Size(35, 13);
+            this.questLabel.Size = new System.Drawing.Size(45, 16);
             this.questLabel.TabIndex = 6;
             this.questLabel.Text = "label1";
             // 
@@ -93,7 +94,7 @@
             // 
             this.category.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.category.Location = new System.Drawing.Point(171, 56);
+            this.category.Location = new System.Drawing.Point(171, 72);
             this.category.Name = "category";
             this.category.Size = new System.Drawing.Size(60, 22);
             this.category.TabIndex = 8;
@@ -103,7 +104,7 @@
             // 
             this.Difficulty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Difficulty.Location = new System.Drawing.Point(171, 90);
+            this.Difficulty.Location = new System.Drawing.Point(169, 106);
             this.Difficulty.Name = "Difficulty";
             this.Difficulty.Size = new System.Drawing.Size(153, 22);
             this.Difficulty.TabIndex = 9;
@@ -112,7 +113,7 @@
             // listView2
             // 
             this.listView2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.listView2.Location = new System.Drawing.Point(237, 56);
+            this.listView2.Location = new System.Drawing.Point(235, 72);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(87, 22);
             this.listView2.TabIndex = 10;
