@@ -57,8 +57,10 @@ namespace Multiple_Choice_Creator
                     ListViewItem newItem= new ListViewItem((string)myDataTable.Rows[i][3]);
                     listView2.Items.Add(newItem);
                 }
+                category.Text = "Category (" + myDataTable.Rows.Count + "): ";
             //category.Text = category.Text + " " + tqta.getTopicNameByQuestId(myQ.getQuestionID()).ToString();
-            }catch(Exception e)
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("The question added does not have category!");
             }
@@ -68,6 +70,14 @@ namespace Multiple_Choice_Creator
 
 
 
+        }
+
+
+
+        public void paintMyElements(System.Drawing.Color col)
+        {
+            listView1.BackColor = col;
+            listView2.BackColor = col;
         }
 
         public List<Answer> getCorrAnswers()

@@ -98,7 +98,7 @@
             this.checkedListBox2.Size = new System.Drawing.Size(252, 49);
             this.checkedListBox2.TabIndex = 12;
             this.checkedListBox2.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox2_ItemCheck);
-            this.checkedListBox2.SelectedIndexChanged += new System.EventHandler(this.checkedListBox2_SelectedIndexChanged);
+            this.checkedListBox2.SelectedIndexChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // label4
             // 
