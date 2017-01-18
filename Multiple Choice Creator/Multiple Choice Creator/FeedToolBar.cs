@@ -27,7 +27,6 @@ namespace Multiple_Choice_Creator
             this.Dock = DockStyle.Top;
             panel = p;
             HomeButton.Visible = false;
-            clearFilterButton.Enabled = false;
         }
 
         public void setFeed(Object feed)
@@ -84,40 +83,6 @@ namespace Multiple_Choice_Creator
         private void ExpandButton_Click(object sender, EventArgs e)
         {
             ShrinkButton_Click(sender, e);
-        }
-
-        private void easyButton_Click(object sender, EventArgs e)
-        {
-            clearFilterButton.Enabled = true;
-            filters.Add("E");
-            //feed.filterLoad(filters);
-            easyButton.Enabled = false;
-        }
-
-        private void medButton_Click(object sender, EventArgs e)
-        {
-            clearFilterButton.Enabled = true;
-            filters.Add("M");
-            //feed.filterLoad(filters);
-            medButton.Enabled = false;
-        }
-
-        private void hardButton_Click(object sender, EventArgs e)
-        {
-            clearFilterButton.Enabled = true;
-            filters.Add("H");
-            //feed.filterLoad(filters);
-            hardButton.Enabled = false;
-        }
-
-        private void clearFilterButton_Click(object sender, EventArgs e)
-        {
-            easyButton.Enabled = true;
-            medButton.Enabled = true;
-            hardButton.Enabled = true;
-            filters = new List<string>();
-            feed.clearFilter();
-            clearFilterButton.Enabled = false;
         }
 
         private void ShrinkButton_Click(object sender, EventArgs e)
